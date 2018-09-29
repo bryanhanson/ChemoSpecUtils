@@ -1,0 +1,9 @@
+
+NEWS file for package ChemoSpecUtils
+Functions Supporting Packages ChemoSpec and ChemoSpec2D.
+Bryan A. Hanson DePauw University, Greencastle Indiana USA
+URL: github.com/bryanhanson/ChemoSpecHelpers
+
+Changes in version 0.1.1 2018-09-27
+     + Package framework & first set of functions.
+
