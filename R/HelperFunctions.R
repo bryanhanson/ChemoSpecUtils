@@ -109,6 +109,7 @@
 #' 
 #' @keywords utilities
 #' @noRd
+#' @export
 #'
 .check4Gaps <- function(x, tol = 0.01) {
 	

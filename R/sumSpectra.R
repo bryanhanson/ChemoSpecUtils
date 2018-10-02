@@ -43,6 +43,7 @@
 #' 
  
 sumSpectra <- function(spectra, ...) {
+	# By design, no return value here
 	if (class(spectra) == "Spectra") .chkSpectra1D(spectra, ...)
 	if (class(spectra) == "Spectra2D") .chkSpectra2D(spectra, ...)
 }

@@ -12,7 +12,7 @@
 	spectra$data <- spectra$data[,-c(rfi), drop = FALSE]
 	spectra$freq <- spectra$freq[-c(rfi)]
 	chkSpectra(spectra)
-		
+
 	return(spectra)
 	}
 

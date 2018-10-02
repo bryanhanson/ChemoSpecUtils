@@ -124,7 +124,7 @@ removeSample <- function(spectra, rem.sam) {
 	if (is.character(rem.sam)) {
 		drop <- NA_integer_
 		for (n in 1:length(rem.sam)) {
-			more <- grep(rem.sam[n], spectra$groups)
+			more <- grep(rem.sam[n], spectra$names)
 			drop <- c(drop, more)
 			}
 		rem.sam <- drop[-1]

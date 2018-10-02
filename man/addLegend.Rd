@@ -24,6 +24,16 @@ None.  Side effect is to modify an existing plot.
 Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
 \code{ChemoSpec2D} does not use symbols.
 }
+\examples{
+if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+  library("ChemoSpec")
+  data(SrE.IR)
+  plotSpectra(SrE.IR, main = "SrE.IR Data",
+   which = c(1, 5, 16), offset = 0.1, yrange = c(0, 0.5))
+  addLegend(SrE.IR, use.sym = FALSE, leg.loc = list(x = 3500, y = 0.5), bty = "n") 
+}
+
+}
 \author{
 Bryan A. Hanson, DePauw University.
 }
