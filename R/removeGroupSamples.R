@@ -40,8 +40,8 @@
 #'   data(SrE.IR)
 #'
 #'   # Remove a group
-#'   ChemoSpecUtils::sumGroups(SrE.IR)
-#'   SrE.IRa <- ChemoSpecUtils::removeGroup(SrE.IR, rem.group = "pSrE")
+#'   sumGroups(SrE.IR)
+#'   SrE.IRa <- removeGroup(SrE.IR, rem.group = "pSrE")
 #'   sumGroups(SrE.IRa)
 #'   
 #'   # Remove the 9th spectrum/sample:
@@ -57,8 +57,8 @@
 #' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
-#'   ChemoSpecUtils::sumGroups(MUD1)
-#'   MUD1a <- ChemoSpecUtils::removeGroup(MUD1, rem.group = "GroupA")
+#'   sumGroups(MUD1)
+#'   MUD1a <- removeGroup(MUD1, rem.group = "GroupA")
 #'   sumGroups(MUD1a)
 #' }
 #' 

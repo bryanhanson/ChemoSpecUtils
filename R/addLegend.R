@@ -21,6 +21,7 @@
 #' @importFrom graphics legend
 #'
 #' @export
+#' @noRd
 #'
 #' @examples
 #' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
@@ -28,11 +29,11 @@
 #'   data(SrE.IR)
 #'   plotSpectra(SrE.IR, main = "SrE.IR Data",
 #'	   which = c(1, 5, 16), offset = 0.1, yrange = c(0, 0.5))
-#'   addLegend(SrE.IR, use.sym = FALSE, leg.loc = list(x = 3500, y = 0.5), bty = "n") 
+#'   .addLegend(SrE.IR, use.sym = FALSE, leg.loc = list(x = 3500, y = 0.5), bty = "n") 
 #' }
 #'
 
-addLegend <- function(spectra, leg.loc, use.sym, ...) {
+.addLegend <- function(spectra, leg.loc, use.sym, ...) {
     
   if (class(spectra) == "Spectra") gr <- sumGroups(spectra)
   if (class(spectra) == "Spectra2D") {

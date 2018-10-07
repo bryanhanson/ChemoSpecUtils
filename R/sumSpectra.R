@@ -32,13 +32,13 @@
 #' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
-#'   ChemoSpecUtils::sumSpectra(SrE.IR)
+#'   sumSpectra(SrE.IR)
 #' }
 #' 
 #' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
-#'   ChemoSpecUtils::sumSpectra(MUD1)
+#'   sumSpectra(MUD1)
 #' }
 #' 
  

@@ -1,6 +1,6 @@
 
 #'
-#' @rdName removeFreq
+#' @noRd
 #' @importFrom plyr is.formula
 #' @export
 #'

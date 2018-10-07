@@ -4,6 +4,9 @@ Functions Supporting Packages ChemoSpec and ChemoSpec2D.
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpecHelpers
 
+Changes in version 0.1.38 2018-10-06
+     + General polishing and documentation improvements.
+
 Changes in version 0.1.12 2018-10-01
      + Seems to be fully functional with the 5.0 series of ChemoSpec.
 

@@ -1,5 +1,5 @@
 #'
-#' @rdName removeFreq
+#' @noRd
 #' @export
 #'
 .removeFreq1D <- function(spectra, rem.freq) {

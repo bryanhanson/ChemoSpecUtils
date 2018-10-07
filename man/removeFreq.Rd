@@ -85,21 +85,21 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
   plotSpectra2D(MUD1, which = 7, lvls = seq(-1, 1, by = 0.2),
     main = "MUD1 Sample 7: Complete Data Set")
 
-  MUD1a <- ChemoSpecUtils::removeFreq(MUD1, remF2 = 2 ~ 4)
-  ChemoSpecUtils::sumSpectra(MUD1a) # cannot plot, results would be misleading
+  MUD1a <- removeFreq(MUD1, remF2 = 2 ~ 4)
+  sumSpectra(MUD1a) # cannot plot, results would be misleading
 
-  MUD1b <- ChemoSpecUtils::removeFreq(MUD1, remF1 = low ~ 15)
-  ChemoSpecUtils::sumSpectra(MUD1b)
+  MUD1b <- removeFreq(MUD1, remF1 = low ~ 15)
+  sumSpectra(MUD1b)
   plotSpectra2D(MUD1b, which = 7, lvls = seq(-1, 1, by = 0.2),
     main = "MUD1 Sample 7\\nRemoved Frequencies: F1 low ~ 15")
 
-  MUD1c <- ChemoSpecUtils::removeFreq(MUD1, remF2 = low ~ 5)
-  ChemoSpecUtils::sumSpectra(MUD1c)
+  MUD1c <- removeFreq(MUD1, remF2 = low ~ 5)
+  sumSpectra(MUD1c)
   plotSpectra2D(MUD1c, , which = 7, lvls = seq(-1, 1, by = 0.2),
     main = "MUD1 Sample 7\\nRemoved Frequencies: F2 low ~ 5")
 
-  MUD1d <- ChemoSpecUtils::removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
-  ChemoSpecUtils::sumSpectra(MUD1d) # not plotted, results would be misleading
+  MUD1d <- removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
+  sumSpectra(MUD1d) # not plotted, results would be misleading
 }
 
 }
