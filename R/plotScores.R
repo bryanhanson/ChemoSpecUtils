@@ -87,9 +87,9 @@
 		gr <- sumGroups(spectra)
 
 		for (n in 1:length(gr$group)) {
-			if (gr$no.[n] == 1) warning("Group ", gr$group[n], " has only 1 member (no ellipse possible)")
-			if (gr$no.[n] == 2) warning("Group ", gr$group[n], " has only 2 members (no ellipse possible)")
-			if (gr$no.[n] == 3) warning("Group ", gr$group[n], " has only 3 members (ellipse not drawn)")
+			if (gr$no.[n] == 1) message("Group ", gr$group[n], "\n\thas only 1 member (no ellipse possible)")
+			if (gr$no.[n] == 2) message("Group ", gr$group[n], "\n\thas only 2 members (no ellipse possible)")
+			if (gr$no.[n] == 3) message("Group ", gr$group[n], "\n\thas only 3 members (ellipse not drawn)")
 			}
 		
 		idx <- which(gr$no. > 3) # Index for those groups that will get ellipses
