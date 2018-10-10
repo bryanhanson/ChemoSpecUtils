@@ -2,7 +2,7 @@
 #' @export
 #' @noRd
 #' 
-.sumSpectra <- function(spectra, ...){
+sumSpectra.Spectra <- function(spectra, ...){
 		
 	chkSpectra(spectra)
 	
@@ -46,7 +46,7 @@
 	cat("\tThe frequency resolution is\n\t", res, " ", spectra$unit[1], "/point.\n\n", sep = "")
 	
 	if (length(h) > 1) {
-		cat("\tThis data set is not continuous\nalong the frequency axis.\n")
+		cat("\tThis data set is not continuous\n\talong the frequency axis.\n")
 		cat("\tHere are the data chunks:\n\n")
 		print(h)
 		}

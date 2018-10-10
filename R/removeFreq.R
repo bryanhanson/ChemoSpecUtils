@@ -102,7 +102,5 @@
 #'
 
 removeFreq <- function(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL) {
-	if (class(spectra) == "Spectra") spectra <- .removeFreq1D(spectra, rem.freq)
-	if (class(spectra) == "Spectra2D") spectra <- .removeFreq2D(spectra, remF2, remF1)
-	return(spectra)
+	UseMethod("removeFreq")
 }

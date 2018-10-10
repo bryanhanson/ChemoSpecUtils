@@ -2,7 +2,7 @@
 #' @export
 #' @noRd
 #' 
-.chkSpectra1D <- function(spectra, confirm = FALSE) {
+chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 
 # Many kinds of errors may be missed due to coercion:
 # e.g. spectra$colors[22] <- 1.2 creates "1.2" as the entry

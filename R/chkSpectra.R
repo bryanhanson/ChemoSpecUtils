@@ -44,8 +44,6 @@
 #' 
  
 chkSpectra <- function(spectra, confirm = FALSE) {
-	# By design, no return values here!
-	if (class(spectra) == "Spectra") .chkSpectra1D(spectra, confirm)
-	if (class(spectra) == "Spectra2D") .chkSpectra2D(spectra, confirm)
+	UseMethod("chkSpectra")
 }
 

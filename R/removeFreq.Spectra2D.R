@@ -4,7 +4,7 @@
 #' @importFrom plyr is.formula
 #' @export
 #'
-.removeFreq2D <- function(spectra, remF2 = NULL, remF1 = NULL) {
+removeFreq.Spectra2D <- function(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL) {
 
 	if (missing(spectra)) stop("No spectral data provided")
 	if (is.null(remF2) & is.null(remF1)) stop("Nothing to remove")

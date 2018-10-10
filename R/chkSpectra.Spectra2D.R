@@ -2,7 +2,7 @@
 #' @export
 #' @noRd
 #' 
-.chkSpectra2D <- function(spectra, confirm = FALSE) {
+chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	
 	# Check classes/types of each element
 	

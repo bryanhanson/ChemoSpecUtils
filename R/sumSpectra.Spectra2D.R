@@ -3,7 +3,7 @@
 #' @importFrom stats median
 #' @noRd
 #' 
-.sumSpectra2D <- function(spectra, ...){
+sumSpectra.Spectra2D <- function(spectra, ...){
 	
 	chkSpectra(spectra)
 
