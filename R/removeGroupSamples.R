@@ -2,7 +2,7 @@
 #' Remove Groups or Samples from a Spectra or Spectra2D Object
 #' 
 #' Removes specified groups or samples from a \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' \code{Spectra2D} object.
 #' 
 #' Both functions will report if extra data elements are found.  These will
 #' probably need to be edited manually.  The indices reported to the console
@@ -16,14 +16,14 @@
 #' Unused levels in \code{$groups} are dropped.
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' \code{Spectra2D}.
 #'
 #' @param rem.group A character vector (possibly a regex) giving the groups to be removed.
 #'
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (possibly a regex) giving the sample names to be removed.
 #' 
-#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}
+#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}.
 #'
 #' @author Bryan A. Hanson, DePauw University.
 #'

@@ -5,7 +5,7 @@
 #' a \code{Spectra} or \code{Spectra2D} object.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.
+#' \code{Spectra2D} whose group membership information is desired.
 #'
 #' @return A data frame as follows. Note that if there are groups with no
 #' members these are dropped.

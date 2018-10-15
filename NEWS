@@ -4,8 +4,10 @@ Functions Supporting Packages ChemoSpec and ChemoSpec2D.
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpecHelpers
 
-Changes in version 0.1.59 2018-10-10
+Changes in version 0.1.62 2018-10-12
      + S3 generics created for chkSpectra, removeFreq, sumSpectra, sumGroups.
+     + Removed Additional_repositories field from DESCRIPTION (I was using it incorrectly).
+     + Removed Rd cross references to ChemoSpec2D for CRAN, temporarily.
 
 Changes in version 0.1.52 2018-10-08
      + Additional_repositories added to DESCRIPTION.

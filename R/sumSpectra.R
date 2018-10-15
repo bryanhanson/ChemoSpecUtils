@@ -2,7 +2,7 @@
 #' Summarize a Spectra or Spectra2D Object
 #' 
 #' Provides a summary of a \code{\link[ChemoSpec]{Spectra}}
-#' or \code{\link[ChemoSpec2D]{Spectra2D}} object,
+#' or \code{Spectra2D} object,
 #' essentially a more spectroscopist-friendly version of \code{str()}.
 #' 
 #' Prior to summarizing, \code{\link{chkSpectra}} is run with confirm = FALSE.
@@ -10,13 +10,13 @@
 #' not done.  If \code{sumSpectra} thinks there is a gap between every data
 #' point, add the argument \code{tol = xx} to alleviate this problem
 #' (which has to do with rounding when subtracting two adjacent frequency values).
-#' The \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}
+#' The \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}
 #' object is checked to see if it contains data elements
 #' beyond what is required.  If so, these extra elements are reported to the
 #' console.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.
+#' \code{Spectra2D} whose group membership information is desired.
 #'
 #' @param ...  Arguments to be passed downstream.  In particular, see Details about \code{tol}.
 #'

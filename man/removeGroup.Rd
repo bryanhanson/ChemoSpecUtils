@@ -11,7 +11,7 @@ removeSample(spectra, rem.sam)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\code{Spectra2D}.}
 
 \item{rem.group}{A character vector (possibly a regex) giving the groups to be removed.}
 
@@ -19,11 +19,11 @@ removeSample(spectra, rem.sam)
 removed, or a character vector (possibly a regex) giving the sample names to be removed.}
 }
 \value{
-An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}
+An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}.
 }
 \description{
 Removes specified groups or samples from a \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}} object.
+\code{Spectra2D} object.
 }
 \details{
 Both functions will report if extra data elements are found.  These will

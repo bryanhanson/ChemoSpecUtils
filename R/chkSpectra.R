@@ -2,7 +2,7 @@
 #' Verify the Integrity of a Spectra or Spectra2D Object
 #' 
 #' Utility function to verify that the structure of a \code{\link[ChemoSpec]{Spectra}}
-#' or \code{\link[ChemoSpec2D]{Spectra2D}} object is internally consistent.
+#' or \code{Spectra2D} object is internally consistent.
 #' This function should be used after manual editing of these objects.
 #' However, in most cases rather than
 #' directly editing these objects, one should modify them via:
@@ -13,7 +13,7 @@
 #' }
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' \code{Spectra2D}.
 #' 
 #' @param confirm Logical indicating whether or not to write the results to the
 #' console, as would be desirable for interactive use.

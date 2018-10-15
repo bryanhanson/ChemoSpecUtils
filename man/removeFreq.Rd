@@ -8,7 +8,7 @@ removeFreq(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{\link[ChemoSpec2D]{Spectra2D}} from which to remove frequencies.}
+\code{Spectra2D} from which to remove frequencies.}
 
 \item{rem.freq}{For a \code{Spectra} object, a vector of logicals.
 \code{rem.freq} can be any valid \code{R} statement that leads to a vector of
@@ -29,11 +29,11 @@ F2 are tolerated without notice and are handled \code{min} or \code{max}. See th
 }
 \value{
 An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.
+\code{Spectra2D}.
 }
 \description{
 This function removes specified frequencies from a \code{\link[ChemoSpec]{Spectra}}
-or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+or \code{Spectra2D} object.
 For instance, one might want to remove regions lacking any useful
 information (to reduce the data size), remove regions with large
 interfering peaks (e.g. the water peak in 1H NMR) or simply focus
@@ -104,7 +104,7 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 
 }
 \seealso{
-\code{\link[ChemoSpec2D]{removePeaks2D}} for another way to remove data.
+\code{removePeaks2D} for another way to remove data.
 }
 \author{
 Bryan A. Hanson, DePauw University.

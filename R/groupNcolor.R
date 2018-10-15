@@ -11,7 +11,7 @@
 #' generally called by the user.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' \code{Spectra2D}.
 #' 
 #' @param gr.crit As per \code{\link{files2SpectraObject}}.
 #' 
@@ -26,7 +26,7 @@
 #' @author Bryan A. Hanson, DePauw University.
 #' 
 #' @seealso \code{\link[ChemoSpec]{files2SpectraObject}} or
-#' \code{\link[ChemoSpec2D]{files2Spectra2DObject}}for details;
+#' \code{files2Spectra2DObject}for details;
 #' \code{\link[ChemoSpecUtils]{sumGroups}} to see the outcome.
 #' 
 #' @keywords utilities color

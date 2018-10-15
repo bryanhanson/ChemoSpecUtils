@@ -3,13 +3,13 @@
 #' Add Data Points and Optionally Ellipses to a Score Plot
 #' 
 #' Plots the requested PCA, MIA or PARAFAC scores using the color scheme derived from a
-#' \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D} object.
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
 #' Any legend requested is also handled here.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}}
-#' or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' or \code{Spectra2D} object.
 #'
 #' @param pca An object of class \code{\link{prcomp}}, \code{parafac}
 #' or \code{pcasup1}.
