@@ -1,12 +1,20 @@
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-
- <!-- [![Downloads](https://cranlogs.r-pkg.org/badges/ChemoSpec)](https://cran.r-project.org/package=ChemoSpecUtils) -->
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Downloads](https://cranlogs.r-pkg.org/badges/ChemoSpecUtils)](https://cran.r-project.org/package=ChemoSpecUtils)
 
 ## What is ChemoSpecUtils?
 
 `ChemoSpecUtils` is  collection of functions that supports both `ChemoSpec` and `ChemoSpec2D`.  Users access the functions in `ChemoSpecUtils` automagically via the other packages.
 
 ## How to install ChemoSpecUtils
+
+If you install `ChemoSpec` then `ChemoSpecUtils` should automatically be installed.  If not, or if you want to look at the code, here are the instructions.
+
+### From CRAN using R:
+
+````r
+chooseCRANmirror() # choose a CRAN mirror
+install.packages("ChemoSpecUtils")
+library("ChemoSpecUtils")
+````
 
 ### To install from Github using R:
 
