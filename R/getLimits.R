@@ -1,5 +1,5 @@
 	
-### getLimits (ChemoSpec2D only)
+### getLimits (ChemoSpec2D only, but sumSpectra.Spectra2D requires this)
 
 # Get limits from a user specified formula (used in removeFreq2D and removePeaks2D)
 # The user may not know or think about whether F2 or F1 is ascending or descending

@@ -15,17 +15,17 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	if (!("tolF1" %in% args)) {
 		diffF1 <- diff(spectra$F1) 
 		tolF1 <- abs(median(diffF1)) * 1.2 # ensures value is a bit larger than nominal resolution
-		gF1 <- .check4Gaps(spectra$F1, tol = tolF1)	
+		gF1 <- check4Gaps(spectra$F1, tol = tolF1, silent = TRUE)	
 		}
 	
 	if (!("tolF2" %in% args)) {
 		diffF2 <- diff(spectra$F2) 
 		tolF2 <- abs(median(diffF2)) * 1.2 # ensures value is a bit larger than nominal resolution
-		gF2 <- .check4Gaps(spectra$F2, tol = tolF2)	
+		gF2 <- check4Gaps(spectra$F2, tol = tolF2, silent = TRUE)	
 		}
 
-	if ("tolF1" %in% args) gF1 <- .check4Gaps(spectra$F1, tol = tolF1)	
-	if ("tolF2" %in% args) gF2 <- .check4Gaps(spectra$F2, tol = tolF2)	
+	if ("tolF1" %in% args) gF1 <- check4Gaps(spectra$F1, tol = tolF1, silent = TRUE)	
+	if ("tolF2" %in% args) gF2 <- check4Gaps(spectra$F2, tol = tolF2, silent = TRUE)	
 
 	# Check for NAs in the matrices
 	
@@ -68,6 +68,6 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	cat("\n")
 	jnk <- .extraData(spectra)
 	
-	cat("\n*** Note: this data is an S3 object of class 'Spectra2D'\n")
+	cat("\n*** Note: this data is an S3 object\nof class 'Spectra2D'\n")
 	}
 

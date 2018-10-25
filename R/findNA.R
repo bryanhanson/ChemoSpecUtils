@@ -1,5 +1,5 @@
 
-### findNA (ChemoSpec2D only)
+### findNA (ChemoSpec2D only, but sumSpectra.Spectra2D requires this)
 
 #'
 #'

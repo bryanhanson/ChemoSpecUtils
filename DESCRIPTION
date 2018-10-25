@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.1.62
-Date: 2018-10-12
+Version: 0.1.92
+Date: 2018-10-25
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -14,7 +14,8 @@ Depends:
     R (>= 3.1)
 Suggests:
     ChemoSpec (>= 5.0),
-    ChemoSpec2D
+    ChemoSpec2D,
+    testthat
 Imports:
     plyr,
     robustbase,

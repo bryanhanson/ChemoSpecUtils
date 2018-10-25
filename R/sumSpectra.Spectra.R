@@ -18,11 +18,11 @@ sumSpectra.Spectra <- function(spectra, ...){
 		# unique(fdiff) shows that even basic data resolution suffers from encoding differences
 		fdiff <- diff(spectra$freq) 
 		tol <- abs(median(fdiff)) * 1.2 # ensures value is a bit larger than nominal resolution
-		h <- .check4Gaps(spectra$freq, tol = tol)	
+		h <- check4Gaps(spectra$freq, tol = tol)	
 		}
 	
 
-	if ("tol" %in% args) h <- .check4Gaps(spectra$freq, ...)	
+	if ("tol" %in% args) h <- check4Gaps(spectra$freq, ...)	
 
 	# Other summaries
 	
@@ -59,6 +59,6 @@ sumSpectra.Spectra <- function(spectra, ...){
 	cat("\n")
 	jnk <- .extraData(spectra)
 	
-	cat("\n*** Note: this data is an S3 object of class 'Spectra2D'\n")
+	cat("\n*** Note: this data is an S3 object\nof class 'Spectra'\n")
 	}
 

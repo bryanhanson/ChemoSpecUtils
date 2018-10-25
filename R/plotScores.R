@@ -58,7 +58,7 @@
 	
 	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
 	if (missing(spectra)) stop("No spectral data set provided")
-	if (missing(pca)) stop("No pca results provided")
+	if (missing(pca)) stop("No pca/mia/parafac results provided")
 	case <- NULL # set up flags for the different classes of score results, & check for legit score object
 	if ((class(pca) == "prcomp") || (class(pca) == "conPCA")) case <- "PCA"
 	if ((class(pca) == "parafac") || (class(pca) == "pcasup1")) case <- "MIA"
@@ -102,18 +102,15 @@
 		y.ell <- range(llply(ELL, function(x) {range(x[2])}))
 		x.ell.r <- range(llply(ELL, function(x) {range(x[4])}))
 		y.ell.r <- range(llply(ELL, function(x) {range(x[5])}))
-		x.all <- range(x.scores, x.ell, x.ell.r)*c(1.0, 1.05) # expand slightly for labels
-		y.all <- range(y.scores, y.ell, y.ell.r)
-		y.all[2] <- y.all[2]*1.15 # leave room for annotations at top of plot
-						
+		x.all <- range(x.scores, x.ell, x.ell.r)*c(1.0, 1.15) # expand slightly for labels on right of points
+		y.all <- range(y.scores, y.ell, y.ell.r)*c(1.0, 1.15) # leave room for annotations at top of plot					
 	}
 
 	if (ellipse == "none") {	
 		x.scores <- range(llply(GRPS, subset, select = 1))
 		y.scores <- range(llply(GRPS, subset, select = 2)) 
-		x.all <- range(x.scores)*c(1.0, 1.05) # expand slightly for labels
-		y.all <- range(y.scores)
-		y.all[2] <- y.all[2]*1.15 # leave room for annotations at top of plot
+		x.all <- range(x.scores)*c(1.0, 1.15) # expand slightly for labels
+		y.all <- range(y.scores)*c(1.0, 1.15) # leave room for annotations at top of plot
 	}
 
 	# Step 2.  Draw the scores.
@@ -142,4 +139,4 @@
 	
 	if (!tol == "none") .labelExtremes(DF[,1:2], spectra$names, tol)
 	
-} # End of addPointsAndEllipses
+} # End of plotScores
