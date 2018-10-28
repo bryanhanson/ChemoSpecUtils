@@ -18,17 +18,17 @@ between successive \code{x} values are the same.  Depending upon how the
 values.  Only used in \code{ChemoSpec}.  If provided, a plot will be made
 in the style of a \code{\link[ChemoSpec]{Spectra}} object showing the gap(s).}
 
-\item{silent}{Logical indicating a "no gap" condition (return value is
-\code{FALSE}) should not be reported to the console.  Important because
+\item{silent}{Logical indicating a "no gap" message
+should not be reported to the console.  Important because
 \code{check4Gaps} is called iteratively by other functions.}
 
 \item{\dots}{Other parameters to be passed to the plot routines if
-\code{plot = TRUE}, e.g. \code{xlim}.}
+\code{y} is provided, e.g. \code{xlim}.}
 }
 \value{
-A data frame giving the data chunks found, with one chunk per line.
+A data frame giving the data chunks found, with one chunk per row.
 Also a plot if {y} is provided.  In the event there are no gaps found,
-a data frame with zero rows is returned.  The data frame has entries as follows:
+a data frame with zero rows is returned.  The data frame has columns as follows:
 \item{beg.freq }{The first frequency value in a given data chunk.}
 \item{end.freq }{The last frequency value in a given data chunk.}
 \item{size }{The length (in frequency units) of the data chunk.}
@@ -54,6 +54,18 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   data(SrE.IR)
   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 1800 & SrE.IR$freq < 2500)
   check4Gaps(x = newIR$freq, y = newIR$data[1,])
+}
+
+if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+  library("ChemoSpec2D")
+  data(MUD1)
+
+  plotSpectra2D(MUD1, which = 7, lvls = seq(-1, 1, by = 0.2),
+    main = "MUD1 Sample 7: Complete Data Set")
+
+  MUD1a <- removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
+  # Cannot plot this data, results would be misleading.
+  sumSpectra(MUD1a) # sumSpectra calls check4Gaps for each dimension
 }
 
 }

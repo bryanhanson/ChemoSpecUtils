@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.1.92
-Date: 2018-10-25
+Version: 0.2.23
+Date: 2018-10-28
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -19,8 +19,9 @@ Suggests:
 Imports:
     plyr,
     robustbase,
-    RColorBrewer
+    RColorBrewer,
+    amap
 URL: https://github.com/bryanhanson/ChemoSpecUtils
-ByteCompile: TRUE
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
+ByteCompile: TRUE
 RoxygenNote: 6.1.0

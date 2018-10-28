@@ -6,7 +6,6 @@
 #' and robust confidence ellipses. An internal function, not generally called
 #' by the user.
 #' 
-#' 
 #' @param x As per \code{\link[mvoutlier]{cor.plot}}.
 #'
 #' @param quan As per \code{\link[mvoutlier]{cor.plot}}.
@@ -26,8 +25,6 @@
 #' @seealso See function \code{\link[mvoutlier]{cor.plot}} in package
 #' \pkg{mvoutlier} on which this function is based.
 #'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
-#'
 #' @keywords multivariate
 #'
 #' @export
@@ -35,12 +32,7 @@
 #' @importFrom stats cov cor qchisq
 #' @importFrom robustbase covMcd
 #'
-.plotScoresCor <- function (x, quan = 1/2, alpha = 0.025) {
-
-# Function to plot robust correlation ellipsoids for x, y data
-# Modifed slightly from cor.plot {mvoutlier}
-# Part of the ChemoSpec Package
-# Bryan Hanson, DePauw University, Aug 2009
+.computeEllipses <- function (x, quan = 1/2, alpha = 0.025) {
 
 	if (!requireNamespace("robustbase", quietly = TRUE)) {
 		stop("You need to install package robustbase to use this function")

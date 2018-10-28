@@ -1,0 +1,46 @@
+#'
+#' Plot Dendrogram for Spectra or Spectra2D Object
+#' 
+#' This function plots the results of an HCA analysis
+#' 
+#' @param spectra An object of S3 class \code{\link{Spectra}} or \code{Spectra2D} object.
+#'
+#' @param hclst A \code{\link{hclust}} object.
+#'
+#' @param sub.title A character string for the subtitle.
+#'
+#' @param use.sym Logical; if true, the color scheme will be black and
+#' lower-case letters will be used to indicate group membership.
+#' Applies to \code{Spectra} objects only.
+#'
+#' @param leg.loc Character; if \code{"none"} no legend will be drawn.
+#' Otherwise, any string acceptable to \code{\link{legend}}.
+#'
+#' @param \dots Additional parameters to be passed to the plotting routines.
+#'
+#' @return An object of class \code{\link{dendrogram}}. Side effect is a plot.
+#'
+#' @author Bryan A. Hanson, DePauw University.
+#'
+#' @export .plotHCA
+#' @importFrom stats as.dendrogram dendrapply
+#' @importFrom graphics plot
+#' @noRd
+#'
+.plotHCA <- function(spectra, hclst, sub.title, use.sym, leg.loc, ...) {
+
+# Function to plot HCA results, basically a wrapper to existing methods
+# Part of the ChemoSpec package
+# Bryan Hanson, DePauw University, Dec 2009
+
+	cluster <- as.dendrogram(hclst)
+	if (!use.sym) cluster <- dendrapply(cluster, .colLeaf, spectra)
+	cluster <- dendrapply(cluster, .shrinkLeaf, spectra)
+
+	plot(cluster, sub = sub.title, horiz = FALSE, ...)
+	
+	if (leg.loc == "none") return(cluster)
+	if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym, bty = "n")
+	return(cluster)
+	}
+

@@ -1,0 +1,95 @@
+#'
+#' @keywords multivariate robust hplot
+#' @noRd
+#' @export
+#' @importFrom plyr dlply llply m_ply
+#'
+.scorePlot <- function(spectra, pca,
+	pcs = c(1,2), ellipse = "none", tol = "none",
+	use.sym = FALSE, leg.loc = "topright", ...) {
+
+	# Step 0. Check the inputs
+	
+	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
+	if (missing(spectra)) stop("No spectral data set provided")
+	if (missing(pca)) stop("No pca/mia/parafac results provided")
+	case <- NULL # set up flags for the different classes of score results, & check for legit score object
+	if ((class(pca) == "prcomp") || (class(pca) == "conPCA")) case <- "PCA"
+	if ((class(pca) == "parafac") || (class(pca) == "mia")) case <- "MIA"
+	if (is.null(case)) stop("Your score object has the wrong class! Double check that the Spectra object is the 1st argument and the score object is the 2nd argument.")
+	if ((case == "MIA") && (use.sym)) stop("ChemoSpec2D does not support use.sym.")
+	chkSpectra(spectra)
+	
+	# Prep the data
+	
+	if (case == "PCA") DF <- data.frame(pca$x[,pcs], group = spectra$groups)
+	if (case == "MIA") DF <- data.frame(pca$C[,pcs], group = spectra$groups)
+	GRPS <- dlply(DF, "group", subset, select = c(1,2))
+	
+	# Step 1.  Compute overall plot limits, incl. ellipses if requested
+	
+	if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
+		# Compute ellipses and get overall plot limits.
+		# Keep in mind the ellipses may be quite flattened and hence large.
+		# At the same time, the ellipses might be quite round and
+		# the scores well outside them, if there is an outlier.
+		# Must check all cases!
+
+		# There must be at least 3 data points per level to make a classic ellipse.
+		# Possibly more to make a robust ellipse, as at least one point may be dropped.
+
+		gr <- sumGroups(spectra)
+
+		for (n in 1:length(gr$group)) {
+			if (gr$no.[n] == 1) message("Group ", gr$group[n], "\n\thas only 1 member (no ellipse possible)")
+			if (gr$no.[n] == 2) message("Group ", gr$group[n], "\n\thas only 2 members (no ellipse possible)")
+			if (gr$no.[n] == 3) message("Group ", gr$group[n], "\n\thas only 3 members (ellipse not drawn)")
+			}
+		
+		idx <- which(gr$no. > 3) # Index for those groups that will get ellipses
+		gr <- gr[idx,]
+		ELL <- llply(GRPS[idx], .computeEllipses) # these are the ellipses we'll need later
+	
+		x.scores <- range(llply(GRPS, subset, select = 1))
+		y.scores <- range(llply(GRPS, subset, select = 2)) 
+		x.ell <- range(llply(ELL, function(x) {range(x[1])}))
+		y.ell <- range(llply(ELL, function(x) {range(x[2])}))
+		x.ell.r <- range(llply(ELL, function(x) {range(x[4])}))
+		y.ell.r <- range(llply(ELL, function(x) {range(x[5])}))
+		x.all <- range(x.scores, x.ell, x.ell.r)*c(1.0, 1.15) # expand slightly for labels on right of points
+		y.all <- range(y.scores, y.ell, y.ell.r)*c(1.0, 1.15) # leave room for annotations at top of plot					
+	}
+
+	if (ellipse == "none") {	
+		x.scores <- range(llply(GRPS, subset, select = 1))
+		y.scores <- range(llply(GRPS, subset, select = 2)) 
+		x.all <- range(x.scores)*c(1.0, 1.15) # expand slightly for labels
+		y.all <- range(y.scores)*c(1.0, 1.15) # leave room for annotations at top of plot
+	}
+
+	# Step 2.  Draw the scores.
+	
+	.drawPoints(DF[,1:2], spectra, case = case, use.sym = use.sym, xlim = x.all, ylim = y.all, ...)
+
+	# Step 3.  Draw the ellipses if requested.
+	
+	if ((ellipse == "cls") | (ellipse == "rob") | (ellipse == "both")) .drawEllipses(ELL, gr, ellipse, use.sym, ...)
+	
+	# Step 4.  Decorations
+	
+	if (case == "PCA") {
+		.addMethod(pca)
+		if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym, bty = "n")
+		.addEllipseInfo(ellipse)
+	}
+	
+	if (case == "MIA") {
+		if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")		
+		.addEllipseInfo(ellipse)
+	}
+	
+	# Step 5.  Label extremes if requested
+	
+	if (tol != "none") .labelExtremes(DF[,1:2], spectra$names, tol)
+	
+} # End of plotScores

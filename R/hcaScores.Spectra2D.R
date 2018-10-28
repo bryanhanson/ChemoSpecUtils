@@ -1,0 +1,27 @@
+#'
+#' @export
+#' @noRd 
+#' @importFrom stats hclust
+#'
+hcaScores.Spectra2D <- function(spectra, pca, scores = c(1:5),
+	c.method = "complete", d.method = "euclidean",
+	use.sym = FALSE, leg.loc = "topright",  ...) {
+	
+	if (class(spectra) != "Spectra2D") stop("spectra argument was not a Spectra2D object")
+	chkSpectra(spectra)
+	pcaOK <- FALSE
+	if (class(pca) == "mia") pcaOK <- TRUE
+	if (class(pca) == "parafac") pcaOK <- TRUE
+	if (!pcaOK) stop("Argument pca must be a mia or parafac object")
+
+	sub.title <- paste("clustering method: ", c.method, "      distance method: ", d.method, sep = "")
+
+	distance <- rowDist(as.data.frame(pca$C[,scores], row.names = spectra$names), method = d.method)
+	hclst <- hclust(distance, method = c.method)
+
+	d <- .plotHCA(spectra = spectra, hclst = hclst, sub.title = sub.title,
+		use.sym = FALSE, leg.loc = leg.loc, ...)
+	L = list(hclst = hclst, dend = d)
+	return(L)
+	}
+

@@ -1,7 +1,7 @@
 
 ### Unit tests for ChemoSpecUtils
 
-# A tiny Spectras object for testing
+# A tiny Spectra object for testing
 tiny <- vector("list")
 tiny$F2 <- as.numeric(1:10)
 tiny$F1 <- as.numeric(1:5)
@@ -18,7 +18,7 @@ tiny$desc <- "Tiny data set"
 class(tiny) <- "Spectra2D"
 chkSpectra(tiny)
 
-context("chkSpectra + .findNA") #####
+context("chkSpectra + .findNA") ####################
 
 tiny_NAc <- tiny
 tiny_NAc$data[[1]][,4] <- NA # single spectrum with col of NAs
@@ -48,7 +48,7 @@ test_that(".findNA reports row NAs correctly", {
   expect_equal(.findNA(tiny_NAr)$rowNA, 3)
 })
 
-context("chkSpectra") #####
+context("chkSpectra") ####################
 
 tiny_NAmr <- tiny
 M <- tiny_NAmr$data[[1]]
@@ -76,7 +76,70 @@ test_that("chkSpectra detects matrices with NAs in different positions", {
   expect_error(chkSpectra(tiny_NAmm))
 })
 
+context("chkArgs") ####################
 
+# Get some data to test with
+pca <- prcomp(USArrests, scale = TRUE)
+
+# Simple test function ALWAYS call with ALL arguments
+tf <- function(spectra, pca, mode) {
+	args <- as.list(match.call()[-1])
+	.chkArgs(args, mode)	
+}
+
+if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+	library("ChemoSpec")
+	data(metMUD1)
+	
+	test_that("chkArgs detects missing spectra object mode 11", {
+	  expect_error(tf(12, 12, 11))
+	})
+
+	test_that("chkArgs detects wrong class of spectra argument mode 11", {
+	  expect_error(tf(pca, 12, 11))
+	})
+
+	test_that("chkArgs detects missing spectra object mode 12", {
+	  expect_error(tf(12, 12, 12))
+	})
+
+	test_that("chkArgs detects missing pca object mode 12", {
+	  expect_error(tf(metMUD1, 12, 12))
+	})
+
+	test_that("chkArgs detects args in wrong order mode 12", {
+	  expect_error(tf(pca, metMUD1, mode = 12))
+	})	
+	
+} # end of ChemoSpec chkArgs tests
+
+if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+	library("ChemoSpec2D")
+	data(MUD1)
+	
+	test_that("chkArgs detects missing spectra object mode 21", {
+	  expect_error(tf(12, 12, 21))
+	})
+
+	test_that("chkArgs detects wrong class of spectra argument mode 21", {
+	  expect_error(tf(pca, 12, 21))
+	})
+
+	test_that("chkArgs detects missing spectra object mode 22", {
+	  expect_error(tf(12, 12, 22))
+	})
+
+	test_that("chkArgs detects missing pca object mode 22", {
+	  expect_error(tf(MUD1, 12, 22))
+	})
+
+	test_that("chkArgs detects args in wrong order mode 22", {
+	  expect_error(tf(pca, MUD1, mode = 22))
+	})	
+	
+} # end of ChemoSpec2D chkArgs tests
+
+####################
 
 
 

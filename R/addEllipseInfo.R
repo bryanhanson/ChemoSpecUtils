@@ -1,5 +1,5 @@
 
-### addAnnotation (ChemoSpec only)
+### addEllipseInfo
 #'
 #' @export
 #' @noRd
@@ -7,7 +7,7 @@
 #' @importFrom plyr dlply llply m_ply
 #
 
-.addAnnotation <- function(ellipse) {
+.addEllipseInfo <- function(ellipse) {
 	if (ellipse == "cls") {
 		legend("topleft", y = NULL, "classic ellipses by group", lty = 3, bty = "n",
 			col = "black", cex = 0.75, inset = c(0, 0.03))
