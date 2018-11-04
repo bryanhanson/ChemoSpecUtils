@@ -12,6 +12,9 @@
 #'
 
 .getLimits <- function(spectra, dim, form) {
+	
+	.chkArgs(mode = 0L)
+	
 	lhs <- form[[2]]
 	rhs <- form[[3]]
 	if (as.character(lhs) == "low") lhs <- min(spectra[[dim]])

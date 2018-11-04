@@ -3,14 +3,14 @@
 #' @noRd
 #' 
 sumSpectra.Spectra <- function(spectra, ...){
-		
+	
+	args2 <- as.list(match.call())[-1]
+	.chkArgs(mode = 11L)
 	chkSpectra(spectra)
 	
 	# Try to determine a sensible value for tol if none provided via the ...
 	
-	args <- names(as.list(match.call()[-1]))
-
-	if (!("tol" %in% args)) {
+	if (!("tol" %in% args2)) {
 		# Improvements to the automatic calc of a suitable tol value suggested
 		# by Dana Nadler in e-mails, early March 2017.  Any errors are mine however!		
 		# fdiff includes normal data resolution & any larger gaps
@@ -22,7 +22,7 @@ sumSpectra.Spectra <- function(spectra, ...){
 		}
 	
 
-	if ("tol" %in% args) h <- check4Gaps(spectra$freq, ...)	
+	if ("tol" %in% args2) h <- check4Gaps(spectra$freq, ...)	
 
 	# Other summaries
 	
@@ -59,6 +59,6 @@ sumSpectra.Spectra <- function(spectra, ...){
 	cat("\n")
 	jnk <- .extraData(spectra)
 	
-	cat("\n*** Note: this data is an S3 object\nof class 'Spectra'\n")
+	cat("\n*** Note: this is an S3 object\nof class 'Spectra'\n")
 	}
 

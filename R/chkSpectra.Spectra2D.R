@@ -5,8 +5,7 @@
 chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	
 	# Check classes/types of each element
-	
-	if (missing(spectra)) stop("No object of class Spectra2D provided")
+		
 	trouble <- FALSE
 	extra <- FALSE
 	if (!class(spectra) == "Spectra2D") {

@@ -8,7 +8,6 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 # e.g. spectra$colors[22] <- 1.2 creates "1.2" as the entry
 # Only complete replacement of $colors with all integers throws an error.
 	
-	if (missing(spectra)) stop("No object of class Spectra provided")
 	trouble <- FALSE
 	extra <- FALSE
 	

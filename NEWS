@@ -4,6 +4,9 @@ Functions Supporting Packages ChemoSpec and ChemoSpec2D.
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
 URL: github.com/bryanhanson/ChemoSpecHelpers
 
+Changes in version 0.2.109 2018-11-04
+     + Consistent argument checking introduced via .chkArgs.
+
 Changes in version 0.2.23 2018-10-28
      + Improved sumSpectra output format.
      + removeGroup and removeSample go full S3 dispatch for consistency among the three packages.

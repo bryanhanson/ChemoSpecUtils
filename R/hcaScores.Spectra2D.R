@@ -7,7 +7,8 @@ hcaScores.Spectra2D <- function(spectra, pca, scores = c(1:5),
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright",  ...) {
 	
-	if (class(spectra) != "Spectra2D") stop("spectra argument was not a Spectra2D object")
+	.chkArgs(mode = 22L)
+
 	chkSpectra(spectra)
 	pcaOK <- FALSE
 	if (class(pca) == "mia") pcaOK <- TRUE

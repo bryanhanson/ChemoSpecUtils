@@ -13,6 +13,8 @@
 	# Get indices to drop if a regex is passed
 	# If integer is passed, no need to do anything
 	
+	.chkArgs(mode = 0L)
+	
 	if (is.character(kill)) {
 		drop <- NA_integer_
 		for (n in 1:length(kill)) {

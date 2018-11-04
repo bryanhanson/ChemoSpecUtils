@@ -4,8 +4,8 @@
 #'
 removeFreq.Spectra <- function(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL) {
 
-	if (missing(spectra)) stop("Missing Spectra object (1st argument)")
-	if (missing(rem.freq)) stop("Nothing to remove.  Did you intend to use rem.F1 or rem.F2?")
+	.chkArgs(mode = 11L)
+	
 	chkSpectra(spectra)
 	
 	rfi <- which(rem.freq)

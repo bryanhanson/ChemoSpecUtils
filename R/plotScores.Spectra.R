@@ -8,7 +8,8 @@ plotScores.Spectra <- function(spectra, pca,
 
 	# This function will handle score plots from classical or robust analyses
 	
-	if (class(spectra) != "Spectra") stop("spectra argument was not a Spectra object")
+	.chkArgs(mode = 12L)
+	
 	chkSpectra(spectra)
 	pcaOK <- FALSE
 	if ("prcomp" %in% class(pca)) pcaOK <- TRUE

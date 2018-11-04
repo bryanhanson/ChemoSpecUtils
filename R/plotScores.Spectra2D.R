@@ -8,7 +8,8 @@ plotScores.Spectra2D <- function(spectra, pca,
 	
 	# This function will handle score plots from MIA or PARAFAC analyses
 	
-	if (class(spectra) != "Spectra2D") stop("spectra argument was not a Spectra2D object")
+	.chkArgs(mode = 22L)
+
 	chkSpectra(spectra)
 	pcaOK <- FALSE
 	if (class(pca) == "mia") pcaOK <- TRUE

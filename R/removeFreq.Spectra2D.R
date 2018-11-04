@@ -6,8 +6,8 @@
 #'
 removeFreq.Spectra2D <- function(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL) {
 
-	if (missing(spectra)) stop("No spectral data provided")
-	if (is.null(remF2) & is.null(remF1)) stop("Nothing to remove")
+	.chkArgs(mode = 21L)
+
 	chkSpectra(spectra)
 	
 	# Subset data as requested

@@ -33,6 +33,8 @@
 # Part of the ChemoSpec package
 # Bryan Hanson, DePauw University, Dec 2009
 
+	.chkArgs(mode = 0L)
+	
 	cluster <- as.dendrogram(hclst)
 	if (!use.sym) cluster <- dendrapply(cluster, .colLeaf, spectra)
 	cluster <- dendrapply(cluster, .shrinkLeaf, spectra)

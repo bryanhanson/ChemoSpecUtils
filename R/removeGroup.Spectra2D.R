@@ -4,8 +4,8 @@
 #'
 removeGroup.Spectra2D <- function(spectra, rem.group) {
 
-	if (missing(spectra)) stop("No spectral data provided")
-	if (class(spectra) != "Spectra2D") stop("You need to provide a Spectra2D object")
+	.chkArgs(mode = 21L)
+
 	if (missing(rem.group)) stop("Nothing to remove")
 	chkSpectra(spectra)
 	

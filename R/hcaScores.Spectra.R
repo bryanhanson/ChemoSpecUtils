@@ -7,7 +7,8 @@ hcaScores.Spectra <- function(spectra, pca, scores = c(1:5),
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright",  ...) {
 	
-	if (class(spectra) != "Spectra") stop("spectra argument was not a Spectra object")
+	.chkArgs(mode = 12L)
+
 	chkSpectra(spectra)
 	pcaOK <- FALSE
 	if ("prcomp" %in% class(pca)) pcaOK <- TRUE

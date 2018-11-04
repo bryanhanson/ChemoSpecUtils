@@ -4,8 +4,9 @@
 #'
 sumGroups.Spectra2D <- function(spectra){
 
-	# Prep either class
+	.chkArgs(mode = 21L)
 	chkSpectra(spectra)
+	
 	gr.l <- levels(spectra$group)
 	count <- length(gr.l)
 			
@@ -18,7 +19,6 @@ sumGroups.Spectra2D <- function(spectra){
 		g.sum <- rbind(g.sum, data.frame(group = gr, no. = no., color = col))
 		}		
 
-	# Wrap up both classes
 	g.sum <- g.sum[-1,]
 	g.sum <- subset(g.sum, no. > 0) # drop groups with no members
 	rownames(g.sum) <- c(1:nrow(g.sum))

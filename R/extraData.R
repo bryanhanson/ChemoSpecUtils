@@ -6,6 +6,9 @@
 #' @noRd
 #'
 .extraData <- function(spectra) {
+	
+	.chkArgs(mode = 0L)
+	
 	trouble <- FALSE
 	spec.names <- names(spectra)
 	if (class(spectra) == "Spectra") {
