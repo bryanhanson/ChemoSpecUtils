@@ -4,26 +4,24 @@
 #' @export
 #' @importFrom plyr dlply llply m_ply
 #'
-.scorePlot <- function(spectra, pca,
+.scorePlot <- function(spectra, so,
 	pcs = c(1,2), ellipse = "none", tol = "none",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 
 	# Step 0. Check the inputs
 	
 	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
-	if (missing(spectra)) stop("No spectral data set provided")
-	if (missing(pca)) stop("No pca/mia/parafac results provided")
 	case <- NULL # set up flags for the different classes of score results, & check for legit score object
-	if ((class(pca) == "prcomp") || (class(pca) == "conPCA")) case <- "PCA"
-	if ((class(pca) == "parafac") || (class(pca) == "mia")) case <- "MIA"
+	if ((class(so) == "prcomp") || (class(so) == "conPCA")) case <- "PCA"
+	if ((class(so) == "parafac") || (class(so) == "mia")) case <- "MIA"
 	if (is.null(case)) stop("Your score object has the wrong class! Double check that the Spectra object is the 1st argument and the score object is the 2nd argument.")
 	if ((case == "MIA") && (use.sym)) stop("ChemoSpec2D does not support use.sym.")
 	chkSpectra(spectra)
 	
 	# Prep the data
 	
-	if (case == "PCA") DF <- data.frame(pca$x[,pcs], group = spectra$groups)
-	if (case == "MIA") DF <- data.frame(pca$C[,pcs], group = spectra$groups)
+	if (case == "PCA") DF <- data.frame(so$x[,pcs], group = spectra$groups)
+	if (case == "MIA") DF <- data.frame(so$C[,pcs], group = spectra$groups)
 	GRPS <- dlply(DF, "group", subset, select = c(1,2))
 	
 	# Step 1.  Compute overall plot limits, incl. ellipses if requested
@@ -78,7 +76,7 @@
 	# Step 4.  Decorations
 	
 	if (case == "PCA") {
-		.addMethod(pca)
+		.addMethod(so)
 		if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym, bty = "n")
 		.addEllipseInfo(ellipse)
 	}

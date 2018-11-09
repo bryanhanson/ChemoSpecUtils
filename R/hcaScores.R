@@ -9,7 +9,7 @@
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D} object.
 #' 
-#' @param pca Either:
+#' @param so ("score object") Either:
 #' \itemize{
 #'   \item An object of class \code{\link{prcomp}}, modified to include a
 #' list element called \code{$method}, a character string describing the
@@ -58,7 +58,7 @@
 #'   data(metMUD1)
 #'
 #'   pca <- c_pcaSpectra(metMUD1)
-#'   hcaScores(metMUD1, pca, main = "metMUD1 NMR Data")
+#'   hca <- hcaScores(metMUD1, pca, main = "metMUD1 NMR Data")
 #' }
 #' 
 #' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
@@ -66,14 +66,14 @@
 #'   data(MUD1)
 #'
 #'   mia <- miaSpectra2D(MUD1)
-#'   hcaScores(MUD1, mia, scores = 1:2, main = "MIA Scores")
+#'   hca <- hcaScores(MUD1, mia, scores = 1:2, main = "MIA Scores")
 #'
 #'   set.seed(123)
 #'   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
 #'   hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
 #' }
 #'
-hcaScores <- function(spectra, pca, scores = c(1:5),
+hcaScores <- function(spectra, so, scores = c(1:5),
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright",  ...) {
 

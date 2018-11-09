@@ -2,19 +2,14 @@
 #' @export
 #' @noRd
 #'
-plotScores.Spectra2D <- function(spectra, pca,
+plotScores.Spectra2D <- function(spectra, so,
 	pcs = c(1,2), ellipse = "none", tol = "none",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 	
 	# This function will handle score plots from MIA or PARAFAC analyses
 	
-	.chkArgs(mode = 22L)
-
+	.chkArgs(mode = 23L)
 	chkSpectra(spectra)
-	pcaOK <- FALSE
-	if (class(pca) == "mia") pcaOK <- TRUE
-	if (class(pca) == "parafac") pcaOK <- TRUE
-	if (!pcaOK) stop("Argument pca must be a mia or parafac object")
 	if (length(pcs) != 2L) stop("Please supply two scores to plot (argument pcs)")
 
 	# See stackoverflow.com/a/46289614/633251 for the concepts re: argument handling

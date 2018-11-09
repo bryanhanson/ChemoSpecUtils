@@ -2,23 +2,18 @@
 #' @export
 #' @noRd
 #'
-plotScores.Spectra <- function(spectra, pca,
+plotScores.Spectra <- function(spectra, so,
 	pcs = c(1,2), ellipse = "none", tol = "none",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 
 	# This function will handle score plots from classical or robust analyses
 	
-	.chkArgs(mode = 12L)
-	
+	.chkArgs(mode = 13L)
 	chkSpectra(spectra)
-	pcaOK <- FALSE
-	if ("prcomp" %in% class(pca)) pcaOK <- TRUE
-	if ("princomp" %in% class(pca)) pcaOK <- TRUE
-	if (!pcaOK) stop("Argument pca must be a prcomp or princomp object")
 	if (length(pcs) != 2L) stop("Please supply two scores to plot (argument pcs)")
 
-	eigensum <- sum(pca$sdev*pca$sdev) # compute but may not be used
-	variance <- 100*(pca$sdev*pca$sdev/eigensum)
+	eigensum <- sum(so$sdev*so$sdev) # compute but may not be used
+	variance <- 100*(so$sdev*so$sdev/eigensum)
 
 	# See stackoverflow.com/a/46289614/633251 for the concepts re: argument handling
 	# Use a sensible xlab and ylab if none provided

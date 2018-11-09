@@ -4,14 +4,14 @@
 \alias{plotScores}
 \title{Plot Scores from PCA, MIA or PARAFAC Analysis of a Spectra or Spectra2D Object}
 \usage{
-plotScores(spectra, pca, pcs = c(1, 2), ellipse = "none",
+plotScores(spectra, so, pcs = c(1, 2), ellipse = "none",
   tol = "none", use.sym = FALSE, leg.loc = "topright", ...)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}}
 or \code{Spectra2D} object.}
 
-\item{pca}{Either:
+\item{so}{("Score Object") Either:
 \itemize{
   \item An object of class \code{\link{prcomp}}, modified to include a
 list element called \code{$method}, a character string describing the
