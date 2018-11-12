@@ -76,7 +76,7 @@
 	if (!identical(gr.cols[1], "auto")) {
 		if (length(gr.cols) != length(gr.crit)) stop("Length of gr.cols and gr.crit did not match")
 		for (i in 1:length(gr.crit)) {
-			which <- grep(gr.crit[i], spectra$groups)
+			which <- grep(gr.crit[i], spectra$names)
 			spectra$colors[which] <- gr.cols[i]
 			}
 		}
@@ -96,7 +96,7 @@
 			sym1 <- sym.choice[1:length(gr.crit)]
 			sym2 <- letters[1:length(gr.crit)]
 			for (i in 1:length(gr.crit)) {
-				which <- grep(gr.crit[i], spectra$groups)
+				which <- grep(gr.crit[i], spectra$names)
 				spectra$sym[which] <- sym1[i]
 				spectra$alt.sym[which] <- sym2[i]
 				}

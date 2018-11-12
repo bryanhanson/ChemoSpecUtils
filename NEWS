@@ -2,7 +2,10 @@
 NEWS file for package ChemoSpecUtils
 Functions Supporting Packages ChemoSpec and ChemoSpec2D.
 Bryan A. Hanson DePauw University, Greencastle Indiana USA
-URL: github.com/bryanhanson/ChemoSpecHelpers
+URL: github.com/bryanhanson/ChemoSpecUtils
+
+Changes in version 0.2.144 2018-11-11
+     + Fixed a problem with color assignment in .groupNcolor (the problem seems to have been present from the very version of ChemoSpec).  Reported by Reinhard Kerschner (many thanks!).
 
 Changes in version 0.2.142 2018-11-09
      + Consistent argument checking introduced via .chkArgs.

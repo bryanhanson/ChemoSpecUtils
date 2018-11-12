@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.2.142
-Date: 2018-11-09
+Version: 0.2.144
+Date: 2018-11-11
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
