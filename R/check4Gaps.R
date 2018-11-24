@@ -17,7 +17,8 @@
 #' @param tol A number indicating the tolerance for checking to see if the step
 #' between successive \code{x} values are the same.  Depending upon how the
 #' \code{x} values are stored and rounded, you may need to change the value of
-#' \code{tol} to avoid flagging trivial "gaps".
+#' \code{tol} to avoid flagging trivial "gaps".  If \code{NULL}, a value is
+#' chosen which is just above the median difference between \code{x} values.
 #' 
 #' @param silent Logical indicating a "no gap" message
 #' should not be reported to the console.  Important because
@@ -28,12 +29,14 @@
 #' 
 #' @return A data frame giving the data chunks found, with one chunk per row.
 #' Also a plot if {y} is provided.  In the event there are no gaps found,
-#' a data frame with zero rows is returned.  The data frame has columns as follows:
+#' a data frame with one row is returned.  The data frame has columns as follows:
 #' \item{beg.freq }{The first frequency value in a given data chunk.}
 #' \item{end.freq }{The last frequency value in a given data chunk.}
 #' \item{size }{The length (in frequency units) of the data chunk.}
 #' \item{beg.indx }{The index of the first frequency value in the data chunk.}
 #' \item{end.indx }{The index of the last frequency value in the data chunk.}
+#' 
+#' @seealso \code{\link{sumSpectra}} which make extensive use of this function.
 #' 
 #' @author Bryan A. Hanson, DePauw University.
 #' 
@@ -41,55 +44,46 @@
 #' 
 #' @examples
 #' 
-#' x <- seq(from = 5, to = 12, by = 0.1)
-#' remove <- c(8:11, 40:45); x <- x[-remove]
-#' gaps <- check4Gaps(x)
-#'
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
-#'   library("ChemoSpec")
-#'   data(SrE.IR)
-#'   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 1800 & SrE.IR$freq < 2500)
-#'   check4Gaps(x = newIR$freq, y = newIR$data[1,])
-#' }
-#'
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
-#'   library("ChemoSpec2D")
-#'   data(MUD1)
-#'
-#'   plotSpectra2D(MUD1, which = 7, lvls = seq(-1, 1, by = 0.2),
-#'     main = "MUD1 Sample 7: Complete Data Set")
-#'
-#'   MUD1a <- removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
-#'   # Cannot plot this data, results would be misleading.
-#'   sumSpectra(MUD1a) # sumSpectra calls check4Gaps for each dimension
-#' }
+#' x <- seq(0, 2*pi, 0.1)
+#' y <- sin(x)
+#' remove <- c(8:11, 40:45)
+#' x <- x[-remove]
+#' y <- y[-remove]
+#' gaps <- check4Gaps(x, tol = 0.11) # tol just larger than orig spacing
+#' gaps
+#' gaps <- check4Gaps(x, y, tol = 0.11) # show a plot if y given
 #'
 #' @export
 #' 
 #' @importFrom graphics lines rect 
 #'
-check4Gaps <- function(x, tol = 0.01,  y = NULL, silent = FALSE, ...) {
+check4Gaps <- function(x, y = NULL, silent = FALSE, tol = NULL, ...) {
 	
-	# Prep a data frame listing the data chunks (ChemoSpec & ChemoSpec2D)
+	# Estimate a value for tol if none given
+	if (is.null(tol)) tol <- abs(median(diff(x))) * 1.2
+	
+	# Prep a data frame listing the data chunks
 	
 	len.x <- length(x)
 	xdiff <- abs(diff(x))
-	p <- min(xdiff) # nominal freq/pt
 	d1 <- x[1] # beg of data chunk by value
 	d1i <- 1L # beg of data chunk by index
 	d2 <- c() # end of data chunk by value
 	d2i <- c() # end of data chunk by index
 
 	# Check for gaps and build up values and indices
-	for (i in 1:length(xdiff)) {
-		# Nuance of all.equal pointed out by Dana Nadler, e-mails March 2017. Thanks!
-		if (!isTRUE(all.equal(xdiff[i], p, tolerance = tol, scale = 1.0))) {
-			d1 <- c(d1, x[i+1])
-			d1i <- c(d1i, i+1)
-			d2 <- c(d2, x[i])
-			d2i <- c(d2i, i)
+	# Check globally before going through value-by-value to save time
+	if (any(xdiff > tol)) {
+		for (i in 1:length(xdiff)) {
+			if (xdiff[i] > tol) {
+				d1 <- c(d1, x[i+1])
+				d1i <- c(d1i, i+1)
+				d2 <- c(d2, x[i])
+				d2i <- c(d2i, i)
 			}	
-		}
+		}		
+	}
+
 	# Add the last entry
 	d2 <- c(d2, x[len.x])
 	d2i <- c(d2i, len.x)
@@ -111,8 +105,6 @@ check4Gaps <- function(x, tol = 0.01,  y = NULL, silent = FALSE, ...) {
 			rect(xleft = DF[n,2], ybottom, xright = DF[n+1,1], ytop, density = 15, col = "pink")
 			}
 		}
-
-#	if (nrow(DF) == 1)  DF <- FALSE
 
 	return(DF)
 

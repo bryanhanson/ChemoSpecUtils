@@ -7,9 +7,7 @@
 #' 
 #' Prior to summarizing, \code{\link{chkSpectra}} is run with confirm = FALSE.
 #' If there are problems, warnings are issued to the console and the summary is
-#' not done.  If \code{sumSpectra} thinks there is a gap between every data
-#' point, add the argument \code{tol = xx} to alleviate this problem
-#' (which has to do with rounding when subtracting two adjacent frequency values).
+#' not done.
 #' The \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}
 #' object is checked to see if it contains data elements
 #' beyond what is required.  If so, these extra elements are reported to the
@@ -18,7 +16,7 @@
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
 #' \code{Spectra2D} whose group membership information is desired.
 #'
-#' @param ...  Arguments to be passed downstream.  In particular, see Details about \code{tol}.
+#' @param ...  Arguments to be passed downstream. Currently not used.
 #'
 #' @return None.  Results printed at console.
 #'

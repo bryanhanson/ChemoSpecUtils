@@ -9,23 +9,24 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	.chkArgs(mode = 21L)
 	chkSpectra(spectra)
 
-	# Try to determine a sensible value for tol if none provided via the ...
-	# Then analyze for gaps
-	
-	if (!("tolF1" %in% args2)) {
-		diffF1 <- diff(spectra$F1) 
-		tolF1 <- abs(median(diffF1)) * 1.2 # ensures value is a bit larger than nominal resolution
-		gF1 <- check4Gaps(spectra$F1, tol = tolF1, silent = TRUE)	
-		}
-	
-	if (!("tolF2" %in% args2)) {
-		diffF2 <- diff(spectra$F2) 
-		tolF2 <- abs(median(diffF2)) * 1.2 # ensures value is a bit larger than nominal resolution
-		gF2 <- check4Gaps(spectra$F2, tol = tolF2, silent = TRUE)	
-		}
+	gF1 <- check4Gaps(spectra$F1, silent = TRUE)
+	gF2 <- check4Gaps(spectra$F2, silent = TRUE)
 
-	if ("tolF1" %in% args2) gF1 <- check4Gaps(spectra$F1, tol = tolF1, silent = TRUE)	
-	if ("tolF2" %in% args2) gF2 <- check4Gaps(spectra$F2, tol = tolF2, silent = TRUE)	
+	# if (!("tolF1" %in% args2)) gF1 <- check4Gaps(spectra$F1, silent = TRUE)
+	# if (!("tolF2" %in% args2)) gF2 <- check4Gaps(spectra$F2, silent = TRUE)
+
+	# if ("tolF1" %in% args2) gF1 <- check4Gaps(spectra$F1, tol = tolF1, silent = TRUE)	
+	# if ("tolF2" %in% args2) gF2 <- check4Gaps(spectra$F2, tol = tolF2, silent = TRUE)	
+
+	# if ("tolF1" %in% args2) {
+		# new.args <- list(x = spectra$F1, silent = TRUE, ... = ...)
+		# gF1 <- do.call(check4Gaps, new.args)
+	# }
+
+	# if ("tolF2" %in% args2) {
+		# new.args <- list(x = spectra$F2, silent = TRUE, ... = ...)
+		# gF2 <- do.call(check4Gaps, new.args)
+	# }
 
 	# Check for NAs in the matrices
 	

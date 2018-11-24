@@ -4,15 +4,10 @@
 \alias{check4Gaps}
 \title{Check for Discontinuities (Gaps) in a Vector & Optionally Make a Plot}
 \usage{
-check4Gaps(x, tol = 0.01, y = NULL, silent = FALSE, ...)
+check4Gaps(x, y = NULL, silent = FALSE, tol = NULL, ...)
 }
 \arguments{
 \item{x}{A numeric vector to be checked for gaps.}
-
-\item{tol}{A number indicating the tolerance for checking to see if the step
-between successive \code{x} values are the same.  Depending upon how the
-\code{x} values are stored and rounded, you may need to change the value of
-\code{tol} to avoid flagging trivial "gaps".}
 
 \item{y}{An optional vector of \code{y}-values which correspond to the \code{x}
 values.  Only used in \code{ChemoSpec}.  If provided, a plot will be made
@@ -22,13 +17,19 @@ in the style of a \code{\link[ChemoSpec]{Spectra}} object showing the gap(s).}
 should not be reported to the console.  Important because
 \code{check4Gaps} is called iteratively by other functions.}
 
+\item{tol}{A number indicating the tolerance for checking to see if the step
+between successive \code{x} values are the same.  Depending upon how the
+\code{x} values are stored and rounded, you may need to change the value of
+\code{tol} to avoid flagging trivial "gaps".  If \code{NULL}, a value is
+chosen which is just above the median difference between \code{x} values.}
+
 \item{\dots}{Other parameters to be passed to the plot routines if
 \code{y} is provided, e.g. \code{xlim}.}
 }
 \value{
 A data frame giving the data chunks found, with one chunk per row.
 Also a plot if {y} is provided.  In the event there are no gaps found,
-a data frame with zero rows is returned.  The data frame has columns as follows:
+a data frame with one row is returned.  The data frame has columns as follows:
 \item{beg.freq }{The first frequency value in a given data chunk.}
 \item{end.freq }{The last frequency value in a given data chunk.}
 \item{size }{The length (in frequency units) of the data chunk.}
@@ -45,29 +46,18 @@ result appears at the console.
 }
 \examples{
 
-x <- seq(from = 5, to = 12, by = 0.1)
-remove <- c(8:11, 40:45); x <- x[-remove]
-gaps <- check4Gaps(x)
+x <- seq(0, 2*pi, 0.1)
+y <- sin(x)
+remove <- c(8:11, 40:45)
+x <- x[-remove]
+y <- y[-remove]
+gaps <- check4Gaps(x, tol = 0.11) # tol just larger than orig spacing
+gaps
+gaps <- check4Gaps(x, y, tol = 0.11) # show a plot if y given
 
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
-  library("ChemoSpec")
-  data(SrE.IR)
-  newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 1800 & SrE.IR$freq < 2500)
-  check4Gaps(x = newIR$freq, y = newIR$data[1,])
 }
-
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
-  library("ChemoSpec2D")
-  data(MUD1)
-
-  plotSpectra2D(MUD1, which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7: Complete Data Set")
-
-  MUD1a <- removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
-  # Cannot plot this data, results would be misleading.
-  sumSpectra(MUD1a) # sumSpectra calls check4Gaps for each dimension
-}
-
+\seealso{
+\code{\link{sumSpectra}} which make extensive use of this function.
 }
 \author{
 Bryan A. Hanson, DePauw University.
