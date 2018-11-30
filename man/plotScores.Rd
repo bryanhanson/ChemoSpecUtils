@@ -20,9 +20,9 @@ plot).  This is automatically provided if \code{ChemoSpec} functions
 \code{\link[ChemoSpec]{c_pcaSpectra}} or \code{\link[ChemoSpec]{r_pcaSpectra}}
 were used to create \code{pca}.
  \item An object of class \code{mia} produced by
- function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
+ function \code{miaSpectra2D}.
  \item An object of class \code{parafac} produced by
- function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
+ function \code{pfacSpectra2D}.
 }}
 
 \item{pcs}{A vector of two integers specifying the components (scores) to plot.}

@@ -1,5 +1,5 @@
 
-# ChemoSpecUtils 0.2.146 2018-11-12
+# ChemoSpecUtils 0.2.163 2018-11-28
 ## Improvements
 * Added function `updateGroups`.
 
