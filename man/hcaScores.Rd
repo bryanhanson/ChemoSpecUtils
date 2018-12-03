@@ -69,7 +69,7 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 
   set.seed(123)
   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
-  hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
+  hca <- hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
 }
 
 }

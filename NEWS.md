@@ -1,4 +1,8 @@
 
+# ChemoSpecUtils 0.2.197 2018-12-02
+## Bug Fixes
+* More changes to `.chkArgs` since errors were introduced via the most recent "fix"!  Updated unit tests for the function, but even more work should be done there.  Using `HandyStuff::examplePage` to look for errors and warnings.  None found.
+
 # ChemoSpecUtils 0.2.170 2018-11-28
 ## Bug Fixes
 * Fixed a problem in `.chkArgs(mode = 13)` that was giving an error in `ChemoSpec::r_pcaSpectra`.

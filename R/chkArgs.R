@@ -14,7 +14,7 @@
 	
 	if (mode == 0L) {
 		specOK <- FALSE
-		specOK <-  ((class(args$spectra) == "Spectra") | (class(args$spectra) == "Spectra2D"))
+		specOK <-  any("Spectra" %in% class(args$spectra), "Spectra2D" %in% class(args$spectra))
 		if (!specOK) stop("Argument 'spectra' was not found or did not have class Spectra or Spectra2D")
 	}
 
@@ -32,7 +32,7 @@
 		if (class(args$spectra) != "Spectra")
 			stop("Argument 'spectra' was not found or not a Spectra object")
 		pcaOK <- FALSE
-		pcaOK <- ((class(args$pca) == "prcomp") | (class(args$pca)[1] == "conPCA"))
+		pcaOK <- any("prcomp" %in% class(args$pca), "conPCA" %in% class(args$pca))
 		if (!pcaOK)  stop("Argument 'pca' was not found or did not have class prcomp or pcaCon")
 	}
 
@@ -40,7 +40,7 @@
 		if (class(args$spectra) != "Spectra2D")
 			stop("Argument 'spectra' was not found or not a Spectra2D object")
 		pcaOK <- FALSE
-		pcaOK <- ((class(args$mia) == "mia") | (class(args$pfac) == "parafac"))
+		pcaOK <- any("mia" %in% class(args$mia), "parafac" %in% class(args$pfac))
 		if (!pcaOK)  stop("Argument 'mia/pfac' was not found or did not have class mia/parafac")
 	}
 
@@ -48,7 +48,7 @@
 
 	if (mode == 13L) { # Special for hcaScores.Spectra & plotScores.Spectra
 		if (class(args$spectra) != "Spectra")
-			stop("Argument 'spectra' was not found or not a Spectra2D object")
+			stop("Argument 'spectra' was not found or not a Spectra object")
 		soOK <- FALSE
 		soOK <- any("prcomp" %in% class(args$so), "conPCA" %in% class(args$so), 
 		  grepl("PCAgrid", args$so), "princomp" %in% class(args$so))
@@ -59,7 +59,7 @@
 		if (class(args$spectra) != "Spectra2D")
 			stop("Argument 'spectra' was not found or not a Spectra2D object")
 		soOK <- FALSE
-		soOK <- ((class(args$so) == "mia") | (class(args$so) == "parafac"))
+		soOK <- any("mia" %in% class(args$so), "parafac" %in% class(args$so))
 		if (!soOK)  stop("Argument 'so' was not found or did not have class mia/parafac")
 	}
 } # end of chkArgs
