@@ -1,4 +1,8 @@
 
+# ChemoSpecUtils 0.2.200 2018-12-03
+## Bug Fixes
+* `plotScree` now knows what to do with class `princomp`.
+
 # ChemoSpecUtils 0.2.197 2018-12-02
 ## Bug Fixes
 * More changes to `.chkArgs` since errors were introduced via the most recent "fix"!  Updated unit tests for the function, but even more work should be done there.  Using `HandyStuff::examplePage` to look for errors and warnings.  None found.

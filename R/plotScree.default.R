@@ -3,7 +3,11 @@
 #' @noRd
 #' @importFrom graphics points abline legend axis
 #'
-plotScree.prcomp <- function(pca,  style = "alt", ...) {
+
+# This function handles class prcomp or princomp
+# mia has a separate function
+
+plotScree.default <- function(pca,  style = "alt", ...) {
 
 	eigensum <- sum(pca$sdev*pca$sdev)
 	variance <- 100*(pca$sdev*pca$sdev/eigensum)
