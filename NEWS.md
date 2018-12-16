@@ -1,5 +1,8 @@
 
-# ChemoSpecUtils 0.2.200 2018-12-03
+# ChemoSpecUtils 0.2.xx 2018-12-xx
+## Bug Fixes
+* `updateGroups` now reports the old groups if `new.grps = NULL`, as intended and claimed in the documentation.
+
 ## Bug Fixes
 * `plotScree` now knows what to do with class `princomp`.
 

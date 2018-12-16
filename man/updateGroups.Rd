@@ -35,6 +35,7 @@ appropriate/more readible strings easier.
 if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   library("ChemoSpec")
   data(metMUD1)
+  metMUD1a <- updateGroups(metMUD1) # reports old groups
   metMUD1a <- updateGroups(metMUD1, new.grps = c("C", "T"))
 }
 

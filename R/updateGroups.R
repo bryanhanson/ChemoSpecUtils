@@ -28,6 +28,7 @@
 #' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
+#'   metMUD1a <- updateGroups(metMUD1) # reports old groups
 #'   metMUD1a <- updateGroups(metMUD1, new.grps = c("C", "T"))
 #' }
 #' 
@@ -41,8 +42,9 @@ updateGroups <- function(spectra, new.grps = NULL, silent = FALSE) {
 	
 	.chkArgs(mode = 0L)
 	chkSpectra(spectra)
-	if (!is.character(new.grps)) stop("'new.grps' must be a character vector")
-	
+	if (!is.null(new.grps)) {
+		if (!is.character(new.grps)) stop("'new.grps' must be a character vector")
+	}
 	old.grps <- as.character(spectra$groups)
 	old.grpsU <- unique(old.grps)
 	no.old <- length(old.grpsU)
@@ -71,7 +73,7 @@ updateGroups <- function(spectra, new.grps = NULL, silent = FALSE) {
 		print(DF) 
 	}
 	
-	if (any(is.na(updated.grps))) stop("Did not match a new to an old group")
+	if (any(is.na(updated.grps))) stop("Failed to match a new to an old group")
 	spectra$groups <- as.factor(updated.grps)
 	chkSpectra(spectra)
 	return(spectra)
