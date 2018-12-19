@@ -24,6 +24,8 @@
 	if (case == "MIA") DF <- data.frame(so$C[,pcs], group = spectra$groups)
 	GRPS <- dlply(DF, "group", subset, select = c(1,2))
 	
+	#str(GRPS) # Owen
+	
 	# Step 1.  Compute overall plot limits, incl. ellipses if requested
 	
 	if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
@@ -48,6 +50,8 @@
 		gr <- gr[idx,]
 		ELL <- llply(GRPS[idx], .computeEllipses) # these are the ellipses we'll need later
 	
+		#str(ELL) # Owen
+		
 		x.scores <- range(llply(GRPS, subset, select = 1))
 		y.scores <- range(llply(GRPS, subset, select = 2)) 
 		x.ell <- range(llply(ELL, function(x) {range(x[1])}))
@@ -70,8 +74,25 @@
 	.drawPoints(DF[,1:2], spectra, case = case, use.sym = use.sym, xlim = x.all, ylim = y.all, ...)
 
 	# Step 3.  Draw the ellipses if requested.
-	
-	if ((ellipse == "cls") | (ellipse == "rob") | (ellipse == "both")) .drawEllipses(ELL, gr, ellipse, use.sym, ...)
+	### Custom for Owen: group ellipses handled differently ----------------------------------------
+	if ((ellipse == "cls") | (ellipse == "rob") | (ellipse == "both")) {
+		# subset into groups, plot each separately.
+		# changes also made in .drawEllipses
+		
+		grap <- grep("grap", names(ELL))
+		ELLgrap <- ELL[grap]
+		grap <- grep("grap", gr$group)
+		gr.grap <- gr[grap,]
+		gr.grap$colors <- rep("black", nrow(gr.grap))
+		.drawEllipses(ELLgrap, gr.grap, ellipse, use.sym, lty = 1, ...)
+		
+		char <- grep("char", names(ELL))
+		ELLchar <- ELL[char]
+		char <- grep("char", gr$group)
+		gr.char <- gr[char,]
+		gr.char$colors <- rep("black", nrow(gr.char))
+		.drawEllipses(ELLchar, gr.char, ellipse, use.sym, lty = 2,  ...)
+	}
 	
 	# Step 4.  Decorations
 	

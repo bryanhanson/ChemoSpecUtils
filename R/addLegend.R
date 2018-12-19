@@ -45,10 +45,10 @@
   
   leg.txt <- c("Key", gr$group)
   leg.col <- c("black", gr$color)
-  if (use.sym) leg.col = "black"
+  #if (use.sym) leg.col = "black"
   leg.pch <- NA
   if (use.sym) leg.pch <- c(NA, gr$sym)
-  legend(leg.loc, leg.txt, text.col = leg.col, cex = 0.75, pch = leg.pch, ...)
+  legend(leg.loc, leg.txt, col = gr$col, text.col = leg.col, cex = 0.75, pch = leg.pch, ...)
   
 } # end of addLegend
 
