@@ -1,5 +1,5 @@
 
-# ChemoSpecUtils 0.2.xx 2018-12-xx
+# ChemoSpecUtils 0.2.204 2018-12-19
 ## Bug Fixes
 * `updateGroups` now reports the old groups if `new.grps = NULL`, as intended and claimed in the documentation.
 
