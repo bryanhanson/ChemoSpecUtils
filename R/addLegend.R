@@ -37,6 +37,7 @@
    
   .chkArgs(mode = 0L)
   
+  # not using dispatch!
   if (class(spectra) == "Spectra") gr <- sumGroups(spectra)
   if (class(spectra) == "Spectra2D") {
   	if (use.sym) stop("use.sym cannot be used with ChemoSpec2D")
@@ -45,10 +46,13 @@
   
   leg.txt <- c("Key", gr$group)
   leg.col <- c("black", gr$color)
-  #if (use.sym) leg.col = "black"
+  sym.col <- c(NA, gr$color) # Owen
+  #if (use.sym) leg.col = "black" # Owen
+  leg.lty <- c(NA, rep(2L, 4), rep(1L, 4)) # Owen
   leg.pch <- NA
   if (use.sym) leg.pch <- c(NA, gr$sym)
-  legend(leg.loc, leg.txt, col = gr$col, text.col = leg.col, cex = 0.75, pch = leg.pch, ...)
+  legend(leg.loc, leg.txt, col = sym.col, text.col = leg.col,
+  	cex = 0.75, pch = leg.pch, lty = leg.lty, merge = FALSE, ...) # Owen
   
 } # end of addLegend
 
