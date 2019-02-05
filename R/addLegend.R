@@ -37,7 +37,6 @@
    
   .chkArgs(mode = 0L)
   
-  # not using dispatch!
   if (class(spectra) == "Spectra") gr <- sumGroups(spectra)
   if (class(spectra) == "Spectra2D") {
   	if (use.sym) stop("use.sym cannot be used with ChemoSpec2D")
