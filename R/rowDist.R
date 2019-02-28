@@ -54,12 +54,8 @@ rowDist <- function(x, method) {
 		distance <- dist(x, method = method)
 		}
 		
-	if ( method == "cosine") { # code by Claudia Beleites/unmixR w/small modifications
-		x <- as.matrix(x)
-		x <- tcrossprod(x)
-		l <- rowSums(x^2)
-		l <- sqrt(outer(l, l))
-		distance <- as.dist(x/l)
+	if ( method == "cosine") { # stackoverflow.com/a/19550737/633251
+		distance <- as.dist(1 - x%*%t(x)/(sqrt(rowSums(x^2) %*% t(rowSums(x^2)))))
 		}
 
 	return(distance)

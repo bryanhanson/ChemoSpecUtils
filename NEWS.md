@@ -1,4 +1,9 @@
 
+# ChemoSpecUtils 0.2.210 2019-02-27
+## Bug Fixes
+* `chkSpectra.Spectra2D` would fail if there was only one sample when checking to see if NAs were present in the same positions across all data sets.  Fixed.
+* Replaced code for cosine distance calculation in `rowDist`.  The previous version was giving slightly wrong answers.
+
 # ChemoSpecUtils 0.2.204 2018-12-19
 ## Bug Fixes
 * `updateGroups` now reports the old groups if `new.grps = NULL`, as intended and claimed in the documentation.

@@ -62,15 +62,16 @@ chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	}
 	
 	# Check that data matrices have NAs in the same positions, if they have them at all
+	# Only applies if there is more than one sample.
 	
-	M <- spectra$data # list of numeric matrices
-	
-	for (i in 1:ns) {
-		M[[i]] <- is.na(spectra$data[[i]]) # now a list of logical matrices
-	}
-	
-	for (i in 2:ns) {
-		if (!identical(M[[i]], M[[i-1]])) stop("NAs are present in the data but differ between samples")
+	if (ns >= 2) {
+		M <- spectra$data # list of numeric matrices
+		for (i in 1:ns) {
+			M[[i]] <- is.na(spectra$data[[i]]) # now a list of logical matrices
+		}
+		for (i in 2:ns) {
+			if (!identical(M[[i]], M[[i-1]])) stop("NAs are present in the data but differ between samples")
+		}
 	}
 		
 	# Check that the relationships between each element are correct
