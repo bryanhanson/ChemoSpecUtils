@@ -1,5 +1,5 @@
 
-# ChemoSpecUtils 0.2.210 2019-02-27
+# ChemoSpecUtils 0.2.211 2019-02-28
 ## Bug Fixes
 * `chkSpectra.Spectra2D` would fail if there was only one sample when checking to see if NAs were present in the same positions across all data sets.  Fixed.
 * Replaced code for cosine distance calculation in `rowDist`.  The previous version was giving slightly wrong answers.
