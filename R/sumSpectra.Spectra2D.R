@@ -1,4 +1,6 @@
 #'
+#' sumSpectra.Spectra2D
+#'
 #' @export
 #' @importFrom stats median
 #' @noRd
@@ -41,7 +43,7 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	cat("\tThere are ", length(spectra$names), " spectra in this set.\n\n", sep = "")
 	
 	cat("\tThe F2 dimension runs from ", spectra$F2[1], " to ", 
-		spectra$F2[length(spectra$F2)], " ", spectra$unit[1],
+		spectra$F2[length(spectra$F2)], " ", as.character(spectra$unit[1]),
 		"\n\tand there are ", length(spectra$F2), " data points.\n", sep = "")
 		
 	if (nrow(gF2) > 1) {
@@ -51,7 +53,7 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	cat("\n")
 	
 	cat("\tThe F1 dimension runs from ", spectra$F1[1], " to ", 
-		spectra$F1[length(spectra$F1)], " ", spectra$unit[2],
+		spectra$F1[length(spectra$F1)], " ", as.character(spectra$unit[2]),
 		"\n\tand there are ", length(spectra$F1), " slices.\n", sep = "")
 		
 	if (nrow(gF1) > 1) {
@@ -70,6 +72,6 @@ sumSpectra.Spectra2D <- function(spectra, ...){
 	cat("\n")
 	jnk <- .extraData(spectra)
 	
-	cat("\n*** Note: this is an S3 object\nof class 'Spectra2D'\n")
+	cat("*** Note: this is an S3 object\nof class 'Spectra2D'\n")
 	}
 

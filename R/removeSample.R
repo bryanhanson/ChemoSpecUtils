@@ -2,7 +2,7 @@
 #' Remove Samples from a Spectra or Spectra2D Object
 #' 
 #' Removes specified samples from a \code{\link[ChemoSpec]{Spectra}} or
-#' \code{Spectra2D} object.
+#' \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #' 
 #' This function will report if extra data elements are found.  These will
 #' probably need to be edited manually.  The indices reported to the console
@@ -14,12 +14,12 @@
 #' also "XYZ".
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (handled as a regex) giving the sample names to be removed.
 #' 
-#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}.
+#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @author Bryan A. Hanson, DePauw University.
 #'
@@ -28,7 +28,8 @@
 #' @export
 #'
 #' @examples
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+#' \dontrun{
+#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
 #'
@@ -42,7 +43,7 @@
 #'   SrE.IRb$names
 #' }
 #' 
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   
@@ -53,10 +54,11 @@
 #'
 #'   # Removes a spectrum/sample with this exact name:
 #'   MUD1$names
-#'   MUD1b <- removeSample(MUD1, rem.sam = "Sample6")
+#'   MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
 #'   MUD1b$names
 #' }
-#' 
+#' }
+#'
 
 removeSample <- function(spectra, rem.sam) {
 	UseMethod("removeSample")

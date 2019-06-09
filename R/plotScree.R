@@ -33,8 +33,8 @@
 #' @keywords multivariate hplot
 #' @export
 #' @examples
-#' 
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+#' \dontrun{
+#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
 #'
@@ -43,14 +43,14 @@
 #'   plotScree(pca, style = "alt")
 #' }
 #' 
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'
 #'   mia <- miaSpectra2D(MUD1)
 #'   plotScree(mia, style = "alt")
 #' }
-#'
+#' }
 #'
 plotScree <- function(pca,  style = "alt", ...) {
 	UseMethod("plotScree")

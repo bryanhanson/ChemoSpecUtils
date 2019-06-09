@@ -8,17 +8,17 @@ removeSample(spectra, rem.sam)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{Spectra2D}.}
+\code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{rem.sam}{Either an integer vector specifying the samples to be
 removed, or a character vector (handled as a regex) giving the sample names to be removed.}
 }
 \value{
-An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}.
+An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
 }
 \description{
 Removes specified samples from a \code{\link[ChemoSpec]{Spectra}} or
-\code{Spectra2D} object.
+\code{\link[ChemoSpec2D]{Spectra2D}} object.
 }
 \details{
 This function will report if extra data elements are found.  These will
@@ -31,7 +31,8 @@ grepping process is greedy, i.e. grepping for "XY" find not only "XY" but
 also "XYZ".
 }
 \examples{
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+\dontrun{
+if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
 
@@ -45,7 +46,7 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   SrE.IRb$names
 }
 
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
   
@@ -56,8 +57,9 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 
   # Removes a spectrum/sample with this exact name:
   MUD1$names
-  MUD1b <- removeSample(MUD1, rem.sam = "Sample6")
+  MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
   MUD1b$names
+}
 }
 
 }

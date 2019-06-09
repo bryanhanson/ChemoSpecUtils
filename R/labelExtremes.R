@@ -1,6 +1,5 @@
-
 #'
-#' Label Extreme Values in a 2D Data Set
+#' Label Extreme Values
 #' 
 #' A utility function which plots the sample names next to the sample points.
 #' The number of samples labeled can be specified by passing it from the

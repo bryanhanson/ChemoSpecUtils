@@ -1,3 +1,19 @@
+# ChemoSpecUtils 0.3.20 2019-06-09
+## Improvements
+* Internal changes to the handling of PCA results were made to accommodate the introduction of additional PCA options.  Some of these are listed below.
+* New function `getVarExplained` handles this common task for all data reduction methods.
+* Function `plotScree.mia` was eliminated via the introduction of `.getVarExplained` and small changes to `plotScree.default`.
+* NAMESPACE cleaned up a bit.
+* Miscellaneous polishing of functions and documentation.
+
+## Misc.
+* `conColScheme` was moved from `ChemoSpec` to `ChemoSpecUtils` so it could be readily available for `Spectra2D` objects.  It was also re-written in the style of `updateGroups` for consistency and user-friendliness.
+* Documentation `colorSymbol` was moved from `ChemoSpec` to `ChemoSpecUtils`.
+
+## Bug Fixes
+* An issue with the setting of x and y limits in `plotScores` was fixed.  This was a long standing bug that somehow escaped notice (dating to the first few months of `ChemoSpec`!).
+* `.getVarExplained` was returning the eigenvalues, not the percent variance explained, for `class(mia)`.  This affected scree plots for `class(mia)` in `ChemoSpec2D`.
+* `plotScores` was no longer including the percent variance explained in score plots, if `xlab` and/or `ylab` were not provided.  Fixed.
 
 # ChemoSpecUtils 0.2.211 2019-02-28
 ## Bug Fixes

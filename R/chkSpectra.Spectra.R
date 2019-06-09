@@ -1,4 +1,6 @@
 #'
+#' chkSpectra.Spectra
+#'
 #' @export
 #' @noRd
 #' 
@@ -14,13 +16,16 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 	# Check classes/types
 	
 	if (!class(spectra) == "Spectra") { warning("The object provided was not of class Spectra"); trouble <- TRUE }
-	if (!class(spectra$freq) == "numeric") { warning("The frequency data appear to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$data) == "matrix") { warning("The spectral intensities appear to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$names) == "character") { warning("The sample names appear to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$color) == "character") { warning("The assigned colors appear to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$unit) == "character") { warning("The units appear to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$desc) == "character") { warning("The description appears to be corrupt"); trouble <- TRUE }
-	if (!class(spectra$groups) == "factor") { warning("The assigned groups appear to be corrupt"); trouble <- TRUE }
+	if (!class(spectra$freq) == "numeric") { warning("The frequency data appear are not numeric"); trouble <- TRUE }
+	if (!class(spectra$data) == "matrix") { warning("The spectral intensities are not matrix type"); trouble <- TRUE }
+	if (!class(spectra$names) == "character") { warning("The sample names are not character type"); trouble <- TRUE }
+	if (!class(spectra$color) == "character") { warning("The colors are not character type"); trouble <- TRUE }
+	if (!((class(spectra$unit) == "character") | (is.expression(spectra$unit)))) {
+		warning("The units are not character or expression type")
+		trouble <- TRUE
+	}
+	if (!class(spectra$desc) == "character") { warning("The description is not character type"); trouble <- TRUE }
+	if (!class(spectra$groups) == "factor") { warning("The groups are not factor type"); trouble <- TRUE }
 	
 	# Check dimensions & relationships
 	

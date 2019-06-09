@@ -6,7 +6,7 @@
 
 ## How to install ChemoSpecUtils
 
-If you install `ChemoSpec` then `ChemoSpecUtils` should automatically be installed.  If not, or if you want to look at the code, here are the instructions.
+If you install `ChemoSpec` or `ChemoSpec2D` then `ChemoSpecUtils` should automatically be installed.  If not, or if you want to look at the code, here are the instructions.
 
 ### From CRAN using R:
 

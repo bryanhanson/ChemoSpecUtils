@@ -8,7 +8,7 @@ hcaScores(spectra, so, scores = c(1:5), c.method = "complete",
   d.method = "euclidean", use.sym = FALSE, leg.loc = "topright", ...)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D} object.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.}
 
 \item{so}{("score object") Either:
 \itemize{
@@ -46,13 +46,13 @@ object of class \code{\link{dendrogram}}.  The side effect is a plot.
 }
 \description{
 A wrapper which performs HCA on the scores from a PCA of a
-\code{\link[ChemoSpec]{Spectra}} object or MIA/PARAFAC of a \code{Spectra2D} object.
+\code{\link[ChemoSpec]{Spectra}} object or POP/MIA/PARAFAC of a \code{\link[ChemoSpec2D]{Spectra2D}} object.
 Many methods for computing the clusters and distances are
 available.
 }
 \examples{
-
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+\dontrun{
+if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(metMUD1)
 
@@ -60,7 +60,7 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   hca <- hcaScores(metMUD1, pca, main = "metMUD1 NMR Data")
 }
 
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
 
@@ -70,6 +70,7 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
   set.seed(123)
   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
   hca <- hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
+}
 }
 
 }

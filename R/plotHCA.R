@@ -3,7 +3,7 @@
 #' 
 #' This function plots the results of an HCA analysis
 #' 
-#' @param spectra An object of S3 class \code{\link{Spectra}} or \code{Spectra2D} object.
+#' @param spectra An object of S3 class \code{\link{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
 #' @param hclst A \code{\link{hclust}} object.
 #'
@@ -22,7 +22,7 @@
 #'
 #' @author Bryan A. Hanson, DePauw University.
 #'
-#' @export .plotHCA
+#' @export
 #' @importFrom stats as.dendrogram dendrapply
 #' @importFrom graphics plot
 #' @noRd

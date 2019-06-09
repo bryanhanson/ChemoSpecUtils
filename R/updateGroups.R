@@ -1,3 +1,4 @@
+#'
 #' Update Group Names in a Spectra or Spectra2D Object
 #'
 #' A convenience function that can be used to update (change)
@@ -9,7 +10,7 @@
 #' appropriate/more readible strings easier.
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @param new.grps A vector of character values giving the new group names.
 #'   The new values must correspond to the order of the old values.  This vector should
@@ -19,25 +20,27 @@
 #' @param silent Logical.  If \code{TRUE}, suppresses all reporting.
 #'
 #' @return spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #' 
 #' @export
 #'
 #' @examples
-#'
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+#' \dontrun{
+#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
 #'   metMUD1a <- updateGroups(metMUD1) # reports old groups
 #'   metMUD1a <- updateGroups(metMUD1, new.grps = c("C", "T"))
 #' }
 #' 
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   MUD1a <- updateGroups(MUD1, new.grps = c("control", "treatment"))
 #' }
-#' 
+#' }
+#'
+
 updateGroups <- function(spectra, new.grps = NULL, silent = FALSE) {
 	
 	.chkArgs(mode = 0L)

@@ -1,4 +1,6 @@
 #'
+#' removeFreq.Spectra
+#'
 #' @noRd
 #' @export
 #'

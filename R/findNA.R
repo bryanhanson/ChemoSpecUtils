@@ -1,7 +1,3 @@
-
-### findNA (ChemoSpec2D only, but sumSpectra.Spectra2D requires this)
-
-#'
 #'
 #' Find NA in a Spectra2D Object
 #' 

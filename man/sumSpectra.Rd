@@ -8,7 +8,7 @@ sumSpectra(spectra, ...)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{Spectra2D} whose group membership information is desired.}
+\code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.}
 
 \item{...}{Arguments to be passed downstream. Currently not used.}
 }
@@ -17,29 +17,31 @@ None.  Results printed at console.
 }
 \description{
 Provides a summary of a \code{\link[ChemoSpec]{Spectra}}
-or \code{Spectra2D} object,
+or \code{\link[ChemoSpec2D]{Spectra2D}} object,
 essentially a more spectroscopist-friendly version of \code{str()}.
 }
 \details{
 Prior to summarizing, \code{\link{chkSpectra}} is run with confirm = FALSE.
 If there are problems, warnings are issued to the console and the summary is
 not done.
-The \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}
+The \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}
 object is checked to see if it contains data elements
 beyond what is required.  If so, these extra elements are reported to the
 console.
 }
 \examples{
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+\dontrun{
+if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
   sumSpectra(SrE.IR)
 }
 
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
   sumSpectra(MUD1)
+}
 }
 
 }

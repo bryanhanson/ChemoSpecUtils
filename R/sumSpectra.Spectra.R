@@ -1,4 +1,6 @@
 #'
+#' sumSpectra.Spectra
+#'
 #' @export
 #' @noRd
 #' 
@@ -22,15 +24,15 @@ sumSpectra.Spectra <- function(spectra, ...){
 	
 	cat("\tThere are ", length(spectra$names), " spectra in this set.\n", sep = "")
 	
-	cat("\t", "The y-axis unit is ", spectra$unit[2], ".\n\n", sep = "")
+	cat("\t", "The y-axis unit is ", as.character(spectra$unit[2]), ".\n\n", sep = "")
 	
 	cat("\tThe frequency scale runs from\n\t", spectra$freq[1], " to ", 
-		spectra$freq[length(spectra$freq)], " ", spectra$unit[1], "\n", sep = "")
+		spectra$freq[length(spectra$freq)], " ", as.character(spectra$unit[1]), "\n", sep = "")
 		
 	cat("\tThere are ", length(spectra$freq), " frequency values.\n", 
 		sep = "")
 		
-	cat("\tThe frequency resolution is\n\t", res, " ", spectra$unit[1], "/point.\n\n", sep = "")
+	cat("\tThe frequency resolution is\n\t", res, " ", as.character(spectra$unit[1]), "/point.\n\n", sep = "")
 	
 	if (nrow(h) > 1) {
 		cat("\tThis data set is not continuous\n\talong the frequency axis.\n")

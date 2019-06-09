@@ -1,28 +1,27 @@
 #'
-#"
 #' Compute Confidence Ellipses
 #' 
 #' A utility function which when given a x,y data set computes both classical
 #' and robust confidence ellipses. An internal function, not generally called
 #' by the user.
 #' 
-#' @param x As per \code{\link[mvoutlier]{cor.plot}}.
+#' @param x As per \code{\link[mvoutlier]{corr.plot}}.
 #'
-#' @param quan As per \code{\link[mvoutlier]{cor.plot}}.
+#' @param quan As per \code{\link[mvoutlier]{corr.plot}}.
 #'
-#' @param alpha As per \code{\link[mvoutlier]{cor.plot}}.
+#' @param alpha As per \code{\link[mvoutlier]{corr.plot}}.
 #'
 #' @return A list with the following elements (a simpler version of that in the
-#' original function \code{\link[mvoutlier]{cor.plot}}): \item{x.cls}{The x
+#' original function \code{\link[mvoutlier]{corr.plot}}): \item{x.cls}{The x
 #' values for the classical ellipse.} \item{y.cls}{The y values for the
 #' classical ellipse.} \item{c}{The correlation value for the classical
 #' ellipse.} \item{x.rob}{The x values for the robust ellipse.}
 #' \item{y.rob}{The y values for the robust ellipse.} \item{r}{The correlation
 #' value for the robust ellipse.}
 #'
-#' @author Bryan A. Hanson, DePauw University. Derived from \code{\link[mvoutlier]{cor.plot}}.
+#' @author Bryan A. Hanson, DePauw University. Derived from \code{\link[mvoutlier]{corr.plot}}.
 #'
-#' @seealso See function \code{\link[mvoutlier]{cor.plot}} in package
+#' @seealso See function \code{\link[mvoutlier]{corr.plot}} in package
 #' \pkg{mvoutlier} on which this function is based.
 #'
 #' @keywords multivariate
@@ -30,7 +29,6 @@
 #' @export
 #' @noRd
 #' @importFrom stats cov cor qchisq
-#' @importFrom robustbase covMcd
 #'
 .computeEllipses <- function (x, quan = 1/2, alpha = 0.025) {
 
@@ -39,7 +37,7 @@
 	}
 
 	x <- as.matrix(x)
-    covr <- covMcd(x, cor = TRUE, alpha = quan)
+    covr <- robustbase::covMcd(x, cor = TRUE, alpha = quan)
     cov.svd <- svd(cov(x), nv = 0)
     covr.svd <- svd(covr$cov, nv = 0)
     r <- cov.svd[["u"]] %*% diag(sqrt(cov.svd[["d"]]))

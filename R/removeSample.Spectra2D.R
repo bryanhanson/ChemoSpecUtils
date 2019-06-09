@@ -1,4 +1,6 @@
 #'
+#' removeSample.Spectra2D
+#'
 #' @noRd
 #' @export
 #'

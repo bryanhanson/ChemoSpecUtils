@@ -1,6 +1,5 @@
-
-### drawPoints (ChemoSpec and ChemoSpec2D)
-
+#'
+#' Add Points to a Plot
 #'
 #' @export
 #' @noRd

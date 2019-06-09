@@ -1,4 +1,6 @@
 #'
+#' hcaScores.Spectra
+#'
 #' @export
 #' @noRd
 #' @importFrom stats hclust
@@ -7,7 +9,7 @@ hcaScores.Spectra <- function(spectra, so, scores = c(1:5),
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright",  ...) {
 	
-	.chkArgs(mode = 13L)
+	.chkArgs(mode = 12L)
 	chkSpectra(spectra)
 
 	if (use.sym) spectra$names <- paste(spectra$alt.sym, spectra$names, sep = " ")

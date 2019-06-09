@@ -1,16 +1,14 @@
-#' 
+#'
+#' plotScree.default
+#'
 #' @export
 #' @noRd
 #' @importFrom graphics points abline legend axis
 #'
 
-# This function handles class prcomp or princomp
-# mia has a separate function
+plotScree.default <- function(pca, style = "alt", ...) {
 
-plotScree.default <- function(pca,  style = "alt", ...) {
-
-	eigensum <- sum(pca$sdev*pca$sdev)
-	variance <- 100*(pca$sdev*pca$sdev/eigensum)
+	variance <- .getVarExplained(pca)
 	cumvariance <- cumsum(variance)
 	
 	ncp <- length(variance)
@@ -32,14 +30,25 @@ plotScree.default <- function(pca,  style = "alt", ...) {
 	
 	if (style == "alt") {
 	
-		plot(rep(1:ncp, each = nrow(pca$x)), as.vector(pca$x[,1:ncp]), type = "p",
-			col = "red", xlab = "component", ylab = "scores",
-			xlim = c(1, ncp+0.5), cex = 0.5, xaxt = "n", ...)
+	# Handle class specific stuff here, better than separate dispatch
+		if ("prcomp" %in% class(pca)) {
+			plot(rep(1:ncp, each = nrow(pca$x)), as.vector(pca$x[,1:ncp]), type = "p",
+				col = "red", xlab = "component", ylab = "scores",
+				xlim = c(1, ncp+0.5), cex = 0.5, xaxt = "n", ...)
+			y.pos <- apply(pca$x[,1:ncp], MARGIN = 2, FUN = range) # used in a moment
+		}
+		
+		if ("mia" %in% class(pca)){
+			plot(rep(1:ncp, each = nrow(pca$C)), as.vector(pca$C[,1:ncp]), type = "p",
+				col = "red", xlab = "component", ylab = "scores",
+				xlim = c(1, ncp+0.5), cex = 0.5, xaxt = "n", ...)
+			y.pos <- apply(pca$C[,1:ncp], MARGIN = 2, FUN = range) # used in a moment
+		}
+			
 		axis(1, at = c(1:ncp), labels = TRUE)
 		
 		# label with cumulative variance
 		lab.txt <- paste(round(cumvariance[1:ncp], 0), "%", sep = "")
-		y.pos <- apply(pca$x[,1:ncp], MARGIN = 2, FUN = range)
 		y.pos <- y.pos[2,]
 		y.max <- max(y.pos)
 		off <- 0.1 * y.max
@@ -50,5 +59,5 @@ plotScree.default <- function(pca,  style = "alt", ...) {
 		legend("topright", y = NULL, "cumulative percent variance shown to right of PC", bty = "n", cex = 0.75)		
 	}
 	
-	} # end of plotScree.prcomp
+	} # end of plotScree.default
 

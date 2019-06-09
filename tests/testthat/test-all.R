@@ -4,9 +4,8 @@
 context("chkArgs") ####################
 
 # Get some pca data for testing
-pca1 <- prcomp(USArrests)
-pca2 <- princomp(USArrests)
-pca2 <- ChemoSpec:::.r2qPCA(pca2) # add "conPCA" to the class vector
+pca1 <- prcomp(USArrests) # class prcomp
+pca2 <- princomp(USArrests) # class princomp
 
 # Simple test function; ALWAYS call with ALL arguments
 tf <- function(spectra, pca, mode) {
@@ -59,27 +58,9 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
 	  expect_silent(tf(metMUD1, pca1, mode = 12))
 	})	
 
-	test_that("chkArgs accepts robust pca input", {
-	  expect_silent(tf(metMUD1, pca2, mode = 12))
+	test_that("chkArgs rejects non-prcomp input", {
+	  expect_error(tf(metMUD1, pca2, mode = 12))
 	})	
-
-# Mode 13
-
-	test_that("chkArgs detects missing spectra object mode 13", {
-	  expect_error(tf(12, 12, 13))
-	})
-
-	test_that("chkArgs detects missing pca object mode 13", {
-	  expect_error(tf(metMUD1, 12, 13))
-	})
-
-	test_that("chkArgs detects wrong order of args mode 13", {
-	  expect_error(tf(pca1, metMUD1, 13))
-	})
-
-	test_that("chkArgs recognizes Spectra object mode 13", {
-	  expect_silent(tf(metMUD1, 12, 11))
-	})
 	
 } # end of ChemoSpec chkArgs tests
 
@@ -89,6 +70,7 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 	set.seed(123)
 	pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 1)
 	mia <- miaSpectra2D(MUD1)
+	# pop <- popSpectra2D(MUD1) # function not present in older version of CS2D
 	
 # Mode 0
 
@@ -123,43 +105,24 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
 	test_that("chkArgs detects args in wrong order mode 22", {
 	  expect_error(tf(pca1, MUD1, mode = 22))
 	})	
+	
+	test_that("chkArgs accepts Spectra2D object & mia results mode 22", {
+	  expect_silent(tf(MUD1, mia, 22))
+	})
 
-	# test_that("chkArgs accepts Spectra2D object & mia results mode 22", {
-	  # expect_silent(tf(MUD1, mia, 22))
-	# })
-
+	# The following tests are disabled as the class system in the old CS2D is
+	# different
+	
 	# test_that("chkArgs accepts Spectra2D object & parafac results mode 22", {
 	  # expect_silent(tf(MUD1, pfac, 22))
 	# })
 	
+	# test_that("chkArgs accepts Spectra2D object & pop results mode 22", {
+	  # expect_silent(tf(MUD1, pop, 22))
+	# })
+
 	test_that("chkArgs rejects classical pca mode 22", {
 	  expect_error(tf(MUD1, pca1, 22))
-	})
-
-# Mode 23
-
-	test_that("chkArgs detects missing Spectra2D object mode 23", {
-	  expect_error(tf(12, 12, 23))
-	})
-
-	test_that("chkArgs detects missing pca object mode 23", {
-	  expect_error(tf(MUD1, 12, 23))
-	})
-
-	test_that("chkArgs detects args in wrong order mode 23", {
-	  expect_error(tf(pca1, MUD1, mode = 23))
-	})	
-
-	# test_that("chkArgs accepts Spectra2D object & mia results mode 23", {
-	  # expect_silent(tf(MUD1, mia, 23))
-	# })
-
-	# test_that("chkArgs accepts Spectra2D object & parafac results mode 23", {
-	  # expect_silent(tf(MUD1, pfac, 23))
-	# })
-
-	test_that("chkArgs rejects classical pca mode 23", {
-	  expect_error(tf(MUD1, pca1, 23))
 	})
 	
 } # end of ChemoSpec2D chkArgs tests

@@ -2,7 +2,7 @@
 #' Verify the Integrity of a Spectra or Spectra2D Object
 #' 
 #' Utility function to verify that the structure of a \code{\link[ChemoSpec]{Spectra}}
-#' or \code{Spectra2D} object is internally consistent.
+#' or \code{\link[ChemoSpec2D]{Spectra2D}} object is internally consistent.
 #' This function should be used after manual editing of these objects.
 #' However, in most cases rather than
 #' directly editing these objects, one should modify them via:
@@ -13,7 +13,7 @@
 #' }
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #' 
 #' @param confirm Logical indicating whether or not to write the results to the
 #' console, as would be desirable for interactive use.
@@ -30,18 +30,20 @@
 #' @importFrom utils str 
 #'
 #' @examples
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+#' \dontrun{
+#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
 #'   chkSpectra(SrE.IR)
 #' }
 #' 
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   chkSpectra(MUD1)
 #' }
-#' 
+#' }
+#'
  
 chkSpectra <- function(spectra, confirm = FALSE) {
 	UseMethod("chkSpectra")

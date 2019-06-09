@@ -1,4 +1,6 @@
-#' 
+#'
+#' plotScores.Spectra2D
+#'
 #' @export
 #' @noRd
 #'
@@ -6,9 +8,9 @@ plotScores.Spectra2D <- function(spectra, so,
 	pcs = c(1,2), ellipse = "none", tol = "none",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 	
-	# This function will handle score plots from MIA or PARAFAC analyses
+	# This function will handle score plots from MIA, PARAFAC or POP analyses
 	
-	.chkArgs(mode = 23L)
+	.chkArgs(mode = 22L)
 	chkSpectra(spectra)
 	if (length(pcs) != 2L) stop("Please supply two scores to plot (argument pcs)")
 
@@ -17,11 +19,19 @@ plotScores.Spectra2D <- function(spectra, so,
 	# Use a sensible xlab and ylab if none provided
 	args <- as.list(match.call()[-1])
 	if (!("xlab" %in% names(args))) {
-		xlab <- paste("Component", pcs[1], sep = " ")
+		if (!"pfac" %in% class(so)) {
+			variance <- .getVarExplained(so)
+			xlab <- paste("Component ", pcs[1], " (", round(variance[ pcs[1] ], 2), "%)", sep = "")
+		}
+		if ("pfac" %in% class(so)) xlab <- paste("Component", pcs[1], sep = " ")
 		args <- c(args, list(xlab = xlab))
 		}
 	if (!("ylab" %in% names(args))) {
-		ylab <- paste("Component", pcs[2], sep = " ")
+		if (!"pfac" %in% class(so)) {
+			variance <- .getVarExplained(so)
+			ylab <- paste("Component ", pcs[2], " (", round(variance[ pcs[2] ], 2), "%)", sep = "")
+		}
+		if ("pfac" %in% class(so)) ylab <- paste("Component", pcs[2], sep = " ")
 		args <- c(args, list(ylab = ylab))
 		}
 

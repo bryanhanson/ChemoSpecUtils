@@ -1,11 +1,11 @@
-
+#'
 #' Add a Legend to a Plot
 #'
 #' Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
 #' \code{ChemoSpec2D} does not use symbols.
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @param use.sym Logical; if true, the color scheme is set to black and the
 #'   points plotted with symbols.  Applies only to \code{ChemoSpec}.
@@ -22,15 +22,6 @@
 #'
 #' @export
 #' @noRd
-#'
-#' @examples
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
-#'   library("ChemoSpec")
-#'   data(SrE.IR)
-#'   plotSpectra(SrE.IR, main = "SrE.IR Data",
-#'	   which = c(1, 5, 16), offset = 0.1, yrange = c(0, 0.5))
-#'   .addLegend(SrE.IR, use.sym = FALSE, leg.loc = list(x = 3500, y = 0.5), bty = "n") 
-#' }
 #'
 
 .addLegend <- function(spectra, leg.loc, use.sym, ...) {

@@ -31,36 +31,25 @@
 	if (mode == 12L) {
 		if (class(args$spectra) != "Spectra")
 			stop("Argument 'spectra' was not found or not a Spectra object")
+		# PCA methods for Spectra objects all have prcomp as the return class
 		pcaOK <- FALSE
-		pcaOK <- any("prcomp" %in% class(args$pca), "conPCA" %in% class(args$pca))
-		if (!pcaOK)  stop("Argument 'pca' was not found or did not have class prcomp or pcaCon")
+		pcaOK <- any("prcomp" %in% class(args$pca), "prcomp" %in% class(args$so))
+		if (!pcaOK)  stop("Argument 'pca' was not found or did not have class prcomp")
 	}
 
 	if (mode == 22L) {
 		if (class(args$spectra) != "Spectra2D")
 			stop("Argument 'spectra' was not found or not a Spectra2D object")
+		# PCA methods for Spectra2D objects have varying classes for return value
 		pcaOK <- FALSE
-		pcaOK <- any("mia" %in% class(args$mia), "parafac" %in% class(args$pfac))
-		if (!pcaOK)  stop("Argument 'mia/pfac' was not found or did not have class mia/parafac")
+		pcaOK <- any("mia" %in% class(args$so),
+		             "pfac" %in% class(args$so),
+		             "pop" %in% class(args$so),
+		             "mia" %in% class(args$pca), # last 3 needed for unit tests
+		             "pfac" %in% class(args$pca),
+		             "pop" %in% class(args$pca))
+		if (!pcaOK)  stop("Argument 'so' was not found or did not have class mia/pfac/pop")
 	}
 
-	##### Special modes below; checking functions that handle any kind of score object
-
-	if (mode == 13L) { # Special for hcaScores.Spectra & plotScores.Spectra
-		if (class(args$spectra) != "Spectra")
-			stop("Argument 'spectra' was not found or not a Spectra object")
-		soOK <- FALSE
-		soOK <- any("prcomp" %in% class(args$so), "conPCA" %in% class(args$so), 
-		  grepl("PCAgrid", args$so), "princomp" %in% class(args$so))
-		if (!soOK)  stop("Argument 'so' was not found or was not the correct class")
-	}
-
-	if (mode == 23L) { # Special for hcaScores.Spectra2D & plotScores.Spectra2D
-		if (class(args$spectra) != "Spectra2D")
-			stop("Argument 'spectra' was not found or not a Spectra2D object")
-		soOK <- FALSE
-		soOK <- any("mia" %in% class(args$so), "parafac" %in% class(args$so))
-		if (!soOK)  stop("Argument 'so' was not found or did not have class mia/parafac")
-	}
 } # end of chkArgs
 

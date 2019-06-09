@@ -1,26 +1,28 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.2.211
-Date: 2019-02-28
+Version: 0.3.20
+Date: 2019-06-09
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
     "hanson@depauw.edu",
-    comment = c("ORCID 0000-0003-3536-8246")))
+    comment = c(ORCID = "0000-0003-3536-8246")))
 Description: Functions supporting the common needs of packages 'ChemoSpec' and 'ChemoSpec2D'.
 License: GPL-3
 Depends:
     R (>= 3.1)
 Suggests:
-    ChemoSpec (>= 5.0),
-    ChemoSpec2D,
-    testthat
-Imports:
-    plyr,
+    ChemoSpec (>= 5.1),
+    ChemoSpec2D (>= 0.3),
+    testthat,
+    tinytest,
     robustbase,
     RColorBrewer,
-    amap
+    amap,
+    irlba
+Imports:
+    plyr
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE

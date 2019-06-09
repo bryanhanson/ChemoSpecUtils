@@ -1,4 +1,6 @@
 #'
+#' Add Info About Method to Plot
+#'
 #' @export
 #' @noRd
 #' @importFrom graphics legend

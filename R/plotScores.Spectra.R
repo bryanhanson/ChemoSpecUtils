@@ -1,4 +1,6 @@
-#' 
+#'
+#' plotScores.Spectra
+#'
 #' @export
 #' @noRd
 #'
@@ -8,12 +10,11 @@ plotScores.Spectra <- function(spectra, so,
 
 	# This function will handle score plots from classical or robust analyses
 	
-	.chkArgs(mode = 13L)
+	.chkArgs(mode = 12L)
 	chkSpectra(spectra)
 	if (length(pcs) != 2L) stop("Please supply two scores to plot (argument pcs)")
 
-	eigensum <- sum(so$sdev*so$sdev) # compute but may not be used
-	variance <- 100*(so$sdev*so$sdev/eigensum)
+	variance <- .getVarExplained(so)
 
 	# See stackoverflow.com/a/46289614/633251 for the concepts re: argument handling
 	# Use a sensible xlab and ylab if none provided

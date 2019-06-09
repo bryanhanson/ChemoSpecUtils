@@ -1,4 +1,6 @@
 #'
+#' sumGroups.Spectra2D
+#'
 #' @noRd
 #' @export
 #'

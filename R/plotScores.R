@@ -2,26 +2,29 @@
 #' Plot Scores from PCA, MIA or PARAFAC Analysis of a Spectra or Spectra2D Object
 #' 
 #' Plots the requested scores using the color scheme derived from the 
-#' \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D} object.
+#' \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}}
-#' or \code{Spectra2D} object.
+#' or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
-#' @param so ("Score Object") Either:
+#' @param so ("Score Object") One of the following:
 #' \itemize{
-#'   \item An object of class \code{\link{prcomp}}, modified to include a
-#' list element called \code{$method}, a character string describing the
-#' pre-processing carried out and the type of PCA performed (it appears on the
-#' plot).  This is automatically provided if \code{ChemoSpec} functions
-#' \code{\link[ChemoSpec]{c_pcaSpectra}} or \code{\link[ChemoSpec]{r_pcaSpectra}}
-#' were used to create \code{pca}.
-#'  \item An object of class \code{mia} produced by
-#'  function \code{miaSpectra2D}.
-#'  \item An object of class \code{parafac} produced by
-#'  function \code{pfacSpectra2D}.
+#'   \item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
+#'   \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}}
+#'   \code{irlba_pcaSpectra} or \code{s_pcaSpectra}.
+#' \item An object of class \code{mia} produced by
+#'  function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
+#' \item An object of class \code{parafac} produced by
+#'  function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
+#' \item An object of class \code{pop} produced by
+#'  function \code{popSpectra2D}.
 #' }
+#' Any of the above score objects will have been modified to include a
+#' list element called \code{$method}, a character string describing the
+#' pre-processing carried out and the type of PCA performed (used to annotate the
+#' plot).
 #'
 #' @param pcs A vector of two integers specifying the components (scores) to plot.
 #'
@@ -52,8 +55,8 @@
 #' @export
 #' 
 #' @examples
-#'
-#' if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+#' \dontrun{
+#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
 #'
@@ -62,7 +65,7 @@
 #' 	   pcs = c(1,2), ellipse = "cls", tol = 0.05)
 #' }
 #' 
-#' if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'
@@ -72,6 +75,7 @@
 #'   set.seed(123)
 #'   res <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
 #'   plotScores(MUD1, res, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
+#' }
 #' }
 #'
 plotScores <- function(spectra, so,

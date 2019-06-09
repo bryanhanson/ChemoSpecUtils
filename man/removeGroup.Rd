@@ -8,16 +8,16 @@ removeGroup(spectra, rem.group)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{Spectra2D}.}
+\code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{rem.group}{A character vector (handled as a regex) giving the groups to be removed.}
 }
 \value{
-An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{Spectra2D}.
+An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
 }
 \description{
 Removes specified groups from a \code{\link[ChemoSpec]{Spectra}} or
-\code{Spectra2D} object.
+\code{\link[ChemoSpec2D]{Spectra2D}} object.
 }
 \details{
 This function will report if extra data elements are found.  These will
@@ -32,7 +32,8 @@ also "XYZ".
 Unused levels in \code{$groups} are dropped.
 }
 \examples{
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+\dontrun{
+if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
 
@@ -41,13 +42,14 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   sumGroups(SrE.IRa)
 }
 
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
 
   sumGroups(MUD1)
-  MUD1a <- removeGroup(MUD1, rem.group = "GroupA")
+  MUD1a <- removeGroup(MUD1, rem.group = "Ether")
   sumGroups(MUD1a)
+}
 }
 
 }

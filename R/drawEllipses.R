@@ -1,6 +1,5 @@
-
-### drawEllipses (ChemoSpec and ChemoSpec2D)
-
+#'
+#' Add Ellipses to Plot
 #'
 #' @export
 #' @noRd

@@ -1,4 +1,6 @@
 #'
+#' removeGroup.Spectra
+#'
 #' @noRd
 #' @export
 #'

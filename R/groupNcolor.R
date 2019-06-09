@@ -1,5 +1,4 @@
 #'
-#'
 #' Assign Group Membership and Colors for a Spectra or Spectra2D Object
 #' 
 #' A utility function which looks for \code{gr.crit} in the file names of .csv
@@ -11,13 +10,13 @@
 #' generally called by the user.
 #' 
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{Spectra2D}.
+#' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #' 
 #' @param gr.crit As per \code{\link{files2SpectraObject}}.
 #' 
 #' @param gr.cols As per \code{\link{files2SpectraObject}}.
 #' 
-#' @return A \emph{complete} object of S3 class \code{Spectra} or \code{Spectra2D}.  This
+#' @return A \emph{complete} object of S3 class \code{Spectra} or \code{\link[ChemoSpec2D]{Spectra2D}}.  This
 #' function is the last internal step in creating these objects.
 #' Until this function has done its job, these objects
 #' will not pass checks as the assembly is not complete

@@ -1,5 +1,5 @@
-
-### addEllipseInfo
+#'
+#' Add Info About Ellipses to Plot
 #'
 #' @export
 #' @noRd

@@ -1,4 +1,6 @@
 #'
+#' hcaScores.Spectra2D
+#'
 #' @export
 #' @noRd 
 #' @importFrom stats hclust
@@ -7,7 +9,7 @@ hcaScores.Spectra2D <- function(spectra, so, scores = c(1:5),
 	c.method = "complete", d.method = "euclidean",
 	use.sym = FALSE, leg.loc = "topright",  ...) {
 	
-	.chkArgs(mode = 23L)
+	.chkArgs(mode = 22L)
 	chkSpectra(spectra)
 
 	sub.title <- paste("clustering method: ", c.method, "      distance method: ", d.method, sep = "")

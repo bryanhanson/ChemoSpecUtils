@@ -8,7 +8,7 @@ removeFreq(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
-\code{Spectra2D} from which to remove frequencies.}
+\code{\link[ChemoSpec2D]{Spectra2D}} from which to remove frequencies.}
 
 \item{rem.freq}{For a \code{Spectra} object, a vector of logicals.
 \code{rem.freq} can be any valid \code{R} statement that leads to a vector of
@@ -20,7 +20,7 @@ a sense, but R evaluates them one at a time and then combines them to give
 the desired result.  You may wish to look at \code{\link{Comparison}} and
 \code{\link{Logic}}. See the examples.}
 
-\item{remF2}{Applies to \code{Spectra2D} objects. A formula giving the range of
+\item{remF2}{Applies to \code{\link[ChemoSpec2D]{Spectra2D}} objects. A formula giving the range of
 frequencies to be extracted.  May include
 "low" or "high" representing the extremes of the spectra.  Values outside the range of
 F2 are tolerated without notice and are handled \code{min} or \code{max}. See the examples.}
@@ -29,11 +29,11 @@ F2 are tolerated without notice and are handled \code{min} or \code{max}. See th
 }
 \value{
 An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{Spectra2D}.
+\code{\link[ChemoSpec2D]{Spectra2D}}.
 }
 \description{
 This function removes specified frequencies from a \code{\link[ChemoSpec]{Spectra}}
-or \code{Spectra2D} object.
+or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 For instance, one might want to remove regions lacking any useful
 information (to reduce the data size), remove regions with large
 interfering peaks (e.g. the water peak in 1H NMR) or simply focus
@@ -41,7 +41,7 @@ on a region of interest.
 }
 \section{Modifying Spectra2D Objects}{
 
-Regarding \code{Spectra2D} objects, one cannot remove frequencies from the interior of
+Regarding \code{\link[ChemoSpec2D]{Spectra2D}} objects, one cannot remove frequencies from the interior of
 a 2D NMR data set and expect
 to get a meaningful contour plot, because doing so puts unrelated peaks adjacent
 in the data set. This would lead to contours being drawn that don't exist in the
@@ -51,7 +51,8 @@ spectrum may not plottable, but the resulting scores are still meaningful).
 }
 
 \examples{
-if (requireNamespace("ChemoSpec", quietly = TRUE)) {
+\dontrun{
+if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
   sumSpectra(SrE.IR)
@@ -78,7 +79,7 @@ if (requireNamespace("ChemoSpec", quietly = TRUE)) {
   sumSpectra(newIR)
 }
 
-if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
+if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
 
@@ -88,23 +89,24 @@ if (requireNamespace("ChemoSpec2D", quietly = TRUE)) {
   MUD1a <- removeFreq(MUD1, remF2 = 2 ~ 4)
   sumSpectra(MUD1a) # cannot plot, results would be misleading
 
-  MUD1b <- removeFreq(MUD1, remF1 = low ~ 15)
+  MUD1b <- removeFreq(MUD1, remF1 = low ~ 20)
   sumSpectra(MUD1b)
   plotSpectra2D(MUD1b, which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\\nRemoved Frequencies: F1 low ~ 15")
+    main = "MUD1 Sample 7\\nRemoved Frequencies: F1 low ~ 20")
 
-  MUD1c <- removeFreq(MUD1, remF2 = low ~ 5)
+  MUD1c <- removeFreq(MUD1, remF2 = low ~ 2)
   sumSpectra(MUD1c)
   plotSpectra2D(MUD1c, , which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\\nRemoved Frequencies: F2 low ~ 5")
+    main = "MUD1 Sample 7\\nRemoved Frequencies: F2 low ~ 2")
 
-  MUD1d <- removeFreq(MUD1, remF2 = 6 ~ high, remF1 = 13 ~ 17)
+  MUD1d <- removeFreq(MUD1, remF2 = 3 ~ high, remF1 = 45 ~ 55)
   sumSpectra(MUD1d) # not plotted, results would be misleading
+}
 }
 
 }
 \seealso{
-\code{removePeaks2D} for another way to remove data.
+\code{\link[ChemoSpec2D]{removePeaks2D}} for another way to remove data.
 }
 \author{
 Bryan A. Hanson, DePauw University.

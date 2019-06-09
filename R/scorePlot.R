@@ -1,4 +1,6 @@
 #'
+#' scorePlot
+#' 
 #' @keywords multivariate robust hplot
 #' @noRd
 #' @export
@@ -11,11 +13,14 @@
 	# Step 0. Check the inputs
 	
 	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
-	case <- NULL # set up flags for the different classes of score results, & check for legit score object
-	if ((class(so) == "prcomp") || (class(so) == "conPCA")) case <- "PCA"
-	if ((class(so) == "parafac") || (class(so) == "mia")) case <- "MIA"
-	if (is.null(case)) stop("Your score object has the wrong class! Double check that the Spectra object is the 1st argument and the score object is the 2nd argument.")
-	if ((case == "MIA") && (use.sym)) stop("ChemoSpec2D does not support use.sym.")
+	
+	case <- NULL # set up flags for the different classes of score results, args already checked
+	if (class(spectra) == "Spectra") case <- "PCA"
+	if (class(spectra) == "Spectra2D") case <- "MIA"
+	if ("pop" %in% class(so)) case <- "PCA"  # pop returns prcomp so even though 2D treat like it's not
+	if (is.null(case)) stop("Could not reconcile data object and scores object.")
+	if ((case == "MIA") && (use.sym)) stop("ChemoSpec2D does not support use.sym")
+	
 	chkSpectra(spectra)
 	
 	# Prep the data
@@ -54,15 +59,20 @@
 		y.ell <- range(llply(ELL, function(x) {range(x[2])}))
 		x.ell.r <- range(llply(ELL, function(x) {range(x[4])}))
 		y.ell.r <- range(llply(ELL, function(x) {range(x[5])}))
-		x.all <- range(x.scores, x.ell, x.ell.r)*c(1.0, 1.15) # expand slightly for labels on right of points
-		y.all <- range(y.scores, y.ell, y.ell.r)*c(1.0, 1.15) # leave room for annotations at top of plot					
+		# extend.limits: stackoverflow.com/a/29647893/633251
+		x.all <- range(x.scores, x.ell, x.ell.r)
+		x.all <- x.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # expand slightly for labels on right of points
+		y.all <- range(y.scores, y.ell, y.ell.r)
+		y.all <- y.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot					
 	}
 
 	if (ellipse == "none") {	
 		x.scores <- range(llply(GRPS, subset, select = 1))
 		y.scores <- range(llply(GRPS, subset, select = 2)) 
-		x.all <- range(x.scores)*c(1.0, 1.15) # expand slightly for labels
-		y.all <- range(y.scores)*c(1.0, 1.15) # leave room for annotations at top of plot
+		# x.all <- range(x.scores)*c(1.0, 1.15) # expand slightly for labels
+		# y.all <- range(y.scores)*c(1.0, 1.15) # leave room for annotations at top of plot
+		x.all <- range(x.scores) + diff(range(x.scores)) * 0.05 * c(-1.0, 1.15) # expand slightly for labels
+		y.all <- range(y.scores) + diff(range(y.scores)) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
 	}
 
 	# Step 2.  Draw the scores.

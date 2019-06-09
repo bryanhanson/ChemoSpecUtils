@@ -1,4 +1,5 @@
-
+#'
+#' removeFreq.Spectra2D
 #'
 #' @noRd
 #' @importFrom plyr is.formula

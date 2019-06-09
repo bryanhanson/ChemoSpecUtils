@@ -1,4 +1,6 @@
 #'
+#' chkSpectra.Spectra2D
+#'
 #' @export
 #' @noRd
 #' 
@@ -23,8 +25,8 @@ chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	if (!class(spectra$names) == "character") {
 		warning("The sample names are not character type")
 		trouble <- TRUE }
-	if (!class(spectra$units) == "character") {
-		warning("The units are not character type")
+	if (!((class(spectra$unit) == "character") | (is.expression(spectra$unit)))) {
+		warning("The units are not character or expression type")
 		trouble <- TRUE }
 	if (!class(spectra$desc) == "character") {
 		warning("The description is not character type")
@@ -57,8 +59,16 @@ chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	Ucol2 <- length(unique(dims[,2])) == 1L
 	
 	if (!Ucol1 | !Ucol2) {
-		message("Data matrices do not have the same dimensions.")
 		print(dims)
+		stop("Data matrices do not have the same dimensions.")
+	}
+	
+	# Check that the data matrices have no attributes except dim (messes with the next check if present)
+	
+	M <- spectra$data
+	for (i in 1:ns) {
+	  at <- attributes(M[[i]])
+	  if (length(setdiff(names(at), "dim") > 0)) stop("Please remove extra attributes in the data matrices") 
 	}
 	
 	# Check that data matrices have NAs in the same positions, if they have them at all

@@ -1,4 +1,6 @@
 #'
+#' removeSample.Spectra
+#'
 #' @noRd
 #' @export
 #'
