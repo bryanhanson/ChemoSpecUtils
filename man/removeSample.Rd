@@ -31,7 +31,6 @@ grepping process is greedy, i.e. grepping for "XY" find not only "XY" but
 also "XYZ".
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
@@ -59,7 +58,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   MUD1$names
   MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
   MUD1b$names
-}
 }
 
 }

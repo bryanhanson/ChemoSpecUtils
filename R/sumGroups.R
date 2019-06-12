@@ -23,7 +23,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
@@ -34,7 +33,6 @@
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   sumGroups(MUD1)
-#' }
 #' }
 #'
 sumGroups <- function(spectra){

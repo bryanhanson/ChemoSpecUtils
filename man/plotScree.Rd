@@ -34,7 +34,6 @@ more informative.  These plots illustrate the variance explained by each compone
 in a PCA or MIA analysis.
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(metMUD1)
@@ -50,7 +49,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 
   mia <- miaSpectra2D(MUD1)
   plotScree(mia, style = "alt")
-}
 }
 
 }

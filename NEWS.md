@@ -1,3 +1,8 @@
+# ChemoSpecUtils 0.x.xx 2019-xx-xx
+## Misc.
+* Unit test framework converted to `tinytest`.
+* Removed `dontrun` sections in examples, needed for last submit.
+
 # ChemoSpecUtils 0.3.20 2019-06-09
 ## Improvements
 * Internal changes to the handling of PCA results were made to accommodate the introduction of additional PCA options.  Some of these are listed below.

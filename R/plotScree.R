@@ -33,7 +33,6 @@
 #' @keywords multivariate hplot
 #' @export
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
@@ -49,7 +48,6 @@
 #'
 #'   mia <- miaSpectra2D(MUD1)
 #'   plotScree(mia, style = "alt")
-#' }
 #' }
 #'
 plotScree <- function(pca,  style = "alt", ...) {

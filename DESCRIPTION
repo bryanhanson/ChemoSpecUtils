@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.3.20
-Date: 2019-06-09
+Version: 0.3.26
+Date: 2019-06-12
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -11,11 +11,10 @@ Authors@R: c(
 Description: Functions supporting the common needs of packages 'ChemoSpec' and 'ChemoSpec2D'.
 License: GPL-3
 Depends:
-    R (>= 3.1)
+    R (>= 3.5)
 Suggests:
     ChemoSpec (>= 5.1),
     ChemoSpec2D (>= 0.3),
-    testthat,
     tinytest,
     robustbase,
     RColorBrewer,

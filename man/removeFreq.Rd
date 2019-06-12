@@ -51,7 +51,6 @@ spectrum may not plottable, but the resulting scores are still meaningful).
 }
 
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
@@ -101,7 +100,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 
   MUD1d <- removeFreq(MUD1, remF2 = 3 ~ high, remF1 = 45 ~ 55)
   sumSpectra(MUD1d) # not plotted, results would be misleading
-}
 }
 
 }

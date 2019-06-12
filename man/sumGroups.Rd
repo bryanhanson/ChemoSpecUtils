@@ -24,7 +24,6 @@ This function summarizes the group membership	 of
 a \code{Spectra} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
@@ -35,7 +34,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
   sumGroups(MUD1)
-}
 }
 
 }

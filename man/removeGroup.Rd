@@ -32,7 +32,6 @@ also "XYZ".
 Unused levels in \code{$groups} are dropped.
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
@@ -49,7 +48,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   sumGroups(MUD1)
   MUD1a <- removeGroup(MUD1, rem.group = "Ether")
   sumGroups(MUD1a)
-}
 }
 
 }

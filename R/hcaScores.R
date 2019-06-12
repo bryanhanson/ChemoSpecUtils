@@ -51,7 +51,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
@@ -70,7 +69,6 @@
 #'   set.seed(123)
 #'   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
 #'   hca <- hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
-#' }
 #' }
 #'
 hcaScores <- function(spectra, so, scores = c(1:5),

@@ -25,7 +25,6 @@ This function permits you to change the color scheme of an existing
 \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(metMUD1)
@@ -42,7 +41,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   sumSpectra(MUD1)
   newSpec <- conColScheme(MUD1) # reports old colors
   newSpec <- conColScheme(MUD1, new = c("pink", "violet"))
-}
 }
 
 }

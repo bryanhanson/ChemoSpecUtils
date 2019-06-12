@@ -23,7 +23,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
@@ -40,7 +39,6 @@
 #'   sumSpectra(MUD1)
 #'   newSpec <- conColScheme(MUD1) # reports old colors
 #'   newSpec <- conColScheme(MUD1, new = c("pink", "violet"))
-#' }
 #' }
 #' 
 conColScheme <- function(spectra, new.cols = NULL, silent = FALSE) {

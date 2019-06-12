@@ -25,7 +25,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
@@ -37,7 +36,6 @@
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   MUD1a <- updateGroups(MUD1, new.grps = c("control", "treatment"))
-#' }
 #' }
 #'
 

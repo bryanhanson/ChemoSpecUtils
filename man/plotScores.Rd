@@ -58,7 +58,6 @@ Options are provided to add confidence ellipses for each group in the object.
 The ellipses may be robust or classical.  Option to label the extreme points provided.
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(metMUD1)
@@ -78,7 +77,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   set.seed(123)
   res <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
   plotScores(MUD1, res, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
-}
 }
 
 }

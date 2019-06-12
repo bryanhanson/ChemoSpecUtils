@@ -28,7 +28,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
@@ -56,7 +55,6 @@
 #'   MUD1$names
 #'   MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
 #'   MUD1b$names
-#' }
 #' }
 #'
 

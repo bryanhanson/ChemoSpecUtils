@@ -31,7 +31,6 @@ directly editing these objects, one should modify them via:
 }
 }
 \examples{
-\dontrun{
 if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("ChemoSpec")
   data(SrE.IR)
@@ -42,7 +41,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
   chkSpectra(MUD1)
-}
 }
 
 }
