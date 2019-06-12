@@ -13,13 +13,13 @@
 #' \itemize{
 #'   \item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
 #'   \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}}
-#'   \code{irlba_pcaSpectra} or \code{s_pcaSpectra}.
+#'   \code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
 #' \item An object of class \code{mia} produced by
 #'  function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
 #' \item An object of class \code{parafac} produced by
 #'  function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
 #' \item An object of class \code{pop} produced by
-#'  function \code{popSpectra2D}.
+#'  function \code{\link[ChemoSpec2D]{popSpectra2D}}.
 #' }
 #' Any of the above score objects will have been modified to include a
 #' list element called \code{$method}, a character string describing the
