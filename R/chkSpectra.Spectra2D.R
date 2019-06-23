@@ -98,6 +98,14 @@ chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 	if (!identical(ns, g)) { warning("The dimensions don't make sense (names, group)"); trouble <- TRUE }
 	if (!identical(ns, nc)) { warning("The dimensions don't make sense (names, colors)"); trouble <- TRUE }
 	
+	# Check for duplicates sample names
+	
+	dup <- anyDuplicated(spectra$names)
+	if (dup != 0L) {
+		message("Duplicate sample names found, please inspect/repair")
+		trouble <- TRUE
+	}
+
 	# Check for extra list elements and report
 
 	extra <- .extraData(spectra)

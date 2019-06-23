@@ -56,6 +56,14 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 		}	
 	}
 
+	# Check for duplicates sample names
+	
+	dup <- anyDuplicated(spectra$names)
+	if (dup != 0L) {
+		message("Duplicate sample names found, please inspect/repair")
+		trouble <- TRUE
+	}
+	
 	# Check for extra list elements and report
 
 	extra <- .extraData(spectra)

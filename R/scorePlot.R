@@ -10,6 +10,10 @@
 	pcs = c(1,2), ellipse = "none", tol = "none",
 	use.sym = FALSE, leg.loc = "topright", ...) {
 
+  	# Handle user-provided xlim and/or ylim
+	
+	args <- as.list(match.call())[-1] # a COPY of the args for use with do.call
+	
 	# Step 0. Check the inputs
 	
 	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
@@ -77,8 +81,14 @@
 
 	# Step 2.  Draw the scores.
 	
-	.drawPoints(DF[,1:2], spectra, case = case, use.sym = use.sym, xlim = x.all, ylim = y.all, ...)
+	dPargs <- list(PCs = DF[,1:2], spectra = spectra, case = case, use.sym = use.sym, ... = ...)
+	
+	# Allow user to give xlim, ylim but provide good defaults as well
+	if (! "xlim" %in% names(args)) dPargs <- c(dPargs, list(xlim = x.all))
+	if (! "ylim" %in% names(args)) dPargs <- c(dPargs, list(ylim = y.all))
 
+	do.call(.drawPoints, dPargs)
+	
 	# Step 3.  Draw the ellipses if requested.
 	
 	if ((ellipse == "cls") | (ellipse == "rob") | (ellipse == "both")) .drawEllipses(ELL, gr, ellipse, use.sym, ...)
