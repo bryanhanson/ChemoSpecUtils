@@ -31,7 +31,7 @@ plot).}
 \item{pcs}{A vector of two integers specifying the components (scores) to plot.}
 
 \item{ellipse}{A character vector specifying the type of ellipses to be
-plotted.  One of \code{c("both", "none", "cls", "rob")}.  \code{cls}
+plotted.  One of \code{c("both"}, \code{"none"}, \code{"cls"}, \code{"rob")}.  \code{cls}
 specifies classical confidence ellipses, \code{rob} specifies robust
 confidence ellipses.  An ellipse is drawn for each group unless there
 are three or fewer samples in the group.}

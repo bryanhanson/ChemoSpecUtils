@@ -1,4 +1,4 @@
-# ChemoSpecUtils 0.3.35 2019-06-23
+# ChemoSpecUtils 0.3.38 2019-06-24
 ## Improvements
 * `chkSpectra` methods now check for duplicated sample names.
 * `plotScores` now accepts user supplied values for `xlim` and/or `ylim`; the default calculation is still available.
@@ -6,7 +6,7 @@
 ## Misc.
 * Unit test framework converted to `tinytest`.
 * `rowDist(..., method = "cosine")` now has a unit test.
-* Removed `dontrun` sections in examples, needed for last submision.
+* Removed `dontrun` sections in examples, needed for last submission.
 
 # ChemoSpecUtils 0.3.20 2019-06-09
 ## Improvements
