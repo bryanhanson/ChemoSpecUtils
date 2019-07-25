@@ -1,4 +1,4 @@
-# ChemoSpecUtils 0.3.38 2019-06-24
+# ChemoSpecUtils 0.3.39 2019-06-24
 ## Improvements
 * `chkSpectra` methods now check for duplicated sample names.
 * `plotScores` now accepts user supplied values for `xlim` and/or `ylim`; the default calculation is still available.
