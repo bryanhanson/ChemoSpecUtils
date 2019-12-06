@@ -4,6 +4,7 @@
 * `sumSpectra.Spectra` now respects/accepts the `...` argument, used to pass `tol`.  This was accidentally disabled.
 ## Misc.
 * Some issues involving class(es) of matrices and class-checking in general, fixed to conform to new defaults in R 4.x series, coming soon, at the request of CRAN folks.
+* Built and checked against R 4.x development version.
 
 # ChemoSpecUtils 0.3.39 2019-06-24
 ## Improvements
