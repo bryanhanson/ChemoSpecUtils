@@ -19,9 +19,9 @@
 	if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
 	
 	case <- NULL # set up flags for the different classes of score results, args already checked
-	if (class(spectra) == "Spectra") case <- "PCA"
-	if (class(spectra) == "Spectra2D") case <- "MIA"
-	if ("pop" %in% class(so)) case <- "PCA"  # pop returns prcomp so even though 2D treat like it's not
+	if (inherits(spectra, "Spectra")) case <- "PCA"
+	if (inherits(spectra, "Spectra2D")) case <- "MIA"
+	if (inherits(so, "pop")) case <- "PCA"  # pop returns prcomp so even though 2D treat like it's not
 	if (is.null(case)) stop("Could not reconcile data object and scores object.")
 	if ((case == "MIA") && (use.sym)) stop("ChemoSpec2D does not support use.sym")
 	
