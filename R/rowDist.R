@@ -34,29 +34,29 @@
 #'
 rowDist <- function(x, method) {
 
-# Function to access a variety of distance methods which turn out to be in different packages,
-# except for cosine which is handled here.
 # Some code suggested by Roberto Canteri, and used with extremely minor modifications
-# Part of ChemoSpec, October 2011,  Bryan Hanson, DePauw University
 
-	method <- match.arg(method, c("pearson", "correlation", "spearman", "kendall",
-		"euclidean", "maximum", "manhattan", "canberra","binary", "minkowski",
-		"cosine"))
+  method <- match.arg(method, c("pearson", "correlation", "spearman", "kendall",
+    "euclidean", "maximum", "manhattan", "canberra","binary", "minkowski", "cosine"))
 
-	if (method %in% c("pearson", "correlation", "spearman", "kendall")) {
-		if (!requireNamespace("amap", quietly = TRUE)) {
-			stop("You need to install package amap to use this function/option")
-			}
-		distance <- amap::Dist(x, method = method)
-		}
-		
-	if (method %in% c("euclidean", "maximum", "manhattan", "canberra","binary", "minkowski")) {
-		distance <- dist(x, method = method)
-		}
-		
-	if ( method == "cosine") { # stackoverflow.com/a/19550737/633251
-		distance <- as.dist(1 - (x%*%t(x)/(sqrt(rowSums(x^2) %*% t(rowSums(x^2))))))
-		}
-
-	return(distance)
+  if (method %in% c("pearson", "correlation", "spearman", "kendall")) {
+    if (!requireNamespace("amap", quietly = TRUE)) {
+      stop("You need to install package amap to use this function/option")
 	}
+	# Note amap::Dist returns some values different, see documentation
+    if ((method == "correlation") | (method == "pearson")) distance <- 1 - amap::Dist(x, method = method)
+    if ((method == "spearman") | (method == "kendall")) distance <- amap::Dist(x, method = method)
+  }
+		
+  if (method %in% c("euclidean", "maximum", "manhattan", "canberra","binary", "minkowski")) {
+    distance <- dist(x, method = method)
+  }
+		
+  if ( method == "cosine") { # stackoverflow.com/a/19550737/633251 but note we need the distance
+    distance <- as.dist(x%*%t(x)/(sqrt(rowSums(x^2) %*% t(rowSums(x^2)))))
+  }
+
+  distance
+}
+
+

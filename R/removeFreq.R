@@ -24,7 +24,7 @@
 #' @param remF2 Applies to \code{\link[ChemoSpec2D]{Spectra2D}} objects. A formula giving the range of
 #' frequencies to be extracted.  May include
 #' "low" or "high" representing the extremes of the spectra.  Values outside the range of
-#' F2 are tolerated without notice and are handled \code{min} or \code{max}. See the examples.
+#' F2 are tolerated without notice and are handled as \code{min} or \code{max}. See the examples.
 #'
 #' @param remF1 As for \code{remF2}.
 #'

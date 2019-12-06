@@ -23,7 +23,7 @@ the desired result.  You may wish to look at \code{\link{Comparison}} and
 \item{remF2}{Applies to \code{\link[ChemoSpec2D]{Spectra2D}} objects. A formula giving the range of
 frequencies to be extracted.  May include
 "low" or "high" representing the extremes of the spectra.  Values outside the range of
-F2 are tolerated without notice and are handled \code{min} or \code{max}. See the examples.}
+F2 are tolerated without notice and are handled as \code{min} or \code{max}. See the examples.}
 
 \item{remF1}{As for \code{remF2}.}
 }
@@ -91,12 +91,12 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   MUD1b <- removeFreq(MUD1, remF1 = low ~ 20)
   sumSpectra(MUD1b)
   plotSpectra2D(MUD1b, which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\\nRemoved Frequencies: F1 low ~ 20")
+    main = "MUD1 Sample 7\nRemoved Frequencies: F1 low ~ 20")
 
   MUD1c <- removeFreq(MUD1, remF2 = low ~ 2)
   sumSpectra(MUD1c)
   plotSpectra2D(MUD1c, , which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\\nRemoved Frequencies: F2 low ~ 2")
+    main = "MUD1 Sample 7\nRemoved Frequencies: F2 low ~ 2")
 
   MUD1d <- removeFreq(MUD1, remF2 = 3 ~ high, remF1 = 45 ~ 55)
   sumSpectra(MUD1d) # not plotted, results would be misleading

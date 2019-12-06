@@ -20,11 +20,11 @@ plotScores.Spectra <- function(spectra, so,
 	# Use a sensible xlab and ylab if none provided
 	args <- as.list(match.call()[-1])
 	if (!("xlab" %in% names(args))) {
-		xlab <- paste("PC", pcs[1], " score (", format(variance[pcs[1]], digits=2), "%", ")", sep = "")
+		xlab <- paste("PC", pcs[1], " score (", format(variance[ pcs[1] ], digits=2), "%", ")", sep = "")
 		args <- c(args, list(xlab = xlab))
 		}
 	if (!("ylab" %in% names(args))) {
-		ylab <- paste("PC", pcs[2], " score (", format(variance[pcs[2]], digits=2), "%", ")", sep = "")
+		ylab <- paste("PC", pcs[2], " score (", format(variance[ pcs[2] ], digits=2), "%", ")", sep = "")
 		args <- c(args, list(ylab = ylab))
 		}
 

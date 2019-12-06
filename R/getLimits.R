@@ -12,15 +12,27 @@
 
 .getLimits <- function(spectra, dim, form) {
 	
-	.chkArgs(mode = 0L)
+  .chkArgs(mode = 0L)
 	
-	lhs <- form[[2]]
-	rhs <- form[[3]]
-	if (as.character(lhs) == "low") lhs <- min(spectra[[dim]])
-	if (as.character(lhs) == "high") lhs <- max(spectra[[dim]]) 
-	if (as.character(rhs) == "low") rhs <- min(spectra[[dim]])
-	if (as.character(rhs) == "high") rhs <- max(spectra[[dim]])
-	ans <- c(lhs, rhs)
-	if (is.unsorted(ans)) ans <- rev(ans)
-	return(ans) # should always give numeric values in order
+  lhs <- form[[2]]
+  rhs <- form[[3]]
+
+  # capture quoted (SE) or bare variables (NSE): low and "low"
+  if (is.symbol(lhs) | is.character(lhs)) {
+    if (as.character(lhs) == "low") lhs <- min(spectra[[dim]])
+    if (as.character(lhs) == "high") lhs <- max(spectra[[dim]])	
+  }
+	
+  if (is.symbol(rhs) | is.character(rhs)) {
+    if (as.character(rhs) == "low") rhs <- min(spectra[[dim]])
+    if (as.character(rhs) == "high") rhs <- max(spectra[[dim]])		
+  }
+
+  # capture negative numeric values, which inexplicably are parsed as language objects
+  if (is.language(lhs)) lhs <- as.numeric(deparse(lhs))
+  if (is.language(rhs)) rhs <- as.numeric(deparse(rhs))
+  
+  ans <- c(lhs, rhs)
+  if (is.unsorted(ans)) ans <- rev(ans)
+  return(ans) # should always give numeric values in order
 }

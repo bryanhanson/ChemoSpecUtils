@@ -14,7 +14,7 @@ sumSpectra.Spectra <- function(spectra, ...){
 	# if ("tol" %in% args2) h <- check4Gaps(spectra$freq, silent = TRUE, ...)	
 
 	# Summarize a few things
-	h <- check4Gaps(spectra$freq, silent = TRUE)
+	h <- check4Gaps(spectra$freq, silent = TRUE, ...)
 	g <- sumGroups(spectra)
 	res <- abs(median(diff(spectra$freq))) # consistent with method of determining tol above
 	

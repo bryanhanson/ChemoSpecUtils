@@ -4,8 +4,16 @@
 \alias{hcaScores}
 \title{HCA on PCA/MIA/PARAFAC scores from a Spectra or Spectra2D Object}
 \usage{
-hcaScores(spectra, so, scores = c(1:5), c.method = "complete",
-  d.method = "euclidean", use.sym = FALSE, leg.loc = "topright", ...)
+hcaScores(
+  spectra,
+  so,
+  scores = c(1:5),
+  c.method = "complete",
+  d.method = "euclidean",
+  use.sym = FALSE,
+  leg.loc = "topright",
+  ...
+)
 }
 \arguments{
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.}

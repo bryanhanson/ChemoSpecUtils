@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.3.39
-Date: 2019-07-24
+Version: 0.3.52
+Date: 2019-12-05
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -27,4 +27,4 @@ Imports:
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
