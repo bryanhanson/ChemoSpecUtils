@@ -18,7 +18,7 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 	if (!inherits(spectra, "Spectra")) { warning("The object provided was not a Spectra object"); trouble <- TRUE }
 	if (!inherits(spectra$freq, "numeric")) { warning("class(freq) is not numeric"); trouble <- TRUE }
 	if (!inherits(spectra$data, "matrix")) { warning("class(data) is not matrix"); trouble <- TRUE }
-	if (!inherits(spectra$names, "character") { warning("class(names) is not character"); trouble <- TRUE }
+	if (!inherits(spectra$names, "character")) { warning("class(names) is not character"); trouble <- TRUE }
 	if (!inherits(spectra$colors, "character")) { warning("class(colors) is not character"); trouble <- TRUE }
 	if (!((inherits(spectra$unit, "character")) | (is.expression(spectra$unit)))) {
 		warning("class(unit) is not character or expression")
