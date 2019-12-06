@@ -15,17 +15,17 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 	
 	# Check classes/types
 	
-	if (!class(spectra) == "Spectra") { warning("The object provided was not of class Spectra"); trouble <- TRUE }
-	if (!class(spectra$freq) == "numeric") { warning("The frequency data appear are not numeric"); trouble <- TRUE }
-	if (!class(spectra$data) == "matrix") { warning("The spectral intensities are not matrix type"); trouble <- TRUE }
-	if (!class(spectra$names) == "character") { warning("The sample names are not character type"); trouble <- TRUE }
-	if (!class(spectra$color) == "character") { warning("The colors are not character type"); trouble <- TRUE }
-	if (!((class(spectra$unit) == "character") | (is.expression(spectra$unit)))) {
-		warning("The units are not character or expression type")
+	if (!inherits(spectra, "Spectra")) { warning("The object provided was not a Spectra object"); trouble <- TRUE }
+	if (!inherits(spectra$freq, "numeric")) { warning("class(freq) is not numeric"); trouble <- TRUE }
+	if (!inherits(spectra$data, "matrix")) { warning("class(data) is not matrix"); trouble <- TRUE }
+	if (!inherits(spectra$names, "character") { warning("class(names) is not character"); trouble <- TRUE }
+	if (!inherits(spectra$colors, "character")) { warning("class(colors) is not character"); trouble <- TRUE }
+	if (!((inherits(spectra$unit, "character")) | (is.expression(spectra$unit)))) {
+		warning("class(unit) is not character or expression")
 		trouble <- TRUE
 	}
-	if (!class(spectra$desc) == "character") { warning("The description is not character type"); trouble <- TRUE }
-	if (!class(spectra$groups) == "factor") { warning("The groups are not factor type"); trouble <- TRUE }
+	if (!inherits(spectra$desc, "character")) { warning("class(desc) is not character"); trouble <- TRUE }
+	if (!inherits(spectra$groups, "factor")) { warning("class(groups) is not factor"); trouble <- TRUE }
 	
 	# Check dimensions & relationships
 	

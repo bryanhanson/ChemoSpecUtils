@@ -10,32 +10,32 @@ chkSpectra.Spectra2D <- function(spectra, confirm = FALSE) {
 		
 	trouble <- FALSE
 	extra <- FALSE
-	if (!class(spectra) == "Spectra2D") {
-		warning("The object provided was not of class Spectra2D")
+	if (!inherits(spectra, "Spectra2D")) {
+		warning("The object provided was not a Spectra2D object")
 		trouble <- TRUE }
-	if (!class(spectra$F2) == "numeric") {
-		warning("The F2 frequency data are not numeric")
+	if (!inherits(spectra$F2, "numeric") {
+		warning("The F2 frequency data are not class numeric")
 		trouble <- TRUE }
-	if (!class(spectra$F1) == "numeric") {
-		warning("The F1 frequency data are not numeric")
+	if (!inherits(spectra$F1, "numeric") {
+		warning("The F1 frequency data are not class numeric")
 		trouble <- TRUE }
-	if (!class(spectra$data) == "list") {
-		warning("Data is not a list")
+	if (!inherits(spectra$data, "list")) {
+		warning("The data entry is not class list")
 		trouble <- TRUE }
-	if (!class(spectra$names) == "character") {
-		warning("The sample names are not character type")
+	if (!inherits(spectra$names, "character") {
+		warning("The sample names are not class character")
 		trouble <- TRUE }
-	if (!((class(spectra$unit) == "character") | (is.expression(spectra$unit)))) {
-		warning("The units are not character or expression type")
+	if (!((inherits(spectra$unit, "character")) | (is.expression(spectra$unit)))) {
+		warning("The units are not class character or expression")
 		trouble <- TRUE }
-	if (!class(spectra$desc) == "character") {
-		warning("The description is not character type")
+	if (!inherits(spectra$desc, "character") {
+		warning("The description is not class character")
 		trouble <- TRUE }
-	if (!class(spectra$groups) == "factor") {
-		warning("The assigned groups are not factor type")
+	if (!inherits(spectra$groups, "factor") {
+		warning("The assigned groups are not class factor")
 		trouble <- TRUE }
-	if (!class(spectra$colors) == "character") {
-		warning("The assigned colors are not character type")
+	if (!inherits(spectra$colors, "character") {
+		warning("The assigned colors are not class character")
 		trouble <- TRUE }
 	
 	# Check that F2 and F1 are sorted ascending
