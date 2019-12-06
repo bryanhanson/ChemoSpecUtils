@@ -10,10 +10,10 @@
 	
 	trouble <- FALSE
 	spec.names <- names(spectra)
-	if (class(spectra) == "Spectra") {
+	if (inherits(spectra, "Spectra")) {
 		reqd.names <- c("freq", "data", "names", "groups", "colors", "sym", "alt.sym", "unit", "desc")
 		}
-	if (class(spectra) == "Spectra2D") {
+	if (inherits(spectra, "Spectra2D")) {
 		reqd.names <- c("F2", "F1", "data", "names", "groups", "colors", "units", "desc")
 		}
 	extra <- setdiff(spec.names, reqd.names)

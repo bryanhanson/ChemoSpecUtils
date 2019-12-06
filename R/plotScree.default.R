@@ -31,14 +31,14 @@ plotScree.default <- function(pca, style = "alt", ...) {
 	if (style == "alt") {
 	
 	# Handle class specific stuff here, better than separate dispatch
-		if ("prcomp" %in% class(pca)) {
+		if (inherits(pca, "prcomp")) {
 			plot(rep(1:ncp, each = nrow(pca$x)), as.vector(pca$x[,1:ncp]), type = "p",
 				col = "red", xlab = "component", ylab = "scores",
 				xlim = c(1, ncp+0.5), cex = 0.5, xaxt = "n", ...)
 			y.pos <- apply(pca$x[,1:ncp], MARGIN = 2, FUN = range) # used in a moment
 		}
 		
-		if ("mia" %in% class(pca)){
+		if (inherits(pca, "mia")){
 			plot(rep(1:ncp, each = nrow(pca$C)), as.vector(pca$C[,1:ncp]), type = "p",
 				col = "red", xlab = "component", ylab = "scores",
 				xlim = c(1, ncp+0.5), cex = 0.5, xaxt = "n", ...)
