@@ -29,13 +29,13 @@
 	
 	# Modify the original objects
 	
-	if (class(spectra) == "Spectra") { # Spectra objects only
+	if (inherits(spectra, "Spectra")) { # Spectra objects only
 		spectra$data <- spectra$data[-kill,]
 		spectra$sym <- spectra$sym[-kill]
 		spectra$alt.sym <- spectra$alt.sym[-kill]
 	}
 	
-	if (class(spectra) == "Spectra2D") spectra$data <- spectra$data[-kill, drop = FALSE]
+	if (inherits(spectra, "Spectra2D")) spectra$data <- spectra$data[-kill, drop = FALSE]
 	
 	# Both classes
 	spectra$names <- spectra$names[-kill]
