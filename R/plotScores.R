@@ -1,11 +1,11 @@
 #'
 #' Plot Scores from PCA, MIA or PARAFAC Analysis of a Spectra or Spectra2D Object
-#' 
-#' Plots the requested scores using the color scheme derived from the 
+#'
+#' Plots the requested scores using the color scheme derived from the
 #' \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
-#' 
+#'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}}
 #' or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
@@ -53,17 +53,19 @@
 #' @keywords multivariate robust hplot
 #'
 #' @export
-#' 
+#'
 #' @examples
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   data(metMUD1)
 #'
 #'   pca <- c_pcaSpectra(metMUD1)
-#'   plotScores(metMUD1, pca, main = "metMUD1 NMR Data",
-#' 	   pcs = c(1,2), ellipse = "cls", tol = 0.05)
+#'   plotScores(metMUD1, pca,
+#'     main = "metMUD1 NMR Data",
+#'     pcs = c(1, 2), ellipse = "cls", tol = 0.05
+#'   )
 #' }
-#' 
+#'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
@@ -75,11 +77,8 @@
 #'   res <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
 #'   plotScores(MUD1, res, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
 #' }
-#'
 plotScores <- function(spectra, so,
-	pcs = c(1,2), ellipse = "none", tol = "none",
-	use.sym = FALSE, leg.loc = "topright", ...) {
-
-	UseMethod("plotScores")
+                       pcs = c(1, 2), ellipse = "none", tol = "none",
+                       use.sym = FALSE, leg.loc = "topright", ...) {
+  UseMethod("plotScores")
 }
-

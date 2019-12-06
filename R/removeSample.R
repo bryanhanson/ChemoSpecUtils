@@ -1,9 +1,9 @@
 #'
 #' Remove Samples from a Spectra or Spectra2D Object
-#' 
+#'
 #' Removes specified samples from a \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}} object.
-#' 
+#'
 #' This function will report if extra data elements are found.  These will
 #' probably need to be edited manually.  The indices reported to the console
 #' can be helpful in this regard.
@@ -13,12 +13,12 @@
 #' grepping process is greedy, i.e. grepping for "XY" find not only "XY" but
 #' also "XYZ".
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (handled as a regex) giving the sample names to be removed.
-#' 
+#'
 #' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @author Bryan A. Hanson, DePauw University.
@@ -41,11 +41,11 @@
 #'   SrE.IRb <- removeSample(SrE.IR, rem.sam = "NW_adSrE")
 #'   SrE.IRb$names
 #' }
-#' 
+#'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
-#'   
+#'
 #'   # Removes the 5th spectrum:
 #'   MUD1$names
 #'   MUD1a <- removeSample(MUD1, rem.sam = 5)
@@ -56,8 +56,6 @@
 #'   MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
 #'   MUD1b$names
 #' }
-#'
-
 removeSample <- function(spectra, rem.sam) {
-	UseMethod("removeSample")
+  UseMethod("removeSample")
 }

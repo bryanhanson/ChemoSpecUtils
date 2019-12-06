@@ -7,7 +7,7 @@
 removeFreq(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}} from which to remove frequencies.}
 
 \item{rem.freq}{For a \code{Spectra} object, a vector of logicals.
@@ -61,11 +61,11 @@ if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 
   # Remove frequencies from both ends at once:
   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 3500
-     | SrE.IR$freq < 800)
+  | SrE.IR$freq < 800)
 
   # Remove frequencies from the middle:
   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 800
-     & SrE.IR$freq < 1000)
+  & SrE.IR$freq < 1000)
 
   # The logic of this last one is as follows.  Any values
   # that are TRUE will be removed.
@@ -82,26 +82,31 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
 
-  plotSpectra2D(MUD1, which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7: Complete Data Set")
+  plotSpectra2D(MUD1,
+    which = 7, lvls = seq(-1, 1, by = 0.2),
+    main = "MUD1 Sample 7: Complete Data Set"
+  )
 
   MUD1a <- removeFreq(MUD1, remF2 = 2 ~ 4)
   sumSpectra(MUD1a) # cannot plot, results would be misleading
 
   MUD1b <- removeFreq(MUD1, remF1 = low ~ 20)
   sumSpectra(MUD1b)
-  plotSpectra2D(MUD1b, which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\nRemoved Frequencies: F1 low ~ 20")
+  plotSpectra2D(MUD1b,
+    which = 7, lvls = seq(-1, 1, by = 0.2),
+    main = "MUD1 Sample 7\nRemoved Frequencies: F1 low ~ 20"
+  )
 
   MUD1c <- removeFreq(MUD1, remF2 = low ~ 2)
   sumSpectra(MUD1c)
-  plotSpectra2D(MUD1c, , which = 7, lvls = seq(-1, 1, by = 0.2),
-    main = "MUD1 Sample 7\nRemoved Frequencies: F2 low ~ 2")
+  plotSpectra2D(MUD1c, ,
+    which = 7, lvls = seq(-1, 1, by = 0.2),
+    main = "MUD1 Sample 7\nRemoved Frequencies: F2 low ~ 2"
+  )
 
   MUD1d <- removeFreq(MUD1, remF2 = 3 ~ high, remF1 = 45 ~ 55)
   sumSpectra(MUD1d) # not plotted, results would be misleading
 }
-
 }
 \seealso{
 \code{\link[ChemoSpec2D]{removePeaks2D}} for another way to remove data.

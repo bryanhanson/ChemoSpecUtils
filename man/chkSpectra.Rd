@@ -7,7 +7,7 @@
 chkSpectra(spectra, confirm = FALSE)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{confirm}{Logical indicating whether or not to write the results to the
@@ -42,7 +42,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   data(MUD1)
   chkSpectra(MUD1)
 }
-
 }
 \author{
 Bryan A. Hanson, DePauw University.

@@ -7,17 +7,17 @@
 conColScheme(spectra, new.cols = NULL, silent = FALSE)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.}
 
-\item{new.cols}{A character vector giving the new color values, of 
+\item{new.cols}{A character vector giving the new color values, of
 \code{length(unique(spectra$colors))}.
 If not provided, the function will print the old values for reference.}
 
 \item{silent}{Logical.  If \code{TRUE}, suppresses all reporting.}
 }
 \value{
-spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}\code{\link[ChemoSpec2D]{Spectra2D}}.
 }
 \description{
@@ -42,7 +42,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   newSpec <- conColScheme(MUD1) # reports old colors
   newSpec <- conColScheme(MUD1, new = c("pink", "violet"))
 }
-
 }
 \seealso{
 For a discussion of general issues of color, see

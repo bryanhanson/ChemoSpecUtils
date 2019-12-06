@@ -67,7 +67,7 @@ if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   data(metMUD1)
 
   pca <- c_pcaSpectra(metMUD1)
-  hca <- hcaScores(metMUD1, pca, main = "metMUD1 NMR Data")
+  hca <- hcaScores(metMUD1, pca, main = "metMUD1 NMR Data PCA Scores")
 }
 
 if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
@@ -75,13 +75,12 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   data(MUD1)
 
   mia <- miaSpectra2D(MUD1)
-  hca <- hcaScores(MUD1, mia, scores = 1:2, main = "MIA Scores")
+  hca <- hcaScores(MUD1, mia, scores = 1:2, main = "MUD1 MIA Scores")
 
   set.seed(123)
   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
-  hca <- hcaScores(MUD1, pfac, scores = 1:2, main = "PARAFAC Score Plot")
+  hca <- hcaScores(MUD1, pfac, scores = 1:2, main = "MUD1 PARAFAC Scores")
 }
-
 }
 \seealso{
 \code{\link{hclust}} for the underlying function. See

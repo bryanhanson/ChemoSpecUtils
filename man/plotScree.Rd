@@ -50,7 +50,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   mia <- miaSpectra2D(MUD1)
   plotScree(mia, style = "alt")
 }
-
 }
 \references{
 The idea for the alternative style plot came from the NIR-Quimiometria

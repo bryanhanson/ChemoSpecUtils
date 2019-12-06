@@ -1,16 +1,16 @@
 #'
 #' Label Extreme Values
-#' 
+#'
 #' A utility function which plots the sample names next to the sample points.
 #' The number of samples labeled can be specified by passing it from the
 #' calling function. An internal function, not generally called by the user.
-#' 
+#'
 #' @param data A matrix containing the x values of the points/samples in the
 #' first column, and the y values in the second.
-#' 
+#'
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{x}.
-#' 
+#'
 #' @param tol A number describing the fraction of points to be labeled.
 #' \code{tol = 1.0} labels all the points; \code{tol = 0.05} labels
 #' \emph{approximately} the most extreme 5 percent.  Note that this is simply
@@ -19,43 +19,40 @@
 #' treatment of outliers, just a means of labeling points.  Note too that while
 #' this function could deal with groups separately, the way it is called by
 #' \code{\link{.plotScoresDecoration}} lumps all groups together.
-#' 
+#'
 #' @return None.  Annotates the plot with labels.
-#' 
+#'
 #' @author Bryan A. Hanson, DePauw University.
-#' 
+#'
 #' @keywords utilities
 #' @export
 #' @importFrom stats quantile
-#' @importFrom graphics text 
+#' @importFrom graphics text
 #' @noRd
 #'
 .labelExtremes <- function(data, names, tol) {
+  px <- data[, 1]
+  py <- data[, 2]
+  pl <- names
+  if (is.numeric(pl)) pl <- sprintf("%.2f", pl)
 
-	px <- data[,1]
-	py <- data[,2]
-	pl <- names
-	if (is.numeric(pl)) pl <- sprintf("%.2f", pl)
-		
-	q.x <- quantile(px, probs = c(1.0-tol, tol), na.rm = TRUE)
-	sel.x <- (px <= q.x[2]) | (px >= q.x[1])
-	keep.x <- subset(px, sel.x)
-	keep.x <- match(keep.x, px) # need to keep this & corresponding y
-		
-	q.y <- quantile(py, probs = c(1.0-tol, tol), na.rm = TRUE)
-	sel.y <- (py <= q.y[2]) | (py >= q.y[1])
-	keep.y <- subset(py, sel.y)
-	keep.y <- match(keep.y, py) # need to keep this & corresponding x
-		
-	keep <- unique(c(keep.x, keep.y))
+  q.x <- quantile(px, probs = c(1.0 - tol, tol), na.rm = TRUE)
+  sel.x <- (px <= q.x[2]) | (px >= q.x[1])
+  keep.x <- subset(px, sel.x)
+  keep.x <- match(keep.x, px) # need to keep this & corresponding y
 
-	x <- px[keep]
-	y <- py[keep]
-	l <- pl[keep]
+  q.y <- quantile(py, probs = c(1.0 - tol, tol), na.rm = TRUE)
+  sel.y <- (py <= q.y[2]) | (py >= q.y[1])
+  keep.y <- subset(py, sel.y)
+  keep.y <- match(keep.y, py) # need to keep this & corresponding x
 
-	for(n in c(1:length(x))) {
-		text(x[n], y[n], l[n], pos = 4, offset = 0.2, cex = 0.5)
-		}
-			
-	}
+  keep <- unique(c(keep.x, keep.y))
 
+  x <- px[keep]
+  y <- py[keep]
+  l <- pl[keep]
+
+  for (n in c(1:length(x))) {
+    text(x[n], y[n], l[n], pos = 4, offset = 0.2, cex = 0.5)
+  }
+}

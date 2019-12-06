@@ -7,7 +7,7 @@
 updateGroups(spectra, new.grps = NULL, silent = FALSE)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{new.grps}{A vector of character values giving the new group names.
@@ -18,7 +18,7 @@ If not provided, the function will print the old values for reference.}
 \item{silent}{Logical.  If \code{TRUE}, suppresses all reporting.}
 }
 \value{
-spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.
 }
 \description{
@@ -43,5 +43,4 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   data(MUD1)
   MUD1a <- updateGroups(MUD1, new.grps = c("control", "treatment"))
 }
-
 }

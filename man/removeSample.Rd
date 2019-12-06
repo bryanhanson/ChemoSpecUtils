@@ -7,7 +7,7 @@
 removeSample(spectra, rem.sam)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{rem.sam}{Either an integer vector specifying the samples to be
@@ -48,7 +48,7 @@ if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("ChemoSpec2D")
   data(MUD1)
-  
+
   # Removes the 5th spectrum:
   MUD1$names
   MUD1a <- removeSample(MUD1, rem.sam = 5)
@@ -59,7 +59,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   MUD1b <- removeSample(MUD1, rem.sam = "Ether_3")
   MUD1b$names
 }
-
 }
 \author{
 Bryan A. Hanson, DePauw University.

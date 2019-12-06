@@ -9,7 +9,7 @@
 #' may have complex regex patterns, and this function makes updating them to more
 #' appropriate/more readible strings easier.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
 #' @param new.grps A vector of character values giving the new group names.
@@ -19,9 +19,9 @@
 #'
 #' @param silent Logical.  If \code{TRUE}, suppresses all reporting.
 #'
-#' @return spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+#' @return spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
-#' 
+#'
 #' @export
 #'
 #' @examples
@@ -31,51 +31,49 @@
 #'   metMUD1a <- updateGroups(metMUD1) # reports old groups
 #'   metMUD1a <- updateGroups(metMUD1, new.grps = c("C", "T"))
 #' }
-#' 
+#'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   MUD1a <- updateGroups(MUD1, new.grps = c("control", "treatment"))
 #' }
-#'
-
 updateGroups <- function(spectra, new.grps = NULL, silent = FALSE) {
-	
-	.chkArgs(mode = 0L)
-	chkSpectra(spectra)
-	if (!is.null(new.grps)) {
-		if (!is.character(new.grps)) stop("'new.grps' must be a character vector")
-	}
-	old.grps <- as.character(spectra$groups)
-	old.grpsU <- unique(old.grps)
-	no.old <- length(old.grpsU)
-	if (is.null(new.grps)) {
-		if (!silent) {
-		  message("No 'new.grps' found, here are the old groups:")
-		  print(old.grpsU)	
-		}
-		return(invisible(NULL))
-	}
-	
-	if (length(new.grps) != no.old)
-	  stop("Length of 'new.grps' did not match the unique number of existing groups")
-	
-	DF <- data.frame(old = old.grpsU, new = new.grps, stringsAsFactors = FALSE)
-	updated.grps <- rep(NA_character_, length(old.grps))
-	
-	for (i in 1:length(updated.grps)) {
-	  for (j in 1:nrow(DF)) {
-	  	if (old.grps[i] == DF[j, "old"]) updated.grps[i] <- DF[j, "new"]
-	  }
-	}
-	
-	if (!silent) {
-		message("Groups were matched as follows:")
-		print(DF) 
-	}
-	
-	if (any(is.na(updated.grps))) stop("Failed to match a new to an old group")
-	spectra$groups <- as.factor(updated.grps)
-	chkSpectra(spectra)
-	return(spectra)
+  .chkArgs(mode = 0L)
+  chkSpectra(spectra)
+  if (!is.null(new.grps)) {
+    if (!is.character(new.grps)) stop("'new.grps' must be a character vector")
+  }
+  old.grps <- as.character(spectra$groups)
+  old.grpsU <- unique(old.grps)
+  no.old <- length(old.grpsU)
+  if (is.null(new.grps)) {
+    if (!silent) {
+      message("No 'new.grps' found, here are the old groups:")
+      print(old.grpsU)
+    }
+    return(invisible(NULL))
+  }
+
+  if (length(new.grps) != no.old) {
+    stop("Length of 'new.grps' did not match the unique number of existing groups")
+  }
+
+  DF <- data.frame(old = old.grpsU, new = new.grps, stringsAsFactors = FALSE)
+  updated.grps <- rep(NA_character_, length(old.grps))
+
+  for (i in 1:length(updated.grps)) {
+    for (j in 1:nrow(DF)) {
+      if (old.grps[i] == DF[j, "old"]) updated.grps[i] <- DF[j, "new"]
+    }
+  }
+
+  if (!silent) {
+    message("Groups were matched as follows:")
+    print(DF)
+  }
+
+  if (any(is.na(updated.grps))) stop("Failed to match a new to an old group")
+  spectra$groups <- as.factor(updated.grps)
+  chkSpectra(spectra)
+  return(spectra)
 }

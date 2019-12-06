@@ -7,7 +7,7 @@
 removeGroup(spectra, rem.group)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}}.}
 
 \item{rem.group}{A character vector (handled as a regex) giving the groups to be removed.}
@@ -49,7 +49,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   MUD1a <- removeGroup(MUD1, rem.group = "Ether")
   sumGroups(MUD1a)
 }
-
 }
 \author{
 Bryan A. Hanson, DePauw University.

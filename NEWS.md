@@ -1,4 +1,4 @@
-# ChemoSpecUtils 0.3.xx 2019-xx-xx
+# ChemoSpecUtils 0.3.60 2019-12-06
 ## Bug Fixes
 * `.getLimits` now knows how to handle negative values in the formulas.
 * `sumSpectra.Spectra` now respects/accepts the `...` argument, used to pass `tol`.  This was accidentally disabled.

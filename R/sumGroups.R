@@ -1,10 +1,10 @@
 #'
 #' Summarize the Group Membership of a Spectra or Spectra2D Object
-#' 
+#'
 #' This function summarizes the group membership	 of
 #' a \code{Spectra} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
-#' 
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+#'
+#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.
 #'
 #' @return A data frame as follows. Note that if there are groups with no
@@ -28,13 +28,12 @@
 #'   data(SrE.IR)
 #'   sumGroups(SrE.IR)
 #' }
-#' 
+#'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'   sumGroups(MUD1)
 #' }
-#'
-sumGroups <- function(spectra){
-	UseMethod("sumGroups")
+sumGroups <- function(spectra) {
+  UseMethod("sumGroups")
 }

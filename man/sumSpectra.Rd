@@ -7,7 +7,7 @@
 sumSpectra(spectra, ...)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or 
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.}
 
 \item{...}{Arguments to be passed downstream. Currently not used.}
@@ -41,7 +41,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   data(MUD1)
   sumSpectra(MUD1)
 }
-
 }
 \author{
 Bryan A. Hanson, DePauw University.

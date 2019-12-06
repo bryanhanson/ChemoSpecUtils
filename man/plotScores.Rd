@@ -60,7 +60,7 @@ Otherwise, any string acceptable to \code{\link{legend}}.}
 None.  Side effect is a plot.
 }
 \description{
-Plots the requested scores using the color scheme derived from the 
+Plots the requested scores using the color scheme derived from the
 \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 Options are provided to add confidence ellipses for each group in the object.
 The ellipses may be robust or classical.  Option to label the extreme points provided.
@@ -71,8 +71,10 @@ if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   data(metMUD1)
 
   pca <- c_pcaSpectra(metMUD1)
-  plotScores(metMUD1, pca, main = "metMUD1 NMR Data",
-	   pcs = c(1,2), ellipse = "cls", tol = 0.05)
+  plotScores(metMUD1, pca,
+    main = "metMUD1 NMR Data",
+    pcs = c(1, 2), ellipse = "cls", tol = 0.05
+  )
 }
 
 if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
@@ -86,7 +88,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   res <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
   plotScores(MUD1, res, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
 }
-
 }
 \author{
 Bryan A. Hanson, DePauw University.

@@ -19,8 +19,8 @@ library("ChemoSpecUtils")
 ### To install from Github using R:
 
 ````r
-install.packages("devtools")
-library("devtools")
+install.packages("remotes")
+library("remotes")
 install_github(repo = "bryanhanson/ChemoSpecUtils@master")
 ````
 
