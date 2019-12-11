@@ -1,6 +1,7 @@
-# ChemoSpecUtils 0.3.xx 2019-12-xx
+# ChemoSpecUtils 0.4.xx 2019-12-xx
 ## New Features
 * Color and symbol schemes are now provided to support new color assignment options in `ChemoSpec` and `ChemoSpec2D`.
+
 
 # ChemoSpecUtils 0.3.60 2019-12-06
 ## Bug Fixes

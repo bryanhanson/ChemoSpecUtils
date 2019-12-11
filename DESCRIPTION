@@ -1,7 +1,7 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.3.66
+Version: 0.4.1
 Date: 2019-12-11
 Authors@R: c(
     person("Bryan A.", "Hanson",
