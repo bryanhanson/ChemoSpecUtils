@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.4.1
-Date: 2019-12-11
+Version: 0.4.16
+Date: 2019-12-19
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -12,6 +12,7 @@ Description: Functions supporting the common needs of packages 'ChemoSpec' and '
 License: GPL-3
 Depends:
     R (>= 3.5)
+LazyData: TRUE
 Suggests:
     ChemoSpec (>= 5.1),
     ChemoSpec2D (>= 0.3),

@@ -2,7 +2,7 @@
 #' Assign Group Membership and Colors for a Spectra or Spectra2D Object
 #'
 #' A utility function which looks for \code{gr.crit} in the file names of .csv
-#' files and assigns group membership (max 8 groups automatically).  Also assigns a color,
+#' files and assigns group membership.  Also assigns a color,
 #' and for \code{Spectra} objects, a symbol and an
 #' alternate symbol to each group.  Warnings are given if there are file names
 #' that don't match entries in \code{gr.crit} or there are entries in
@@ -32,18 +32,28 @@
 #'
 #' @export
 #'
+#' @importFrom utils data
+#'
 #' @noRd
 #'
-.groupNcolor <- function(spectra, gr.crit = NULL, gr.cols = c("auto"), mode = "1D") {
+.groupNcolor <- function(spectra, gr.crit = NULL, gr.cols = "auto", mode = "1D") {
   msg1 <- "At least one file name did not correspond any entry in gr.crit and its group is thus NA"
-  msg2 <- "More groups than colors, colors will be recycled.\n  Redefine groups or specify colors manually."
+  msg2 <- "More groups than colors, colors will be recycled.\n  Redefine groups or specify colors another way."
   msg3 <- "Too many groups to use the preferred symbols; setting all symbols to 1\n  and alt.sym to 'a'. Assign symbols manually."
+
+  builtInColors <- c("auto", "Col8", "Col12")
+  builtIn <- FALSE
+  if (gr.cols[1] %in% builtInColors) builtIn <- TRUE # flags selection of a builtIn color
+  colorsAssigned <- FALSE
+  symbolsAssigned <- FALSE
+  ng <-length(gr.crit) # no. of groups
+  ns <- length(spectra$names) # no. of spectra
 
   # Use the group criteria (gr.crit) to classify the samples
 
-  spectra$groups <- rep(NA_character_, length(spectra$names))
+  spectra$groups <- rep(NA_character_, ns)
 
-  for (i in 1:length(gr.crit)) {
+  for (i in 1:ng) {
     which <- grep(gr.crit[i], spectra$names)
     if (length(which) == 0) warning("There was no match for gr.crit value ", gr.crit[i], " among the file names.")
     spectra$groups[which] <- gr.crit[i]
@@ -52,60 +62,103 @@
   spectra$groups <- as.factor(spectra$groups)
   if (any(is.na(spectra$groups))) warning(msg1)
 
-  # Assign each group a color for plotting later
+  # Assign each group a color for plotting
 
-  spectra$colors <- rep(NA_character_, length(spectra$names))
+  spectra$colors <- rep(NA_character_, ns)
 
-  if (identical(gr.cols[1], "auto")) {
+  if (gr.cols[1] == "auto") {
     if (!requireNamespace("RColorBrewer", quietly = TRUE)) {
       stop("You need to install package RColorBrewer or supply the colors yourself")
     }
 
-    if (length(gr.crit) > 8) warning(msg2)
+    if (ng > 8) warning(msg2)
     cscols <- RColorBrewer::brewer.pal(8, "Set1") # 9 colors in Set1, only using 8 so as to match symbol restrictions
-    gr.cols <- cscols[1:length(gr.crit)]
+    gr.cols <- cscols[1:ng]
 
-    for (i in 1:length(gr.crit)) {
+    for (i in 1:ng) {
       which <- grep(gr.crit[i], spectra$names)
       spectra$colors[which] <- gr.cols[i]
     }
+
+    colorsAssigned <- TRUE
   }
 
-  if (!identical(gr.cols[1], "auto")) {
-    if (length(gr.cols) != length(gr.crit)) stop("Length of gr.cols and gr.crit did not match")
-    for (i in 1:length(gr.crit)) {
+  if (gr.cols[1] == "Col8") {
+    if (ng > 8) warning(msg2)
+    gr.cols <- ChemoSpecUtils::Col8[1:ng]
+
+    for (i in 1:ng) {
       which <- grep(gr.crit[i], spectra$names)
       spectra$colors[which] <- gr.cols[i]
     }
+
+    colorsAssigned <- TRUE
   }
 
-  # Associate symbols and alt.sym with each gr.crit (Spectra objects only)
+  if (gr.cols[1] == "Col12") {
+    if (ng > 12) warning(msg2)
+    gr.cols <- ChemoSpecUtils::Col12[1:ng]
+
+    for (i in 1:ng) {
+      which <- grep(gr.crit[i], spectra$names)
+      spectra$colors[which] <- gr.cols[i]
+    }
+
+    colorsAssigned <- TRUE
+  }
+
+  if (!builtIn) { # User is providing a vector of colors
+    if (length(gr.cols) != ng) stop("Length of gr.cols and gr.crit did not match")
+    for (i in 1:ng) {
+      which <- grep(gr.crit[i], spectra$names)
+      spectra$colors[which] <- gr.cols[i]
+    }
+    colorsAssigned <- TRUE
+  }
+
+  if (!colorsAssigned) stop("Did not encounter a valid color specification!")
+
+  # Fix symbols for Spectra objects / mode = 1D
+  # Associate symbols and alt.sym with each gr.crit; Trying to keep original behavior as well as give new options
 
   if (mode == "1D") {
-    sym.choice <- c(0, 1, 2, 3, 15, 16, 17, 8) # preferred symbols (8 of them)
+  	
+    if (ng <= 8) {
+      sym1 <- ChemoSpecUtils::Sym8[1:ng]
+      sym2 <- letters[1:ng]
 
-    if (length(gr.crit) > 8) {
-      spectra$sym <- rep(1L, length(spectra$names))
-      spectra$alt.sym <- rep("a", length(spectra$names))
-      warning(msg3)
+      for (i in 1:ng) {
+        which <- grep(gr.crit[i], spectra$names)
+        spectra$sym[which] <- sym1[i]
+        spectra$alt.sym[which] <- sym2[i]
+      }
+      symbolsAssigned <- TRUE
     }
 
-    if (length(gr.crit) <= 8) {
-      sym1 <- sym.choice[1:length(gr.crit)]
-      sym2 <- letters[1:length(gr.crit)]
-      for (i in 1:length(gr.crit)) {
+    if ((ng >= 9) & (ng <= 12)) {
+      sym1 <- ChemoSpecUtils::Sym12[1:ng]
+      sym2 <- letters[1:ng]
+      for (i in 1:ng) {
         which <- grep(gr.crit[i], spectra$names)
         spectra$sym[which] <- sym1[i]
         spectra$alt.sym[which] <- sym2[i]
       }
     }
 
+    if (ng > 12) {
+      spectra$sym <- rep(1L, ns)
+      spectra$alt.sym <- rep("a", ns)
+      warning(msg3)
+      symbolsAssigned <- TRUE
+    }
+
+    if (!symbolsAssigned) stop("Was not able to assign symbols!")
     class(spectra) <- "Spectra"
-    return(spectra)
-  }
+  } # end of mode = 1D
 
   if (mode == "2D") {
     class(spectra) <- "Spectra2D"
-    return(spectra)
   }
+  
+  spectra
 }
