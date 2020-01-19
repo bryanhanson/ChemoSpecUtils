@@ -143,6 +143,7 @@
         spectra$sym[which] <- sym1[i]
         spectra$alt.sym[which] <- sym2[i]
       }
+      symbolsAssigned <- TRUE
     }
 
     if (ng > 12) {
