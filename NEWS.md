@@ -1,4 +1,4 @@
-# ChemoSpecUtils 0.4.37 2020-01-21
+# ChemoSpecUtils 0.4.38 2020-01-22
 ## New Features
 * New color and symbol schemes are now provided to support new color assignment options in `ChemoSpec` and `ChemoSpec2D`.
 * `removeFreq.Spectra` now accepts a formula for `rem.freq`.
