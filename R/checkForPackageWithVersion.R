@@ -1,5 +1,5 @@
 #'
-#' Check for an Installed Package with a Particular Version, or Greater
+#' Check for an Installed Package with a Particular Version or Newer
 #'
 #' Utility function for making sure a package is available with a particular version or newer.
 #'

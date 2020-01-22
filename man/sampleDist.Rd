@@ -33,8 +33,10 @@ if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
   library("lattice")
   data(SrE.IR)
 
-  SrE.dmatrix <- sampleDist(SrE.IR, method = "cosine",
-    main = "SrE.IR Spectral Angle Between Samples")
+  SrE.dmatrix <- sampleDist(SrE.IR,
+    method = "cosine",
+    main = "SrE.IR Spectral Angle Between Samples"
+  )
 }
 
 if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
@@ -42,10 +44,11 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   library("lattice")
   data(MUD1)
 
-  MUD1.dmatrix <- sampleDist(MUD1, method = "cosine",
-    main = "MUD1 Spectral Angle Between Samples")
+  MUD1.dmatrix <- sampleDist(MUD1,
+    method = "cosine",
+    main = "MUD1 Spectral Angle Between Samples"
+  )
 }
-
 }
 \seealso{
 For \code{\link[ChemoSpec]{Spectra}} objects, see \code{\link[ChemoSpec]{plotSpectraDist}}

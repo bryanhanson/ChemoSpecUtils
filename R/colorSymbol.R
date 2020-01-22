@@ -19,7 +19,7 @@
 #' the built-in symbols and lower case letters.  This is useful for color-blind individuals,
 #' plots in \code{rgl} which can't plot regular symbols, and plots for where there are
 #' more groups than could be reasonably coded in color.  A good discussion of which symbols
-#' are most readily distinguished can be found in Robinson: "Good Plot Symbols by Default",
+#' are most readily distinguished can be found in Robinson: "Good Plot Symbols by Default"
 #' \emph{Journal of Computational and Graphical Statistics} DOI: 10.1080/10618600.2019.1637746
 #'
 #' \code{ChemoSpecUtils} supplies three color/symbol schemes for your consideration.  Each provides a
@@ -44,46 +44,51 @@
 #' @examples
 #'
 #' # Make a plot showing all the built-in color options
-#' 
+#'
 #' data(Col12)
 #' data(Sym12)
 #' data(Col8)
 #' data(Sym8)
 #' auto <- RColorBrewer::brewer.pal(8, "Set1")
-#' 
+#'
 #' sp <- 0.75 # space between major plot elements
 #' tsp <- 0.1 # additional space between points and color swatches/descriptive text
 #' h <- 0.25 # height of the swatch
 #' y <- 0.0 # bottom of the plot, the reference point
-#' 
+#'
 #' # empty plot
-#' plot(1:12, rep(0.0, 12), type = "n", yaxt = "n", xaxt = "n", bty = "n",
-#'   xlab = "", ylab = "", ylim = c(0, 2.5))
+#' plot(1:12, rep(0.0, 12),
+#'   type = "n", yaxt = "n", xaxt = "n", bty = "n",
+#'   xlab = "", ylab = "", ylim = c(0, 2.5)
+#' )
 #' text(6.5, y + h + tsp * 4 + sp * 2,
-#'   labels = "Color & Symbol Options", cex = 1.25, font = 2)
-#' 
+#'   labels = "Color & Symbol Options", cex = 1.25, font = 2
+#' )
+#'
 #' # Col12
 #' for (i in 1:12) {
 #'   rect(i - 0.5, y, i + 0.5, y + h, border = NA, col = Col12[i])
-#' }	
+#' }
 #' points(1:12, rep(y + h + tsp, 12), pch = Sym12)
 #' text(6.5, y + h + tsp * 2,
-#'   labels = "gr.cols = 'Col12'     12 mostly paired distinct colors/symbols")
-#' 
+#'   labels = "gr.cols = 'Col12'     12 mostly paired distinct colors/symbols"
+#' )
+#'
 #' # Col8
 #' for (i in 1:8) {
 #'   rect(i - 0.5, y + sp, i + 0.5, y + sp + h, border = NA, col = Col8[i])
 #' }
 #' points(1:8, rep(y + h + tsp + sp, 8), pch = Sym8)
 #' text(4.5, y + h + tsp * 2 + sp,
-#'   labels = "gr.cols = 'Col8'     8 distinct colors/symbols")
-#' 
+#'   labels = "gr.cols = 'Col8'     8 distinct colors/symbols"
+#' )
+#'
 #' # auto (original)
 #' for (i in 1:8) {
 #'   rect(i - 0.5, y + sp * 2, i + 0.5, y + sp * 2 + h, border = NA, col = auto[i])
 #' }
 #' points(1:8, rep(y + h + tsp + sp * 2, 8), pch = Sym8)
 #' text(4.5, y + h + tsp * 2 + sp * 2,
-#'   labels = "gr.cols = 'auto'     8 distinct colors/symbols")
-#' 
+#'   labels = "gr.cols = 'auto'     8 distinct colors/symbols"
+#' )
 NULL

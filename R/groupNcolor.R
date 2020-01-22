@@ -46,7 +46,7 @@
   if (gr.cols[1] %in% builtInColors) builtIn <- TRUE # flags selection of a builtIn color
   colorsAssigned <- FALSE
   symbolsAssigned <- FALSE
-  ng <-length(gr.crit) # no. of groups
+  ng <- length(gr.crit) # no. of groups
   ns <- length(spectra$names) # no. of spectra
 
   # Use the group criteria (gr.crit) to classify the samples
@@ -122,7 +122,6 @@
   # Associate symbols and alt.sym with each gr.crit; Trying to keep original behavior as well as give new options
 
   if (mode == "1D") {
-  	
     if (ng <= 8) {
       sym1 <- ChemoSpecUtils::Sym8[1:ng]
       sym2 <- letters[1:ng]
@@ -160,6 +159,6 @@
   if (mode == "2D") {
     class(spectra) <- "Spectra2D"
   }
-  
+
   spectra
 }

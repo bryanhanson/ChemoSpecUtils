@@ -1,11 +1,10 @@
 #'
 #' sampleDist.Spectra2D
-#' 
+#'
 #' @export
 #' @noRd
 #'
 sampleDist.Spectra2D <- function(spectra, method = "pearson", plot = TRUE, ...) {
-	
   .chkArgs(mode = 21L)
   chkSpectra(spectra)
 

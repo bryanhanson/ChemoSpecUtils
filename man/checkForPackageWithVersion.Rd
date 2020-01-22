@@ -2,7 +2,7 @@
 % Please edit documentation in R/checkForPackageWithVersion.R
 \name{checkForPackageWithVersion}
 \alias{checkForPackageWithVersion}
-\title{Check for an Installed Package with a Particular Version, or Greater}
+\title{Check for an Installed Package with a Particular Version or Newer}
 \usage{
 checkForPackageWithVersion(pkg, vers)
 }

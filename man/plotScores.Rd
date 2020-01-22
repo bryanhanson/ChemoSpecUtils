@@ -19,10 +19,10 @@ plotScores(
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}}
 or \code{\link[ChemoSpec2D]{Spectra2D}} object.}
 
-\item{so}{("Score Object") One of the following:
+\item{so}{"Score Object" One of the following:
 \itemize{
   \item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
-  \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}}
+  \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}},
   \code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
 \item An object of class \code{mia} produced by
  function \code{\link[ChemoSpec2D]{miaSpectra2D}}.

@@ -1,11 +1,11 @@
 #'
 #' Compute the Distances Between Samples in a Spectra or Spectra2D Object
-#' 
+#'
 #' Compute the distances between samples in a \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}} object. This is a means
 #' to quantify the similarity between samples. A heat map style plot is an
 #' option.
-#' 
+#'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
@@ -26,14 +26,16 @@
 #' @keywords hplot
 #' @export
 #' @examples
-#' 
+#'
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
 #'   library("lattice")
 #'   data(SrE.IR)
 #'
-#'   SrE.dmatrix <- sampleDist(SrE.IR, method = "cosine",
-#'     main = "SrE.IR Spectral Angle Between Samples")
+#'   SrE.dmatrix <- sampleDist(SrE.IR,
+#'     method = "cosine",
+#'     main = "SrE.IR Spectral Angle Between Samples"
+#'   )
 #' }
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
@@ -41,10 +43,11 @@
 #'   library("lattice")
 #'   data(MUD1)
 #'
-#'   MUD1.dmatrix <- sampleDist(MUD1, method = "cosine",
-#'     main = "MUD1 Spectral Angle Between Samples")
+#'   MUD1.dmatrix <- sampleDist(MUD1,
+#'     method = "cosine",
+#'     main = "MUD1 Spectral Angle Between Samples"
+#'   )
 #' }
-#'
 sampleDist <- function(spectra, method = "pearson", plot = TRUE, ...) {
   UseMethod("sampleDist")
 }
