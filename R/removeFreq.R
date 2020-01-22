@@ -19,7 +19,8 @@
 #' In the examples, the | and & operators may seem backward in
 #' a sense, but R evaluates them one at a time and then combines them to give
 #' the desired result.  You may wish to look at \code{\link{Comparison}} and
-#' \code{\link{Logic}}. See the examples.
+#' \code{\link{Logic}}. See the examples.  \emph{In addition, since January 2020 \code{rem.freq}
+#' may be a formula as described below.}
 #'
 #' @param remF2 Applies to \code{\link[ChemoSpec2D]{Spectra2D}} objects. A formula giving the range of
 #' frequencies to be extracted.  May include

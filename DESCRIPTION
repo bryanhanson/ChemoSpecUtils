@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.4.18
-Date: 2019-12-20
+Version: 0.4.35
+Date: 2020-01-21
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -22,7 +22,8 @@ Suggests:
     amap,
     irlba,
     ThreeWay,
-    multiway
+    multiway,
+    lattice
 Imports:
     plyr
 URL: https://github.com/bryanhanson/ChemoSpecUtils

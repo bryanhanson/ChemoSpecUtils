@@ -1,6 +1,8 @@
-# ChemoSpecUtils 0.4.xx 2019-12-xx
+# ChemoSpecUtils 0.4.xx 2020-01-19
 ## New Features
 * New color and symbol schemes are now provided to support new color assignment options in `ChemoSpec` and `ChemoSpec2D`.
+* `removeFreq.Spectra` now accepts a formula for `rem.freq`.
+* New functions `sampleDist`, `distPlot`, `sampleDist.Spectra` and `sampleDist.Spectra2D`; `sampleDist.Spectra` moved here from `ChemoSpec` with changes to the plot details for consistency between the two classes.
 
 # ChemoSpecUtils 0.3.60 2019-12-06
 ## Bug Fixes
