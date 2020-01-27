@@ -1,3 +1,7 @@
+# ChemoSpecUtils 0.4.40 2020-01-27
+## Misc.
+* Function `.shrinkLeaf` now shrinks the size of leaf labels more aggressively as the number of samples increases.
+
 # ChemoSpecUtils 0.4.38 2020-01-22
 ## New Features
 * New color and symbol schemes are now provided to support new color assignment options in `ChemoSpec` and `ChemoSpec2D`.

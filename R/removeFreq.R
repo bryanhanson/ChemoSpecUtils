@@ -55,6 +55,8 @@
 #'   data(SrE.IR)
 #'   sumSpectra(SrE.IR)
 #'
+#'   # Examples where rem.freq is a logical vector
+#' 
 #'   # Remove frequencies from one end:
 #'   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 3500)
 #'
@@ -72,6 +74,18 @@
 #'   values > 2
 #'   values < 6
 #'   values > 2 & values < 6
+#'
+#'   # Examples where rem.freq is a formula
+#'
+#'   # Remove frequencies from one end:
+#'   newIR <- removeFreq(SrE.IR, rem.freq = 3500 ~ high)
+#'
+#'   # Remove frequencies from both ends is a two step process with formulas:
+#'   newIR <- removeFreq(SrE.IR, rem.freq = 3500 ~ high)
+#'   newIR <- removeFreq(newIR, rem.freq = low ~ 800)
+#'
+#'   # Remove frequencies from the middle:
+#'   newIR <- removeFreq(SrE.IR, rem.freq = 800 ~ 1000)
 #'
 #'   # After any of these, inspect the results:
 #'   sumSpectra(newIR)

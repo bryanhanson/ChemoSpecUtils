@@ -6,7 +6,6 @@
 #' was taken from the help files.  An internal function, not generally called
 #' by the user.
 #'
-#'
 #' @param n A node in a dendrogram object.
 #'
 #' @param spectra An object of S3 class \code{Spectra}.
@@ -31,7 +30,9 @@
 
   lab.size <- 1.0
   if (length(spectra$names) > 20) lab.size <- 0.75
-  if (length(spectra$names) > 50) lab.size <- 0.5
+  if (length(spectra$names) > 50) lab.size <- 0.50
+  if (length(spectra$names) > 75) lab.size <- 0.25
+  if (length(spectra$names) > 100) lab.size <- 0.20
 
   if (is.leaf(n)) {
     a <- attributes(n)
