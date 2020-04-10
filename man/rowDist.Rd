@@ -9,31 +9,106 @@ rowDist(x, method)
 \arguments{
 \item{x}{A matrix whose rows will be used for the distance calculation.}
 
-\item{method}{A character; one of \code{c("pearson"}, \code{"correlation"},
-\code{"spearman"}, \code{"kendall"}, \code{"euclidean"}, \code{"maximum"}, \code{"manhattan"},
-\code{"canberra"},\code{"binary"}, \code{"minkowski"}, \code{"cosine")}.}
+\item{method}{Character; one of \code{"cosine"}, \code{"euclidean"}, \code{"maximum"}, \code{"manhattan"},
+\code{"canberra"},  \code{"binary"}, \code{"pearson"}, \code{"correlation"}, \code{"spearman"},
+\code{"kendall"}, \code{"abspearson"}, \code{"abscorrelation"}.}
 }
 \value{
 An object of class \code{dist}.
 }
 \description{
-This function is a wrapper to compute the distance between rows of a matrix
-using a number of methods.  Some of these are available in package
-\code{\link{stats}} and some in \code{\link[amap]{Dist}} from package \code{amap}.
-This function determines which method is requested and then the
-distance calculation is done by the appropriate method. The exception is the
-cosine distance which is calculated locally.
+This function computes the distance between rows of a matrix using a number of methods.
+It is primarily a wrapper for \code{\link[amap]{Dist}} which provides many options.
+However, cosine distance is calculated locally.
+See the reference for an excellent summary of distances and similarities.
+Keep in mind that distances are always positive by definition.  Further, in the literature one
+can find the same distance defined different ways.  For instance, the definition of the 
+\code{"pearson"} and \code{"correlation"} distances differs slightly between the reference below
+and \code{\link[amap]{Dist}}.  So please study the definitions carefully to get the one you want.
+The example illustrates the behavior of some common distance definitions.  Notice that \code{"pearson"}
+and \code{"cosine"} are mathemtically identical for the particular definition of \code{"pearson"}
+used by \code{\link[amap]{Dist}}.
 }
-\details{
-Methods \code{c("euclidean"}, \code{"maximum"}, \code{"manhattan"}, \code{"canberra"},\code{"binary"},
-\code{"minkowski")} are sent to function \code{\link{dist}} in package
-\code{\link{stats}} while methods \code{c("pearson"}, \code{"correlation"},
-\code{"spearman"}, \code{"kendall")} are handled by \code{Dist} in package \code{amap}.
-See the respective help pages for details. \code{"cosine"} is handled
-locally.
+\examples{
+# This examples imagines spectra as a series of vectors
+# on a half unit circle.
+# 1. Compute half of a unit circle
+theta <- seq(0, pi, length = 100) 
+x = cos(theta)
+y = sin(theta)
+
+# 2. Compute some illustrative vectors
+# Get tail/origin & tip/head coordinates
+lt <- length(theta)
+set.seed(6)
+tips <- theta[c(1, sample(2:100, 5))]
+x0 <- y0 <- rep(0.0, lt) # tail/origin at 0,0
+x1 <- cos(tips) # tips/heads
+y1 <- sin(tips)
+
+# 3. Compute the distance functions
+# Bounded distances
+RDcor <- rep(NA_real_, lt) # correlation distance
+RDpea <- rep(NA_real_, lt) # pearson distance
+RDabp <- rep(NA_real_, lt) # abspearson distance
+RDcos <- rep(NA_real_, lt) # cosine distance
+
+# Unbounded distances
+RDeuc <- rep(NA_real_, lt) # Euclidean distance
+RDman <- rep(NA_real_, lt) # manhattan distance
+
+# Compute all
+np <- 5
+refVec <- c(seq(0.0, x[1], length.out = np), seq(0.0, y[1], length.out = np))
+for (i in 1:lt) {
+  Vec <- c(seq(0.0, x[i], length.out = np), seq(0.0, y[i], length.out = np))
+  M <- matrix(c(refVec, Vec), nrow = 2, byrow = TRUE)
+  RDman[i] <- rowDist(M, method = "manhattan")
+  RDeuc[i] <- rowDist(M, method = "euclidean")
+  RDcos[i] <- rowDist(M, method = "cosine")
+  RDcor[i] <- rowDist(M, method = "correlation")
+  RDpea[i] <- rowDist(M, method = "pearson")
+  RDabp[i] <- rowDist(M, method = "abspearson")
+}
+
+# 4. Plots
+# a. Unit circle w/representative vectors/spectra
+plot.new()
+plot.window(xlim = c(-1, 1), ylim = c(0, 1), asp = 1)
+title(main = "Representative 'Spectral' Vectors on a Unit Half Circle\nReference Vector in Red",
+  sub = "Each 'spectrum' is represented by a series of x, y points") 
+lines(x, y, col = "gray") # draw half circle
+lines(x = x[c(1,100)], y = y[c(1,100)], col = "gray") # line across bottom
+arrows(x0, y0, x1, y1, angle = 5) # add arrows & a red reference vector
+arrows(x0[1], y0[1], x1[1], y1[1], col = "red", angle = 5, lwd = 2)
+
+# b. Distances
+degrees <- theta*180/pi
+plot(degrees, RDman, type = "l",
+  xlab = "Angle Between Spectral Vectors and Reference Vector in Degrees",
+  ylab = "Distance",
+  main = "Spectral Distance Comparisons\nUsing ChemoSpecUtils::rowDist")
+abline(h = c(1.0, 2.0), col = "gray")
+lines(degrees, RDeuc, col = "blue")
+lines(degrees, RDcos, col = "green", lwd = 4)
+lines(degrees, RDcor, col = "red")
+lines(degrees, RDabp, col = "black", lty = 2)
+lines(degrees, RDpea, col = "black", lty = 3)
+leg.txt <- c("manhattan", "euclidean", "correlation", "cosine", "pearson", "abspearson")
+leg.col <- c("black", "blue", "red", "green", "black", "black")
+leg.lwd <- c(1, 1, 1, 4, 1, 1)
+leg.lty <- c(1, 1, 1, 1, 3, 2)
+legend("topleft", legend = leg.txt, col = leg.col, lwd = leg.lwd, lty = leg.lty)
+
+
+}
+\references{
+R. Todeschini, D. Ballabio, V. Consonni
+"Distances and Similarity Measures in Chemometrics and Chemoinformatics"
+in \emph{Encyclopedia of Analytical Chemistry} Wiley and Sons, 2020 
+\url{https://dx.doi.org/10.1002/9780470027318.a9438.pub2}
 }
 \author{
 Bryan A. Hanson, DePauw University.
-Suggested by and original code written by Roberto Canteri.
 }
 \keyword{utilities}

@@ -1,4 +1,7 @@
-# ChemoSpecUtils 0.4.40 2020-01-27
+# ChemoSpecUtils 0.4.48 2020-04-10
+## Bug Fixes
+* Function `rowDist`, which supports a number of functions, was overhauled to address confusion in the documentation, and in my head, about distances vs. similarities.  Also, different definitions found in the literature were documented more clearly.  The Minkowski distance option was removed (ask if you want it back), code was cleaned up, documentation greatly improved, an example was added and unit tests were added.  Plot scales were also corrected as necessary.  Depending upon which distance option is chosen, this change affects `hcaSpectra`, `plotSpectraDist` and `hcaScores` in package `ChemoSpec` as well as `hats_alignSpectra2D` and `hcaScores` in package `ChemoSpec2D`.
+
 ## Misc.
 * Function `.shrinkLeaf` now shrinks the size of leaf labels more aggressively as the number of samples increases.
 

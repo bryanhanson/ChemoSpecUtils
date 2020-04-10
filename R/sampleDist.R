@@ -32,9 +32,17 @@
 #'   library("lattice")
 #'   data(SrE.IR)
 #'
-#'   SrE.dmatrix <- sampleDist(SrE.IR,
+#'   SrE.dmatrix <- sampleDist(SrE.IR, # cosine distance bounded on [0...2]
 #'     method = "cosine",
-#'     main = "SrE.IR Spectral Angle Between Samples"
+#'     main = "SrE.IR Cosine Distance Between Samples"
+#'   )
+#'   SrE.dmatrix <- sampleDist(SrE.IR, # abspearson distance bounded on [0...1]
+#'     method = "abspearson",
+#'     main = "SrE.IR Absolute Pearson Distance Between Samples"
+#'   )
+#'   SrE.dmatrix <- sampleDist(SrE.IR, # euclidean distance unbounded
+#'     method = "euclidean",
+#'     main = "SrE.IR Euclidean Distance Between Samples"
 #'   )
 #' }
 #'
@@ -45,7 +53,7 @@
 #'
 #'   MUD1.dmatrix <- sampleDist(MUD1,
 #'     method = "cosine",
-#'     main = "MUD1 Spectral Angle Between Samples"
+#'     main = "MUD1 Cosine Distance Between Samples"
 #'   )
 #' }
 sampleDist <- function(spectra, method = "pearson", plot = TRUE, ...) {

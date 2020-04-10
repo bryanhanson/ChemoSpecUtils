@@ -9,7 +9,9 @@
 \alias{Sym8}
 \alias{ColorScheme}
 \title{Color in ChemoSpec and ChemoSpec2D}
-\format{Colors are stored as character vectors and symbols as numeric vectors.}
+\format{
+Colors are stored as character vectors and symbols as numeric vectors.
+}
 \description{
 In \code{ChemoSpec} and \code{ChemoSpec2D}, the user may use any color name/format
 known to R.  The current color scheme of a \code{\link[ChemoSpec]{Spectra}} or
