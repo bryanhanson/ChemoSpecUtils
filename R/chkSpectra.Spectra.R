@@ -4,6 +4,7 @@
 #' @export
 #' @noRd
 #'
+#'
 chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
 
   # Many kinds of errors may be missed due to coercion:
@@ -113,3 +114,4 @@ chkSpectra.Spectra <- function(spectra, confirm = FALSE) {
   if (extra) message("\n\t>>>  Please check the extra data entries.")
   if (trouble) stop("\n>>>  Bummer: There seem to be one or more problems with this data set!")
 }
+

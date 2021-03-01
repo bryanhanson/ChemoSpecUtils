@@ -1,7 +1,5 @@
-### Unit tests for rowDist in ChemoSpecUtils
-#
-# Don't confuse distances with similarities!  Distances are always positive!
-
+# File created by roxut; edit the function definition file, not this file
+ 
 M1 <- matrix(c(0.0, 1.0, 0.0, 1.0), nrow = 2, byrow = TRUE) # parallel/colinear vectors
 M2 <- matrix(c(0.0, 1.0, 0.0, -1.0), nrow = 2, byrow = TRUE) # anti-parallel vectors
 M3 <- matrix(c(0.0, 1.0, 1.0, 0.0), nrow = 2, byrow = TRUE) # orthogonal vectors
@@ -32,4 +30,3 @@ for (i in 1:length(boundMeth2)) {
   expect_true((all(rowDist(M2, boundMeth2[i]) >= 0.0)) & (all(rowDist(M2, boundMeth2[i]) <= 2.0)))
   expect_true((all(rowDist(M3, boundMeth2[i]) >= 0.0)) & (all(rowDist(M3, boundMeth2[i]) <= 2.0)))
 }
-

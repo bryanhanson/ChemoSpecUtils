@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.4.51
-Date: 2020-04-20
+Version: 0.4.73
+Date: 2020-06-30
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -30,3 +30,5 @@ URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
 RoxygenNote: 7.1.0
+Roxygen: list(packages = "roxut", roclets = c("namespace", "rd", "roxut::tests_roclet"))
+
