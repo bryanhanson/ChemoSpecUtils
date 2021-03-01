@@ -26,7 +26,7 @@
 #' @references R. Todeschini, D. Ballabio, V. Consonni
 #' "Distances and Similarity Measures in Chemometrics and Chemoinformatics"
 #' in \emph{Encyclopedia of Analytical Chemistry} Wiley and Sons, 2020 
-#' \url{https://dx.doi.org/10.1002/9780470027318.a9438.pub2}
+#' \doi{10.1002/9780470027318.a9438.pub2}
 #' 
 #' @tests tinytest
 #' M1 <- matrix(c(0.0, 1.0, 0.0, 1.0), nrow = 2, byrow = TRUE) # parallel/colinear vectors
