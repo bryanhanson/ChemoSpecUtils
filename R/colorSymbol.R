@@ -31,8 +31,9 @@
 #'         than the automatic colors.
 #'   \item \code{Col12} provides a mostly paired set of 12 unique colors suitable for groups
 #'         that come in pairs.
-#'   \item \code{Col7} provides seven color-blind friendly colors which can be inspected
-#'     via \url{https://tinyurl.com/ycnwaf5v}
+#'   \item \code{Col7} provides seven color-blind friendly colors.  These can be visualized
+#'         at https://projects.susielu.com/viz-palette by using the hex codes obtained
+#'         by typing \code{data(Col7); Col7} in the \code{R} console. 
 #' }
 #'
 #' @docType data
@@ -76,7 +77,7 @@
 #'   rect(i - 0.5, y, i + 0.5, y + h, border = NA, col = Col12[i])
 #' }
 #' points(1:12, rep(y + h + tsp, 12), pch = Sym12)
-#' text(6.5, y + h + tsp * 2,
+#' text(0.6, y + h + tsp * 2, adj = 0,
 #'   labels = "gr.cols = Col12     12 mostly paired distinct colors/symbols"
 #' )
 #'
@@ -85,7 +86,7 @@
 #'   rect(i - 0.5, y + sp, i + 0.5, y + sp + h, border = NA, col = Col8[i])
 #' }
 #' points(1:8, rep(y + h + tsp + sp, 8), pch = Sym8)
-#' text(4.5, y + h + tsp * 2 + sp,
+#' text(0.6, y + h + tsp * 2 + sp, adj = 0,
 #'   labels = "gr.cols = Col8     8 distinct colors/symbols"
 #' )
 #'
@@ -94,7 +95,7 @@
 #'   rect(i - 0.5, y + sp * 2, i + 0.5, y + sp * 2 + h, border = NA, col = auto[i])
 #' }
 #' points(1:8, rep(y + h + tsp + sp * 2, 8), pch = Sym8)
-#' text(4.5, y + h + tsp * 2 + sp * 2,
+#' text(0.6, y + h + tsp * 2 + sp * 2, adj = 0,
 #'   labels = "gr.cols = 'auto'     8 distinct colors/symbols"
 #' )
 #'
@@ -102,7 +103,7 @@
 #' for (i in 1:7) {
 #'   rect(i - 0.5, y + sp * 3, i + 0.5, y + sp * 3 + h, border = NA, col = Col7[i])
 #' }
-#' text(4.5, y + h + tsp * 2 + sp * 3,
+#' text(0.6, y + h + tsp * 2 + sp * 3, adj = 0,
 #'   labels = "gr.cols = Col7     7 colorblind-friendly colors"
 #' )
 NULL
