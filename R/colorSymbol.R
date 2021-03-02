@@ -78,7 +78,7 @@
 #' }
 #' points(1:12, rep(y + h + tsp, 12), pch = Sym12)
 #' text(0.6, y + h + tsp * 2, adj = 0,
-#'   labels = "gr.cols = Col12     12 mostly paired distinct colors/symbols"
+#'   labels = "gr.cols = 'Col12'     12 mostly paired distinct colors/symbols"
 #' )
 #'
 #' # Col8
@@ -87,7 +87,7 @@
 #' }
 #' points(1:8, rep(y + h + tsp + sp, 8), pch = Sym8)
 #' text(0.6, y + h + tsp * 2 + sp, adj = 0,
-#'   labels = "gr.cols = Col8     8 distinct colors/symbols"
+#'   labels = "gr.cols = 'Col8'     8 distinct colors/symbols"
 #' )
 #'
 #' # auto (original)
@@ -103,8 +103,8 @@
 #' for (i in 1:7) {
 #'   rect(i - 0.5, y + sp * 3, i + 0.5, y + sp * 3 + h, border = NA, col = Col7[i])
 #' }
-#' points(1:7, rep(y + h + tsp + sp * 3, 8), pch = Sym8[1:7])
+#' points(1:7, rep(y + h + tsp + sp * 3, 7), pch = Sym8[1:7])
 #' text(0.6, y + h + tsp * 2 + sp * 3, adj = 0,
-#'   labels = "gr.cols = Col7     7 colorblind-friendly colors"
+#'   labels = "gr.cols = 'Col7'     7 colorblind-friendly colors"
 #' )
 NULL
