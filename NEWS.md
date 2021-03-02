@@ -5,6 +5,9 @@
 ## Documentation
 * Documentation of `...` in `sumSpectra` corrected to show how to pass `tol` to `check4Gaps`.  Affects `ChemoSpec` only at this time.
 
+## New Features
+* A colorblind-friendly option, `Col7` added to the color options.
+
 # ChemoSpecUtils 0.4.51 2020-04-20
 ## Bug Fixes
 * Function `rowDist`, which supports a number of functions, was overhauled to address confusion in the documentation, and in my head, about distances vs. similarities.  Also, different definitions found in the literature were documented more clearly.  The Minkowski distance option was removed (ask if you want it back), code was cleaned up, documentation greatly improved, an example was added and unit tests were added.  Plot scales were also corrected as necessary.  Depending upon which distance option is chosen, this change affects `hcaSpectra`, `plotSpectraDist`, `sampleDist` and `hcaScores` in package `ChemoSpec` as well as `hats_alignSpectra2D` and `hcaScores` in package `ChemoSpec2D`.
