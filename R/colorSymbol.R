@@ -69,7 +69,7 @@
 #'   xlab = "", ylab = "", ylim = c(0, 3.5)
 #' )
 #' text(6.5, y + h + tsp * 4 + sp * 3.5,
-#'   labels = "Color & Symbol Options", cex = 1.25, font = 2
+#'   labels = "Automatic Color & Symbol Options", cex = 1.25, font = 2
 #' )
 #'
 #' # Col12
@@ -103,6 +103,7 @@
 #' for (i in 1:7) {
 #'   rect(i - 0.5, y + sp * 3, i + 0.5, y + sp * 3 + h, border = NA, col = Col7[i])
 #' }
+#' points(1:7, rep(y + h + tsp + sp * 3, 8), pch = Sym8[1:7])
 #' text(0.6, y + h + tsp * 2 + sp * 3, adj = 0,
 #'   labels = "gr.cols = Col7     7 colorblind-friendly colors"
 #' )
