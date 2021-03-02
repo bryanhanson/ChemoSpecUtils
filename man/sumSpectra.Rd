@@ -10,7 +10,9 @@ sumSpectra(spectra, ...)
 \item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 \code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.}
 
-\item{...}{Arguments to be passed downstream. Currently not used.}
+\item{...}{Arguments to be passed downstream.  Main use is to pass a value for \code{tol}
+to function \code{\link{check4Gaps}} when using \code{ChemoSpec}.
+Not used in \code{ChemoSpec2D}.}
 }
 \value{
 None.  Results printed at console.

@@ -22,13 +22,18 @@
 #' are most readily distinguished can be found in Robinson: "Good Plot Symbols by Default"
 #' \emph{Journal of Computational and Graphical Statistics} DOI: 10.1080/10618600.2019.1637746
 #'
-#' \code{ChemoSpecUtils} supplies three color/symbol schemes for your consideration.  Each provides a
-#' a selection of colors that people with normal vision should be able to distinguish most of the time.
-#' The automatic color scheme as well as \code{Col8} provide 8 unique colors suitable for up to eight
-#' different groups.  \code{Col12} provides a mostly paired set of 12 unique colors suitable for groups
-#' that come in pairs.  See the example.
+#' \code{ChemoSpecUtils} supplies four color/symbol schemes for your consideration.
 #' If the particular order of colors in any of these does not suit your needs, you can always
 #' choose the ones you want, and/or rearrange the order, or simply provide your own.
+#' \itemize{
+#'   \item The colors and symbols produced by \code{gr.cols = "auto"} in the import functions.
+#'   \item \code{Col8} provides eight unique colors.  These are more saturated
+#'         than the automatic colors.
+#'   \item \code{Col12} provides a mostly paired set of 12 unique colors suitable for groups
+#'         that come in pairs.
+#'   \item \code{Col7} provides seven color-blind friendly colors which can be inspected
+#'     via \url{https://tinyurl.com/ycnwaf5v}
+#' }
 #'
 #' @docType data
 #'
@@ -39,12 +44,13 @@
 #' @keywords utilities color datasets
 #'
 #' @name colorSymbol
-#' @aliases Col12 Sym12 Col8 Sym8 ColorScheme
+#' @aliases Col7 Col12 Sym12 Col8 Sym8 ColorScheme
 #'
 #' @examples
 #'
 #' # Make a plot showing all the built-in color options
 #'
+#' data(Col7)
 #' data(Col12)
 #' data(Sym12)
 #' data(Col8)
@@ -52,16 +58,16 @@
 #' auto <- RColorBrewer::brewer.pal(8, "Set1")
 #'
 #' sp <- 0.75 # space between major plot elements
-#' tsp <- 0.1 # additional space between points and color swatches/descriptive text
+#' tsp <- 0.15 # additional space between points and color swatches/descriptive text
 #' h <- 0.25 # height of the swatch
 #' y <- 0.0 # bottom of the plot, the reference point
 #'
 #' # empty plot
 #' plot(1:12, rep(0.0, 12),
 #'   type = "n", yaxt = "n", xaxt = "n", bty = "n",
-#'   xlab = "", ylab = "", ylim = c(0, 2.5)
+#'   xlab = "", ylab = "", ylim = c(0, 3.5)
 #' )
-#' text(6.5, y + h + tsp * 4 + sp * 2,
+#' text(6.5, y + h + tsp * 4 + sp * 3.5,
 #'   labels = "Color & Symbol Options", cex = 1.25, font = 2
 #' )
 #'
@@ -71,7 +77,7 @@
 #' }
 #' points(1:12, rep(y + h + tsp, 12), pch = Sym12)
 #' text(6.5, y + h + tsp * 2,
-#'   labels = "gr.cols = 'Col12'     12 mostly paired distinct colors/symbols"
+#'   labels = "gr.cols = Col12     12 mostly paired distinct colors/symbols"
 #' )
 #'
 #' # Col8
@@ -80,7 +86,7 @@
 #' }
 #' points(1:8, rep(y + h + tsp + sp, 8), pch = Sym8)
 #' text(4.5, y + h + tsp * 2 + sp,
-#'   labels = "gr.cols = 'Col8'     8 distinct colors/symbols"
+#'   labels = "gr.cols = Col8     8 distinct colors/symbols"
 #' )
 #'
 #' # auto (original)
@@ -90,5 +96,13 @@
 #' points(1:8, rep(y + h + tsp + sp * 2, 8), pch = Sym8)
 #' text(4.5, y + h + tsp * 2 + sp * 2,
 #'   labels = "gr.cols = 'auto'     8 distinct colors/symbols"
+#' )
+#'
+#' # colorblind-friendly
+#' for (i in 1:7) {
+#'   rect(i - 0.5, y + sp * 3, i + 0.5, y + sp * 3 + h, border = NA, col = Col7[i])
+#' }
+#' text(4.5, y + h + tsp * 2 + sp * 3,
+#'   labels = "gr.cols = Col7     7 colorblind-friendly colors"
 #' )
 NULL
