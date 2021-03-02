@@ -38,10 +38,10 @@
 #'
 .groupNcolor <- function(spectra, gr.crit = NULL, gr.cols = "auto", mode = "1D") {
   msg1 <- "At least one file name did not correspond any entry in gr.crit and its group is thus NA"
-  msg2 <- "More groups than colors, colors will be recycled.\n  Redefine groups or specify colors another way."
+  msg2 <- "More groups than colors, some colors will be NA.\n  Redefine groups or specify colors another way."
   msg3 <- "Too many groups to use the preferred symbols; setting all symbols to 1\n  and alt.sym to 'a'. Assign symbols manually."
 
-  builtInColors <- c("auto", "Col8", "Col12")
+  builtInColors <- c("auto", "Col7", "Col8", "Col12")
   builtIn <- FALSE
   if (gr.cols[1] %in% builtInColors) builtIn <- TRUE # flags selection of a builtIn color
   colorsAssigned <- FALSE
@@ -74,6 +74,18 @@
     if (ng > 8) warning(msg2)
     cscols <- RColorBrewer::brewer.pal(8, "Set1") # 9 colors in Set1, only using 8 so as to match symbol restrictions
     gr.cols <- cscols[1:ng]
+
+    for (i in 1:ng) {
+      which <- grep(gr.crit[i], spectra$names)
+      spectra$colors[which] <- gr.cols[i]
+    }
+
+    colorsAssigned <- TRUE
+  }
+
+  if (gr.cols[1] == "Col7") {
+    if (ng > 7) warning(msg2)
+    gr.cols <- ChemoSpecUtils::Col7[1:ng]
 
     for (i in 1:ng) {
       which <- grep(gr.crit[i], spectra$names)
