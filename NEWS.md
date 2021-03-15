@@ -1,6 +1,6 @@
 # ChemoSpecUtils
 ## Misc.
-* Checked against `R` 4.04 RC.
+* Checked against `R` r80087.
 
 ## Documentation
 * Documentation of `...` in `sumSpectra` corrected to show how to pass `tol` to `check4Gaps`.  Affects `ChemoSpec` only at this time.
