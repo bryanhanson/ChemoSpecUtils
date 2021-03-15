@@ -30,5 +30,6 @@ Imports:
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
+Encode: UTF-8
 RoxygenNote: 7.1.1
 Roxygen: list(packages = "roxut", roclets = c("namespace", "rd", "roxut::tests_roclet"))
