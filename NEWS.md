@@ -1,4 +1,4 @@
-# ChemoSpecUtils
+# ChemoSpecUtils 0.4.96 2021-03-15
 ## Misc.
 * Checked against `R` r80087.
 
