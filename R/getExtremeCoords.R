@@ -1,5 +1,5 @@
 #'
-#' Label Extreme Values
+#' getExtremeCoords
 #'
 #' A utility function which plots the sample names next to the sample points.
 #' The number of samples labeled can be specified by passing it from the
@@ -20,22 +20,38 @@
 #' this function could deal with groups separately, the way it is called by
 #' \code{\link{.plotScoresDecoration}} lumps all groups together.
 #'
-#' @return None.  Annotates the plot with labels.
+#' @return Returns a List. The list will be used to annotates the plot with labels.
 #'
 #' @author Bryan A. Hanson, DePauw University,Tejasvi Gupta.
 #'
 #' @keywords utilities
 #' @export
+#' @importFrom stats quantile
+#' @importFrom graphics text
 #' @noRd
 #'
-.labelExtremes <- function(data, names, tol) {
-  newList <- .getExtremeCoords(data, names, tol)
+.getExtremeCoords <- function(data, names, tol) {
+  px <- data[, 1]
+  py <- data[, 2]
+  pl <- names
+  if (is.numeric(pl)) pl <- sprintf("%.2f", pl)
 
-  x <- newList$x
-  y <- newList$y
-  l <- newList$l
+  q.x <- quantile(px, probs = c(1.0 - tol, tol), na.rm = TRUE)
+  sel.x <- (px <= q.x[2]) | (px >= q.x[1])
+  keep.x <- subset(px, sel.x)
+  keep.x <- match(keep.x, px) # need to keep this & corresponding y
 
-  for (n in c(1:length(x))) {
-    text(x[n], y[n], l[n], pos = 4, offset = 0.2, cex = 0.5)
-  }
+  q.y <- quantile(py, probs = c(1.0 - tol, tol), na.rm = TRUE)
+  sel.y <- (py <= q.y[2]) | (py >= q.y[1])
+  keep.y <- subset(py, sel.y)
+  keep.y <- match(keep.y, py) # need to keep this & corresponding x
+
+  keep <- unique(c(keep.x, keep.y))
+
+  x <- px[keep]
+  y <- py[keep]
+  l <- pl[keep]
+
+  newList <- list("x" = x, "y" = y, "l" = l)
+  return(newList)
 }
