@@ -1,5 +1,3 @@
 README.md
-Rbuildignore.txt
-gitignore.txt
 .Rhistory
-.github/
+.github
