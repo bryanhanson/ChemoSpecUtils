@@ -28,6 +28,7 @@
 #' @export
 #' @importFrom stats quantile
 #' @importFrom graphics text
+#' @export
 #' @noRd
 #'
 .getExtremeCoords <- function(data, names, tol) {
