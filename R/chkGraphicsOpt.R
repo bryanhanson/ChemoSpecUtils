@@ -3,11 +3,11 @@
 #'  
 #' @param silent Logical.  Silences most messages if \code{TRUE}.
 #'
-#' @value Character.  The value of the current graphics output option/mode.
+#' @return Character.  The value of the current graphics output option/mode.
 #'
 #' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
 #'
-#' @seealso See \code{\link{[ChemoSpec]GraphicsOptions}}
+#' @seealso See \code{\link[ChemoSpec]{GraphicsOptions}}
 #'          for more information about the graphics options. Additional documentation at
 #'          \url{https://bryanhanson.github.io/ChemoSpec/}
 #'

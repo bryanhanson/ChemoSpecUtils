@@ -9,11 +9,14 @@ chkGraphicsOpt(silent = TRUE)
 \arguments{
 \item{silent}{Logical.  Silences most messages if \code{TRUE}.}
 }
+\value{
+Character.  The value of the current graphics output option/mode.
+}
 \description{
 Checks the Graphic Output Option/Mode
 }
 \seealso{
-See \code{\link{GraphicsOptions}}
+See \code{\link[ChemoSpec]{GraphicsOptions}}
          for more information about the graphics options. Additional documentation at
          \url{https://bryanhanson.github.io/ChemoSpec/}
 }
