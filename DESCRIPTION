@@ -25,10 +25,10 @@ Suggests:
     multiway,
     lattice,
     roxut,
-    ggplot2,
     reshape2
 Imports:
-    plyr
+    plyr,
+    ggplot2
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
