@@ -22,10 +22,16 @@
 #' for \code{mia} objects.
 #'
 #' @param \dots Additional parameters to be passed to plotting functions.
+#' 
+#' @return
+#' The returned value depends on the graphics option selected.
+#' \describe{
+#'  \item{base:}{None.  Side effect is a plot.}
+#'  \item{ggplot2:}{The plot is displayed, and a \code{ggplot2} plot object is returned.
+#'                  The plot can be modified in the usual \code{ggplot2} manner.}
+#'          }
 #'
-#' @return None.  Side effect is a plot.
-#'
-#' @author Bryan A. Hanson, DePauw University.
+#' @author Bryan A. Hanson, DePauw University,Tejasvi Gupta.
 #'
 #' @references The idea for the alternative style plot came from the NIR-Quimiometria
 #'  blog by jrcuesta, at \url{https://nir-quimiometria.blogspot.com/2012/02/pca-for-nir-spectrapart-004-projections.html}
