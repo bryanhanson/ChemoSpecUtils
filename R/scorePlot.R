@@ -138,7 +138,246 @@
   } # end of go == "base"
 
   if (go == "ggplot2") {
-    stop("Not implemented yet!")
+    
+    if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) 
+    {
+      
+      # Get limits all possible pieces of the data
+      #
+      # Keep in mind the ellipses may be quite flattened and hence large.
+      # At the same time, the ellipses might be quite round and
+      # the scores well outside them, if there is an outlier.
+      # Must check all cases!
+      
+      x.scores <- range(llply(GRPS, subset, select = 1))
+      y.scores <- range(llply(GRPS, subset, select = 2))
+      x.ell <- range(llply(ELL, function(x) {
+        range(x[1])
+      }))
+      y.ell <- range(llply(ELL, function(x) {
+        range(x[2])
+      }))
+      x.ell.r <- range(llply(ELL, function(x) {
+        range(x[4])
+      }))
+      y.ell.r <- range(llply(ELL, function(x) {
+        range(x[5])
+      }))
+      # extend.limits: stackoverflow.com/a/29647893/633251
+      x.all <- range(x.scores, x.ell, x.ell.r)
+      x.all <- x.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # expand slightly for labels on right of points
+      y.all <- range(y.scores, y.ell, y.ell.r)
+      y.all <- y.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
+    }
+    if (ellipse == "none") {
+      x.scores <- range(llply(GRPS, subset, select = 1))
+      y.scores <- range(llply(GRPS, subset, select = 2))
+      x.all <- range(x.scores) + diff(range(x.scores)) * 0.05 * c(-1.0, 1.15) # expand slightly for labels
+      y.all <- range(y.scores) + diff(range(y.scores)) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
+    }
+    
+    # Now we have our limits, plot the scores after accounting for user provided xlim, ylim
+    
+    #dPargs <- list(PCs = DF[, 1:2], spectra = spectra, case = case, use.sym = use.sym, ... = ...)
+    
+    # Allow user to give xlim, ylim but provide good defaults as well
+    #if (!"xlim" %in% names(args)) dPargs <- c(dPargs, list(xlim = x.all))
+    #if (!"ylim" %in% names(args)) dPargs <- c(dPargs, list(ylim = y.all))
+    
+    if (case == "PCA")
+    {
+      if(!use.sym){
+      p<-ggplot(DF)+
+        geom_point(aes(x=PC1,y=PC2),color=spectra$colors,shape=20,size=3)
+      }
+      
+      if (use.sym)
+      {
+        p<-ggplot(DF)+
+          geom_point(aes(x=PC1,y=PC2),color="black",shape=spectra$sym)
+      }
+    }
+    
+    if (case == "MIA") {
+      p<-ggplot(DF)+
+        geom_point(aes(x=PC1,y=PC2),color=spectra$colors,shape=20,size=3)
+    }
+    
+    #Changing theme to theme_bw() and removing grids
+    p<-p+theme_bw()+
+      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+    
+    #p<-p+stat_ellipse(x.cls,y.cls)
+    
+    
+    if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both"))
+    {
+      if(ellipse == "cls")
+      {
+        cls.coords <- llply(ELL, function(x) {
+          x[1:2]
+        })
+        cls.coords <- llply(cls.coords, function(x) {
+          do.call(cbind, x)
+        })
+        df<-data.frame(x=numeric(),y=numeric(),name=character())
+        for ( i in 1:length(cls.coords))
+        {
+          x<-c()
+          y<-c()
+          name<-c()
+          total<-length(cls.coords[[i]])/2
+          for ( j in 1:total)
+          {
+            x<-c(x,cls.coords[[i]][j,1])
+            y<-c(y,cls.coords[[i]][j,2])
+            
+          }
+          name<-rep(names(cls.coords)[i],total)
+          temp<-data.frame(x,y,name)
+          df<-rbind(df,temp)
+        }
+        
+        
+        
+  #      cls.coords.df<-as.data.frame(cls.coords)
+      if(!use.sym )
+      {
+         p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
+            scale_color_manual(values = gr$color)+
+            scale_linetype_manual(values=c(2,2))
+      }
+        
+      if(use.sym )
+      {
+        p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+      }  
+        
+      }
+      
+      if (ellipse == "rob") {
+        rob.coords <- llply(ELL, function(x) {
+          x[4:5]
+        })
+        rob.coords <- llply(rob.coords, function(x) {
+          do.call(cbind, x)
+        })
+        
+        df<-data.frame(x=numeric(),y=numeric(),name=character())
+        for ( i in 1:length(rob.coords))
+        {
+          x<-c()
+          y<-c()
+          name<-c()
+          total<-length(rob.coords[[i]])/2
+          for ( j in 1:total)
+          {
+            x<-c(x,rob.coords[[i]][j,1])
+            y<-c(y,rob.coords[[i]][j,2])
+            
+          }
+          name<-rep(names(rob.coords)[i],total)
+          temp<-data.frame(x,y,name)
+          df<-rbind(df,temp)
+        }
+        
+        
+        if (!use.sym) 
+        {
+          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))+
+            scale_color_manual(name = "Key", values = gr$color)
+        }
+        
+        if(use.sym )
+        {
+          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+        }  
+      }
+      
+      if (ellipse == "both") 
+      {
+        
+        cls.coords <- llply(ELL, function(x) {
+          x[1:2]
+        })
+        cls.coords <- llply(cls.coords, function(x) {
+          do.call(cbind, x)
+        })
+        df.cls<-data.frame(x=numeric(),y=numeric(),name=character())
+        for ( i in 1:length(cls.coords))
+        {
+          x<-c()
+          y<-c()
+          name<-c()
+          total<-length(cls.coords[[i]])/2
+          for ( j in 1:total)
+          {
+            x<-c(x,cls.coords[[i]][j,1])
+            y<-c(y,cls.coords[[i]][j,2])
+            
+          }
+          name<-rep(names(cls.coords)[i],total)
+          temp<-data.frame(x,y,name)
+          df.cls<-rbind(df.cls,temp)
+        }
+        
+#        if(!use.sym )
+#        {
+#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
+#            scale_color_manual(values = gr$color)+
+#            scale_linetype_manual(values=c(2,2))
+#        }
+#        
+#        if(use.sym )
+#        {
+#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+#        } 
+#        
+#        
+        rob.coords <- llply(ELL, function(x) {
+          x[4:5]
+        })
+        rob.coords <- llply(rob.coords, function(x) {
+          do.call(cbind, x)
+        })
+        
+        df.rob<-data.frame(x=numeric(),y=numeric(),name=character())
+        for ( i in 1:length(rob.coords))
+        {
+          x<-c()
+          y<-c()
+          name<-c()
+          total<-length(rob.coords[[i]])/2
+          for ( j in 1:total)
+          {
+            x<-c(x,rob.coords[[i]][j,1])
+            y<-c(y,rob.coords[[i]][j,2])
+            
+          }
+          name<-rep(names(rob.coords)[i],total)
+          temp<-data.frame(x,y,name)
+          df.rob<-rbind(df.rob,temp)
+        }
+        
+#        if(!use.sym )
+#        {
+#          lines<-length()
+#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
+#            scale_color_manual(values = gr$color)+
+#            scale_linetype_manual(values=c(2,2))
+#        }
+#        
+#        if(use.sym )
+#        {
+#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+#        } 
+#        
+#      }
+      
+      
+    }
+    return(p)
   } # end of go == "ggplot2"
 
 } # End of plotScores
+
