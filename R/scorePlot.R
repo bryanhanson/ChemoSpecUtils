@@ -41,7 +41,7 @@
   if (case == "PCA") DF <- data.frame(so$x[, pcs], group = spectra$groups)
   if (case == "MIA") DF <- data.frame(so$C[, pcs], group = spectra$groups)
   GRPS <- dlply(DF, "group", subset, select = c(1, 2))
-
+  
   # Step 1.  Compute the ellipses if requested
 
   if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
@@ -142,13 +142,6 @@
     if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) 
     {
       
-      # Get limits all possible pieces of the data
-      #
-      # Keep in mind the ellipses may be quite flattened and hence large.
-      # At the same time, the ellipses might be quite round and
-      # the scores well outside them, if there is an outlier.
-      # Must check all cases!
-      
       x.scores <- range(llply(GRPS, subset, select = 1))
       y.scores <- range(llply(GRPS, subset, select = 2))
       x.ell <- range(llply(ELL, function(x) {
@@ -175,43 +168,33 @@
       x.all <- range(x.scores) + diff(range(x.scores)) * 0.05 * c(-1.0, 1.15) # expand slightly for labels
       y.all <- range(y.scores) + diff(range(y.scores)) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
     }
-    
-    # Now we have our limits, plot the scores after accounting for user provided xlim, ylim
-    
-    #dPargs <- list(PCs = DF[, 1:2], spectra = spectra, case = case, use.sym = use.sym, ... = ...)
-    
-    # Allow user to give xlim, ylim but provide good defaults as well
-    #if (!"xlim" %in% names(args)) dPargs <- c(dPargs, list(xlim = x.all))
-    #if (!"ylim" %in% names(args)) dPargs <- c(dPargs, list(ylim = y.all))
+    #print(x.all)
+    #print(y)
     
     if (case == "PCA")
     {
       if(!use.sym){
       p<-ggplot(DF)+
-        geom_point(aes(x=PC1,y=PC2),color=spectra$colors,shape=20,size=3)
+        geom_point(aes_string(x=colnames(DF)[1],y=colnames(DF)[2]),color=spectra$colors,shape=20,size=3)
       }
       
       if (use.sym)
       {
         p<-ggplot(DF)+
-          geom_point(aes(x=PC1,y=PC2),color="black",shape=spectra$sym)
+          geom_point(aes(x=colnames(DF)[1],y=colnames(DF)[2]),color="black",shape=spectra$sym)
       }
     }
     
     if (case == "MIA") {
       p<-ggplot(DF)+
-        geom_point(aes(x=PC1,y=PC2),color=spectra$colors,shape=20,size=3)
+        geom_point(aes(x=colnames(DF)[1],y=colnames(DF)[2]),color=spectra$colors,shape=20,size=3)
     }
     
     #Changing theme to theme_bw() and removing grids
     p<-p+theme_bw()+
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
     
-    #p<-p+stat_ellipse(x.cls,y.cls)
     
-    
-    if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both"))
-    {
       if(ellipse == "cls")
       {
         cls.coords <- llply(ELL, function(x) {
@@ -243,14 +226,16 @@
   #      cls.coords.df<-as.data.frame(cls.coords)
       if(!use.sym )
       {
+        lines<-rep(2,length(gr$color))
          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
-            scale_color_manual(values = gr$color)+
-            scale_linetype_manual(values=c(2,2))
+            scale_color_manual(values = gr$color)
       }
         
       if(use.sym )
       {
-        p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+        color.black<-rep("black",length(gr$color))
+        p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
+          scale_color_manual(values=color.black)
       }  
         
       }
@@ -285,12 +270,14 @@
         if (!use.sym) 
         {
           p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))+
-            scale_color_manual(name = "Key", values = gr$color)
+            scale_color_manual(values = gr$color)
         }
         
         if(use.sym )
         {
-          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
+          color.black<-rep("black",length(gr$color))
+          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))+
+            scale_color_manual(values=color.black)
         }  
       }
       
@@ -321,19 +308,6 @@
           df.cls<-rbind(df.cls,temp)
         }
         
-#        if(!use.sym )
-#        {
-#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
-#            scale_color_manual(values = gr$color)+
-#            scale_linetype_manual(values=c(2,2))
-#        }
-#        
-#        if(use.sym )
-#        {
-#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
-#        } 
-#        
-#        
         rob.coords <- llply(ELL, function(x) {
           x[4:5]
         })
@@ -359,23 +333,44 @@
           df.rob<-rbind(df.rob,temp)
         }
         
-#        if(!use.sym )
-#        {
-#          lines<-length()
-#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name),linetype=2)+
-#            scale_color_manual(values = gr$color)+
-#            scale_linetype_manual(values=c(2,2))
-#        }
-#        
-#        if(use.sym )
-#        {
-#          p<-p+stat_ellipse(data=df,aes(x=x,y=y,color=name))
-#        } 
-#        
-#      }
+        #print(df.rob)
+        if(!use.sym )
+        {
+          lines<-rep(2,length(gr$color))
+          p<-p+stat_ellipse(data=df.cls,aes(x=x,y=y,color=name),linetype=2)
+          #  scale_color_manual(values = gr$color)+
+            #scale_linetype_manual(values=lines)
+          p<-p+stat_ellipse(data=df.rob,aes(x=x,y=y,color=name))+
+            scale_color_manual(values = gr$color)
+        }
+        
+        if(use.sym )
+        {
+          color.black<-rep("black",length(gr$color))
+          p<-p+stat_ellipse(data=df.cls,aes(x=x,y=y,color=name))
+            #scale_color_manual(values=color.black)
+          p<-p+stat_ellipse(data=df.rob,aes(x=x,y=y,color=name),linetype=2)+
+            scale_color_manual(values=color.black)
+        } 
+        
+      }
       
       
-    }
+
+    # label extremes
+      if(tol!="none")
+      {
+        newList<-.getExtremeCoords(DF[,1:2],spectra$names,tol)
+        xcoord <- newList$x
+        ycoord <- newList$y-0.03
+        l<-newList$l
+        p <- p + annotate("text", x = xcoord, y = ycoord, label = l, size = 3)
+      }
+    
+      #removing the ggplot legend 
+      p<-p+ theme(legend.position = "none")
+    
+    
     return(p)
   } # end of go == "ggplot2"
 
