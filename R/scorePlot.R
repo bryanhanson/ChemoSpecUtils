@@ -5,6 +5,8 @@
 #' @noRd
 #' @export
 #' @importFrom plyr dlply llply
+#' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
+#' @importFrom grid grobTree textGrob gpar
 #'
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
@@ -177,7 +179,7 @@
       }
 
 
-      method <- grobTree(textGrob(pca$method,
+      method <- grobTree(textGrob(so$method,
         x = 0.05, y = 0.98, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
@@ -365,7 +367,7 @@
     if (tol != "none") {
       newList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
       xcoord <- newList$x
-      ycoord <- newList$y - 0.01
+      ycoord <- newList$y
       l <- newList$l
       p <- p + annotate("text", x = xcoord, y = ycoord, label = l, size = 3)
     }
