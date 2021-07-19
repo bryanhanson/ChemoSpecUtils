@@ -139,34 +139,8 @@
   } # end of go == "base"
 
   if (go == "ggplot2") {
-    if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
-      x.scores <- range(llply(GRPS, subset, select = 1))
-      y.scores <- range(llply(GRPS, subset, select = 2))
-      x.ell <- range(llply(ELL, function(x) {
-        range(x[1])
-      }))
-      y.ell <- range(llply(ELL, function(x) {
-        range(x[2])
-      }))
-      x.ell.r <- range(llply(ELL, function(x) {
-        range(x[4])
-      }))
-      y.ell.r <- range(llply(ELL, function(x) {
-        range(x[5])
-      }))
-
-      x.all <- range(x.scores, x.ell, x.ell.r)
-      x.all <- x.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # expand slightly for labels on right of points
-      y.all <- range(y.scores, y.ell, y.ell.r)
-      y.all <- y.all + diff(x.all) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
-    }
-    if (ellipse == "none") {
-      x.scores <- range(llply(GRPS, subset, select = 1))
-      y.scores <- range(llply(GRPS, subset, select = 2))
-      x.all <- range(x.scores) + diff(range(x.scores)) * 0.05 * c(-1.0, 1.15) # expand slightly for labels
-      y.all <- range(y.scores) + diff(range(y.scores)) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
-    }
-
+    
+    x<- y <- name <- NULL # satisfy CRAN check engine
     if (case == "PCA") {
       if (!use.sym) {
         p <- ggplot(DF) +
@@ -203,34 +177,17 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df <- data.frame(x = numeric(), y = numeric(), name = character())
-      for (i in 1:length(cls.coords))
-      {
-        x <- c()
-        y <- c()
-        name <- c()
-        total <- length(cls.coords[[i]]) / 2
-        for (j in 1:total)
-        {
-          x <- c(x, cls.coords[[i]][j, 1])
-          y <- c(y, cls.coords[[i]][j, 2])
-        }
-        name <- rep(names(cls.coords)[i], total)
-        temp <- data.frame(x, y, name)
-        df <- rbind(df, temp)
-      }
-
-
+      df.cls<- .getEllipseCoords(cls.coords)
 
       # cls.coords.df<-as.data.frame(cls.coords)
       if (!use.sym) {
-        p <- p + geom_path(data = df, aes(x = x, y = y, color = name), linetype = 2) +
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
           scale_color_manual(values = gr$color)
       }
 
       if (use.sym) {
         color.black <- rep("black", length(gr$color))
-        p <- p + geom_path(data = df, aes(x = x, y = y, color = name), linetype = 2) +
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
           scale_color_manual(values = color.black)
       }
 
@@ -248,33 +205,17 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
-
-      df <- data.frame(x = numeric(), y = numeric(), name = character())
-      for (i in 1:length(rob.coords))
-      {
-        x <- c()
-        y <- c()
-        name <- c()
-        total <- length(rob.coords[[i]]) / 2
-        for (j in 1:total)
-        {
-          x <- c(x, rob.coords[[i]][j, 1])
-          y <- c(y, rob.coords[[i]][j, 2])
-        }
-        name <- rep(names(rob.coords)[i], total)
-        temp <- data.frame(x, y, name)
-        df <- rbind(df, temp)
-      }
+      df.rob<- .getEllipseCoords(rob.coords)
 
 
       if (!use.sym) {
-        p <- p + geom_path(data = df, aes(x = x, y = y, color = name)) +
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
           scale_color_manual(values = gr$color)
       }
 
       if (use.sym) {
         color.black <- rep("black", length(gr$color))
-        p <- p + geom_path(data = df, aes(x = x, y = y, color = name)) +
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
           scale_color_manual(values = color.black)
       }
 
@@ -292,22 +233,7 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df.cls <- data.frame(x = numeric(), y = numeric(), name = character())
-      for (i in 1:length(cls.coords))
-      {
-        x <- c()
-        y <- c()
-        name <- c()
-        total <- length(cls.coords[[i]]) / 2
-        for (j in 1:total)
-        {
-          x <- c(x, cls.coords[[i]][j, 1])
-          y <- c(y, cls.coords[[i]][j, 2])
-        }
-        name <- rep(names(cls.coords)[i], total)
-        temp <- data.frame(x, y, name)
-        df.cls <- rbind(df.cls, temp)
-      }
+      df.cls <- .getEllipseCoords(cls.coords) #Data frame with cls.coords values
 
       rob.coords <- llply(ELL, function(x) {
         x[4:5]
@@ -315,24 +241,9 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
+      df.rob <- .getEllipseCoords(rob.coords) #Data frame with rob.coords values
 
-      df.rob <- data.frame(x = numeric(), y = numeric(), name = character())
-      for (i in 1:length(rob.coords))
-      {
-        x <- c()
-        y <- c()
-        name <- c()
-        total <- length(rob.coords[[i]]) / 2
-        for (j in 1:total)
-        {
-          x <- c(x, rob.coords[[i]][j, 1])
-          y <- c(y, rob.coords[[i]][j, 2])
-        }
-        name <- rep(names(rob.coords)[i], total)
-        temp <- data.frame(x, y, name)
-        df.rob <- rbind(df.rob, temp)
-      }
-
+      
       if (!use.sym) {
         lines <- rep(2, length(gr$color))
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2)
@@ -361,8 +272,6 @@
       p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
     }
 
-
-
     # label extremes
     if (tol != "none") {
       newList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
@@ -372,11 +281,8 @@
       p <- p + annotate("text", x = xcoord, y = ycoord, label = l, size = 3)
     }
 
-
     # removing the ggplot legend
-    p <- p + theme(legend.position = "none") +
-      lims(x = c(x.all[1], x.all[2]), y = c(y.all[1], y.all[2]))
-
+    p <- p + theme(legend.position = "none")
 
     group <- c(NA_real_)
     color <- c(NA_real_)
@@ -451,8 +357,6 @@
         p <- p + annotation_custom(grob) + annotation_custom(keys)
       }
     }
-
-
 
     return(p)
   } # end of go == "ggplot2"
