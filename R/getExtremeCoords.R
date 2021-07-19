@@ -1,9 +1,8 @@
 #'
 #' getExtremeCoords
 #'
-#' A utility function which plots the sample names next to the sample points.
-#' The number of samples labeled can be specified by passing it from the
-#' calling function. An internal function, not generally called by the user.
+#' A utility function which returns a list of the extreme coordinates that are to be labelled.
+#'An internal function, not generally called by the user.
 #'
 #' @param data A matrix containing the x values of the points/samples in the
 #' first column, and the y values in the second.
@@ -28,6 +27,7 @@
 #' @export
 #' @importFrom stats quantile
 #' @importFrom graphics text
+#' @
 #' @noRd
 #'
 .getExtremeCoords <- function(data, names, tol) {
