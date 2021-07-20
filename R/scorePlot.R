@@ -5,6 +5,8 @@
 #' @noRd
 #' @export
 #' @importFrom plyr dlply llply
+#' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
+#' @importFrom grid grobTree textGrob gpar
 #'
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
@@ -134,11 +136,228 @@
     # Label extremes if requested
 
     if (tol != "none") .labelExtremes(DF[, 1:2], spectra$names, tol)
-
   } # end of go == "base"
 
   if (go == "ggplot2") {
-    stop("Not implemented yet!")
-  } # end of go == "ggplot2"
+    
+    x<- y <- name <- NULL # satisfy CRAN check engine
+    if (case == "PCA") {
+      if (!use.sym) {
+        p <- ggplot(DF) +
+          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3) # plotting the points
+      }
 
+      if (use.sym) {
+        p <- ggplot(DF) +
+          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = "black", shape = spectra$sym)
+      }
+
+
+      method <- grobTree(textGrob(so$method,
+        x = 0.05, y = 0.98, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+      p <- p + annotation_custom(method) # Adding the method name
+    }
+
+    if (case == "MIA") {
+      p <- ggplot(DF) +
+        geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3)
+    }
+
+    # Changing theme to theme_bw() and removing grids
+    p <- p + theme_bw() +
+      theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+
+    if (ellipse == "cls") {
+      cls.coords <- llply(ELL, function(x) {
+        x[1:2]
+      })
+      cls.coords <- llply(cls.coords, function(x) {
+        do.call(cbind, x)
+      })
+      df.cls<- .getEllipseCoords(cls.coords)
+
+      # cls.coords.df<-as.data.frame(cls.coords)
+      if (!use.sym) {
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
+          scale_color_manual(values = gr$color)
+      }
+
+      if (use.sym) {
+        color.black <- rep("black", length(gr$color))
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
+          scale_color_manual(values = color.black)
+      }
+
+      ell <- grobTree(textGrob(" ' ' ' ' classical ellipse by group",
+        x = 0.05, y = 0.95, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+      p <- p + annotation_custom(ell)
+    }
+
+    if (ellipse == "rob") {
+      rob.coords <- llply(ELL, function(x) {
+        x[4:5]
+      })
+      rob.coords <- llply(rob.coords, function(x) {
+        do.call(cbind, x)
+      })
+      df.rob<- .getEllipseCoords(rob.coords)
+
+
+      if (!use.sym) {
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
+          scale_color_manual(values = gr$color)
+      }
+
+      if (use.sym) {
+        color.black <- rep("black", length(gr$color))
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
+          scale_color_manual(values = color.black)
+      }
+
+      ell <- grobTree(textGrob(" ----- robust ellipses by group",
+        x = 0.05, y = 0.95, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+      p <- p + annotation_custom(ell)
+    }
+
+    if (ellipse == "both") {
+      cls.coords <- llply(ELL, function(x) {
+        x[1:2]
+      })
+      cls.coords <- llply(cls.coords, function(x) {
+        do.call(cbind, x)
+      })
+      df.cls <- .getEllipseCoords(cls.coords) #Data frame with cls.coords values
+
+      rob.coords <- llply(ELL, function(x) {
+        x[4:5]
+      })
+      rob.coords <- llply(rob.coords, function(x) {
+        do.call(cbind, x)
+      })
+      df.rob <- .getEllipseCoords(rob.coords) #Data frame with rob.coords values
+
+      
+      if (!use.sym) {
+        lines <- rep(2, length(gr$color))
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2)
+
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
+          scale_color_manual(values = gr$color)
+      }
+
+      if (use.sym) {
+        color.black <- rep("black", length(gr$color))
+        p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name))
+
+        p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name), linetype = 2) +
+          scale_color_manual(values = color.black)
+      }
+
+      # putting type of ellipse data on the plot
+      ell.cls <- grobTree(textGrob(" ' ' ' ' classic ellipse by group",
+        x = 0.05, y = 0.95, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+      ell.rob <- grobTree(textGrob(" ----- robust ellipses by group",
+        x = 0.05, y = 0.92, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+      p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
+    }
+
+    # label extremes
+    if (tol != "none") {
+      newList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
+      xcoord <- newList$x
+      ycoord <- newList$y
+      l <- newList$l
+      p <- p + annotate("text", x = xcoord, y = ycoord, label = l, size = 3)
+    }
+
+    # removing the ggplot legend
+    p <- p + theme(legend.position = "none")
+
+    group <- c(NA_real_)
+    color <- c(NA_real_)
+    for (i in spectra$groups) {
+      if (!(i %in% group)) {
+        group <- c(group, i)
+      }
+    }
+
+    for (i in spectra$colors) {
+      if (!(i %in% color)) {
+        color <- c(color, i)
+      }
+    }
+    group <- group[-1]
+    color <- color[-1]
+
+    # If use.sym then color of the legend should be black
+    if (use.sym) {
+      color <- rep("black", length(group))
+    }
+
+    if (leg.loc == "topright") {
+      lab.x <- 0.9
+      lab.y <- 0.9
+    }
+    if (leg.loc == "topleft") {
+      lab.x <- 0.01
+      lab.y <- 0.9
+    }
+    if (leg.loc == "bottomright") {
+      lab.x <- 0.9
+      lab.y <- 0.1
+    }
+    if (leg.loc == "bottomleft") {
+      lab.x <- 0.01
+      lab.y <- 0.1
+    }
+    if (leg.loc == "bottom") {
+      lab.x <- 0.5
+      lab.y <- 0.1
+    }
+
+    if (leg.loc == "top") {
+      lab.x <- 0.5
+      lab.y <- 0.9
+    }
+
+    if (leg.loc == "left") {
+      lab.x <- 0.01
+      lab.y <- 0.5
+    }
+
+    if (leg.loc == "right") {
+      lab.x <- 0.9
+      lab.y <- 0.5
+    }
+
+
+    if (leg.loc != "none") {
+      keys <- grobTree(textGrob("Key",
+        x = lab.x, y = lab.y + 0.025, hjust = 0,
+        gp = gpar(col = "black", fontsize = 10)
+      ))
+
+      for (i in 1:length(group)) {
+        grob <- grid::grobTree(textGrob(group[i],
+          x = lab.x, y = lab.y, hjust = 0,
+          gp = gpar(col = color[i], fontsize = 10)
+        ))
+        lab.y <- lab.y - 0.027
+        p <- p + annotation_custom(grob) + annotation_custom(keys)
+      }
+    }
+
+    return(p)
+  } # end of go == "ggplot2"
 } # End of plotScores
