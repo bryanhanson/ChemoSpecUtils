@@ -29,6 +29,7 @@ Suggests:
 Imports:
     plyr,
     ggplot2
+Additional_repositories: https://github.com/bryanhanson/ChemoSpecUtils
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
