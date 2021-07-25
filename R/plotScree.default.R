@@ -8,7 +8,6 @@
 #' @importFrom ggplot2 theme element_blank xlim annotate scale_y_continuous ggplot geom_line
 #'
 plotScree.default <- function(pca, style = "alt", ...) {
-
   variance <- .getVarExplained(pca)
   cumvariance <- cumsum(variance)
   ncp <- length(variance)
@@ -77,10 +76,18 @@ plotScree.default <- function(pca, style = "alt", ...) {
         theme_bw() +
         geom_hline(yintercept = 95, linetype = "dashed") + # horizontal dashed line
         scale_x_continuous(breaks = 1:ncp) # scaling x axis ticks to whole numbers
+      x.min <- 2 # Not a fudge factor
+      y.min <- 0
+      x.max <- max(df$ncp)
+      p <- p + annotate("text", x = x.min, y = y.min, label = pca$method)
+
+      p <- p + annotate("text", x = x.max - 0.5, y = 50, label = "---- cumulative percent", color = "blue")
+      p <- p + annotate("text", x = x.max - 0.5, y = 46, label = "---- individual percent", color = "red")
       return(p)
     }
 
     if (style == "alt") {
+      df <- NULL
       if (inherits(pca, "prcomp")) {
         x <- rep(1:ncp, each = nrow(pca$x))
         y <- as.vector(pca$x[, 1:ncp])
@@ -122,6 +129,15 @@ plotScree.default <- function(pca, style = "alt", ...) {
 
       p <- p + scale_x_continuous(breaks = 1:ncp)
       p <- p + scale_y_continuous(breaks = c(-0.5, 0.0, 0.5))
+
+      x.max <- max(df$x)
+      x.min <- min(df$x)
+      y.min <- min(df$y)
+      y.max <- max(df$y)
+
+      x.max <- x.max - (x.max - x.min) / 7
+      p <- p + annotate("text", x = x.max, y = y.min, label = pca$method) +
+        annotate("text", x = x.max, y = y.max, label = "cumulative percent variance shown to right of PC")
       return(p)
     }
   }

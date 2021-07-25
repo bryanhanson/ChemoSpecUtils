@@ -7,6 +7,7 @@
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
 #' @importFrom grid grobTree textGrob gpar
+#' @importFrom ggrepel geom_text_repel
 #'
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
@@ -139,8 +140,9 @@
   } # end of go == "base"
 
   if (go == "ggplot2") {
-    
-    x<- y <- name <- NULL # satisfy CRAN check engine
+    label <- NULL
+
+    x <- y <- name <- NULL # satisfy CRAN check engine
     if (case == "PCA") {
       if (!use.sym) {
         p <- ggplot(DF) +
@@ -177,7 +179,7 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df.cls<- .getEllipseCoords(cls.coords)
+      df.cls <- .getEllipseCoords(cls.coords)
 
       # cls.coords.df<-as.data.frame(cls.coords)
       if (!use.sym) {
@@ -205,7 +207,7 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
-      df.rob<- .getEllipseCoords(rob.coords)
+      df.rob <- .getEllipseCoords(rob.coords)
 
 
       if (!use.sym) {
@@ -233,7 +235,7 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df.cls <- .getEllipseCoords(cls.coords) #Data frame with cls.coords values
+      df.cls <- .getEllipseCoords(cls.coords) # Data frame with cls.coords values
 
       rob.coords <- llply(ELL, function(x) {
         x[4:5]
@@ -241,9 +243,9 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
-      df.rob <- .getEllipseCoords(rob.coords) #Data frame with rob.coords values
+      df.rob <- .getEllipseCoords(rob.coords) # Data frame with rob.coords values
 
-      
+
       if (!use.sym) {
         lines <- rep(2, length(gr$color))
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2)
@@ -274,11 +276,9 @@
 
     # label extremes
     if (tol != "none") {
-      newList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
-      xcoord <- newList$x
-      ycoord <- newList$y
-      l <- newList$l
-      p <- p + annotate("text", x = xcoord, y = ycoord, label = l, size = 3)
+      CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
+      df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
+      p <- p + geom_text_repel(data = df, aes(x = x, y = y, label = label), box.padding = 0.5, max.overlaps = Inf)
     }
 
     # removing the ggplot legend
