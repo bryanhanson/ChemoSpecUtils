@@ -11,7 +11,6 @@ Authors@R: c(
     person("Tejasvi", "Gupta",
       role = "ctb",
       comment = "author of ggplot2 graphics"))
-    )
 Description: Functions supporting the common needs of packages 'ChemoSpec' and 'ChemoSpec2D'.
 License: GPL-3
 Depends:
