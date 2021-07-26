@@ -344,7 +344,7 @@
 
     if (leg.loc != "none") {
       keys <- grobTree(textGrob("Key",
-        x = lab.x, y = lab.y + 0.025, hjust = 0,
+        x = lab.x, y = lab.y + 0.04, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
 
@@ -353,7 +353,7 @@
           x = lab.x, y = lab.y, hjust = 0,
           gp = gpar(col = color[i], fontsize = 10)
         ))
-        lab.y <- lab.y - 0.027
+        lab.y <- lab.y - 0.04
         p <- p + annotation_custom(grob) + annotation_custom(keys)
       }
     }
