@@ -1,3 +1,7 @@
+# ChemoSpecUtils 1.0.0 2021-07-26
+## Significant Changes
+* Thanks to GSOC and Tejasvi Gupta, several functions in `ChemoSpec` gain the ability to produce `ggplot2` graphics, which required changes here in `ChemoSpecUtils`.  See the news file for `ChemoSpec` for more details.
+
 # ChemoSpecUtils 0.4.96 2021-03-15
 ## Misc.
 * Checked against `R` r80087.
