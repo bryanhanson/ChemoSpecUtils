@@ -1,13 +1,17 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 0.4.110
-Date: 2021-06-26
+Version: 1.0.0
+Date: 2021-07-26
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
     "hanson@depauw.edu",
-    comment = c(ORCID = "0000-0003-3536-8246")))
+    comment = c(ORCID = "0000-0003-3536-8246")),
+    person("Tejasvi", "Gupta",
+      role = "ctb",
+      comment = "author of ggplot2 graphics"))
+    )
 Description: Functions supporting the common needs of packages 'ChemoSpec' and 'ChemoSpec2D'.
 License: GPL-3
 Depends:
