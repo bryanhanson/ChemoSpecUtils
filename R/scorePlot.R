@@ -200,7 +200,7 @@
           scale_color_manual(values = color.black)
       }
 
-      ell <- grobTree(textGrob(" ' ' ' ' classical ellipse by group",
+      ell <- grobTree(textGrob("- - - - classical ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
@@ -228,7 +228,7 @@
           scale_color_manual(values = color.black)
       }
 
-      ell <- grobTree(textGrob(" ----- robust ellipses by group",
+      ell <- grobTree(textGrob("------- robust ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
@@ -270,11 +270,11 @@
       }
 
       # putting type of ellipse data on the plot
-      ell.cls <- grobTree(textGrob(" ' ' ' ' classic ellipse by group",
+      ell.cls <- grobTree(textGrob("- - - - classical ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
-      ell.rob <- grobTree(textGrob(" ----- robust ellipses by group",
+      ell.rob <- grobTree(textGrob("------- robust ellipses by group",
         x = 0.05, y = 0.92, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))

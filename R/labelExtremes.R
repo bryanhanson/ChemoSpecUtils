@@ -11,14 +11,7 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{x}.
 #'
-#' @param tol A number describing the fraction of points to be labeled.
-#' \code{tol = 1.0} labels all the points; \code{tol = 0.05} labels
-#' \emph{approximately} the most extreme 5 percent.  Note that this is simply
-#' based upon quantiles, assumes that both x and y are each normally
-#' distributed, and treats x and y separately.  Thus, this is not a formal
-#' treatment of outliers, just a means of labeling points.  Note too that while
-#' this function could deal with groups separately, the way it is called by
-#' \code{\link{.plotScoresDecoration}} lumps all groups together.
+#' @template tol-arg
 #'
 #' @return None.  Annotates the plot with labels.
 #'
