@@ -125,12 +125,19 @@
 
     if (case == "PCA") {
       .addMethod(so)
-      if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym, bty = "n")
+      if (all(leg.loc != "none")){
+        leg.loc<-prepLegendCoords(spectra,leg.loc,y.all[1],y.all[2],x.all[1],x.all[2])
+        .addLegend(spectra, leg.loc, use.sym, bty = "n")
+      }
       .addEllipseInfo(ellipse)
     }
 
     if (case == "MIA") {
-      if (leg.loc != "none") .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")
+      if (all(leg.loc != "none")) {
+
+        leg.loc<-prepLegendCoords(spectra,leg.loc,y.all[1],y.all[2],x.all[1],x.all[2])
+        .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")
+      }
       .addEllipseInfo(ellipse)
     }
 
