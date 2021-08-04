@@ -64,9 +64,6 @@ chkGraphicsOpt <- function(silent = TRUE) {
       message("\nThe ChemoSpec graphics option is set to 'plotly'")
     }
 
-    if (go == "shiny") {
-      message("\nThe ChemoSpec graphics option is set to 'shiny'")
-    }
   }
   return(go)
 }
