@@ -126,7 +126,16 @@
     if (case == "PCA") {
       .addMethod(so)
       if (all(leg.loc != "none")){
-        leg.loc<-prepLegendCoords(spectra,leg.loc,y.all[1],y.all[2],x.all[1],x.all[2])
+        if ( exists('x' , where=leg.loc) && (exists('y' ,where=leg.loc)) )
+        {
+          x.min<-x.all[1]
+          x.max<-x.all[2]
+          y.min<-y.all[1]
+          y.max<-y.all[2]
+          leg.loc$x <- (leg.loc$x) * (x.max - x.min) + x.min
+          leg.loc$y <- (leg.loc$y) * (y.max - y.min) + y.min
+        }
+        
         .addLegend(spectra, leg.loc, use.sym, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -134,8 +143,15 @@
 
     if (case == "MIA") {
       if (all(leg.loc != "none")) {
-
-        leg.loc<-prepLegendCoords(spectra,leg.loc,y.all[1],y.all[2],x.all[1],x.all[2])
+        if ( exists('x' , where=leg.loc) && (exists('y' ,where=leg.loc)) )
+        {
+        x.min<-x.all[1]
+        x.max<-x.all[2]
+        y.min<-y.all[1]
+        y.max<-y.all[2]
+        leg.loc$x <- (leg.loc$x) * (x.max - x.min) + x.min
+        leg.loc$y <- (leg.loc$y) * (y.max - y.min) + y.min
+        }
         .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -312,44 +328,10 @@
       color <- rep("black", length(group))
     }
 
-    if (leg.loc == "topright") {
-      lab.x <- 0.9
-      lab.y <- 0.9
-    }
-    if (leg.loc == "topleft") {
-      lab.x <- 0.01
-      lab.y <- 0.9
-    }
-    if (leg.loc == "bottomright") {
-      lab.x <- 0.9
-      lab.y <- 0.1
-    }
-    if (leg.loc == "bottomleft") {
-      lab.x <- 0.01
-      lab.y <- 0.1
-    }
-    if (leg.loc == "bottom") {
-      lab.x <- 0.5
-      lab.y <- 0.1
-    }
-
-    if (leg.loc == "top") {
-      lab.x <- 0.5
-      lab.y <- 0.9
-    }
-
-    if (leg.loc == "left") {
-      lab.x <- 0.01
-      lab.y <- 0.5
-    }
-
-    if (leg.loc == "right") {
-      lab.x <- 0.9
-      lab.y <- 0.5
-    }
-
-
-    if (leg.loc != "none") {
+    if (all(leg.loc != "none")) {
+      leg.loc<-prepLegendCoords(leg.loc)
+      lab.x<-leg.loc$x
+      lab.y<-leg.loc$y
       keys <- grobTree(textGrob("Key",
         x = lab.x, y = lab.y + 0.04, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
