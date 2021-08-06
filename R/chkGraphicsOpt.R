@@ -1,6 +1,6 @@
 #'
 #' Checks the Graphic Output Option/Mode
-#'  
+#'
 #' @param silent Logical.  Silences most messages if \code{TRUE}.
 #'
 #' @return Character.  The value of the current graphics output option/mode.
@@ -16,22 +16,22 @@
 #' @tests tinytest
 #' # Check for unset graphic mode
 #' expect_equal(chkGraphicsOpt(), "base")
-#' 
+#'
 #' # check for 'base'
 #' options(ChemoSpecGraphics = "base")
 #' expect_equal(chkGraphicsOpt(), "base")
-#' 
+#'
 #' # check for 'ggplot2'
 #' options(ChemoSpecGraphics = "ggplot2")
 #' expect_equal(chkGraphicsOpt(), "ggplot2")
-#' 
+#'
 #' # check for invalid mode
 #' options(ChemoSpecGraphics = "xyz")
 #' expect_equal(chkGraphicsOpt(), "base")
 
 chkGraphicsOpt <- function(silent = TRUE) {
   go <- getOption("ChemoSpecGraphics")
-  valid <- c("base", "ggplot2", "plotly", "shiny")
+  valid <- c("base", "ggplot2", "plotly")
 
   flag <- 0
   if (!(go %in% valid)) {
@@ -51,6 +51,12 @@ chkGraphicsOpt <- function(silent = TRUE) {
     }
   }
 
+  if (go == "plotly") {
+    if (!requireNamespace("plotly", quietly = TRUE)) {
+      stop("You need to install package plotly to use this function")
+    }
+  } 
+  
   if (!silent) {
     if (go == "base" && flag == 0) {
       message("\nThe ChemoSpec graphics option is set to 'base'")
@@ -63,11 +69,6 @@ chkGraphicsOpt <- function(silent = TRUE) {
     if (go == "plotly") {
       message("\nThe ChemoSpec graphics option is set to 'plotly'")
     }
-
-    if (go == "shiny") {
-      message("\nThe ChemoSpec graphics option is set to 'shiny'")
-    }
   }
   return(go)
 }
-
