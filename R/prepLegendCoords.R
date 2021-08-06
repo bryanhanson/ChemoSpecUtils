@@ -1,18 +1,16 @@
 prepLegendCoords <- function(go, leg.loc, x.min = 0, x.max = 0, y.min = 0, y.max = 0) {
-  if (go == "ggplot2") {
-    if (is.list(leg.loc) && go == "ggplot2") {
-      if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
-        return(leg.loc)
-      }
+  if (is.list(leg.loc) && go == "ggplot2") { #case when a list is passed in ggplot2 mode
+    if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
+      return(leg.loc)
     }
-  } else if (is.list(leg.loc) && go == "base") {
+  } else if (is.list(leg.loc) && go == "base") { # case when list is passed in base mode
     if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
       lab.x <- (leg.loc$x) * (x.max - x.min) + x.min
       lab.y <- (leg.loc$y) * (y.max - y.min) + y.min
       leg.loc <- list(x = lab.x, y = lab.y)
       return(leg.loc)
     }
-  } else if (go == "ggplot2") {
+  } else if (go == "ggplot2") { # case when a string is passed in ggplot2 mode
     if (leg.loc == "topright") {
       lab.x <- 0.9
       lab.y <- 0.9
@@ -55,7 +53,7 @@ prepLegendCoords <- function(go, leg.loc, x.min = 0, x.max = 0, y.min = 0, y.max
     }
     leg.loc <- list(x = lab.x, y = lab.y)
     return(leg.loc)
-  } else {
+  } else { # case when a string is passed in base mode
     return(leg.loc)
   }
 }
