@@ -125,8 +125,8 @@
 
     if (case == "PCA") {
       .addMethod(so)
-      if (all(leg.loc != "none")){
-        leg.loc<-prepLegendCoords(go,leg.loc,x.all[1],x.all[2],y.all[1],y.all[2])
+      if (all(leg.loc != "none")) {
+        leg.loc <- prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
         .addLegend(spectra, leg.loc, use.sym, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -134,7 +134,7 @@
 
     if (case == "MIA") {
       if (all(leg.loc != "none")) {
-        leg.loc<-prepLegendCoords(go,leg.loc,x.all[1],x.all[2],y.all[1],y.all[2])
+        leg.loc <- prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
         .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -146,18 +146,23 @@
   } # end of go == "base"
 
   if (go == "ggplot2") {
+    args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotscore
+    xlab <- eval(args$xlab)
+    ylab <- eval(args$ylab)
     label <- NULL
 
     x <- y <- name <- NULL # satisfy CRAN check engine
     if (case == "PCA") {
       if (!use.sym) {
         p <- ggplot(DF) +
-          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3) # plotting the points
+          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3) + # plotting the points
+          labs(x = xlab, y = ylab)
       }
 
       if (use.sym) {
         p <- ggplot(DF) +
-          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = "black", shape = spectra$sym)
+          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = "black", shape = spectra$sym) +
+          labs(x = xlab, y = ylab)
       }
 
 
@@ -312,9 +317,9 @@
     }
 
     if (all(leg.loc != "none")) {
-      leg.loc<-prepLegendCoords(go,leg.loc)
-      lab.x<-leg.loc$x
-      lab.y<-leg.loc$y
+      leg.loc <- prepLegendCoords(go, leg.loc)
+      lab.x <- leg.loc$x
+      lab.y <- leg.loc$y
       keys <- grobTree(textGrob("Key",
         x = lab.x, y = lab.y + 0.04, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
