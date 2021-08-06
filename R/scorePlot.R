@@ -126,7 +126,7 @@
     if (case == "PCA") {
       .addMethod(so)
       if (all(leg.loc != "none")) {
-        leg.loc <- prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
+        leg.loc <- .prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
         .addLegend(spectra, leg.loc, use.sym, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -134,7 +134,7 @@
 
     if (case == "MIA") {
       if (all(leg.loc != "none")) {
-        leg.loc <- prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
+        leg.loc <- .prepLegendCoords(go, leg.loc, x.all[1], x.all[2], y.all[1], y.all[2])
         .addLegend(spectra, leg.loc, use.sym = FALSE, bty = "n")
       }
       .addEllipseInfo(ellipse)
@@ -317,7 +317,7 @@
     }
 
     if (all(leg.loc != "none")) {
-      leg.loc <- prepLegendCoords(go, leg.loc)
+      leg.loc <- .prepLegendCoords(go, leg.loc)
       lab.x <- leg.loc$x
       lab.y <- leg.loc$y
       keys <- grobTree(textGrob("Key",
