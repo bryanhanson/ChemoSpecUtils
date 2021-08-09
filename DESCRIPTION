@@ -32,7 +32,8 @@ Suggests:
 Imports:
     plyr,
     ggplot2,
-    ggrepel
+    ggrepel,
+    plotly
 Remotes: bryanhanson/ChemoSpec
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
