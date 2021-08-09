@@ -6,7 +6,6 @@
 #' @export
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
-#' @importFrom grid grobTree textGrob gpar
 #' @importFrom ggrepel geom_text_repel
 #'
 .scorePlot <- function(spectra, so,
@@ -295,44 +294,8 @@
     # removing the ggplot legend
     p <- p + theme(legend.position = "none")
 
-    group <- c(NA_real_)
-    color <- c(NA_real_)
-    for (i in spectra$groups) {
-      if (!(i %in% group)) {
-        group <- c(group, i)
-      }
-    }
-
-    for (i in spectra$colors) {
-      if (!(i %in% color)) {
-        color <- c(color, i)
-      }
-    }
-    group <- group[-1]
-    color <- color[-1]
-
-    # If use.sym then color of the legend should be black
-    if (use.sym) {
-      color <- rep("black", length(group))
-    }
-
     if (all(leg.loc != "none")) {
-      leg.loc <- .prepLegendCoords(go, leg.loc)
-      lab.x <- leg.loc$x
-      lab.y <- leg.loc$y
-      keys <- grobTree(textGrob("Key",
-        x = lab.x, y = lab.y + 0.04, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-
-      for (i in 1:length(group)) {
-        grob <- grid::grobTree(textGrob(group[i],
-          x = lab.x, y = lab.y, hjust = 0,
-          gp = gpar(col = color[i], fontsize = 10)
-        ))
-        lab.y <- lab.y - 0.04
-        p <- p + annotation_custom(grob) + annotation_custom(keys)
-      }
+      p<-.ggAddLegend(go,spectra,use.sym,leg.loc,p)
     }
 
     return(p)
