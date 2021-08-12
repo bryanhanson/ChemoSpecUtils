@@ -1,7 +1,5 @@
 # File created by roxut; edit the function definition file, not this file
  
-# Check for unset graphic mode
-expect_equal(chkGraphicsOpt(), "base")
 
 # check for 'base'
 options(ChemoSpecGraphics = "base")
