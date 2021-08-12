@@ -117,7 +117,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
             panel.grid.minor = element_blank()
           )
 
-        y.pos <- apply(pca$x[, 1:ncp], MARGIN = 2, FUN = range) # used in a moment
+        y.pos <- apply(pca$C[, 1:ncp], MARGIN = 2, FUN = range) # used in a moment
       }
       lab.txt <- paste(round(cumvariance[1:ncp], 0), "%", sep = "")
       y.pos <- y.pos[2, ]

@@ -13,6 +13,8 @@
 #' @export
 #'
 .prepLegendCoords <- function(go, leg.loc, x.min = 0.0, x.max = 0.0, y.min = 0.0, y.max = 0.0) {
+  lab.x<-c(NA_real_)
+  lab.y<-c(NA_real_)
   if (is.list(leg.loc) && go == "ggplot2") { # case when a list is passed in ggplot2 mode
     if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
       return(leg.loc)
