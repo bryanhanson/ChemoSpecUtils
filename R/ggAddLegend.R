@@ -12,7 +12,7 @@
 #' @export
 #' @importFrom grid grobTree textGrob gpar
 #'
-.ggAddLegend <- function(go,spectra,use.sym=FALSE,leg.loc,p ) {
+.ggAddLegend <- function(go,spectra,use.sym,leg.loc,p ) {
   group <- c(NA_real_)
   color <- c(NA_real_)
   for (i in spectra$groups) {
