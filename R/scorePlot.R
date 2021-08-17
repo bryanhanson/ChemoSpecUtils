@@ -7,7 +7,8 @@
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
 #' @importFrom ggrepel geom_text_repel
-#'
+#' @importFrom plotly add_annotations layout
+#' @importFrom magrittr %>%
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
                        use.sym = FALSE, leg.loc = "topright", ...) {
@@ -144,7 +145,7 @@
     if (tol != "none") .labelExtremes(DF[, 1:2], spectra$names, tol)
   } # end of go == "base"
 
-  if (go == "ggplot2") {
+  if ((go == "ggplot2")|| (go == "plotly")) {
     args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotscore
     xlab <- eval(args$xlab)
     ylab <- eval(args$ylab)
@@ -164,12 +165,14 @@
           labs(x = xlab, y = ylab)
       }
 
-
+      if( go == "ggplot2")
+      {
       method <- grobTree(textGrob(so$method,
         x = 0.05, y = 0.98, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
       p <- p + annotation_custom(method) # Adding the method name
+      }
     }
 
     if (case == "MIA") {
@@ -202,12 +205,15 @@
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
           scale_color_manual(values = color.black)
       }
-
+      
+      if(go == "ggplot2")
+      {
       ell <- grobTree(textGrob("- - - - classical ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
       p <- p + annotation_custom(ell)
+      }
     }
 
     if (ellipse == "rob") {
@@ -230,12 +236,15 @@
         p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
           scale_color_manual(values = color.black)
       }
-
+      
+      if( go == "ggplot2")
+      {
       ell <- grobTree(textGrob("------- robust ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
         gp = gpar(col = "black", fontsize = 10)
       ))
       p <- p + annotation_custom(ell)
+      }
     }
 
     if (ellipse == "both") {
@@ -272,6 +281,9 @@
           scale_color_manual(values = color.black)
       }
 
+      
+      if(go == "ggplot2")
+      {
       # putting type of ellipse data on the plot
       ell.cls <- grobTree(textGrob("- - - - classical ellipses by group",
         x = 0.05, y = 0.95, hjust = 0,
@@ -282,8 +294,11 @@
         gp = gpar(col = "black", fontsize = 10)
       ))
       p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
+      }
     }
 
+    if(go == "ggplot2")
+    {
     # label extremes
     if (tol != "none") {
       CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
@@ -293,11 +308,33 @@
 
     # removing the ggplot legend
     p <- p + theme(legend.position = "none")
-
     if (all(leg.loc != "none")) {
       p<-.ggAddLegend(go,spectra,use.sym,leg.loc,p)
     }
 
     return(p)
-  } # end of go == "ggplot2"
+    }
+    else 
+    {
+      p<-ggplotly(p,tooltip=c("PC1","PC2","name"))
+      if (tol != "none") {
+        CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
+        df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
+        p <- p %>% add_annotations(
+          x = df$x, y = df$y, text = df$label, xref = "x",
+          yref = "y",
+          showarrow = TRUE,
+          arrowhead = 4,
+          arrowsize = .5,
+          ax = 30,
+          ay = -15,
+          font = list(
+            size = 12
+          )
+        )
+      }
+      p<- p %>% layout(showlegend= FALSE)
+      return(p)
+    }
+  } # end of go == "ggplot2" and go == "plotly"
 } # End of plotScores
