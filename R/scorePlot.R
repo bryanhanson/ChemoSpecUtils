@@ -316,7 +316,7 @@
     }
     else 
     {
-      p<-ggplotly(p,tooltip=c("PC1","PC2","name"))
+      p<-ggplotly(p,tooltip=c(colnames(DF[1]),colnames(DF[2]),"name"))
       if (tol != "none") {
         CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
         df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
@@ -326,8 +326,8 @@
           showarrow = TRUE,
           arrowhead = 4,
           arrowsize = .5,
-          ax = 30,
-          ay = -15,
+          ax = 40,
+          ay = -25,
           font = list(
             size = 12
           )
