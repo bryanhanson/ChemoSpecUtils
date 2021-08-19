@@ -6,9 +6,8 @@
 #' @importFrom grDevices rainbow
 #'
 .distPlot <- function(spectra, M, method, ...) {
-  if (!requireNamespace("lattice", quietly = TRUE)) {
-    stop("You need to install package lattice to plot")
-  }
+  
+  chkReqGraphicsPkgs("lattice")
 
   # The bounded distances in rowDist get a fixed reference scale
   unbounded <- TRUE

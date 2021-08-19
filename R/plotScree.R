@@ -22,7 +22,6 @@
 #' for \code{mia} objects.
 #'
 #' @template graphics-dots-arg
-#' 
 #' @template graphics-return-arg
 #'
 #' @author Bryan A. Hanson, DePauw University,Tejasvi Gupta.
