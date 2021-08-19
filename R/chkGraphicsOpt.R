@@ -46,30 +46,6 @@ chkGraphicsOpt <- function(silent = TRUE) {
     message("An invalid graphics option was found! \nThe ChemoSpec graphics option has been set to 'base' ")
   }
   
-  if (go == "ggplot2") {
-    if (!requireNamespace("ggplot2", quietly = TRUE)) {
-      stop("You need to install package ggplot2 to use this function")
-    }
-    
-    if (!requireNamespace("reshape2", quietly = TRUE)) {
-      stop("You need to install package reshape2 to use this function")
-    }
-    
-    if (!requireNamespace("patchwork", quietly = TRUE)) {
-      stop("You need to install package patchwork to use this function")
-    }
-    
-    if (!requireNamespace("ggrepel", quietly = TRUE)) {
-      stop("You need to install package ggrepel to use this function")
-    }
-  }
-  
-  if (go == "plotly") {
-    if (!requireNamespace("plotly", quietly = TRUE)) {
-      stop("You need to install package plotly to use this function")
-    }
-  }
-  
   if (!silent) {
     if (go == "base" && flag == 0) {
       message("\nThe ChemoSpec graphics option is set to 'base'")
