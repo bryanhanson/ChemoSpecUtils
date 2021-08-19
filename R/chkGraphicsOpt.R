@@ -1,5 +1,8 @@
 #'
-#' Checks the Graphic Output Option/Mode
+#' Check the Graphic Output Option/Mode
+#'
+#' This function should be used to check the current graphics mode.  It simply reports
+#' the current setting unless it is invalid in which case the mode is set to \code{base}.
 #'
 #' @param silent Logical.  Silences most messages if \code{TRUE}.
 #'
@@ -23,6 +26,10 @@
 #' options(ChemoSpecGraphics = "ggplot2")
 #' expect_equal(chkGraphicsOpt(), "ggplot2")
 #'
+#' # check for 'plotly'
+#' options(ChemoSpecGraphics = "plotly")
+#' expect_equal(chkGraphicsOpt(), "plotly")
+#'
 #' # check for invalid mode
 #' options(ChemoSpecGraphics = "xyz")
 #' expect_equal(chkGraphicsOpt(), "base")
@@ -36,7 +43,7 @@ chkGraphicsOpt <- function(silent = TRUE) {
     go <- "base"
     flag <- 1
     options(ChemoSpecGraphics = "base")
-    message("An invalid option is found! \nThe ChemoSpec graphics option has been set to 'base' ")
+    message("An invalid graphics option was found! \nThe ChemoSpec graphics option has been set to 'base' ")
   }
   
   if (!silent) {
