@@ -2,7 +2,7 @@
 % Please edit documentation in R/chkGraphicsOpt.R
 \name{chkGraphicsOpt}
 \alias{chkGraphicsOpt}
-\title{Checks the Graphic Output Option/Mode}
+\title{Check the Graphic Output Option/Mode}
 \usage{
 chkGraphicsOpt(silent = TRUE)
 }
@@ -13,7 +13,8 @@ chkGraphicsOpt(silent = TRUE)
 Character.  The value of the current graphics output option/mode.
 }
 \description{
-Checks the Graphic Output Option/Mode
+This function should be used to check the current graphics mode.  It simply reports
+the current setting unless it is invalid in which case the mode is set to \code{base}.
 }
 \seealso{
 See \code{\link[ChemoSpec]{GraphicsOptions}} for more information about the graphics options.

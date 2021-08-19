@@ -150,6 +150,7 @@
     xlab <- eval(args$xlab)
     ylab <- eval(args$ylab)
     label <- NULL
+    chkReqGraphicsPkgs("ggplot2")
 
     x <- y <- name <- NULL # satisfy CRAN check engine
     if (case == "PCA") {
@@ -316,6 +317,7 @@
     }
     else 
     {
+      chkReqGraphicsPkgs("plotly")
       p<-ggplotly(p,tooltip=c("PC1","PC2","name"))
       if (tol != "none") {
         CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
