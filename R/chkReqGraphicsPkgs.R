@@ -13,7 +13,6 @@
 #'
 chkReqGraphicsPkgs <- function(pkgs) {
 
-
   if ("ggplot2" %in% pkgs) {
     if (!requireNamespace("ggplot2", quietly = TRUE)) {
       stop("You need to install package ggplot2 to use this function")
