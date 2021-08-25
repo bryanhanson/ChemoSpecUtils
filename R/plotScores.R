@@ -37,8 +37,7 @@
 #' @param use.sym A logical; if TRUE, the color scheme is set to black and the
 #' points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} objects.
 #'
-#' @param leg.loc Character; if \code{"none"} no legend will be drawn.
-#' Otherwise, any string acceptable to \code{\link{legend}}.
+#' @template legloc-arg
 #'
 #' @param \dots Additional parameters to be passed to the plotting functions.
 #'

@@ -20,7 +20,8 @@
       return(leg.loc)
     }
   } else if (is.list(leg.loc) && go == "base") { # case when list is passed in base mode
-    if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) { # Converting NPC coordinates are  to data coordinates
+    if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
+      # Convert NPC coordinates to native data coordinates
       lab.x <- (leg.loc$x) * (x.max - x.min) + x.min
       lab.y <- (leg.loc$y) * (y.max - y.min) + y.min
       leg.loc <- list(x = lab.x, y = lab.y)

@@ -1,7 +1,7 @@
 # File created by roxut; edit the function definition file, not this file
 
-# test found in chkGraphicsOpt.R:19 (file:line)
- 
+# Test found in chkGraphicsOpt.R:19 (file:line)
+  
 
 # check for 'base'
 options(ChemoSpecGraphics = "base")

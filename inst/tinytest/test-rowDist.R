@@ -1,7 +1,7 @@
 # File created by roxut; edit the function definition file, not this file
 
-# test found in rowDist.R:31 (file:line)
- 
+# Test found in rowDist.R:31 (file:line)
+  
 M1 <- matrix(c(0.0, 1.0, 0.0, 1.0), nrow = 2, byrow = TRUE) # parallel/colinear vectors
 M2 <- matrix(c(0.0, 1.0, 0.0, -1.0), nrow = 2, byrow = TRUE) # anti-parallel vectors
 M3 <- matrix(c(0.0, 1.0, 1.0, 0.0), nrow = 2, byrow = TRUE) # orthogonal vectors
