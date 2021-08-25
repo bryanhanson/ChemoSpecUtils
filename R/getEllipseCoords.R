@@ -16,6 +16,7 @@
 #'
 
 .getEllipseCoords <- function(data) {
+  # used in .scorePlot
   df <- data.frame(x = numeric(), y = numeric(), name = character())
   for (i in 1:length(data)) {
     x <- c()

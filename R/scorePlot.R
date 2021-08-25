@@ -1,14 +1,14 @@
 #'
 #' scorePlot
 #'
-#' @keywords multivariate robust hplot
-#' @noRd
 #' @export
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
 #' @importFrom ggrepel geom_text_repel
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
+#' @noRd
+#'
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
                        use.sym = FALSE, leg.loc = "topright", ...) {
@@ -145,18 +145,22 @@
     if (tol != "none") .labelExtremes(DF[, 1:2], spectra$names, tol)
   } # end of go == "base"
 
-  if ((go == "ggplot2")|| (go == "plotly")) {
-    args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotscore
+
+
+  if ((go == "ggplot2") || (go == "plotly")) {
+    args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotScore call
     xlab <- eval(args$xlab)
     ylab <- eval(args$ylab)
-    label <- NULL
     chkReqGraphicsPkgs("ggplot2")
 
-    x <- y <- name <- NULL # satisfy CRAN check engine
+    x <- y <- name <- label <- NULL # satisfy CRAN check engine
+
+    ## Prepare the main plot
+
     if (case == "PCA") {
       if (!use.sym) {
         p <- ggplot(DF) +
-          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3) + # plotting the points
+          geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3) +
           labs(x = xlab, y = ylab)
       }
 
@@ -166,25 +170,25 @@
           labs(x = xlab, y = ylab)
       }
 
-      if( go == "ggplot2")
-      {
-      method <- grobTree(textGrob(so$method,
-        x = 0.05, y = 0.98, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-      p <- p + annotation_custom(method) # Adding the method name
+      if (go == "ggplot2") {
+        method <- grobTree(textGrob(so$method,
+          x = 0.05, y = 0.98, hjust = 0,
+          gp = gpar(col = "black", fontsize = 10)
+        ))
+        p <- p + annotation_custom(method) # Adding the method name
       }
-    }
+    } # end of case == "PCA"
 
     if (case == "MIA") {
       p <- ggplot(DF) +
         geom_point(aes_string(x = colnames(DF)[1], y = colnames(DF)[2]), color = spectra$colors, shape = 20, size = 3)
     }
 
-    # Changing theme to theme_bw() and removing grids
+    # Change theme to theme_bw() and remove grids
     p <- p + theme_bw() +
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
+    ## Take care of the ellipse options -- classical
 
     if (ellipse == "cls") {
       cls.coords <- llply(ELL, function(x) {
@@ -195,7 +199,6 @@
       })
       df.cls <- .getEllipseCoords(cls.coords)
 
-      # cls.coords.df<-as.data.frame(cls.coords)
       if (!use.sym) {
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
           scale_color_manual(values = gr$color)
@@ -206,16 +209,17 @@
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
           scale_color_manual(values = color.black)
       }
-      
-      if(go == "ggplot2")
-      {
-      ell <- grobTree(textGrob("- - - - classical ellipses by group",
-        x = 0.05, y = 0.95, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-      p <- p + annotation_custom(ell)
+
+      if (go == "ggplot2") {
+        ell <- grobTree(textGrob("- - - - classical ellipses by group",
+          x = 0.05, y = 0.95, hjust = 0,
+          gp = gpar(col = "black", fontsize = 10)
+        ))
+        p <- p + annotation_custom(ell)
       }
     }
+
+    ## Take care of the ellipse options -- robust
 
     if (ellipse == "rob") {
       rob.coords <- llply(ELL, function(x) {
@@ -237,16 +241,17 @@
         p <- p + geom_path(data = df.rob, aes(x = x, y = y, color = name)) +
           scale_color_manual(values = color.black)
       }
-      
-      if( go == "ggplot2")
-      {
-      ell <- grobTree(textGrob("------- robust ellipses by group",
-        x = 0.05, y = 0.95, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-      p <- p + annotation_custom(ell)
+
+      if (go == "ggplot2") {
+        ell <- grobTree(textGrob("------- robust ellipses by group",
+          x = 0.05, y = 0.95, hjust = 0,
+          gp = gpar(col = "black", fontsize = 10)
+        ))
+        p <- p + annotation_custom(ell)
       }
     }
+
+    ## Take care of the ellipse options -- both classical and robust
 
     if (ellipse == "both") {
       cls.coords <- llply(ELL, function(x) {
@@ -282,43 +287,40 @@
           scale_color_manual(values = color.black)
       }
 
-      
-      if(go == "ggplot2")
-      {
-      # putting type of ellipse data on the plot
-      ell.cls <- grobTree(textGrob("- - - - classical ellipses by group",
-        x = 0.05, y = 0.95, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-      ell.rob <- grobTree(textGrob("------- robust ellipses by group",
-        x = 0.05, y = 0.92, hjust = 0,
-        gp = gpar(col = "black", fontsize = 10)
-      ))
-      p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
+
+      if (go == "ggplot2") {
+        ell.cls <- grobTree(textGrob("- - - - classical ellipses by group",
+          x = 0.05, y = 0.95, hjust = 0,
+          gp = gpar(col = "black", fontsize = 10)
+        ))
+        ell.rob <- grobTree(textGrob("------- robust ellipses by group",
+          x = 0.05, y = 0.92, hjust = 0,
+          gp = gpar(col = "black", fontsize = 10)
+        ))
+        p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
       }
     }
 
-    if(go == "ggplot2")
-    {
-    # label extremes
-    if (tol != "none") {
-      CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
-      df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
-      p <- p + geom_text_repel(data = df, aes(x = x, y = y, label = label), box.padding = 0.5, max.overlaps = Inf)
-    }
+    ## Final touches
 
-    # removing the ggplot legend
-    p <- p + theme(legend.position = "none")
-    if (all(leg.loc != "none")) {
-      p<-.ggAddLegend(go,spectra,use.sym,leg.loc,p)
-    }
+    if (go == "ggplot2") {
+      # label extremes
+      if (tol != "none") {
+        CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
+        df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
+        p <- p + geom_text_repel(data = df, aes(x = x, y = y, label = label), box.padding = 0.5, max.overlaps = Inf)
+      }
 
-    return(p)
-    }
-    else 
-    {
+      # removing the ggplot legend
+      p <- p + theme(legend.position = "none")
+      if (all(leg.loc != "none")) {
+        p <- .ggAddLegend(go, spectra, use.sym, leg.loc, p)
+      }
+
+      return(p)
+    } else {
       chkReqGraphicsPkgs("plotly")
-      p<-ggplotly(p,tooltip=c(colnames(DF[1]),colnames(DF[2]),"name"))
+      p <- ggplotly(p, tooltip = c(colnames(DF[1]), colnames(DF[2]), "name"))
       if (tol != "none") {
         CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
         df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
@@ -335,7 +337,7 @@
           )
         )
       }
-      p<- p %>% layout(showlegend= FALSE)
+      p <- p %>% layout(showlegend = FALSE)
       return(p)
     }
   } # end of go == "ggplot2" and go == "plotly"
