@@ -69,6 +69,8 @@
 
   go <- chkGraphicsOpt()
 
+  # Step 2-base
+
   if (go == "base") {
     if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
 
@@ -145,7 +147,7 @@
     if (tol != "none") .labelExtremes(DF[, 1:2], spectra$names, tol)
   } # end of go == "base"
 
-
+  # Step 2-ggplot2
 
   if ((go == "ggplot2") || (go == "plotly")) {
     args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotScore call
@@ -190,6 +192,27 @@
 
     ## Take care of the ellipse options -- classical
 
+    # Bring in helper function if needed
+    if ((ellipse == "cls") | (ellipse == "rob") | (ellipse == "both")) {
+      .ggPrepEllipseCoords <- function(data) {
+        df <- data.frame(x = numeric(), y = numeric(), name = character())
+        for (i in 1:length(data)) {
+          x <- c()
+          y <- c()
+          name <- c()
+          total <- length(data[[i]]) / 2
+          for (j in 1:total) {
+            x <- c(x, data[[i]][j, 1])
+            y <- c(y, data[[i]][j, 2])
+          }
+          name <- rep(names(data)[i], total)
+          temp <- data.frame(x, y, name)
+          df <- rbind(df, temp)
+        }
+        return(df)
+      }
+    }
+
     if (ellipse == "cls") {
       cls.coords <- llply(ELL, function(x) {
         x[1:2]
@@ -197,7 +220,7 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df.cls <- .getEllipseCoords(cls.coords)
+      df.cls <- .ggPrepEllipseCoords(cls.coords)
 
       if (!use.sym) {
         p <- p + geom_path(data = df.cls, aes(x = x, y = y, color = name), linetype = 2) +
@@ -228,7 +251,7 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
-      df.rob <- .getEllipseCoords(rob.coords)
+      df.rob <- .ggPrepEllipseCoords(rob.coords)
 
 
       if (!use.sym) {
@@ -260,7 +283,7 @@
       cls.coords <- llply(cls.coords, function(x) {
         do.call(cbind, x)
       })
-      df.cls <- .getEllipseCoords(cls.coords) # Data frame with cls.coords values
+      df.cls <- .ggPrepEllipseCoords(cls.coords) # Data frame with cls.coords values
 
       rob.coords <- llply(ELL, function(x) {
         x[4:5]
@@ -268,7 +291,7 @@
       rob.coords <- llply(rob.coords, function(x) {
         do.call(cbind, x)
       })
-      df.rob <- .getEllipseCoords(rob.coords) # Data frame with rob.coords values
+      df.rob <- .ggPrepEllipseCoords(rob.coords) # Data frame with rob.coords values
 
 
       if (!use.sym) {
