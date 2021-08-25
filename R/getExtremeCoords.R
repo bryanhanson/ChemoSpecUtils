@@ -2,19 +2,20 @@
 #' getExtremeCoords
 #'
 #' A utility function which returns a list of the extreme coordinates that are to be labelled.
-#'An internal function, not generally called by the user.
+#' An internal function, not generally called by the user.
 #'
 #' @param data A matrix containing the x values of the points/samples in the
 #' first column, and the y values in the second.
 #'
 #' @param names A character vector of sample names.  Length must match the
-#' number of rows in \code{x}.
+#' number of rows in \code{data}.
 #'
 #' @template tol-arg
 #'
-#' @return Returns a List. The list will be used to annotates the plot with labels.
+#' @return  A list with elements \code{x}, \code{y} and \code{l}, giving the coordinates,
+#'          and labels of the most extreme data points.
 #'
-#' @author Bryan A. Hanson, DePauw University,Tejasvi Gupta.
+#' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
 #'
 #' @keywords utilities
 #' @export
@@ -44,6 +45,6 @@
   y <- py[keep]
   l <- pl[keep]
 
-  newList <- list("x" = x, "y" = y, "l" = l)
-  return(newList)
+  List <- list("x" = x, "y" = y, "l" = l)
+  return(List)
 }
