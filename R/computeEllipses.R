@@ -1,7 +1,7 @@
 #'
 #' Compute Confidence Ellipses
 #'
-#' A utility function which when given a x,y data set computes both classical
+#' A utility function which when given a \code{x,y} data set computes both classical
 #' and robust confidence ellipses. An internal function, not generally called
 #' by the user.
 #'

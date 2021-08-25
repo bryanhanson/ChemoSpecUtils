@@ -31,6 +31,7 @@
 #'
 #' @keywords multivariate hplot
 #' @export
+#'
 #' @examples
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
