@@ -7,6 +7,7 @@
 #' @importFrom ggplot2 aes labs ylim theme_bw geom_hline scale_x_continuous geom_point
 #' @importFrom ggplot2 theme element_blank xlim annotate scale_y_continuous ggplot geom_line
 #' @importFrom plotly ggplotly
+#'
 plotScree.default <- function(pca, style = "alt", ...) {
   variance <- .getVarExplained(pca)
   cumvariance <- cumsum(variance)
@@ -36,8 +37,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
         plot(rep(1:ncp, each = nrow(pca$x)), as.vector(pca$x[, 1:ncp]),
           type = "p",
           col = "red", xlab = "component", ylab = "scores",
-          xlim = c(1, ncp + 0.5), cex = 0.5, xaxt = "n", ...
-        )
+          xlim = c(1, ncp + 0.5), cex = 0.5, xaxt = "n", ...)
         y.pos <- apply(pca$x[, 1:ncp], MARGIN = 2, FUN = range) # used in a moment
       }
 
@@ -79,44 +79,38 @@ plotScree.default <- function(pca, style = "alt", ...) {
         theme_bw() +
         geom_hline(yintercept = 95, linetype = "dashed") + # horizontal dashed line
         scale_x_continuous(breaks = 1:ncp) # scaling x axis ticks to whole numbers
-      x.min <- 3 # Not a fudge factor
-      y.min <- 0
-      x.max <- max(df$ncp)
-      p <- p + annotate("text", x = x.min, y = y.min, label = pca$method)
 
-      p <- p + annotate("text", x = x.max - 2, y = 50, label = "---- cumulative percent", color = "blue")
-      p <- p + annotate("text", x = x.max - 2, y = 46, label = "---- individual percent", color = "red")
-      
-      if(go == "ggplot2")
-      {
-      return(p)
-      }
-      else
-      {
+      p <- p + .ggAnnotate(pca$method, x = 0.05, y = 0.05, just = "left", gp = gpar(fontsize = 10))
+      p <- p + .ggAnnotate("cumulative percent",
+        x = 0.98, y = 0.52, just = "right",
+        gp = gpar(col = "blue", fontsize = 10))
+      p <- p + .ggAnnotate("individual percent",
+        x = 0.98, y = 0.48, just = "right",
+        gp = gpar(col = "red", fontsize = 10))
+
+      if (go == "ggplot2") {
+        return(p)
+      } else {
         chkReqGraphicsPkgs("plotly")
-        p<-ggplotly(p,tooltip=c("variance","cumvariance"))
+        p <- ggplotly(p, tooltip = c("variance", "cumvariance"))
         return(p)
       }
     }
 
     if (style == "alt") {
-      df <- NULL
       if (inherits(pca, "prcomp")) {
         x <- rep(1:ncp, each = nrow(pca$x))
         y <- as.vector(pca$x[, 1:ncp])
-        df.temp<-data.frame(pca$x)
-        sample<-names(df.temp)
-        sample<-sample[1:ncp]
-        sample<-rep(sample,each=nrow(pca$x))
+        df.temp <- data.frame(pca$x)
+        sample <- names(df.temp)
+        sample <- sample[1:ncp]
+        sample <- rep(sample, each = nrow(pca$x))
         df <- data.frame(x = x, y = y, sample = sample)
-        p <- ggplot(df,aes(x = x, y = y,label=sample,text=paste("Sample :",sample,"<br>","Score",y ))) +
+        p <- ggplot(df, aes(x = x, y = y, label = sample, text = paste("Sample :", sample, "<br>", "Score", y))) +
           geom_point(color = "red", alpha = 0.7, shape = 1) +
           labs(x = "component", y = "scores") +
           theme_bw() +
-          theme(
-            panel.grid.major = element_blank(),
-            panel.grid.minor = element_blank()
-          )
+          theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
         y.pos <- apply(pca$x[, 1:ncp], MARGIN = 2, FUN = range) # used in a moment
       }
@@ -124,20 +118,17 @@ plotScree.default <- function(pca, style = "alt", ...) {
       if (inherits(pca, "mia")) {
         x <- rep(1:ncp, each = nrow(pca$C))
         y <- as.vector(pca$C[, 1:ncp])
-        df.temp<-data.frame(pca$C)
-        sample<-names(df.temp)
-        sample<-sample[1:ncp]
-        sample<-rep(sample,each=nrow(pca$C))
+        df.temp <- data.frame(pca$C)
+        sample <- names(df.temp)
+        sample <- sample[1:ncp]
+        sample <- rep(sample, each = nrow(pca$C))
         df <- data.frame(x = x, y = y, sample = sample)
-        p <- ggplot(df,aes(x = x, y = y,label=sample,text=paste("Sample :",sample,"<br>","Score",y ))) +
+        p <- ggplot(df, aes(x = x, y = y, label = sample, text = paste("Sample :", sample, "<br>", "Score", y))) +
           geom_point(color = "red", alpha = 0.7, shape = 1) +
           labs(x = "component", y = "scores") +
           xlim(c(1, ncp + 0.5)) +
           theme_bw() +
-          theme(
-            panel.grid.major = element_blank(),
-            panel.grid.minor = element_blank()
-          )
+          theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
         y.pos <- apply(pca$C[, 1:ncp], MARGIN = 2, FUN = range) # used in a moment
       }
@@ -147,26 +138,19 @@ plotScree.default <- function(pca, style = "alt", ...) {
       off <- 0.1 * y.max
       p <- p + annotate(geom = "text", x = c(1:ncp) + 0.4, y = off, label = lab.txt)
       p <- p + geom_hline(yintercept = 0, linetype = "dashed", color = "gray")
-
       p <- p + scale_x_continuous(breaks = 1:ncp)
       p <- p + scale_y_continuous(breaks = c(-0.5, 0.0, 0.5))
+      p <- p + .ggAnnotate(pca$method, x = 0.98, y = 0.02, just = "right", gp = gpar(fontsize = 10))
+      p <- p + .ggAnnotate("cumulative percent variance shown to the right of PC",
+        x = 0.98, y = 0.98,
+        just = "right", gp = gpar(fontsize = 10)
+      )
 
-      x.max <- max(df$x)
-      x.min <- min(df$x)
-      y.min <- min(df$y)
-      y.max <- max(df$y)
-
-      x.max <- x.max - (x.max - x.min) / 3.5
-      p <- p + annotate("text", x = x.max, y = y.min, label = pca$method) +
-        annotate("text", x = x.max, y = y.max, label = "cumulative percent variance shown to right of PC")
-      if(go == "ggplot2")
-      {
-      return(p)
-      }
-      else
-      {
+      if (go == "ggplot2") {
+        return(p)
+      } else {
         chkReqGraphicsPkgs("plotly")
-        p<-ggplotly(p,tooltip="text")
+        p <- ggplotly(p, tooltip = "text")
         return(p)
       }
     }
