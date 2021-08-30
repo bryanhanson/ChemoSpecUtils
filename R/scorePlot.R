@@ -3,7 +3,7 @@
 #'
 #' @export
 #' @importFrom plyr dlply llply
-#' @importFrom ggplot2 aes_string annotation_custom geom_path scale_color_manual lims
+#' @importFrom ggplot2 aes_string geom_path scale_color_manual lims
 #' @importFrom ggrepel geom_text_repel
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
@@ -173,11 +173,7 @@
       }
 
       if (go == "ggplot2") {
-        method <- grobTree(textGrob(so$method,
-          x = 0.05, y = 0.98, hjust = 0,
-          gp = gpar(col = "black", fontsize = 10)
-        ))
-        p <- p + annotation_custom(method) # Adding the method name
+        p <- p + .ggAnnotate(so$method, x = 0.05, y = 0.98, just = "left", gp = gpar(fontsize = 10))
       }
     } # end of case == "PCA"
 
@@ -234,11 +230,7 @@
       }
 
       if (go == "ggplot2") {
-        ell <- grobTree(textGrob("- - - - classical ellipses by group",
-          x = 0.05, y = 0.95, hjust = 0,
-          gp = gpar(col = "black", fontsize = 10)
-        ))
-        p <- p + annotation_custom(ell)
+        p <- p + .ggAnnotate("- - - - classical ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
       }
     }
 
@@ -266,11 +258,7 @@
       }
 
       if (go == "ggplot2") {
-        ell <- grobTree(textGrob("------- robust ellipses by group",
-          x = 0.05, y = 0.95, hjust = 0,
-          gp = gpar(col = "black", fontsize = 10)
-        ))
-        p <- p + annotation_custom(ell)
+        p <- p + .ggAnnotate("------- robust ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
       }
     }
 
@@ -312,15 +300,8 @@
 
 
       if (go == "ggplot2") {
-        ell.cls <- grobTree(textGrob("- - - - classical ellipses by group",
-          x = 0.05, y = 0.95, hjust = 0,
-          gp = gpar(col = "black", fontsize = 10)
-        ))
-        ell.rob <- grobTree(textGrob("------- robust ellipses by group",
-          x = 0.05, y = 0.92, hjust = 0,
-          gp = gpar(col = "black", fontsize = 10)
-        ))
-        p <- p + annotation_custom(ell.rob) + annotation_custom(ell.cls)
+        p <- p + .ggAnnotate("- - - - classical ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+        p <- p + .ggAnnotate("------- robust ellipses by group", x = 0.05, y = 0.92, just = "left", gp = gpar(fontsize = 10))
       }
     }
 
