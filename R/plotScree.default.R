@@ -136,7 +136,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
       y.pos <- y.pos[2, ]
       y.max <- max(y.pos)
       off <- 0.1 * y.max
-      p <- p + annotate(geom = "text", x = c(1:ncp) + 0.4, y = off, label = lab.txt, size = 4)
+      p <- p + annotate(geom = "text", x = c(1:ncp) + 0.4, y = off, label = lab.txt, size = 3)
       p <- p + geom_hline(yintercept = 0, linetype = "dashed", color = "gray")
       p <- p + scale_x_continuous(breaks = 1:ncp)
       p <- p + scale_y_continuous(breaks = c(-0.5, 0.0, 0.5))
