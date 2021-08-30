@@ -13,7 +13,7 @@
 #'
 #' @export
 #' @noRd
-#' @importFrom grid textGrob linesGrob
+#' @importFrom grid textGrob linesGrob gTree gList
 #' @importFrom ggplot2 annotation_custom
 #'
 .ggAnnotate <- function(text, x, y, ...) {
