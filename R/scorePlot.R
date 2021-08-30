@@ -230,7 +230,7 @@
       }
 
       if (go == "ggplot2") {
-        p <- p + .ggAnnotate("- - - - classical ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+        p <- p + .ggAnnotate("cls")
       }
     }
 
@@ -258,7 +258,7 @@
       }
 
       if (go == "ggplot2") {
-        p <- p + .ggAnnotate("------- robust ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+        p <- p + .ggAnnotate("rob")
       }
     }
 
@@ -300,8 +300,7 @@
 
 
       if (go == "ggplot2") {
-        p <- p + .ggAnnotate("- - - - classical ellipses by group", x = 0.05, y = 0.95, just = "left", gp = gpar(fontsize = 10))
-        p <- p + .ggAnnotate("------- robust ellipses by group", x = 0.05, y = 0.92, just = "left", gp = gpar(fontsize = 10))
+        p <- p + .ggAnnotate("both")
       }
     }
 
