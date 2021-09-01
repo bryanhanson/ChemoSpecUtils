@@ -4,7 +4,8 @@
 #' General purpose function to add text to a ggplot2 plot.  Uses
 #' \code{textGrob} so arguments like \code{hjust} can be passed via ...
 #'
-#' @param text Character.  The text to be plotted.
+#' @param text Character.  The text to be plotted, but certain values are intercepted
+#'        for special handling.
 #' @param x Numeric. The x coordinate for the text to be plotted, in NPC.
 #' @param y Numeric. The y coordinate for the text to be plotted, in NPC.
 #' @param \dots Additional arguments to be passed to \code{textGrob}.

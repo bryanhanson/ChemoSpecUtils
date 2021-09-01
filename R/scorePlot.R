@@ -314,10 +314,10 @@
         p <- p + geom_text_repel(data = df, aes(x = x, y = y, label = label), box.padding = 0.5, max.overlaps = Inf)
       }
 
-      # removing the ggplot legend
+      # removing the ggplot legend & adding our own
       p <- p + theme(legend.position = "none")
       if (all(leg.loc != "none")) {
-        p <- .ggAddLegend(go, spectra, use.sym, leg.loc, p)
+        p <- p + .ggAddLegend(spectra, use.sym, leg.loc)
       }
 
       return(p)

@@ -1,56 +1,52 @@
 #'
 #' Add Legend to a ggplot2 Plot
 #'
-#' @param go A string specifying the graphics mode.
+#' This function creates a suitable legend and returns it as a grob,
+#' ready to be added to an existing plot.
+#'
 #' @param spectra An object of S3 class \code{\link{Spectra}}.
 #' @param use.sym Logical specifying if symbols will be used or not.
 #' @param leg.loc A list giving x and y coordinates.
-#' @param p ggplot to which the legend will be added.
 #'
 #' @return A ggplot with custom legend.
 #'
 #' @export
 #' @noRd
-#' @importFrom grid grobTree textGrob gpar
+#' @importFrom grid grobTree textGrob gpar gTree gList
 #'
-.ggAddLegend <- function(go, spectra, use.sym, leg.loc, p) {
-  group <- c(NA_real_)
-  color <- c(NA_real_)
-  for (i in spectra$groups) {
-    if (!(i %in% group)) {
-      group <- c(group, i)
+.ggAddLegend <- function(spectra, use.sym, leg.loc) {
+
+  # get the needed data
+  gr_sum <- sumGroups(spectra) # group, color, symbol
+  group <- gr_sum$group
+  color <- gr_sum$color
+  if (use.sym) color <- rep("black", nrow(gr_sum))
+  symbol <- gr_sum$symbol
+  ng <- length(group)
+
+  # figure out legend coords
+  leg.loc <- .prepLegendCoords("ggplot2", leg.loc)
+  leg.x <- leg.loc$x
+  leg.y <- leg.loc$y
+
+  # create the pieces on the fly
+  # position pieces relative to "Key" at top
+  grobs_list <- vector("list", ng + 1) # list to store the grobs temporarily
+  y.off <- 0.035
+
+  key_grob <- textGrob("Key", x = leg.x, y = leg.y, just = "left",
+    gp = gpar(col = "black", fontsize = 10))
+  grobs_list[[1]] <- key_grob
+
+  if (!use.sym) {
+    for (i in 1:length(group)) {
+      leg.y <- leg.y - y.off # descend a bit
+      grobs_list[[i + 1]] <- textGrob(group[i], x = leg.x, y = leg.y, just = "left",
+        gp = gpar(col = color[i], fontsize = 10))
     }
   }
 
-  for (i in spectra$colors) {
-    if (!(i %in% color)) {
-      color <- c(color, i)
-    }
-  }
-  group <- group[-1]
-  color <- color[-1]
-
-  # If use.sym then color of the legend should be black
-  if (use.sym) {
-    color <- rep("black", length(group))
-  }
-
-  leg.loc <- .prepLegendCoords(go, leg.loc)
-  lab.x <- leg.loc$x
-  lab.y <- leg.loc$y
-  gap <- 0.04
-  keys <- grobTree(textGrob("Key",
-    x = lab.x, y = lab.y + gap, hjust = 0,
-    gp = gpar(col = "black", fontsize = 10)
-  ))
-
-  for (i in 1:length(group)) {
-    grob <- grid::grobTree(textGrob(group[i],
-      x = lab.x, y = lab.y, hjust = 0,
-      gp = gpar(col = color[i], fontsize = 10)
-    ))
-    lab.y <- lab.y - gap
-    p <- p + annotation_custom(grob) + annotation_custom(keys)
-  }
-  return(p)
+  # assemble & return
+  gt <- gTree(children = do.call(gList, grobs_list))
+  return(annotation_custom(gt))
 }
