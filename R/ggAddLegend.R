@@ -12,7 +12,7 @@
 #'
 #' @export
 #' @noRd
-#' @importFrom grid grobTree textGrob gpar gTree gList
+#' @importFrom grid grobTree textGrob gpar gTree gList pointsGrob unit
 #'
 .ggAddLegend <- function(spectra, use.sym, leg.loc) {
 
