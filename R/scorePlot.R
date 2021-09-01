@@ -4,7 +4,6 @@
 #' @export
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual lims
-#' @importFrom ggrepel geom_text_repel
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
 #' @noRd
@@ -311,7 +310,7 @@
       if (tol != "none") {
         CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)
         df <- data.frame(x = CoordList$x, y = CoordList$y, label = CoordList$l)
-        p <- p + geom_text_repel(data = df, aes(x = x, y = y, label = label), box.padding = 0.5, max.overlaps = Inf)
+        p <- p + .ggRepel(df)
       }
 
       # removing the ggplot legend & adding our own
