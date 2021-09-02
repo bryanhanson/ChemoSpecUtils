@@ -7,4 +7,3 @@
 #' distributed, and treats x and y separately.  Thus, this is not a formal
 #' treatment of outliers, just a means of labeling points. Groups are lumped
 #' together.
-#'

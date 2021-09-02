@@ -12,6 +12,7 @@
 #'
 #' @return A custom annotation grob, ready to be added to an existing plot.
 #'
+#' @author Tejasvi Gupta, Bryan Hanson
 #' @export
 #' @noRd
 #' @importFrom grid textGrob linesGrob gTree gList

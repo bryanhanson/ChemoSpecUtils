@@ -15,20 +15,21 @@
 #'
 #' @return None.  Annotates the plot with labels.
 #'
-#' @author Bryan A. Hanson, DePauw University,Tejasvi Gupta.
+#' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
 #'
 #' @keywords utilities
 #' @export
 #' @noRd
 #'
 .labelExtremes <- function(data, names, tol) {
-  newList <- .getExtremeCoords(data, names, tol)
+  List <- .getExtremeCoords(data, names, tol)
 
-  x <- newList$x
-  y <- newList$y
-  l <- newList$l
+  x <- List$x
+  y <- List$y
+  l <- List$l
 
   for (n in c(1:length(x))) {
     text(x[n], y[n], l[n], pos = 4, offset = 0.2, cex = 0.5)
   }
+  List
 }

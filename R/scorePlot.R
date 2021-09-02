@@ -1,9 +1,10 @@
 #'
 #' scorePlot
 #'
+#' @authors Bryan Hanson, Tejasvi Gupta
 #' @export
 #' @importFrom plyr dlply llply
-#' @importFrom ggplot2 aes_string geom_path scale_color_manual lims
+#' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
 #' @noRd

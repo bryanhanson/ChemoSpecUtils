@@ -9,7 +9,7 @@
 #'
 #' @docType package
 #'
-#' @author Bryan A. Hanson.
+#' @author Bryan A. Hanson, Tejasvi Gupta
 #'
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #'

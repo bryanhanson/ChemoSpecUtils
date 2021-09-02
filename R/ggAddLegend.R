@@ -10,9 +10,10 @@
 #'
 #' @return A ggplot with custom legend.
 #'
+#' @author Tejasvi Gupta, Bryan Hanson
 #' @export
 #' @noRd
-#' @importFrom grid grobTree textGrob gpar gTree gList pointsGrob unit
+#' @importFrom grid textGrob gpar gTree gList pointsGrob unit
 #'
 .ggAddLegend <- function(spectra, use.sym, leg.loc) {
 

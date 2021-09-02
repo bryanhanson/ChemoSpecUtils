@@ -4,7 +4,6 @@
 #' @export
 #' @noRd
 #' @importFrom graphics legend
-#' @importFrom plyr dlply llply m_ply
 #
 
 .addEllipseInfo <- function(ellipse) {
