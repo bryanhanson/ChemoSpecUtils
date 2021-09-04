@@ -1,6 +1,7 @@
 #'
 #' sumSpectra.Spectra2D
 #'
+#' @template authors-BH
 #' @export
 #' @importFrom stats median
 #' @noRd

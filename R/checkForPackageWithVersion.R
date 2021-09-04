@@ -10,6 +10,7 @@
 #'
 #' @return If successful, \code{TRUE} is return invisibly.  Stops if there is a problem.
 #'
+#' @template authors-BH
 #' @export
 #'
 checkForPackageWithVersion <- function(pkg, vers) {

@@ -1,6 +1,7 @@
 #'
 #' hcaScores.Spectra
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #' @importFrom stats hclust

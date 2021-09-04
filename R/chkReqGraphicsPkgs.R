@@ -5,7 +5,7 @@
 #'
 #' @return \code{NULL}, invisibly.
 #'
-#' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
+#' @template authors-BH-TG
 #'
 #' @keywords utilities
 #'

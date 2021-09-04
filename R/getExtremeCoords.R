@@ -15,7 +15,7 @@
 #' @return  A list with elements \code{x}, \code{y} and \code{l}, giving the coordinates,
 #'          and labels of the most extreme data points.
 #'
-#' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
+#' @template authors-BH-TG
 #'
 #' @keywords utilities
 #' @export

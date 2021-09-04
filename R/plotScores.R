@@ -45,7 +45,7 @@
 #'
 #' @return None.  Side effect is a plot.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords multivariate robust hplot
 #'

@@ -38,7 +38,7 @@
 #'
 #' @seealso \code{\link{sumSpectra}} which make extensive use of this function.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords utilities
 #'

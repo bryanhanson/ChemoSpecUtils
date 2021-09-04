@@ -11,7 +11,7 @@
 #'
 #' @return Returns a node with the label color properties set.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'

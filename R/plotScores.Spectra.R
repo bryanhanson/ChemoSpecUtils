@@ -1,6 +1,7 @@
 #'
 #' plotScores.Spectra
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

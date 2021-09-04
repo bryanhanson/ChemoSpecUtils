@@ -6,6 +6,7 @@
 #' so we will try to get it right no matter how the user gives
 #' the formula; e.g. 6 ~ 3 ought to be handled as 3 ~ 6.
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

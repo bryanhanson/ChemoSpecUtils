@@ -1,7 +1,7 @@
 #'
 #' plotScree.default
 #'
-#' @author Bryan Hanson, Tejasvi Gupta
+#' @template authors-BH-TG
 #' @export
 #' @noRd
 #' @importFrom graphics points abline legend axis

@@ -12,7 +12,7 @@
 #' @return A list with two elements giving the indices of NAs for rows and columns,
 #'         unless \code{retFreq = TRUE}, in which case the frequencies are returned.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords utilities
 #' @noRd

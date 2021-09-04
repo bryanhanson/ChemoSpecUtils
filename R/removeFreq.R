@@ -43,7 +43,7 @@
 #'
 #' @seealso \code{\link[ChemoSpec2D]{removePeaks2D}} for another way to remove data.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords utilities
 #'

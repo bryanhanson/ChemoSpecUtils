@@ -1,6 +1,7 @@
 #'
 #' chkSpectra.Spectra
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

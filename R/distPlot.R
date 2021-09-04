@@ -1,6 +1,7 @@
 #'
 #' distPlot
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #' @importFrom grDevices rainbow

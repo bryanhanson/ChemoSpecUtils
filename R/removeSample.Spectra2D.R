@@ -1,6 +1,7 @@
 #'
 #' removeSample.Spectra2D
 #'
+#' @template authors-BH
 #' @noRd
 #' @export
 #'

@@ -40,7 +40,7 @@
 #'
 #' @format Colors are stored as character vectors and symbols as numeric vectors.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-R
 #'
 #' @keywords utilities color datasets
 #'

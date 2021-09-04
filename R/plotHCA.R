@@ -20,7 +20,7 @@
 #'
 #' @return An object of class \code{\link{dendrogram}}. Side effect is a plot.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @export
 #' @importFrom stats as.dendrogram dendrapply

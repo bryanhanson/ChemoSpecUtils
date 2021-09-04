@@ -16,7 +16,7 @@
 #'
 #' @return None.  Side effect is to modify an existing plot.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @importFrom graphics legend
 #'

@@ -1,6 +1,7 @@
 #'
 #' Compute the Variance Explained from PCA or Other Reduction Methods
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

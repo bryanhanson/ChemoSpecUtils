@@ -15,7 +15,7 @@
 #'  \item{symbol}{The symbol assigned to the group. \code{Spectra} objects only.}
 #'  \item{alt.symbol}{The alternative symbol assigned to the group. \code{Spectra} objects only.}
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @seealso To summarize the entire object, \code{\link{sumSpectra}}.
 #'

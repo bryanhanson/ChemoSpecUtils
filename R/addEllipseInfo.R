@@ -1,6 +1,7 @@
 #'
 #' Add Info About Ellipses to Plot
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #' @importFrom graphics legend

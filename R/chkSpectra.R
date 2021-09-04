@@ -22,7 +22,7 @@
 #' written unless \code{confirm = TRUE}.  At the console, if there is a
 #' problem, messages are issued regardless of the value of \code{confirm}.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords classes utilities
 #'

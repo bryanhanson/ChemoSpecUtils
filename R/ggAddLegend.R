@@ -10,7 +10,7 @@
 #'
 #' @return A ggplot with custom legend.
 #'
-#' @author Tejasvi Gupta, Bryan Hanson
+#' @template authors-BH-TG
 #' @export
 #' @noRd
 #' @importFrom grid textGrob gpar gTree gList pointsGrob unit

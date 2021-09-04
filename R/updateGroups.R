@@ -22,6 +22,8 @@
 #' @return spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
+#' @template authors-BH
+#'
 #' @export
 #'
 #' @examples

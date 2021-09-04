@@ -12,7 +12,7 @@
 #'
 #' @return Returns a node with the label size properties set.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'

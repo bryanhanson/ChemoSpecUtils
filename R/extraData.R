@@ -1,6 +1,7 @@
 #'
 #' Check for Extra Data Appended to a Spectra or Spectra2D Object
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

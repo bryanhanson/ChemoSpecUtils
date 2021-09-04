@@ -44,7 +44,7 @@
 #' @return A list, containing an object of class \code{\link{hclust}} and an
 #' object of class \code{\link{dendrogram}}.  The side effect is a plot.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @seealso \code{\link{hclust}} for the underlying function. See
 #' \code{\link[ChemoSpec]{hcaSpectra}} for HCA of the entire data set stored in the

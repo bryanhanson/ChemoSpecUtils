@@ -1,6 +1,7 @@
 #'
 #' sampleDist.Spectra
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

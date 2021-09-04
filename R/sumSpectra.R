@@ -22,7 +22,7 @@
 #'
 #' @return None.  Results printed at console.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @keywords utilities
 #'

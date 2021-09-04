@@ -1,6 +1,7 @@
 #'
 #' plotScores.Spectra2D
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

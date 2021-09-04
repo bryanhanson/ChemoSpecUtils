@@ -1,7 +1,7 @@
 #'
 #' scorePlot
 #'
-#' @authors Bryan Hanson, Tejasvi Gupta
+#' @template authors-BH-TG
 #' @export
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual

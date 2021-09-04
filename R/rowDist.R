@@ -21,7 +21,7 @@
 #'
 #' @return An object of class \code{dist}.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @references R. Todeschini, D. Ballabio, V. Consonni
 #' "Distances and Similarity Measures in Chemometrics and Chemoinformatics"

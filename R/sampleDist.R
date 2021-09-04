@@ -18,7 +18,7 @@
 #'
 #' @return A numeric matrix giving the distances between the samples.
 #'
-#' @author Bryan A. Hanson, DePauw University.
+#' @template authors-BH
 #'
 #' @seealso For \code{\link[ChemoSpec]{Spectra}} objects, see \code{\link[ChemoSpec]{plotSpectraDist}}
 #' which compares all spectra to a single reference spectrum.

@@ -1,6 +1,7 @@
 #'
 #' Add Points to a Plot
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #' @importFrom graphics plot

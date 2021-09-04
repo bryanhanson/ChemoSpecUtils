@@ -1,6 +1,7 @@
 #'
 #' sumSpectra.Spectra
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

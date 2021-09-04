@@ -1,6 +1,7 @@
 #'
 #' Check spectra and pca Arguments of Functions That Require Them
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #'

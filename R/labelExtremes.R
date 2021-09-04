@@ -15,7 +15,7 @@
 #'
 #' @return None.  Annotates the plot with labels.
 #'
-#' @author Bryan A. Hanson, DePauw University, Tejasvi Gupta.
+#' @template authors-BH-TG
 #'
 #' @keywords utilities
 #' @export

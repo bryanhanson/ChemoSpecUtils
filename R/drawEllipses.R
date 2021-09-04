@@ -1,6 +1,7 @@
 #'
 #' Add Ellipses to Plot
 #'
+#' @template authors-BH
 #' @export
 #' @noRd
 #' @importFrom graphics lines
