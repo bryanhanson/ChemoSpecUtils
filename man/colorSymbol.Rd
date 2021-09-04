@@ -112,7 +112,7 @@ text(0.6, y + h + tsp * 2 + sp * 3, adj = 0,
 )
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{color}
 \keyword{datasets}

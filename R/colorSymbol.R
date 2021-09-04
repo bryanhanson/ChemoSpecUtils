@@ -40,7 +40,7 @@
 #'
 #' @format Colors are stored as character vectors and symbols as numeric vectors.
 #'
-#' @template authors-R
+#' @template authors-BH
 #'
 #' @keywords utilities color datasets
 #'

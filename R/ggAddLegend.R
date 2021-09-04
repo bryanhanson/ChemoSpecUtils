@@ -10,7 +10,7 @@
 #'
 #' @return A ggplot with custom legend.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
 #' @noRd
 #' @importFrom grid textGrob gpar gTree gList pointsGrob unit

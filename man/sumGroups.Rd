@@ -40,6 +40,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 To summarize the entire object, \code{\link{sumSpectra}}.
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{utilities}

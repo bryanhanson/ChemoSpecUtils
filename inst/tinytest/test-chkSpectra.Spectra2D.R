@@ -1,6 +1,6 @@
 # File created by roxut; edit the function definition file, not this file
 
-# Test found in chkSpectra.Spectra2D.R:7 (file:line)
+# Test found in chkSpectra.Spectra2D.R:8 (file:line)
   
 ### Unit tests for chkSpectra.Spectra2D
 load("tiny2D.RData")

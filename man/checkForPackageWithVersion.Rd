@@ -18,3 +18,6 @@ If successful, \code{TRUE} is return invisibly.  Stops if there is a problem.
 \description{
 Utility function for making sure a package is available with a particular version or newer.
 }
+\author{
+Bryan A. Hanson (DePauw University)
+}

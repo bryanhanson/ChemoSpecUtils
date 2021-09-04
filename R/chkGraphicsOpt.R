@@ -8,7 +8,7 @@
 #'
 #' @return Character.  The value of the current graphics output option/mode.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' @seealso See \code{\link[ChemoSpec]{GraphicsOptions}} for more information about the graphics options.
 #'

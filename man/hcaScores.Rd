@@ -88,7 +88,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 \code{\link[ChemoSpec]{Spectra}} object.
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{cluster}
 \keyword{multivariate}

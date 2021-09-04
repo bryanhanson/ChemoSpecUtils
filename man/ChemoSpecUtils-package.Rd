@@ -9,7 +9,7 @@
 Functions supporting the packages ChemoSpec and ChemoSpec2D.
 }
 \author{
-Bryan A. Hanson.
+Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 
 Maintainer: Bryan A. Hanson \email{hanson@depauw.edu}
 }

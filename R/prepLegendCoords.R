@@ -10,7 +10,7 @@
 #'
 #' @return A list of coordinates specifying x and y position of the legend, except in one case where a string is returned.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
 #' @noRd
 #'

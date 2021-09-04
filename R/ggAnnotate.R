@@ -12,10 +12,10 @@
 #'
 #' @return A custom annotation grob, ready to be added to an existing plot.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
 #' @noRd
-#' @importFrom grid textGrob linesGrob gTree gList
+#' @importFrom grid textGrob linesGrob gTree gList grobTree
 #' @importFrom ggplot2 annotation_custom
 #'
 .ggAnnotate <- function(text, x, y, ...) {

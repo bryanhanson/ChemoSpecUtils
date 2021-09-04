@@ -20,6 +20,6 @@ the current setting unless it is invalid in which case the mode is set to \code{
 See \code{\link[ChemoSpec]{GraphicsOptions}} for more information about the graphics options.
 }
 \author{
-Bryan A. Hanson, DePauw University, Tejasvi Gupta.
+Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 }
 \keyword{utilities}

@@ -1,7 +1,7 @@
 #'
 #' scorePlot
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
 #' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual

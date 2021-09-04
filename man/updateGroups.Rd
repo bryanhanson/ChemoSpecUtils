@@ -44,3 +44,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
   MUD1a <- updateGroups(MUD1, new.grps = c("control", "treatment"))
 }
 }
+\author{
+Bryan A. Hanson (DePauw University)
+}

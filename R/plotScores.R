@@ -37,15 +37,15 @@
 #' @param use.sym A logical; if TRUE, the color scheme is set to black and the
 #' points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} objects.
 #'
-#' @template legloc-arg
+#' @template param-legloc
 #'
 #' @param \dots Additional parameters to be passed to the plotting functions.
 #'
-#' @template tol-arg
+#' @template param-tol
 #'
 #' @return None.  Side effect is a plot.
 #'
-#' @template authors-BH
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' @keywords multivariate robust hplot
 #'

@@ -9,7 +9,7 @@
 #'
 #' @docType package
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #'

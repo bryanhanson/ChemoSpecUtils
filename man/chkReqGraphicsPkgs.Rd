@@ -16,6 +16,6 @@ chkReqGraphicsPkgs(pkgs)
 Verify Required Graphics Packages are Available.
 }
 \author{
-Bryan A. Hanson, DePauw University, Tejasvi Gupta.
+Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 }
 \keyword{utilities}

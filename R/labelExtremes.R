@@ -11,11 +11,11 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{x}.
 #'
-#' @template tol-arg
+#' @template param-tol
 #'
 #' @return None.  Annotates the plot with labels.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' @keywords utilities
 #' @export

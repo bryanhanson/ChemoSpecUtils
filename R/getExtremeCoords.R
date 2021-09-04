@@ -10,12 +10,12 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{data}.
 #'
-#' @template tol-arg
+#' @template param-tol
 #'
 #' @return  A list with elements \code{x}, \code{y} and \code{l}, giving the coordinates,
 #'          and labels of the most extreme data points.
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' @keywords utilities
 #' @export

@@ -97,7 +97,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 }
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 }
 \keyword{hplot}
 \keyword{multivariate}

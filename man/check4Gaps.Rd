@@ -59,6 +59,6 @@ gaps <- check4Gaps(x, y, tol = 0.11) # show a plot if y given
 \code{\link{sumSpectra}} which make extensive use of this function.
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{utilities}

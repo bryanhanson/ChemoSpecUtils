@@ -109,6 +109,6 @@ in \emph{Encyclopedia of Analytical Chemistry} Wiley and Sons, 2020
 \doi{10.1002/9780470027318.a9438.pub2}
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{utilities}

@@ -1,7 +1,7 @@
 #'
 #' plotScree.default
 #'
-#' @template authors-BH-TG
+#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
 #' @noRd
 #' @importFrom graphics points abline legend axis

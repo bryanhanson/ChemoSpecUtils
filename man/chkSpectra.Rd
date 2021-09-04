@@ -44,7 +44,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 }
 }
 \author{
-Bryan A. Hanson, DePauw University.
+Bryan A. Hanson (DePauw University)
 }
 \keyword{classes}
 \keyword{utilities}
