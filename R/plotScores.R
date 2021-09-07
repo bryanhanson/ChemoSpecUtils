@@ -54,25 +54,25 @@
 #' @examples
 #' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
 #'   library("ChemoSpec")
+#'   # This example assumes the graphics output is set to ggplot2 (see ?GraphicsOptions).
+#'   library("ggplot2")
 #'   data(metMUD1)
 #'
 #'   pca <- c_pcaSpectra(metMUD1)
-#'   plotScores(metMUD1, pca,
-#'     main = "metMUD1 NMR Data",
-#'     pcs = c(1, 2), ellipse = "cls", tol = 0.05
-#'   )
+#'   p <- plotScores(metMUD1, pca, pcs = c(1, 2), ellipse = "cls", tol = 0.05)
+#'   p <- p + ggtitle("metMUD1 NMR Data")
 #' }
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'
-#'   res <- miaSpectra2D(MUD1)
-#'   plotScores(MUD1, res, main = "MIA Scores", tol = 0.1, ellipse = "cls")
+#'   mia <- miaSpectra2D(MUD1)
+#'   plotScores(MUD1, mia, main = "MIA Scores", tol = 0.1, ellipse = "cls")
 #'
 #'   set.seed(123)
-#'   res <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
-#'   plotScores(MUD1, res, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
+#'   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
+#'   plotScores(MUD1, pfac, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
 #' }
 plotScores <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
