@@ -38,8 +38,10 @@
 #'   data(metMUD1)
 #'
 #'   pca <- c_pcaSpectra(metMUD1)
-#'   plotScree(pca, style = "trad")
-#'   plotScree(pca, style = "alt")
+#'   p1 <- plotScree(pca, style = "trad")
+#'   p1
+#'   p2 <- plotScree(pca, style = "alt")
+#'   p2
 #' }
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {

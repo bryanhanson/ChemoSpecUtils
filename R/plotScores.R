@@ -61,6 +61,7 @@
 #'   pca <- c_pcaSpectra(metMUD1)
 #'   p <- plotScores(metMUD1, pca, pcs = c(1, 2), ellipse = "cls", tol = 0.05)
 #'   p <- p + ggtitle("metMUD1 NMR Data")
+#'   p
 #' }
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
