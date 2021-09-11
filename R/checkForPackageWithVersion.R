@@ -23,6 +23,9 @@
 #'   as.numeric(mm)
 #' }
 #'
+#' expect_equal(mmVers(mmVers("0.3.55")), 0.3)
+#' expect_equal(mmVers(mmVers("0.99-20180627")), 0.99)
+#'
 #' # get the installed version of pkg guaranteed to be available
 #' ivers <- mmVers(getNamespaceVersion("utils"))
 #' expect_true(checkForPackageWithVersion("utils", ivers - 0.1))
@@ -41,21 +44,19 @@ checkForPackageWithVersion <- function(pkg, vers) {
     mm <- sub("([0-9]+\\.[0-9]+)\\..*", "\\1", mm)
     as.numeric(mm)
   }
-  # tests:
-  # mmVers("0.3.55")
-  # mmVers("0.99-20180627")
 
   # Check to see if *any* version of the package is installed
   inst <- requireNamespace(pkg, quietly = TRUE)
   if (!inst) ans <- FALSE
  
-  # Check to see if the existing version matches vers or newer
+  # Check to see if the installed version matches vers or newer
   if (inst) {
     installedVers <- mmVers(getNamespaceVersion(pkg))
-    good <- installedVers < mmVers(vers)
+    good <- installedVers > mmVers(vers)
     if (good) ans <- TRUE
     if (!good) ans <- FALSE
   }
+
   if (is.null(ans)) stop("Could not determine if package '", pkg, "' is installed")
   invisible(ans)
 }
