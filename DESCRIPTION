@@ -36,7 +36,7 @@ Imports:
     ggrepel,
     plotly,
     magrittr
-Remotes: bryanhanson/ChemoSpec
+Remotes: bryanhanson/ChemoSpec, bryanhanson/ChemoSpec2D
 URL: https://github.com/bryanhanson/ChemoSpecUtils
 BugReports: https://github.com/bryanhanson/ChemoSpecUtils/issues
 ByteCompile: TRUE
