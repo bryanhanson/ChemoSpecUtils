@@ -50,7 +50,7 @@
 #' @export
 #'
 #' @examples
-#' if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
+#' if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
 #'   library("ChemoSpec")
 #'   data(SrE.IR)
 #'   sumSpectra(SrE.IR)
@@ -91,7 +91,7 @@
 #'   sumSpectra(newIR)
 #' }
 #'
-#' if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
+#' if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 #'   library("ChemoSpec2D")
 #'   data(MUD1)
 #'

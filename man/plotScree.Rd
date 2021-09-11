@@ -39,16 +39,18 @@ more informative.  These plots illustrate the variance explained by each compone
 in a PCA or MIA analysis.
 }
 \examples{
-if (checkForPackageWithVersion("ChemoSpec", "5.1")) {
+if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
   library("ChemoSpec")
   data(metMUD1)
 
   pca <- c_pcaSpectra(metMUD1)
-  plotScree(pca, style = "trad")
-  plotScree(pca, style = "alt")
+  p1 <- plotScree(pca, style = "trad")
+  p1
+  p2 <- plotScree(pca, style = "alt")
+  p2
 }
 
-if (checkForPackageWithVersion("ChemoSpec2D", "0.3")) {
+if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
   library("ChemoSpec2D")
   data(MUD1)
 

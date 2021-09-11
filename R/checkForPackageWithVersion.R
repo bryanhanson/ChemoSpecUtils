@@ -15,7 +15,7 @@
 #'
 checkForPackageWithVersion <- function(pkg, vers) {
   if (!is.character(pkg)) stop("pkg must be a character string")
-  if (!is.character(vers)) stop("vers must be a character string")
+  vers <- as.character(vers)
   msg <- paste("You must install package", pkg,
     "with version", vers, "or newer to use this function",
     sep = " "
