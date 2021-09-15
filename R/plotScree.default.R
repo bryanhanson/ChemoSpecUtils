@@ -141,9 +141,9 @@ plotScree.default <- function(pca, style = "alt", ...) {
       p <- p + geom_hline(yintercept = 0, linetype = "dashed", color = "gray")
       p <- p + scale_x_continuous(breaks = 1:ncp)
       p <- p + scale_y_continuous(breaks = c(-0.5, 0.0, 0.5))
-      p <- p + .ggAnnotate(pca$method, x = 0.98, y = 0.02, just = "right", gp = gpar(fontsize = 10))
+      p <- p + .ggAnnotate(pca$method, x = 0.97, y = 0.03, just = "right", gp = gpar(fontsize = 10))
       p <- p + .ggAnnotate("cumulative percent variance shown to the right of PC",
-        x = 0.98, y = 0.98,
+        x = 0.97, y = 0.97,
         just = "right", gp = gpar(fontsize = 10)
       )
 
