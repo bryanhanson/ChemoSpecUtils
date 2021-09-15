@@ -8,7 +8,8 @@
 #' @return A geom that can be added to an existing plot.
 #'
 #' @template authors-BH
-#' @importFrom ggrepel geom_text_repel .pt
+#' @importFrom ggrepel geom_text_repel
+#' @importFrom ggplot2 .pt
 #' @export
 #' @noRd
 #'

@@ -22,23 +22,23 @@
   # Capture special, more complex cases
   if (text == "cls") {
     cls_seg_grob <- linesGrob(x = c(0.05, 0.12), y = c(0.95, 0.95), gp = gpar(lty = 2))
-    cls_txt_grob <- textGrob("classical ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+    cls_txt_grob <- textGrob("classical ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 8))
     gt <- gTree(children = gList(cls_seg_grob, cls_txt_grob))
     return(annotation_custom(gt))
   }
 
   if (text == "rob") {
     rob_seg_grob <- linesGrob(x = c(0.05, 0.12), y = c(0.95, 0.95), gp = gpar(lty = 1)) 
-    rob_txt_grob <- textGrob("robust ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+    rob_txt_grob <- textGrob("robust ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 8))
     gt <- gTree(children = gList(rob_seg_grob, rob_txt_grob))
     return(annotation_custom(gt))
   }
 
   if (text == "both") {
     cls_seg_grob <- linesGrob(x = c(0.05, 0.12), y = c(0.95, 0.95), gp = gpar(lty = 2)) 
-    cls_txt_grob <- textGrob("classical ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 10))
+    cls_txt_grob <- textGrob("classical ellipses by group", x = 0.14, y = 0.95, just = "left", gp = gpar(fontsize = 8))
     rob_seg_grob <- linesGrob(x = c(0.05, 0.12), y = c(0.92, 0.92), gp = gpar(lty = 1)) 
-    rob_txt_grob <- textGrob("robust ellipses by group", x = 0.14, y = 0.92, just = "left", gp = gpar(fontsize = 10))
+    rob_txt_grob <- textGrob("robust ellipses by group", x = 0.14, y = 0.92, just = "left", gp = gpar(fontsize = 8))
     gt <- gTree(children = gList(cls_seg_grob, cls_txt_grob, rob_seg_grob, rob_txt_grob))
     return(annotation_custom(gt))
   }
