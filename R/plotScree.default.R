@@ -81,13 +81,13 @@ plotScree.default <- function(pca, style = "alt", ...) {
         geom_hline(yintercept = 95, linetype = "dashed") + # horizontal dashed line
         scale_x_continuous(breaks = 1:ncp) # scaling x axis ticks to whole numbers
 
-      p <- p + .ggAnnotate(pca$method, x = 0.05, y = 0.05, just = "left", gp = gpar(fontsize = 10))
+      p <- p + .ggAnnotate(pca$method, x = 0.05, y = 0.05, just = "left", gp = gpar(fontsize = 8))
       p <- p + .ggAnnotate("cumulative percent",
         x = 0.98, y = 0.52, just = "right",
-        gp = gpar(col = "blue", fontsize = 10))
+        gp = gpar(col = "blue", fontsize = 8))
       p <- p + .ggAnnotate("individual percent",
         x = 0.98, y = 0.48, just = "right",
-        gp = gpar(col = "red", fontsize = 10))
+        gp = gpar(col = "red", fontsize = 8))
 
       if (go == "ggplot2") {
         return(p)
@@ -141,10 +141,10 @@ plotScree.default <- function(pca, style = "alt", ...) {
       p <- p + geom_hline(yintercept = 0, linetype = "dashed", color = "gray")
       p <- p + scale_x_continuous(breaks = 1:ncp)
       p <- p + scale_y_continuous(breaks = c(-0.5, 0.0, 0.5))
-      p <- p + .ggAnnotate(pca$method, x = 0.97, y = 0.03, just = "right", gp = gpar(fontsize = 10))
+      p <- p + .ggAnnotate(pca$method, x = 0.97, y = 0.03, just = "right", gp = gpar(fontsize = 8))
       p <- p + .ggAnnotate("cumulative percent variance shown to the right of PC",
         x = 0.97, y = 0.97,
-        just = "right", gp = gpar(fontsize = 10)
+        just = "right", gp = gpar(fontsize = 8)
       )
 
       if (go == "ggplot2") {

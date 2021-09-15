@@ -37,14 +37,14 @@
   x.off <- 0.025
 
   key_grob <- textGrob("Key", x = leg.x, y = leg.y, just = "left",
-    gp = gpar(col = "black", fontsize = 10))
+    gp = gpar(col = "black", fontsize = 8))
   grobs_list[[1]] <- key_grob
 
   if (!use.sym) {
     for (i in 1:ng) {
       leg.y <- leg.y - y.off # descend a bit
       grobs_list[[i + 1]] <- textGrob(group[i], x = leg.x, y = leg.y, just = "left",
-        gp = gpar(col = color[i], fontsize = 10))
+        gp = gpar(col = color[i], fontsize = 8))
     }
   }
 
@@ -53,7 +53,7 @@
     for (i in 1:ng) {
       leg.y <- leg.y - y.off # descend a bit
       grobs_list[[i + 1]] <- textGrob(group[i], x = leg.x + x.off, y = leg.y, just = "left",
-        gp = gpar(col = color[i], fontsize = 10))
+        gp = gpar(col = color[i], fontsize = 8))
       grobs_list[[i + 1 + ng]] <- pointsGrob(symbol[i], x = leg.x , y = leg.y, size = unit(0.5, "char"))
     }
   }
