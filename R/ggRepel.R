@@ -16,5 +16,5 @@
   x <- y <- label <- NULL # satisfy CRAN check
   geom_text_repel(data = df, aes(x = x, y = y, label = label),
                        box.padding = 0.5, max.overlaps = Inf,
-                       segment.color = "gray50")
+                       segment.color = "gray50", size = 8/.pt)
 }       

@@ -13,7 +13,8 @@ checkForPackageWithVersion(pkg, vers)
 to the major.minor level.}
 }
 \value{
-If successful, \code{TRUE} is return invisibly.  Stops if there is a problem.
+If the package with the required version or higher is available, \code{TRUE} is returned
+        invisibly.  Otherwise \code{FALSE} is returned.
 }
 \description{
 Utility function for making sure a package is available with a particular version or newer.
