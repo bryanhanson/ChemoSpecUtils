@@ -17,8 +17,8 @@ Depends:
     R (>= 3.5)
 LazyData: TRUE
 Suggests:
-    ChemoSpec (>= 5.1),
-    ChemoSpec2D (>= 0.3),
+    ChemoSpec (>= 6.0),
+    ChemoSpec2D (>= 0.5),
     tinytest,
     robustbase,
     RColorBrewer,

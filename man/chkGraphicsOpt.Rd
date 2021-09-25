@@ -17,7 +17,7 @@ This function should be used to check the current graphics mode.  It simply repo
 the current setting unless it is invalid in which case the mode is set to \code{base}.
 }
 \seealso{
-See \code{\link[ChemoSpec]{GraphicsOptions}} for more information about the graphics options.
+See \code{\link{GraphicsOptions}} for more information about the graphics options.
 }
 \author{
 Bryan A. Hanson (DePauw University), Tejasvi Gupta.

@@ -41,7 +41,7 @@
 #' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
 #' \code{\link[ChemoSpec2D]{Spectra2D}}.
 #'
-#' @seealso \code{\link[ChemoSpec2D]{removePeaks2D}} for another way to remove data.
+#' @seealso \code{\link[ChemoSpec2D]{removeFreq}} for another way to remove data.
 #'
 #' @template authors-BH
 #'
@@ -93,32 +93,30 @@
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 #'   library("ChemoSpec2D")
+#' # Note we will set contours a bit low to better
+#' # show what is going on.
+#'
 #'   data(MUD1)
 #'
-#'   plotSpectra2D(MUD1,
-#'     which = 7, lvls = seq(-1, 1, by = 0.2),
-#'     main = "MUD1 Sample 7: Complete Data Set"
-#'   )
+#'   plotSpectra2D(MUD1, which = 7, lvls = 0.1, cols = "black",
+#'     main = "MUD1 Sample 7: Complete Data Set")
 #'
-#'   MUD1a <- removeFreq(MUD1, remF2 = 2 ~ 4)
-#'   sumSpectra(MUD1a) # cannot plot, results would be misleading
+#'   MUD1a <- removeFreq(MUD1, remF2 = 2.5 ~ 4)
+#'   sumSpectra(MUD1a) # don't plot, removing peaks from interior is misleading
 #'
-#'   MUD1b <- removeFreq(MUD1, remF1 = low ~ 20)
+#'   MUD1b <- removeFreq(MUD1, remF2 = low ~ 2)
 #'   sumSpectra(MUD1b)
-#'   plotSpectra2D(MUD1b,
-#'     which = 7, lvls = seq(-1, 1, by = 0.2),
-#'     main = "MUD1 Sample 7\nRemoved Frequencies: F1 low ~ 20"
-#'   )
+#'   plotSpectra2D(MUD1b, which = 7, lvls = 0.1, cols = "black",
+#'     main = "MUD1 Sample 7\nRemoved Peaks: F2 low ~ 2")
 #'
-#'   MUD1c <- removeFreq(MUD1, remF2 = low ~ 2)
+#'   MUD1c <- removeFreq(MUD1, remF1 = high ~ 23)
 #'   sumSpectra(MUD1c)
-#'   plotSpectra2D(MUD1c, ,
-#'     which = 7, lvls = seq(-1, 1, by = 0.2),
-#'     main = "MUD1 Sample 7\nRemoved Frequencies: F2 low ~ 2"
-#'   )
+#'   plotSpectra2D(MUD1c, which = 7, lvls = 0.1, cols = "black",
+#'     main = "MUD1 Sample 7\nRemoved Peaks: F1 high ~ 23")
 #'
-#'   MUD1d <- removeFreq(MUD1, remF2 = 3 ~ high, remF1 = 45 ~ 55)
-#'   sumSpectra(MUD1d) # not plotted, results would be misleading
+#'   MUD1d <- removeFreq(MUD1, remF2 = 2.5 ~ 4, remF1 = 45 ~ 55)
+#'   sumSpectra(MUD1d)  # don't plot, removing peaks from interior is misleading
+#'
 #' }
 removeFreq <- function(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL) {
   UseMethod("removeFreq")

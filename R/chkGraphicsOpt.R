@@ -10,7 +10,7 @@
 #'
 #' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
-#' @seealso See \code{\link[ChemoSpec]{GraphicsOptions}} for more information about the graphics options.
+#' @seealso See \code{\link{GraphicsOptions}} for more information about the graphics options.
 #'
 #' @keywords utilities
 #'
