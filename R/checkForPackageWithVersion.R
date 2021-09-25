@@ -29,6 +29,7 @@
 #' # get the installed version of pkg guaranteed to be available
 #' ivers <- mmVers(getNamespaceVersion("utils"))
 #' expect_true(checkForPackageWithVersion("utils", ivers - 0.1))
+#' expect_true(checkForPackageWithVersion("utils", ivers))
 #' expect_false(checkForPackageWithVersion("utils", ivers + 0.1))
 #'
 checkForPackageWithVersion <- function(pkg, vers) {
@@ -52,7 +53,7 @@ checkForPackageWithVersion <- function(pkg, vers) {
   # Check to see if the installed version matches vers or newer
   if (inst) {
     installedVers <- mmVers(getNamespaceVersion(pkg))
-    good <- installedVers > mmVers(vers)
+    good <- installedVers >= mmVers(vers)
     if (good) ans <- TRUE
     if (!good) ans <- FALSE
   }

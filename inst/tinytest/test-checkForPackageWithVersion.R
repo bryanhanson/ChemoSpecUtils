@@ -16,4 +16,5 @@ expect_equal(mmVers(mmVers("0.99-20180627")), 0.99)
 # get the installed version of pkg guaranteed to be available
 ivers <- mmVers(getNamespaceVersion("utils"))
 expect_true(checkForPackageWithVersion("utils", ivers - 0.1))
+expect_true(checkForPackageWithVersion("utils", ivers))
 expect_false(checkForPackageWithVersion("utils", ivers + 0.1))
