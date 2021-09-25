@@ -43,7 +43,7 @@
 #'
 #' @template param-tol
 #'
-#' @return None.  Side effect is a plot.
+#' @template param-graphics-return
 #'
 #' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
