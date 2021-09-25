@@ -66,14 +66,19 @@
 #'
 #' if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 #'   library("ChemoSpec2D")
+#'   library("ggplot2")
 #'   data(MUD1)
 #'
 #'   mia <- miaSpectra2D(MUD1)
-#'   plotScores(MUD1, mia, main = "MIA Scores", tol = 0.1, ellipse = "cls")
+#'   p1 <- plotScores(MUD1, mia, tol = 0.1, ellipse = "cls")
+#'   p1 <- p1 + ggtitle("MIA Scores")
+#'   p1
 #'
 #'   set.seed(123)
 #'   pfac <- pfacSpectra2D(MUD1, parallel = FALSE, nfac = 2)
-#'   plotScores(MUD1, pfac, tol = 0.1, leg.loc = "bottomright", main = "PARAFAC Score Plot")
+#'   p2 <- plotScores(MUD1, pfac, tol = 0.1, leg.loc = "bottomright")
+#'   p2 <- p2 + ggtitle("PARAFAC Score Plot")
+#'   p2
 #' }
 plotScores <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",
