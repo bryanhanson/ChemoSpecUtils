@@ -68,7 +68,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
 
   if ((go == "ggplot2") || (go == "plotly")) {
 
-    chkReqGraphicsPkgs("ggplot2")
+    .chkReqGraphicsPkgs("ggplot2")
 
     if (style == "trad") {
       df <- data.frame(ncp = c(1:ncp), variance = variance[1:ncp], cumvariance = cumvariance[1:ncp])
@@ -92,7 +92,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
       if (go == "ggplot2") {
         return(p)
       } else {
-        chkReqGraphicsPkgs("plotly")
+        .chkReqGraphicsPkgs("plotly")
         p <- ggplotly(p, tooltip = c("variance", "cumvariance"))
         return(p)
       }
@@ -150,7 +150,7 @@ plotScree.default <- function(pca, style = "alt", ...) {
       if (go == "ggplot2") {
         return(p)
       } else {
-        chkReqGraphicsPkgs("plotly")
+        .chkReqGraphicsPkgs("plotly")
         p <- ggplotly(p, tooltip = "text")
         return(p)
       }

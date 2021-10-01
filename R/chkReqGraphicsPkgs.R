@@ -11,7 +11,7 @@
 #' @noRd
 #' @export
 #'
-chkReqGraphicsPkgs <- function(pkgs) {
+.chkReqGraphicsPkgs <- function(pkgs) {
 
   if ("ggplot2" %in% pkgs) {
     if (!requireNamespace("ggplot2", quietly = TRUE)) {

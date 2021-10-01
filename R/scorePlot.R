@@ -153,7 +153,7 @@
     args <- as.list(match.call()[-1]) # Capturing xlabel and ylabel from plotScore call
     xlab <- eval(args$xlab)
     ylab <- eval(args$ylab)
-    chkReqGraphicsPkgs("ggplot2")
+    .chkReqGraphicsPkgs("ggplot2")
 
     x <- y <- name <- label <- NULL # satisfy CRAN check engine
 
@@ -322,7 +322,7 @@
 
       return(p)
     } else {
-      chkReqGraphicsPkgs("plotly")
+      .chkReqGraphicsPkgs("plotly")
       p <- ggplotly(p, tooltip = c(colnames(DF[1]), colnames(DF[2]), "name"))
       if (tol != "none") {
         CoordList <- .getExtremeCoords(DF[, 1:2], spectra$names, tol)

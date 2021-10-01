@@ -8,7 +8,7 @@
 #'
 .distPlot <- function(spectra, M, method, ...) {
   
-  chkReqGraphicsPkgs("lattice")
+  .chkReqGraphicsPkgs("lattice")
 
   # The bounded distances in rowDist get a fixed reference scale
   unbounded <- TRUE
