@@ -8,7 +8,7 @@
 #' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #'
 #' @keywords utilities
-#'
+#' @noRd
 #' @export
 #'
 chkReqGraphicsPkgs <- function(pkgs) {
