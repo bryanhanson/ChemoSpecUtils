@@ -173,7 +173,7 @@
       }
 
       if (go == "ggplot2") {
-        p <- p + .ggAnnotate(so$method, x = 0.05, y = 0.98, just = "left", gp = gpar(fontsize = 10))
+        p <- p + .ggAnnotate(so$method, x = 0.05, y = 0.98, just = "left", gp = gpar(fontsize = 8))
       }
     } # end of case == "PCA"
 
