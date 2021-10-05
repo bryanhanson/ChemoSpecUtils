@@ -44,7 +44,7 @@
   }
 
   # Otherwise just a plain 'ol text annotation
-  annotation <- grobTree(textGrob(text, x, y, ...))
+  annotation <- grobTree(textGrob(text, x, y, gp = gpar(fontsize = 8), ...))
   annotation_custom(annotation)
 }
 
