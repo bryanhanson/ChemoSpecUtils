@@ -42,6 +42,7 @@ What you can do with your plots:
 \examples{
 if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
   library("ChemoSpec")
+  library("ggplot2")
   data(metMUD1)
 
 # Using the default ggplot2 graphics
@@ -51,7 +52,6 @@ if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
   p1
 
 # Modifying ggplot2 graphics
-  library(ggplot2)
 # Add a title
   p2 <- p1 + ggtitle("metMUD1 NMR Data")
   p2
