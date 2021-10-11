@@ -42,3 +42,4 @@ ByteCompile: TRUE
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 Roxygen: list(roclets = c("namespace", "rd", "roxut::tests_roclet"))
+Remotes: bryanhanson/ChemoSpec, bryanhanson/ChemoSpec2D
