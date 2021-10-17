@@ -15,10 +15,11 @@
 #' @noRd
 #'
 .prepLegendCoords <- function(go, leg.loc, x.min = 0.0, x.max = 0.0, y.min = 0.0, y.max = 0.0) {
-  lab.x <- c(NA_real_)
-  lab.y <- c(NA_real_)
+  lab.x <- NA_real_
+  lab.y <- NA_real_
   if (is.list(leg.loc) && go == "ggplot2") { # case when a list is passed in ggplot2 mode
     if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
+      leg.loc$r <- "cc" # will make legend center justified
       return(leg.loc)
     }
   } else if (is.list(leg.loc) && go == "base") { # case when list is passed in base mode
@@ -30,47 +31,57 @@
       return(leg.loc)
     }
   } else if (go == "ggplot2") { # case when a string is passed in ggplot2 mode
+    # The positions are "pushed out" to the extremes
     if (leg.loc == "topright") {
-      lab.x <- 0.9
-      lab.y <- 0.9
+      lab.x <- 0.95
+      lab.y <- 0.95
+      lab.r <- "tr"
     }
     if (leg.loc == "topleft") {
-      lab.x <- 0.01
-      lab.y <- 0.9
+      lab.x <- 0.05
+      lab.y <- 0.95
+      lab.r <- "tl"
     }
     if (leg.loc == "bottomright") {
-      lab.x <- 0.9
-      lab.y <- 0.2
+      lab.x <- 0.95
+      lab.y <- 0.05
+      lab.r <- "br"
     }
     if (leg.loc == "bottomleft") {
-      lab.x <- 0.01
-      lab.y <- 0.2
+      lab.x <- 0.05
+      lab.y <- 0.05
+      lab.r <- "bl"
     }
     if (leg.loc == "bottom") {
-      lab.x <- 0.45
-      lab.y <- 0.2
+      lab.x <- 0.5
+      lab.y <- 0.05
+      lab.r <- "bc"
     }
 
     if (leg.loc == "top") {
-      lab.x <- 0.45
-      lab.y <- 0.9
+      lab.x <- 0.5
+      lab.y <- 0.95
+      lab.r <- "tc"
     }
 
     if (leg.loc == "left") {
-      lab.x <- 0.01
+      lab.x <- 0.05
       lab.y <- 0.5
+      lab.r <- "cl"
     }
 
     if (leg.loc == "right") {
-      lab.x <- 0.9
+      lab.x <- 0.95
       lab.y <- 0.5
+      lab.r <- "cr"
     }
 
     if (leg.loc == "middle") {
-      lab.x <- 0.45
+      lab.x <- 0.5
       lab.y <- 0.5
+      lab.r <- "cc"
     }
-    leg.loc <- list(x = lab.x, y = lab.y)
+    leg.loc <- list(x = lab.x, y = lab.y, r = lab.r)
     return(leg.loc)
   } else { # case when a string is passed in base mode
     if (!is.character(leg.loc)) {
