@@ -1,5 +1,5 @@
 #'
-#' Add Points to a Plot
+#' Sanitize Legend Coordinates
 #'
 #' @param go A string specifying the graphics mode.
 #' @param leg.loc A list giving x and y coordinates.
@@ -8,7 +8,8 @@
 #' @param y.min A number giving the minimum y value in the data. Used only if graphics mode is set to base.
 #' @param y.max A number giving the maximum y value in the data. Used only if graphics mode is set to base.
 #'
-#' @return A list of coordinates specifying x and y position of the legend, except in one case where a string is returned.
+#' @return A list of coordinates specifying x and y position of the legend along with a position
+#'         designation, except in one case where a string is returned.
 #'
 #' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
@@ -17,9 +18,11 @@
 .prepLegendCoords <- function(go, leg.loc, x.min = 0.0, x.max = 0.0, y.min = 0.0, y.max = 0.0) {
   lab.x <- NA_real_
   lab.y <- NA_real_
+  lab.r <- "cc" # default to centered legend and center justified; may be overidden below
+
   if (is.list(leg.loc) && go == "ggplot2") { # case when a list is passed in ggplot2 mode
     if (exists("x", where = leg.loc) && (exists("y", where = leg.loc))) {
-      leg.loc$r <- "cc" # will make legend center justified
+      leg.loc$r <- "cc" # center justify legend
       return(leg.loc)
     }
   } else if (is.list(leg.loc) && go == "base") { # case when list is passed in base mode
@@ -27,7 +30,7 @@
       # Convert NPC coordinates to native data coordinates
       lab.x <- (leg.loc$x) * (x.max - x.min) + x.min
       lab.y <- (leg.loc$y) * (y.max - y.min) + y.min
-      leg.loc <- list(x = lab.x, y = lab.y)
+      leg.loc <- list(x = lab.x, y = lab.y, r = lab.r)
       return(leg.loc)
     }
   } else if (go == "ggplot2") { # case when a string is passed in ggplot2 mode
