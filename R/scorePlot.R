@@ -7,6 +7,7 @@
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
+#' @importFrom data.table as.data.table
 #' @noRd
 #'
 .scorePlot <- function(spectra, so,
@@ -43,7 +44,6 @@
 
   if (case == "PCA") DF <- data.frame(so$x[, pcs], group = spectra$groups)
   if (case == "MIA") DF <- data.frame(so$C[, pcs], group = spectra$groups)
-  GRPS <- dlply(DF, "group", subset, select = c(1, 2))
 
   # Step 1.  Compute the ellipses if requested
 
@@ -60,9 +60,11 @@
       if (gr$no.[n] == 3) message("Group ", gr$group[n], "\n\thas only 3 members (ellipse not drawn)")
     }
 
-    idx <- which(gr$no. > 3) # Index for those groups that will get ellipses
-    gr <- gr[idx, ]
-    ELL <- llply(GRPS[idx], .computeEllipses) # These are the ellipses we'll need later
+    DT <- as.data.table(DF) # use a data.table for the ellipse calculations
+    GRPS <- split(DT, by = "group", keep.by = FALSE)
+    nm <- unlist(lapply(DT), nrow)
+    GRPS <- GRPS[nm >= 4]  # keep only groups with > 4 members
+    ELL <- lapply(GRPS, .computeEllipses) # These are the ellipses we'll need later
   }
 
   # Step 2.  Branch for each graphics mode.
@@ -74,7 +76,7 @@
   if (go == "base") {
     if ((ellipse == "cls") || (ellipse == "rob") || (ellipse == "both")) {
 
-      # Get limits all possible pieces of the data
+      # Get plot limits all possible pieces of the data
       #
       # Keep in mind the ellipses may be quite flattened and hence large.
       # At the same time, the ellipses might be quite round and
