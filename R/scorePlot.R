@@ -3,7 +3,6 @@
 #'
 #' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 #' @export
-#' @importFrom plyr dlply llply
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
@@ -18,7 +17,7 @@
 
   args <- as.list(match.call())[-1]
 
-  # Step 0. Check the inputs
+  # Step 00. Check the inputs
 
   if (length(pcs) != 2) stop("You must choose exactly two PC's to plot")
 
@@ -31,7 +30,7 @@
 
   chkSpectra(spectra)
 
-  # Step 1. Prep the data
+  # Step 0. Prep the data
 
   # For base graphics, we need to compute the ellipses *and* use them to set overall plot
   #   limits because base graphics doesn't understand how to set limits when plotting a bunch
@@ -44,6 +43,10 @@
 
   if (case == "PCA") DF <- data.frame(so$x[, pcs], group = spectra$groups)
   if (case == "MIA") DF <- data.frame(so$C[, pcs], group = spectra$groups)
+
+  # Use a data.table for the ellipse calculations (also for base limit calculations)
+  DT <- as.data.table(DF)
+  GRPS <- split(DT, by = "group", keep.by = FALSE)
 
   # Step 1.  Compute the ellipses if requested
 
@@ -60,11 +63,8 @@
       if (gr$no.[n] == 3) message("Group ", gr$group[n], "\n\thas only 3 members (ellipse not drawn)")
     }
 
-    DT <- as.data.table(DF) # use a data.table for the ellipse calculations
-    GRPS <- split(DT, by = "group", keep.by = FALSE)
-    nm <- unlist(lapply(DT), nrow)
-    GRPS <- GRPS[nm >= 4]  # keep only groups with > 4 members
-    ELL <- lapply(GRPS, .computeEllipses) # These are the ellipses we'll need later
+    nm <- unlist(lapply(GRPS, nrow)) # keep only groups with > 4 members
+    ELL <- lapply(GRPS[nm >= 4], .computeEllipses) # These are the ellipses we'll need later
   }
 
   # Step 2.  Branch for each graphics mode.
@@ -83,18 +83,18 @@
       # the scores well outside them, if there is an outlier.
       # Must check all cases!
 
-      x.scores <- range(llply(GRPS, subset, select = 1))
-      y.scores <- range(llply(GRPS, subset, select = 2))
-      x.ell <- range(llply(ELL, function(x) {
+      x.scores <- range(lapply(GRPS, subset, select = 1))
+      y.scores <- range(lapply(GRPS, subset, select = 2))
+      x.ell <- range(lapply(ELL, function(x) {
         range(x[1])
       }))
-      y.ell <- range(llply(ELL, function(x) {
+      y.ell <- range(lapply(ELL, function(x) {
         range(x[2])
       }))
-      x.ell.r <- range(llply(ELL, function(x) {
+      x.ell.r <- range(lapply(ELL, function(x) {
         range(x[4])
       }))
-      y.ell.r <- range(llply(ELL, function(x) {
+      y.ell.r <- range(lapply(ELL, function(x) {
         range(x[5])
       }))
       # extend.limits: stackoverflow.com/a/29647893/633251
@@ -105,8 +105,8 @@
     }
 
     if (ellipse == "none") {
-      x.scores <- range(llply(GRPS, subset, select = 1))
-      y.scores <- range(llply(GRPS, subset, select = 2))
+      x.scores <- range(lapply(GRPS, subset, select = 1))
+      y.scores <- range(lapply(GRPS, subset, select = 2))
       x.all <- range(x.scores) + diff(range(x.scores)) * 0.05 * c(-1.0, 1.15) # expand slightly for labels
       y.all <- range(y.scores) + diff(range(y.scores)) * 0.05 * c(-1.0, 1.15) # leave room for annotations at top of plot
     }
@@ -212,10 +212,10 @@
     }
 
     if (ellipse == "cls") {
-      cls.coords <- llply(ELL, function(x) {
+      cls.coords <- lapply(ELL, function(x) {
         x[1:2]
       })
-      cls.coords <- llply(cls.coords, function(x) {
+      cls.coords <- lapply(cls.coords, function(x) {
         do.call(cbind, x)
       })
       df.cls <- .ggPrepEllipseCoords(cls.coords)
@@ -239,10 +239,10 @@
     ## Take care of the ellipse options -- robust
 
     if (ellipse == "rob") {
-      rob.coords <- llply(ELL, function(x) {
+      rob.coords <- lapply(ELL, function(x) {
         x[4:5]
       })
-      rob.coords <- llply(rob.coords, function(x) {
+      rob.coords <- lapply(rob.coords, function(x) {
         do.call(cbind, x)
       })
       df.rob <- .ggPrepEllipseCoords(rob.coords)
@@ -267,18 +267,18 @@
     ## Take care of the ellipse options -- both classical and robust
 
     if (ellipse == "both") {
-      cls.coords <- llply(ELL, function(x) {
+      cls.coords <- lapply(ELL, function(x) {
         x[1:2]
       })
-      cls.coords <- llply(cls.coords, function(x) {
+      cls.coords <- lapply(cls.coords, function(x) {
         do.call(cbind, x)
       })
       df.cls <- .ggPrepEllipseCoords(cls.coords) # Data frame with cls.coords values
 
-      rob.coords <- llply(ELL, function(x) {
+      rob.coords <- lapply(ELL, function(x) {
         x[4:5]
       })
-      rob.coords <- llply(rob.coords, function(x) {
+      rob.coords <- lapply(rob.coords, function(x) {
         do.call(cbind, x)
       })
       df.rob <- .ggPrepEllipseCoords(rob.coords) # Data frame with rob.coords values
