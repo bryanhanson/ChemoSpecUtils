@@ -31,7 +31,6 @@ Suggests:
     reshape2,
     patchwork
 Imports:
-    plyr,
     data.table,
     ggplot2,
     ggrepel,
