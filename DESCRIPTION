@@ -28,7 +28,6 @@ Suggests:
     multiway,
     lattice,
     roxut,
-    reshape2,
     patchwork
 Imports:
     data.table,
