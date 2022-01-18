@@ -1,3 +1,7 @@
+# ChemoSpecUtils 1.0.1 2022-01-20
+## Misc.
+* Rewrote `.drawEllipse` and `.scorePlot` to avoid use of the `plyr` package which is retired.
+
 # ChemoSpecUtils 1.0.0 2021-10-09
 ## Significant Changes
 * Thanks to GSOC and Tejasvi Gupta, a number of functions in `ChemoSpec` and `ChemoSpec2D` gain the ability to produce `ggplot2` and/or `plotly` graphics, which required changes here in `ChemoSpecUtils`.  See the news files for `ChemoSpec` and `ChemoSpec2D` for more details.
