@@ -27,8 +27,8 @@
 .addLegend <- function(spectra, leg.loc, use.sym, ...) {
   .chkArgs(mode = 0L)
 
-  if (class(spectra) == "Spectra") gr <- sumGroups(spectra)
-  if (class(spectra) == "Spectra2D") {
+  if (inherits(spectra, "Spectra")) gr <- sumGroups(spectra)
+  if (inherits(spectra, "Spectra2D")) {
     if (use.sym) stop("use.sym cannot be used with ChemoSpec2D")
     gr <- sumGroups(spectra)
   }
