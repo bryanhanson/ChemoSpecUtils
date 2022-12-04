@@ -24,8 +24,6 @@ Suggests:
     RColorBrewer,
     amap,
     irlba,
-    ThreeWay,
-    multiway,
     lattice,
     roxut,
     patchwork
