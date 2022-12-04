@@ -1,6 +1,7 @@
-# ChemoSpecUtils 1.0.1 2022-01-20
+# ChemoSpecUtils 1.0.1 2022-12-04
 ## Misc.
 * Rewrote `.drawEllipse` and `.scorePlot` to avoid use of the `plyr` package which is retired.
+* Behind the scene updates to CI and rename master branch to main.
 
 # ChemoSpecUtils 1.0.0 2021-10-09
 ## Significant Changes
