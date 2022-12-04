@@ -10,7 +10,7 @@
 #' \code{"pearson"} and \code{"correlation"} distances differs slightly between the reference below
 #' and \code{\link[amap]{Dist}}.  So please study the definitions carefully to get the one you want.
 #' The example illustrates the behavior of some common distance definitions.  Notice that \code{"pearson"}
-#' and \code{"cosine"} are mathemtically identical for the particular definition of \code{"pearson"}
+#' and \code{"cosine"} are mathematically identical for the particular definition of \code{"pearson"}
 #' used by \code{\link[amap]{Dist}}.
 #' 
 #' @param x A matrix whose rows will be used for the distance calculation.
