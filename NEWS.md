@@ -1,3 +1,7 @@
+# ChemoSpecUtils 1.0.2 2023-05-22
+## Misc.
+* Some cleanup of examples for CRAN so package checks with only the Imports: packages.
+
 # ChemoSpecUtils 1.0.1 2022-12-04
 ## Misc.
 * Rewrote `.drawEllipse` and `.scorePlot` to avoid use of the `plyr` package which is retired.
