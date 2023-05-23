@@ -52,8 +52,8 @@
 #' gaps <- check4Gaps(x, tol = 0.11) # tol just larger than orig spacing
 #' gaps
 #' gaps <- check4Gaps(x, y, tol = 0.11) # show a plot if y given
-#' @export
 #'
+#' @export
 #' @importFrom graphics lines rect
 #'
 check4Gaps <- function(x, y = NULL, silent = FALSE, tol = NULL, ...) {
