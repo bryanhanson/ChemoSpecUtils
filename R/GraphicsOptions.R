@@ -48,34 +48,36 @@
 #'   library("ggplot2")
 #'   data(metMUD1)
 #'
-#' # Using the default ggplot2 graphics
+#'   # Using the default ggplot2 graphics
 #'   p1 <- plotSpectra(metMUD1,
 #'     which = c(10, 11), yrange = c(0, 1.5),
 #'     offset = 0.06, amplify = 10, lab.pos = 0.5)
 #'   p1
 #'
-#' # Modifying ggplot2 graphics
-#' # Add a title
+#'   # Modifying ggplot2 graphics
+#'   # Add a title
 #'   p2 <- p1 + ggtitle("metMUD1 NMR Data")
 #'   p2
 #'
-#' # Zoom the axes
+#'   # Zoom the axes
 #'   p3 <- p1 + coord_cartesian(xlim = c(1.5, 2.0))
 #'   p3
 #'
-#' # Change the ggplot2 theme
+#'   # Change the ggplot2 theme
 #'   p4 <- p1 + theme_gray() + theme(legend.position = "none")
 #'   p4
 #'
-#' # plotLoadings uses patchwork, whose plots are modified differently
-#'   pca <- c_pcaSpectra(metMUD1)
-#'   p5 <- plotLoadings(metMUD1, pca, loads = c(1, 2))
-#'   p5
-#'   p6 <- p5 + patchwork::plot_annotation(title = "metMUD1 NMR Data")
-#'   p6
-#' # but to change the theme on each subplot, use the & operator
-#'   p7 <- p6 & theme_gray() # compare to p6 + theme_gray()
-#'   p7
+#'   # plotLoadings uses patchwork, whose plots are modified differently
+#'   if (requireNamespace("patchwork", quietly = TRUE)) {
+#'     pca <- c_pcaSpectra(metMUD1)
+#'     p5 <- plotLoadings(metMUD1, pca, loads = c(1, 2))
+#'     p5
+#'     p6 <- p5 + patchwork::plot_annotation(title = "metMUD1 NMR Data")
+#'     p6
+#'     # but to change the theme on each subplot, use the & operator
+#'     p7 <- p6 & theme_gray() # compare to p6 + theme_gray()
+#'     p7
+#'   }
 #' }
 #'
 NULL
