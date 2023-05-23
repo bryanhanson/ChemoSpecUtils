@@ -59,7 +59,10 @@ data(Col12)
 data(Sym12)
 data(Col8)
 data(Sym8)
-auto <- RColorBrewer::brewer.pal(8, "Set1")
+# You need to install package "RColorBrewer" to display the default color scheme
+if (requireNamespace("RColorBrewer", quietly = TRUE)) {
+  auto <- RColorBrewer::brewer.pal(8, "Set1")
+}
 
 sp <- 0.75 # space between major plot elements
 tsp <- 0.15 # additional space between points and color swatches/descriptive text
@@ -94,13 +97,15 @@ text(0.6, y + h + tsp * 2 + sp, adj = 0,
 )
 
 # auto (original)
-for (i in 1:8) {
-  rect(i - 0.5, y + sp * 2, i + 0.5, y + sp * 2 + h, border = NA, col = auto[i])
+if (requireNamespace("RColorBrewer", quietly = TRUE)) {
+  for (i in 1:8) {
+    rect(i - 0.5, y + sp * 2, i + 0.5, y + sp * 2 + h, border = NA, col = auto[i])
+  }
+  points(1:8, rep(y + h + tsp + sp * 2, 8), pch = Sym8)
+  text(0.6, y + h + tsp * 2 + sp * 2, adj = 0,
+    labels = "gr.cols = 'auto'     8 distinct colors/symbols"
+  )
 }
-points(1:8, rep(y + h + tsp + sp * 2, 8), pch = Sym8)
-text(0.6, y + h + tsp * 2 + sp * 2, adj = 0,
-  labels = "gr.cols = 'auto'     8 distinct colors/symbols"
-)
 
 # colorblind-friendly
 for (i in 1:7) {
