@@ -42,6 +42,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
   newSpec <- conColScheme(MUD1) # reports old colors
   newSpec <- conColScheme(MUD1, new = c("pink", "violet"))
 }
+
 }
 \seealso{
 For a discussion of general issues of color, see
