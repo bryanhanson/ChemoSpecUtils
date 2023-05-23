@@ -62,11 +62,11 @@
 #'
 #'   # Remove frequencies from both ends at once:
 #'   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 3500
-#'   | SrE.IR$freq < 800)
+#'     | SrE.IR$freq < 800)
 #'
 #'   # Remove frequencies from the middle:
 #'   newIR <- removeFreq(SrE.IR, rem.freq = SrE.IR$freq > 800
-#'   & SrE.IR$freq < 1000)
+#'     & SrE.IR$freq < 1000)
 #'
 #'   # The logic of this last one is as follows.  Any values
 #'   # that are TRUE will be removed.

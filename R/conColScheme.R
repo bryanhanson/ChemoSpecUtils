@@ -40,6 +40,7 @@
 #'   newSpec <- conColScheme(MUD1) # reports old colors
 #'   newSpec <- conColScheme(MUD1, new = c("pink", "violet"))
 #' }
+#'
 conColScheme <- function(spectra, new.cols = NULL, silent = FALSE) {
   .chkArgs(mode = 0L)
   chkSpectra(spectra)
