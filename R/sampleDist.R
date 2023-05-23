@@ -26,36 +26,39 @@
 #' @keywords hplot
 #' @export
 #' @examples
+#' # You need to install package "lattice" for this example
+#' if (requireNamespace("lattice", quietly = TRUE)) {
+#'   if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
+#'     library("ChemoSpec")
+#'     library("lattice")
+#'     data(SrE.IR)
 #'
-#' if (checkForPackageWithVersion("ChemoSpec", 6.0)) {
-#'   library("ChemoSpec")
-#'   library("lattice")
-#'   data(SrE.IR)
+#'     SrE.dmatrix <- sampleDist(SrE.IR, # cosine distance bounded on [0...2]
+#'       method = "cosine",
+#'       main = "SrE.IR Cosine Distance Between Samples"
+#'     )
+#'     SrE.dmatrix <- sampleDist(SrE.IR, # abspearson distance bounded on [0...1]
+#'       method = "abspearson",
+#'       main = "SrE.IR Absolute Pearson Distance Between Samples"
+#'     )
+#'     SrE.dmatrix <- sampleDist(SrE.IR, # euclidean distance unbounded
+#'       method = "euclidean",
+#'       main = "SrE.IR Euclidean Distance Between Samples"
+#'     )
+#'   }
 #'
-#'   SrE.dmatrix <- sampleDist(SrE.IR, # cosine distance bounded on [0...2]
-#'     method = "cosine",
-#'     main = "SrE.IR Cosine Distance Between Samples"
-#'   )
-#'   SrE.dmatrix <- sampleDist(SrE.IR, # abspearson distance bounded on [0...1]
-#'     method = "abspearson",
-#'     main = "SrE.IR Absolute Pearson Distance Between Samples"
-#'   )
-#'   SrE.dmatrix <- sampleDist(SrE.IR, # euclidean distance unbounded
-#'     method = "euclidean",
-#'     main = "SrE.IR Euclidean Distance Between Samples"
-#'   )
+#'   if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
+#'     library("ChemoSpec2D")
+#'     library("lattice")
+#'     data(MUD1)
+#'
+#'     MUD1.dmatrix <- sampleDist(MUD1,
+#'       method = "cosine",
+#'       main = "MUD1 Cosine Distance Between Samples"
+#'     )
+#'   }
 #' }
 #'
-#' if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
-#'   library("ChemoSpec2D")
-#'   library("lattice")
-#'   data(MUD1)
-#'
-#'   MUD1.dmatrix <- sampleDist(MUD1,
-#'     method = "cosine",
-#'     main = "MUD1 Cosine Distance Between Samples"
-#'   )
-#' }
 sampleDist <- function(spectra, method = "pearson", plot = TRUE, ...) {
   UseMethod("sampleDist")
 }
