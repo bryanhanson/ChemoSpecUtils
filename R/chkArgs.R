@@ -40,7 +40,6 @@
     # PCA methods for Spectra objects all have prcomp as the return class
     pcaOK <- FALSE
     pcaOK <- any(inherits(args$pca, "prcomp"), inherits(args$so, "prcomp"))
-    # pcaOK <- any("prcomp" %in% class(args$pca), "prcomp" %in% class(args$so))
     if (!pcaOK) stop("Argument 'pca' was not found or did not have class prcomp")
   }
 
@@ -50,12 +49,6 @@
     }
     # PCA methods for Spectra2D objects have varying classes for return value
     pcaOK <- FALSE
-    # pcaOK <- any("mia" %in% class(args$so),
-    # "pfac" %in% class(args$so),
-    # "pop" %in% class(args$so),
-    # "mia" %in% class(args$pca), # last 3 needed for unit tests
-    # "pfac" %in% class(args$pca),
-    # "pop" %in% class(args$pca))
     pcaOK <- any(
       inherits(args$so, "mia"),
       inherits(args$so, "pfac"),
