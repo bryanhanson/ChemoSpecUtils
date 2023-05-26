@@ -45,7 +45,7 @@
 #'
 #' @template param-graphics-return
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #'
 #' @keywords multivariate robust hplot
 #'

@@ -40,14 +40,14 @@ are most readily distinguished can be found in Robinson: "Good Plot Symbols by D
 If the particular order of colors in any of these does not suit your needs, you can always
 choose the ones you want, and/or rearrange the order, or simply provide your own.
 \itemize{
-  \item The colors and symbols produced by \code{gr.cols = "auto"} in the import functions.
-  \item \code{Col8} provides eight unique colors.  These are more saturated
-        than the automatic colors.
-  \item \code{Col12} provides a mostly paired set of 12 unique colors suitable for groups
-        that come in pairs.
-  \item \code{Col7} provides seven color-blind friendly colors.  These can be visualized
-        at https://projects.susielu.com/viz-palette by using the hex codes obtained
-        by typing \code{data(Col7); Col7} in the \code{R} console. 
+\item The colors and symbols produced by \code{gr.cols = "auto"} in the import functions.
+\item \code{Col8} provides eight unique colors.  These are more saturated
+than the automatic colors.
+\item \code{Col12} provides a mostly paired set of 12 unique colors suitable for groups
+that come in pairs.
+\item \code{Col7} provides seven color-blind friendly colors.  These can be visualized
+at https://projects.susielu.com/viz-palette by using the hex codes obtained
+by typing \code{data(Col7); Col7} in the \code{R} console.
 }
 }
 \examples{
@@ -117,7 +117,7 @@ text(0.6, y + h + tsp * 2 + sp * 3, adj = 0,
 )
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{color}
 \keyword{datasets}

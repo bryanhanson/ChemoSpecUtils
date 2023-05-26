@@ -1,7 +1,7 @@
 #'
 #' plotScree.default
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @noRd
 #' @importFrom graphics points abline legend axis

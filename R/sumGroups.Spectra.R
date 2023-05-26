@@ -1,7 +1,7 @@
 #'
 #' sumGroups.Spectra
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @noRd
 #' @export
 #'

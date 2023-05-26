@@ -16,7 +16,7 @@
 #'
 #' @return None.  Side effect is to modify an existing plot.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @importFrom graphics legend
 #'

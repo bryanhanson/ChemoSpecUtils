@@ -22,7 +22,7 @@
 #' written unless \code{confirm = TRUE}.  At the console, if there is a
 #' problem, messages are issued regardless of the value of \code{confirm}.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords classes utilities
 #'

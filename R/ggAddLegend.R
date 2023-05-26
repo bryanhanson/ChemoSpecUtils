@@ -10,7 +10,7 @@
 #'
 #' @return A grob containing the legend.
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @noRd
 #' @importFrom grid textGrob gpar gTree gList pointsGrob unit

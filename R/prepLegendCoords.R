@@ -11,7 +11,7 @@
 #' @return A list of coordinates specifying x and y position of the legend along with a position
 #'         designation, except in one case where a string is returned.
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @noRd
 #'

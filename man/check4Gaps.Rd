@@ -37,7 +37,7 @@ a data frame with one row is returned.  The data frame has columns as follows:
 \item{end.indx }{The index of the last frequency value in the data chunk.}
 }
 \description{
-The basic procedure is to compare x[n + 1] - x[n] for successive values of
+The basic procedure is to compare \code{x[n + 1] - x[n]} for successive values of
 n.  When this value jumps, there is a gap which is flagged. \code{beg.indx}
 and \code{end.indx} will always be contiguous as indices must be; it is the
 \code{x} values that jump or have the gap.  The indices are provided as they
@@ -60,6 +60,6 @@ gaps <- check4Gaps(x, y, tol = 0.11) # show a plot if y given
 \code{\link{sumSpectra}} which make extensive use of this function.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{utilities}

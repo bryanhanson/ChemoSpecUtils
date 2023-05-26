@@ -1,7 +1,7 @@
 #'
 #' hcaScores.Spectra
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #' @importFrom stats hclust

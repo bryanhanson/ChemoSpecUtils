@@ -13,11 +13,11 @@ sumGroups(spectra)
 \value{
 A data frame as follows. Note that if there are groups with no
 members these are dropped.
- \item{group}{The name of the group.}
- \item{no.}{The number in the group.}
- \item{color}{The color assigned to the group.}
- \item{symbol}{The symbol assigned to the group. \code{Spectra} objects only.}
- \item{alt.symbol}{The alternative symbol assigned to the group. \code{Spectra} objects only.}
+\item{group}{The name of the group.}
+\item{no.}{The number in the group.}
+\item{color}{The color assigned to the group.}
+\item{symbol}{The symbol assigned to the group. \code{Spectra} objects only.}
+\item{alt.symbol}{The alternative symbol assigned to the group. \code{Spectra} objects only.}
 }
 \description{
 This function summarizes the group membership	 of
@@ -40,6 +40,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 To summarize the entire object, \code{\link{sumSpectra}}.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{utilities}

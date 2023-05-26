@@ -19,7 +19,7 @@
 #' \code{colorSymbol}.
 #'
 #' @keywords utilities color
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #'
 #' @examples

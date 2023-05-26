@@ -9,14 +9,14 @@ plotScree(pca, style = "alt", ...)
 \arguments{
 \item{pca}{Either:
 \itemize{
-  \item An object of class \code{\link{prcomp}}, modified to include a
+\item An object of class \code{\link{prcomp}}, modified to include a
 list element called \code{$method}, a character string describing the
 pre-processing carried out and the type of PCA performed (it appears on the
 plot).  This is automatically provided if \code{ChemoSpec} functions
 \code{\link[ChemoSpec]{c_pcaSpectra}} or \code{\link[ChemoSpec]{r_pcaSpectra}}
 were used to create \code{pca}.
- \item An object of class \code{mia} produced by
- function \code{miaSpectra2D}.
+\item An object of class \code{mia} produced by
+function \code{miaSpectra2D}.
 }}
 
 \item{style}{Character.  One of \code{c("trad", "alt")} giving the style of
@@ -28,9 +28,9 @@ for \code{mia} objects.}
 \value{
 The returned value depends on the graphics option selected (see \code{\link{GraphicsOptions}}).
 \describe{
- \item{base:}{None. Side effect is a plot.}
- \item{ggplot2:}{The plot is displayed, and a \code{ggplot2} plot object is returned if the
-                 value is assigned. The plot can be modified in the usual \code{ggplot2} manner.}
+\item{base:}{None. Side effect is a plot.}
+\item{ggplot2:}{The plot is displayed, and a \code{ggplot2} plot object is returned if the
+value is assigned. The plot can be modified in the usual \code{ggplot2} manner.}
 }
 }
 \description{
@@ -60,7 +60,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 }
 \references{
 The idea for the alternative style plot came from the NIR-Quimiometria
- blog by jrcuesta, at \url{https://nir-quimiometria.blogspot.com/2012/02/pca-for-nir-spectrapart-004-projections.html}
+blog by jrcuesta, at \url{https://nir-quimiometria.blogspot.com/2012/02/pca-for-nir-spectrapart-004-projections.html}
 }
 \author{
 Bryan A. Hanson (DePauw University), Tejasvi Gupta.

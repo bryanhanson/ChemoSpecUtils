@@ -1,7 +1,7 @@
 #'
 #' Check spectra and pca Arguments of Functions That Require Them
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #'

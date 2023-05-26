@@ -1,7 +1,7 @@
 #'
 #' Add Ellipses to Plot
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #' @importFrom graphics lines

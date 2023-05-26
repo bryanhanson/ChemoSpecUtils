@@ -12,7 +12,7 @@
 #' @return A list with two elements giving the indices of NAs for rows and columns,
 #'         unless \code{retFreq = TRUE}, in which case the frequencies are returned.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords utilities
 #' @noRd

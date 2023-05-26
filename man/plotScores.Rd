@@ -21,15 +21,15 @@ or \code{\link[ChemoSpec2D]{Spectra2D}} object.}
 
 \item{so}{"Score Object" One of the following:
 \itemize{
-  \item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
-  \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}},
-  \code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
+\item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
+\code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}},
+\code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
 \item An object of class \code{mia} produced by
- function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
+function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
 \item An object of class \code{parafac} produced by
- function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
+function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
 \item An object of class \code{pop} produced by
- function \code{\link[ChemoSpec2D]{popSpectra2D}}.
+function \code{\link[ChemoSpec2D]{popSpectra2D}}.
 }
 Any of the above score objects will have been modified to include a
 list element called \code{$method}, a character string describing the
@@ -58,7 +58,7 @@ points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} o
 
 \item{leg.loc}{Either a list with elements \code{x} and \code{y}, or a string like
 \code{"topright"}.  Values in a list should be on \code{[0,1]}, i.e. the lower left of the plot
-area is \code{0,0} and the upper right is \code{1,1}.  String values are those described in 
+area is \code{0,0} and the upper right is \code{1,1}.  String values are those described in
 \code{\link[graphics]{legend}} under "Details". A value of \code{"none"} is acceptable as well.}
 
 \item{\dots}{Additional parameters to be passed to the plotting functions.}
@@ -66,9 +66,9 @@ area is \code{0,0} and the upper right is \code{1,1}.  String values are those d
 \value{
 The returned value depends on the graphics option selected (see \code{\link{GraphicsOptions}}).
 \describe{
- \item{base:}{None. Side effect is a plot.}
- \item{ggplot2:}{The plot is displayed, and a \code{ggplot2} plot object is returned if the
-                 value is assigned. The plot can be modified in the usual \code{ggplot2} manner.}
+\item{base:}{None. Side effect is a plot.}
+\item{ggplot2:}{The plot is displayed, and a \code{ggplot2} plot object is returned if the
+value is assigned. The plot can be modified in the usual \code{ggplot2} manner.}
 }
 }
 \description{

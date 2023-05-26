@@ -12,7 +12,7 @@
 #'
 #' @return Returns a node with the label size properties set.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'

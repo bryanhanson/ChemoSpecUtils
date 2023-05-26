@@ -1,7 +1,7 @@
 #'
 #' sampleDist.Spectra
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #'

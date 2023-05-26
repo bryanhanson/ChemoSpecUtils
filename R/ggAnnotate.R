@@ -12,7 +12,7 @@
 #'
 #' @return A custom annotation grob, ready to be added to an existing plot.
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @noRd
 #' @importFrom grid textGrob linesGrob gTree gList grobTree

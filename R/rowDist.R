@@ -21,7 +21,7 @@
 #'
 #' @return An object of class \code{dist}.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @references R. Todeschini, D. Ballabio, V. Consonni
 #' "Distances and Similarity Measures in Chemometrics and Chemoinformatics"

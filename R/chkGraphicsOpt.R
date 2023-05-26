@@ -8,7 +8,7 @@
 #'
 #' @return Character.  The value of the current graphics output option/mode.
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #'
 #' @seealso See \code{\link{GraphicsOptions}} for more information about the graphics options.
 #'

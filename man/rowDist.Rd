@@ -22,7 +22,7 @@ It is primarily a wrapper for \code{\link[amap]{Dist}} which provides many optio
 However, cosine distance is calculated locally.
 See the reference for an excellent summary of distances and similarities.
 Keep in mind that distances are always positive by definition.  Further, in the literature one
-can find the same distance defined different ways.  For instance, the definition of the 
+can find the same distance defined different ways.  For instance, the definition of the
 \code{"pearson"} and \code{"correlation"} distances differs slightly between the reference below
 and \code{\link[amap]{Dist}}.  So please study the definitions carefully to get the one you want.
 The example illustrates the behavior of some common distance definitions.  Notice that \code{"pearson"}
@@ -107,10 +107,10 @@ if (requireNamespace("amap", quietly = TRUE)) {
 \references{
 R. Todeschini, D. Ballabio, V. Consonni
 "Distances and Similarity Measures in Chemometrics and Chemoinformatics"
-in \emph{Encyclopedia of Analytical Chemistry} Wiley and Sons, 2020 
+in \emph{Encyclopedia of Analytical Chemistry} Wiley and Sons, 2020
 \doi{10.1002/9780470027318.a9438.pub2}
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{utilities}

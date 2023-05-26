@@ -49,7 +49,7 @@ For a discussion of general issues of color, see
 \code{colorSymbol}.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{color}
 \keyword{utilities}

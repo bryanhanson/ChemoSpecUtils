@@ -5,7 +5,7 @@
 #'
 #' @return \code{NULL}, invisibly.
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #'
 #' @keywords utilities
 #' @noRd

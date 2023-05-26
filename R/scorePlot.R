@@ -1,7 +1,7 @@
 #'
 #' scorePlot
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout

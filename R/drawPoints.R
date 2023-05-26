@@ -1,7 +1,7 @@
 #'
 #' Add Points to a Plot
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #' @importFrom graphics plot

@@ -1,7 +1,7 @@
 #'
 #' Add Info About Ellipses to Plot
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #' @importFrom graphics legend

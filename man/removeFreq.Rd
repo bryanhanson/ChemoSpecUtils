@@ -125,6 +125,6 @@ if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 \code{\link[ChemoSpec2D]{removeFreq}} for another way to remove data.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{utilities}

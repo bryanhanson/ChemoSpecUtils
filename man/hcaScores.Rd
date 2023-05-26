@@ -20,15 +20,15 @@ hcaScores(
 
 \item{so}{"Score Object" One of the following:
 \itemize{
-  \item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
-  \code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}},
-  \code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
+\item An object of class \code{\link{prcomp}}, created by \code{ChemoSpec} functions
+\code{\link[ChemoSpec]{c_pcaSpectra}}, \code{\link[ChemoSpec]{r_pcaSpectra}},
+\code{\link[ChemoSpec]{irlba_pcaSpectra}} or \code{\link[ChemoSpec]{s_pcaSpectra}}.
 \item An object of class \code{mia} produced by
- function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
+function \code{\link[ChemoSpec2D]{miaSpectra2D}}.
 \item An object of class \code{parafac} produced by
- function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
+function \code{\link[ChemoSpec2D]{pfacSpectra2D}}.
 \item An object of class \code{pop} produced by
- function \code{\link[ChemoSpec2D]{popSpectra2D}}.
+function \code{\link[ChemoSpec2D]{popSpectra2D}}.
 }
 Any of the above score objects will have been modified to include a
 list element called \code{$method}, a character string describing the
@@ -88,7 +88,7 @@ if (checkForPackageWithVersion("ChemoSpec2D", 0.5)) {
 \code{\link[ChemoSpec]{Spectra}} object.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }
 \keyword{cluster}
 \keyword{multivariate}

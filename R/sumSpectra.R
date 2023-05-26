@@ -22,7 +22,7 @@
 #'
 #' @return None.  Results printed at console.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords utilities
 #'

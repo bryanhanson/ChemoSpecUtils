@@ -7,36 +7,36 @@
 \description{
 In \code{ChemoSpec} and \code{ChemoSpec2D}, the user may chose from the following graphics output options:
 \itemize{
-  \item \code{base} graphics (also the only style from the early days of \code{ChemoSpec} through version 5).
-  \item \code{ggplot2} graphics, \emph{the default}.
-  \item \code{plotly} graphics.
+\item \code{base} graphics (also the only style from the early days of \code{ChemoSpec} through version 5).
+\item \code{ggplot2} graphics, \emph{the default}.
+\item \code{plotly} graphics.
 }
 }
 \details{
 Here's how it works:
 \itemize{
-  \item Upon starting \code{ChemoSpec} or \code{ChemoSpec2D} the graphics output mode
-        is set to \code{ggplot2}.
-  \item To see the current value, do \code{\link[ChemoSpecUtils]{chkGraphicsOpt}}.  If by some chance the
-        value is corrupted it will be set to \code{base}.
-  \item To change the graphics output mode, do \code{options(ChemoSpecGraphics = 'option')},
-        where 'option' is one of the options listed above.
-  \item \code{ggplot2} graphics are not available for all plots.  If \code{ggplot2} graphics are not available,
-        \code{base} graphics will be automatically used, regardless of the setting in
-        \code{options(ChemoSpecGraphics)}.
+\item Upon starting \code{ChemoSpec} or \code{ChemoSpec2D} the graphics output mode
+is set to \code{ggplot2}.
+\item To see the current value, do \code{\link[ChemoSpecUtils]{chkGraphicsOpt}}.  If by some chance the
+value is corrupted it will be set to \code{base}.
+\item To change the graphics output mode, do \code{options(ChemoSpecGraphics = 'option')},
+where 'option' is one of the options listed above.
+\item \code{ggplot2} graphics are not available for all plots.  If \code{ggplot2} graphics are not available,
+\code{base} graphics will be automatically used, regardless of the setting in
+\code{options(ChemoSpecGraphics)}.
 }
 
 What you can do with your plots:
 \itemize{
-  \item Base graphics are the original graphics option in \code{R}.  They cannot be modified.
-  \item For \code{ggplot2} graphics, \code{ChemoSpec} and \code{ChemoSpec2D} employ \code{theme_bw}
-        with only a
-        very few modifications.  You can add things to your plot, or override the theme
-        used here via the usual \code{ggplot2} methods.  A few simple examples are given below
-        but this is not the place for a \code{ggplot2} tutorial.  See \url{https://ggplot2.tidyverse.org/}
-        for all things \code{ggplot2}.
-  \item \code{plotly} graphics is an interactive graphics option where the user can
-        use the tools provided by \code{plotly} package and interact with the plot.
+\item Base graphics are the original graphics option in \code{R}.  They cannot be modified.
+\item For \code{ggplot2} graphics, \code{ChemoSpec} and \code{ChemoSpec2D} employ \code{theme_bw}
+with only a
+very few modifications.  You can add things to your plot, or override the theme
+used here via the usual \code{ggplot2} methods.  A few simple examples are given below
+but this is not the place for a \code{ggplot2} tutorial.  See \url{https://ggplot2.tidyverse.org/}
+for all things \code{ggplot2}.
+\item \code{plotly} graphics is an interactive graphics option where the user can
+use the tools provided by \code{plotly} package and interact with the plot.
 }
 }
 \examples{

@@ -19,7 +19,7 @@
 #' \item{y.rob}{The y values for the robust ellipse.} \item{r}{The correlation
 #' value for the robust ellipse.}
 #'
-#' @author Bryan A. Hanson, DePauw University. Derived from \code{\link[mvoutlier]{corr.plot}}.
+#' @author `r .writeAuthors("BH")`
 #'
 #' @seealso See function \code{\link[mvoutlier]{corr.plot}} in package
 #' \pkg{mvoutlier} on which this function is based.

@@ -22,7 +22,7 @@
 #' will not pass checks as the assembly is not complete
 #' (see \code{\link[ChemoSpecUtils]{chkSpectra}}).
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @seealso \code{\link[ChemoSpec]{files2SpectraObject}} or
 #' \code{files2Spectra2DObject}for details;

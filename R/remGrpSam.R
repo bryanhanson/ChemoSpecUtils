@@ -1,7 +1,7 @@
 #'
 #' Remove Groups or Samples from a Spectra or Spectra2D Object
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #' @export
 #' @noRd
 #'

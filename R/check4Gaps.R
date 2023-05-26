@@ -1,7 +1,7 @@
 #'
 #' Check for Discontinuities (Gaps) in a Vector & Optionally Make a Plot
 #'
-#' The basic procedure is to compare x[n + 1] - x[n] for successive values of
+#' The basic procedure is to compare `x[n + 1] - x[n]` for successive values of
 #' n.  When this value jumps, there is a gap which is flagged. \code{beg.indx}
 #' and \code{end.indx} will always be contiguous as indices must be; it is the
 #' \code{x} values that jump or have the gap.  The indices are provided as they
@@ -38,7 +38,7 @@
 #'
 #' @seealso \code{\link{sumSpectra}} which make extensive use of this function.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords utilities
 #'

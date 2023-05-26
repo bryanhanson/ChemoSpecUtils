@@ -43,7 +43,7 @@
 #'
 #' @seealso \code{\link[ChemoSpec2D]{removeFreq}} for another way to remove data.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords utilities
 #'

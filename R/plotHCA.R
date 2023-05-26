@@ -20,7 +20,7 @@
 #'
 #' @return An object of class \code{\link{dendrogram}}. Side effect is a plot.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @export
 #' @importFrom stats as.dendrogram dendrapply

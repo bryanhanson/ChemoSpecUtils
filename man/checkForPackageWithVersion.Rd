@@ -14,11 +14,11 @@ to the major.minor level.}
 }
 \value{
 If the package with the required version or higher is available, \code{TRUE} is returned
-        invisibly.  Otherwise \code{FALSE} is returned.
+invisibly.  Otherwise \code{FALSE} is returned.
 }
 \description{
 Utility function for making sure a package is available with a particular version or newer.
 }
 \author{
-Bryan A. Hanson (DePauw University)
+Bryan A. Hanson (DePauw University).
 }

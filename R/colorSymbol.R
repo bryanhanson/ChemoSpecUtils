@@ -40,7 +40,7 @@
 #'
 #' @format Colors are stored as character vectors and symbols as numeric vectors.
 #'
-#' @template authors-BH
+#' @author `r .writeAuthors("BH")`
 #'
 #' @keywords utilities color datasets
 #'
