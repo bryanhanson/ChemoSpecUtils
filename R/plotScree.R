@@ -21,8 +21,9 @@
 #' plot desired (traditional or alternative).  \code{"trad"} is not supported
 #' for \code{mia} objects.
 #'
-#' @template param-graphics-dots
-#' @template param-graphics-return
+#' @param \dots `r .writeGraphicsDots()`
+#'
+#' @return `r .writeGraphicsReturn1()`
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #'

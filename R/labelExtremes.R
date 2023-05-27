@@ -11,7 +11,7 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{x}.
 #'
-#' @template param-tol
+#' @param tol `.writeTol()`
 #'
 #' @return None.  Annotates the plot with labels.
 #'

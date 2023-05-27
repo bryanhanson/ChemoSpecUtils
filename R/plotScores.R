@@ -37,13 +37,13 @@
 #' @param use.sym A logical; if TRUE, the color scheme is set to black and the
 #' points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} objects.
 #'
-#' @template param-legloc
+#' @param leg.loc `r .writeLegLoc()`
 #'
 #' @param \dots Additional parameters to be passed to the plotting functions.
 #'
-#' @template param-tol
+#' @param tol `r .writeTol()`
 #'
-#' @template param-graphics-return
+#' @return `r .writeGraphicsReturn1()`
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #'

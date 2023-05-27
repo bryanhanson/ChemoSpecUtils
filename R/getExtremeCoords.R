@@ -10,7 +10,7 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{data}.
 #'
-#' @template param-tol
+#' @param tol `.writeTol()`
 #'
 #' @return  A list with elements \code{x}, \code{y} and \code{l}, giving the coordinates,
 #'          and labels of the most extreme data points.
