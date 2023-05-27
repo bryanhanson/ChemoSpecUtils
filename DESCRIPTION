@@ -2,7 +2,7 @@ Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
 Version: 1.0.3
-Date: 2023-05-22
+Date: 2023-05-27
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -10,7 +10,7 @@ Authors@R: c(
     comment = c(ORCID = "0000-0003-3536-8246")),
     person("Tejasvi", "Gupta",
       role = "ctb",
-      comment = "author of ggplot2 graphics"))
+      comment = "implemented ggplot2 graphics"))
 Description: Functions supporting the common needs of packages 'ChemoSpec' and 'ChemoSpec2D'.
 License: GPL-3
 Depends:
