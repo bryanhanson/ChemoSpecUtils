@@ -93,7 +93,7 @@
 #'   labels = "gr.cols = 'Col8'     8 distinct colors/symbols"
 #' )
 #'
-#' # auto (original)
+#' # auto (default)
 #' if (requireNamespace("RColorBrewer", quietly = TRUE)) {
 #'   for (i in 1:8) {
 #'     rect(i - 0.5, y + sp * 2, i + 0.5, y + sp * 2 + h, border = NA, col = auto[i])
