@@ -9,7 +9,7 @@
 #'
 #' @docType package
 #'
-#' @author Bryan A. Hanson (DePauw University), Tejasvi Gupta.
+#' @author `r .writeAuthors(c("BH", "TG"))`
 #'
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #'

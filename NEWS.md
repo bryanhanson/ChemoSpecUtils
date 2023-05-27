@@ -1,6 +1,7 @@
-# ChemoSpecUtils 1.0.2 2023-05-22
+# ChemoSpecUtils 1.0.3 2023-05-27
 ## Misc.
-* Some cleanup of examples for CRAN so package checks with only the Imports: packages.
+* At CRAN's request, made examples and test conditional on any packages in Suggests:.
+* Replaced uses of `@template` with inline functions (`@template` has been deprecated).
 
 # ChemoSpecUtils 1.0.1 2022-12-04
 ## Misc.
