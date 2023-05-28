@@ -18,7 +18,7 @@
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (handled as a regex) giving the sample names to be removed.
 #'
-#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @return `r .writeSpectra3()`
 #'
 #' @author `r .writeAuthors("BH")`
 #'

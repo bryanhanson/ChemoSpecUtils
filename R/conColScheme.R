@@ -11,8 +11,7 @@
 #'
 #' @param silent Logical.  If \code{TRUE}, suppresses all reporting.
 #'
-#' @return spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}\code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @return spectra `r .writeSpectra3()`
 #'
 #' @seealso For a discussion of general issues of color, see
 #' \code{colorSymbol}.

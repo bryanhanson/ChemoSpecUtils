@@ -37,8 +37,7 @@
 #' analysis on the result, using the spectrum as an abstract object (that is, the
 #' spectrum may not plottable, but the resulting scores are still meaningful).
 #'
-#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @return `r .writeSpectra3()`
 #'
 #' @seealso \code{\link[ChemoSpec2D]{removeFreq}} for another way to remove data.
 #'

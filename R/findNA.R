@@ -4,7 +4,7 @@
 #' *Internal function*. This function identifies the extent of any NA in a [ChemoSpec2D::Spectra2D()] object.
 #' This information can be used for summaries and plots.
 #'
-#' @param spectra An object of S3 class [ChemoSpec2D::Spectra2D()].
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param retFreq Logical. Should the frequencies be returned?
 #'

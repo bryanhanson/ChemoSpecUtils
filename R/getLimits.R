@@ -7,7 +7,7 @@
 #' so we will try to get it right no matter how the user gives
 #' the formula; e.g. 6 ~ 3 ought to be handled as 3 ~ 6.
 #'
-#' @param spectra An object of S3 class [ChemoSpec2D::Spectra2D()].
+#' @param spectra `r .writeSpectra2()`
 #' @param dim The dimension for which the limits are desired.
 #' @param form A formula specification.
 #'

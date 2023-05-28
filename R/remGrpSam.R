@@ -8,7 +8,7 @@
 #'        or group names.  If `group = FALSE` can also be an integer vector giving the samples
 #'        to be removed.
 #' @param group Logical. `TRUE` means we are removing groups.  `FALSE` means we are removing samples.
-#' @return `r .writeSpectra()`
+#' @return `r .writeSpectra3()`
 #' 
 #' @author `r .writeAuthors("BH")`
 #' @export

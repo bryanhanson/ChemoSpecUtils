@@ -15,12 +15,11 @@
 #'
 #' Unused levels in \code{$groups} are dropped.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param rem.group A character vector (handled as a regex) giving the groups to be removed.
 #'
-#' @return An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @return `r .writeSpectra3()`
 #'
 #' @author `r .writeAuthors("BH")`
 #'
