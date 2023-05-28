@@ -1,4 +1,4 @@
-# ChemoSpecUtils 1.0.3 2023-05-27
+# ChemoSpecUtils 1.0.3 2023-05-28
 ## Misc.
 * At CRAN's request, made examples and test conditional on any packages in Suggests:.
 * Replaced uses of `@template` with inline functions (`@template` has been deprecated).
