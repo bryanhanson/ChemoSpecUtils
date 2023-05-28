@@ -16,7 +16,7 @@
 )
 }
 \description{
-\emph{Internal function}.
+\emph{Internal function}.  Parameters etc are documented in \code{\link[=plotScores]{plotScores()}}.
 }
 \author{
 Bryan A. Hanson (DePauw University), Tejasvi Gupta.
