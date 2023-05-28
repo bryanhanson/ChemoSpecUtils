@@ -6,7 +6,7 @@
 #' Many methods for computing the clusters and distances are
 #' available.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{

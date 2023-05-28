@@ -8,8 +8,7 @@
 #' interfering peaks (e.g. the water peak in 1H NMR) or simply focus
 #' on a region of interest.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}} from which to remove frequencies.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param rem.freq For a \code{Spectra} object, a vector of logicals.
 #' \code{rem.freq} can be any valid \code{R} statement that leads to a vector of

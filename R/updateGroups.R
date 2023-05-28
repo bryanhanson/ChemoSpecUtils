@@ -9,8 +9,7 @@
 #' may have complex regex patterns, and this function makes updating them to more
 #' appropriate/more readible strings easier.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param new.grps A vector of character values giving the new group names.
 #'   The new values must correspond to the order of the old values.  This vector should

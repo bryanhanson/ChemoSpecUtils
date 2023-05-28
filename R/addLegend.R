@@ -4,8 +4,7 @@
 #' *Internal function*.  Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
 #' \code{ChemoSpec2D} does not use symbols.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param use.sym Logical; if true, the color scheme is set to black and the
 #'   points plotted with symbols.  Applies only to \code{ChemoSpec}.

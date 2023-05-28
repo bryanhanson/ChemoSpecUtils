@@ -3,7 +3,7 @@
 #'
 #' *Internal function*.
 #'
-#' @param spectra `r .writeSpectra()`
+#' @param spectra `r .writeSpectra2()`
 #' @param kill A vector of character strings giving a regex pattern to be applied to the sample
 #'        or group names.  If `group = FALSE` can also be an integer vector giving the samples
 #'        to be removed.

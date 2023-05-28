@@ -4,7 +4,7 @@
 #' *Internal function*. This function creates a suitable legend and returns it as a set of grobs,
 #' ready to be added to an existing plot.
 #'
-#' @param spectra An object of S3 class [ChemoSpec::Spectra()].
+#' @param spectra `r .writeSpectra1()`
 #' @param use.sym Logical specifying if symbols will be used or not.
 #' @param leg.loc A list giving x, y coordinates, and a reference point.
 #'

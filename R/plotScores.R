@@ -6,8 +6,7 @@
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}}
-#' or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{

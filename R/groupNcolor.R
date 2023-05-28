@@ -9,8 +9,7 @@
 #' \code{gr.crit} that don't match any file names.  An internal function, not
 #' generally called by the user.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param gr.crit As per [ChemoSpec::files2SpectraObject()].
 #'

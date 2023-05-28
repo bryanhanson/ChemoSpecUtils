@@ -1,10 +1,10 @@
 #'
-#' Add Points to a Plot
+#' Add Points to a Score Plot
 #'
 #' *Internal function.*
 #'
 #' @param PCs  Integer.  The PCs to plot.
-#' @param spectra `r .writeSpectra()`
+#' @param spectra `r .writeSpectra2()`
 #' @param case String. The type of data reduction that was done.
 #' @param use.sym  Logical.  Should symbols be used?
 #' @param \ldots `r .writeGraphicsDots()`

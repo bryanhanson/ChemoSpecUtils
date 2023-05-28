@@ -7,7 +7,7 @@
 #'
 #' @param n A node in a dendrogram object.
 #'
-#' @param spectra An object of S3 class \code{Spectra}.
+#' @param spectra `r .writeSpectra1()`
 #'
 #' @return Returns a node with the label size properties set.
 #'

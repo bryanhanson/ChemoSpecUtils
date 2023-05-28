@@ -3,7 +3,7 @@
 #'
 #' *Internal function*. This function plots the results of an HCA analysis.
 #'
-#' @param spectra `r writeSpectra()`
+#' @param spectra `r writeSpectra2()`
 #'
 #' @param hclst A \code{\link{hclust}} object.
 #'

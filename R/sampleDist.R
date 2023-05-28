@@ -6,8 +6,7 @@
 #' to quantify the similarity between samples. A heat map style plot is an
 #' option.
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param method Character.  A string giving the distance method.  See
 #' \code{\link{rowDist}} for options.

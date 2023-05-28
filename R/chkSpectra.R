@@ -12,8 +12,7 @@
 #'   \item {\code{\link{removeGroup}}}
 #' }
 #'
-#' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-#' \code{\link[ChemoSpec2D]{Spectra2D}}.
+#' @param spectra `r .writeSpectra2()`
 #'
 #' @param confirm Logical indicating whether or not to write the results to the
 #' console, as would be desirable for interactive use.
