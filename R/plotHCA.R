@@ -16,7 +16,7 @@
 #' @param leg.loc Character; if \code{"none"} no legend will be drawn.
 #' Otherwise, any string acceptable to \code{\link{legend}}.
 #'
-#' @param \dots Additional parameters to be passed to the plotting routines.
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
 #' @return An object of class \code{\link{dendrogram}}. Side effect is a plot.
 #'

@@ -39,7 +39,7 @@
 #' @param leg.loc Character; if \code{"none"} no legend will be drawn.
 #' Otherwise, any string acceptable to \code{\link{legend}}.
 #'
-#' @param \dots Additional parameters to be passed to the plotting functions.
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
 #' @return A list, containing an object of class \code{\link{hclust}} and an
 #' object of class \code{\link{dendrogram}}.  The side effect is a plot.

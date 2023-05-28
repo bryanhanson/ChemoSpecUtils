@@ -13,7 +13,7 @@
 #'
 #' @param plot Logical.  Shall a level plot (heat map) be made?
 #'
-#' @param \dots Arguments to be passed to the plotting function.
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
 #' @return A numeric matrix giving the distances between the samples.
 #'

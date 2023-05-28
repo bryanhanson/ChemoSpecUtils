@@ -11,7 +11,7 @@
 #'
 #' @param leg.loc `r .writeDoc_LegLoc()`
 #'
-#' @param \dots Additional parameters to be passed to the plotting functions.
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
 #' @return None.  Side effect is to modify an existing plot.
 #'

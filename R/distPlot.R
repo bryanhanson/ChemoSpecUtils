@@ -8,7 +8,7 @@
 #' @param method String.  The distance method used to create the matrix.
 #' @return None.  Side effect is a plot.
 #'
-#' @param \ldots `r .writeDoc_GraphicsDots()`
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #' 
 #' @author `r .writeDoc_Authors("BH")`
 #' @export

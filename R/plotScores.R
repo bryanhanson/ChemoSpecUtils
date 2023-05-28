@@ -38,7 +38,7 @@
 #'
 #' @param leg.loc `r .writeDoc_LegLoc()`
 #'
-#' @param \dots Additional parameters to be passed to the plotting functions.
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
 #' @param tol `r .writeDoc_Tol()`
 #'
