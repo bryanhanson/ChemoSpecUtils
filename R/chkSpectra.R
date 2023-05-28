@@ -12,7 +12,7 @@
 #'   \item {\code{\link{removeGroup}}}
 #' }
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param confirm Logical indicating whether or not to write the results to the
 #' console, as would be desirable for interactive use.

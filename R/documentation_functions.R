@@ -46,5 +46,10 @@
 
 #' @noRd
 .writeSpectra2 <- function() {
+"An object of S3 class [ChemoSpec::Spectra2D()]."
+}
+
+#' @noRd
+.writeSpectra3 <- function() {
 "An object of S3 class [ChemoSpec::Spectra()] or [ChemoSpec2D::Spectra2D()]."
 }

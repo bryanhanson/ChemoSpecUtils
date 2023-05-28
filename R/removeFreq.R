@@ -8,7 +8,7 @@
 #' interfering peaks (e.g. the water peak in 1H NMR) or simply focus
 #' on a region of interest.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param rem.freq For a \code{Spectra} object, a vector of logicals.
 #' \code{rem.freq} can be any valid \code{R} statement that leads to a vector of

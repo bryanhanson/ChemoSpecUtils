@@ -9,7 +9,7 @@
 #' may have complex regex patterns, and this function makes updating them to more
 #' appropriate/more readible strings easier.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param new.grps A vector of character values giving the new group names.
 #'   The new values must correspond to the order of the old values.  This vector should

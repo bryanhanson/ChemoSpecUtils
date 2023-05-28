@@ -3,7 +3,7 @@
 #'
 #' *Internal function*.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #' @return.  Logical. `TRUE` if a mismatch was found for the data lengths.  Message are emited as well.
 #' 
 #' @author `r .writeAuthors("BH")`

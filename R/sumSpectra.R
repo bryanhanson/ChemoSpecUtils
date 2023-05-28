@@ -13,7 +13,7 @@
 #' beyond what is required.  If so, these extra elements are reported to the
 #' console.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param ...  Arguments to be passed downstream.  Main use is to pass a value for \code{tol}
 #'             to function \code{\link{check4Gaps}} when using \code{ChemoSpec}.

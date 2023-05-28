@@ -6,7 +6,7 @@
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{

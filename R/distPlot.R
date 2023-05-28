@@ -3,7 +3,7 @@
 #'
 #' *Internal function*.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #' @param M Matrix of class `dist` containing the distances.
 #' @param method String.  The distance method used to create the matrix.
 #' @return None.  Side effect is a plot.

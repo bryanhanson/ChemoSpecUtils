@@ -9,7 +9,7 @@
 #' \code{gr.crit} that don't match any file names.  An internal function, not
 #' generally called by the user.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param gr.crit As per [ChemoSpec::files2SpectraObject()].
 #'

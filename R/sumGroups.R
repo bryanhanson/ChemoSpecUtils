@@ -4,7 +4,7 @@
 #' This function summarizes the group membership	 of
 #' a \code{Spectra} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @return A data frame as follows. Note that if there are groups with no
 #' members these are dropped.

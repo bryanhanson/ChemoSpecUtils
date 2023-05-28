@@ -6,7 +6,7 @@
 #' to quantify the similarity between samples. A heat map style plot is an
 #' option.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param method Character.  A string giving the distance method.  See
 #' \code{\link{rowDist}} for options.

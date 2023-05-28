@@ -3,7 +3,7 @@
 #' This function permits you to change the color scheme of an existing
 #' \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param new.cols A character vector giving the new color values, of
 #'   \code{length(unique(spectra$colors))}.

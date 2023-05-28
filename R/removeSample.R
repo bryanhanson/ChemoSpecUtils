@@ -13,7 +13,7 @@
 #' grepping process is greedy, i.e. grepping for "XY" find not only "XY" but
 #' also "XYZ".
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (handled as a regex) giving the sample names to be removed.

@@ -6,7 +6,7 @@
 #' Many methods for computing the clusters and distances are
 #' available.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeSpectra3()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{
