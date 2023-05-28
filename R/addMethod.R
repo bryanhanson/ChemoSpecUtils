@@ -1,10 +1,15 @@
 #'
-#' Add Info About Method to Plot
+#' Add Info About Data Reduction Method to Plot
+#'
+#' *Internal* function.
+#'
+#' @parm pca An object of `prcomp` etc with a `method` slot.
+#' @return None.  Side effect is a modifed plot.
 #'
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
 #' @importFrom graphics legend
+#' @keywords internal
 #'
 .addMethod <- function(pca) {
   legend("topleft", y = NULL, pca$method, bty = "n", cex = 0.75)

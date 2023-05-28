@@ -1,6 +1,6 @@
 # File created by roxut; edit the function definition file, not this file
 
-# Test found in findNA.R:22 (file:line)
+# Test found in findNA.R:20 (file:line)
   
 ### Unit tests for .findNA
 load("tiny2D.RData")

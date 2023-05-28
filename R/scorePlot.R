@@ -1,13 +1,15 @@
 #'
 #' scorePlot
 #'
+#' *Internal function*.
+#'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout
 #' @importFrom magrittr %>%
 #' @importFrom data.table as.data.table
-#' @noRd
+#' @keywords internal
 #'
 .scorePlot <- function(spectra, so,
                        pcs = c(1, 2), ellipse = "none", tol = "none",

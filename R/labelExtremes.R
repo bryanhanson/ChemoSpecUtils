@@ -1,7 +1,7 @@
 #'
 #' Label Extreme Values
 #'
-#' A utility function which plots the sample names next to the sample points.
+#' *Internal function*. A utility function which plots the sample names next to the sample points.
 #' The number of samples labeled can be specified by passing it from the
 #' calling function. An internal function, not generally called by the user.
 #'
@@ -17,9 +17,8 @@
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #'
-#' @keywords utilities
+#' @keywords internal
 #' @export
-#' @noRd
 #'
 .labelExtremes <- function(data, names, tol) {
   List <- .getExtremeCoords(data, names, tol)

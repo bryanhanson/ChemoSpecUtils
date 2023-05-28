@@ -1,7 +1,7 @@
 #'
 #' Annotate a ggplot2 Plot with Text
 #'
-#' General purpose function to add text to a ggplot2 plot.  Uses
+#' *Internal function*. General purpose function to add text to a ggplot2 plot.  Uses
 #' \code{textGrob} so arguments like \code{hjust} can be passed via ...
 #'
 #' @param text Character.  The text to be plotted, but certain values are intercepted
@@ -14,7 +14,7 @@
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
-#' @noRd
+#' @keywords internal
 #' @importFrom grid textGrob linesGrob gTree gList grobTree
 #' @importFrom ggplot2 annotation_custom
 #'

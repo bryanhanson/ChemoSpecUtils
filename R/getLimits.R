@@ -1,14 +1,21 @@
 #'
 #' Process Limits for a Spectra2D Plot
 #'
-#' Get limits from a user specified formula (used in removeFreq2D and removePeaks2D)
+#' *Internal function*. Get limits from a user specified formula
+#' (used in [ChemoSpec2D::removeFreq()] and [ChemoSpec2D::removePeaks2D()]).
 #' The user may not know or think about whether F2 or F1 is ascending or descending
 #' so we will try to get it right no matter how the user gives
 #' the formula; e.g. 6 ~ 3 ought to be handled as 3 ~ 6.
 #'
+#' @param spectra An object of S3 class [ChemoSpec2D::Spectra2D()].
+#' @param dim The dimension for which the limits are desired.
+#' @param form A formula specification.
+#'
+#' @return
+#'
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
+#' @keywords internal
 #'
 
 .getLimits <- function(spectra, dim, form) {

@@ -1,7 +1,7 @@
 #'
 #' Add a Legend to a Plot
 #'
-#' Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
+#' *Internal function*.  Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
 #' \code{ChemoSpec2D} does not use symbols.
 #'
 #' @param spectra An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
@@ -17,11 +17,9 @@
 #' @return None.  Side effect is to modify an existing plot.
 #'
 #' @author `r .writeAuthors("BH")`
-#'
 #' @importFrom graphics legend
-#'
 #' @export
-#' @noRd
+#' @keywords internal
 #'
 
 .addLegend <- function(spectra, leg.loc, use.sym, ...) {

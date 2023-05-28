@@ -1,10 +1,19 @@
 #'
-#' distPlot
+#' Draw a Distance Plot
 #'
+#' *Internal function*.
+#'
+#' @param spectra `r .writeSpectra()`
+#' @param M Matrix of class `dist` containing the distances.
+#' @param method String.  The distance method used to create the matrix.
+#' @return None.  Side effect is a plot.
+#'
+#' @param \ldots `r .writeGraphicsDots()`
+#' 
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
 #' @importFrom grDevices rainbow
+#' @keywords internal
 #'
 .distPlot <- function(spectra, M, method, ...) {
   

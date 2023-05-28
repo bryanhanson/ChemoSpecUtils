@@ -2,9 +2,8 @@
 #'
 #' Shrink the Leaves of a Dendrogram Based on a Spectra Object
 #'
-#' This function shrinks the size of leaves of a dendrogram object.  The code
-#' was taken from the help files.  An internal function, not generally called
-#' by the user.
+#' *Internal function*. This function shrinks the size of leaves of a dendrogram object.  The code
+#' was taken from the help files.
 #'
 #' @param n A node in a dendrogram object.
 #'
@@ -16,10 +15,8 @@
 #'
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'
-#' @keywords utilities cluster
-#'
+#' @keywords internal
 #' @export
-#' @noRd
 #' @importFrom stats is.leaf
 #'
 .shrinkLeaf <- function(n, spectra) { # this is called iteratively by dendrapply

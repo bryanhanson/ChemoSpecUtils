@@ -1,8 +1,8 @@
 #'
 #' getExtremeCoords
 #'
-#' A utility function which returns a list of the extreme coordinates that are to be labelled.
-#' An internal function, not generally called by the user.
+#' *Internal function*. A utility function which returns a list of the extreme
+#' coordinates that are to be labelled.
 #'
 #' @param data A matrix containing the x values of the points/samples in the
 #' first column, and the y values in the second.
@@ -17,11 +17,10 @@
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #'
-#' @keywords utilities
+#' @keywords internal
 #' @export
 #' @importFrom stats quantile
 #' @importFrom graphics text
-#' @noRd
 #'
 .getExtremeCoords <- function(data, names, tol) {
   px <- data[, 1]

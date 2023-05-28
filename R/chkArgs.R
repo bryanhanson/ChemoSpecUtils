@@ -1,9 +1,14 @@
 #'
 #' Check spectra and pca Arguments of Functions That Require Them
 #'
+#' *Internal* function.
+#' 
+#' @param mode.  Integer code giving the type of check to be run.
+#' @return None.  Stops if there is a problem with the arguments.
+#'
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
+#' @keywords internal
 #'
 #' @tests tinytest
 #' # Get some pca data for testing

@@ -1,9 +1,18 @@
 #'
 #' Remove Groups or Samples from a Spectra or Spectra2D Object
 #'
+#' *Internal function*.
+#'
+#' @param spectra `r .writeSpectra()`
+#' @param kill A vector of character strings giving a regex pattern to be applied to the sample
+#'        or group names.  If `group = FALSE` can also be an integer vector giving the samples
+#'        to be removed.
+#' @param group Logical. `TRUE` means we are removing groups.  `FALSE` means we are removing samples.
+#' @return `r .writeSpectra()`
+#' 
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
+#' @keywords internal
 #'
 
 .remGrpSam <- function(spectra, kill, group = TRUE) {

@@ -1,16 +1,15 @@
 #'
 #' Verify Required Graphics Packages are Available.
 #'
-#' @param pkgs Character. Vector of package names.  Each is checked for availability.
+#' *Internal function*.
 #'
+#' @param pkgs Character. Vector of package names.  Each is checked for availability.
 #' @return \code{NULL}, invisibly.
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
-#'
-#' @keywords utilities
-#' @noRd
 #' @export
-#'
+#' @keywords internal
+#' 
 .chkReqGraphicsPkgs <- function(pkgs) {
 
   if ("ggplot2" %in% pkgs) {

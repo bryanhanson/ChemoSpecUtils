@@ -1,9 +1,9 @@
 #'
 #' Plot Dendrogram for Spectra or Spectra2D Object
 #'
-#' This function plots the results of an HCA analysis
+#' *Internal function*. This function plots the results of an HCA analysis.
 #'
-#' @param spectra An object of S3 class \code{\link{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
+#' @param spectra `r writeSpectra()`
 #'
 #' @param hclst A \code{\link{hclust}} object.
 #'
@@ -25,7 +25,7 @@
 #' @export
 #' @importFrom stats as.dendrogram dendrapply
 #' @importFrom graphics plot
-#' @noRd
+#' @keywords internal
 #'
 .plotHCA <- function(spectra, hclst, sub.title, use.sym, leg.loc, ...) {
 

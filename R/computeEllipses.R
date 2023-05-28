@@ -1,9 +1,8 @@
 #'
 #' Compute Confidence Ellipses
 #'
-#' A utility function which when given a \code{x,y} data set computes both classical
-#' and robust confidence ellipses. An internal function, not generally called
-#' by the user.
+#' *Internal function*. A utility function which when given a \code{x,y} data set computes both classical
+#' and robust confidence ellipses.
 #'
 #' @param x As per \code{\link[mvoutlier]{corr.plot}}.
 #'
@@ -24,10 +23,8 @@
 #' @seealso See function \code{\link[mvoutlier]{corr.plot}} in package
 #' \pkg{mvoutlier} on which this function is based.
 #'
-#' @keywords multivariate
-#'
+#' @keywords internal
 #' @export
-#' @noRd
 #' @importFrom stats cov cor qchisq
 #'
 .computeEllipses <- function(x, quan = 1 / 2, alpha = 0.025) {

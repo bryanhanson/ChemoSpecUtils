@@ -1,6 +1,8 @@
 #'
 #' Sanitize Legend Coordinates
 #'
+#' *Internal function*.
+#' 
 #' @param go A string specifying the graphics mode.
 #' @param leg.loc A list giving x and y coordinates.
 #' @param x.min A number giving the minimum x value in the data. Used only if graphics mode is set to base.
@@ -13,7 +15,7 @@
 #'
 #' @author `r .writeAuthors(c("BH", "TG"))`
 #' @export
-#' @noRd
+#' @keywords internal
 #'
 .prepLegendCoords <- function(go, leg.loc, x.min = 0.0, x.max = 0.0, y.min = 0.0, y.max = 0.0) {
   lab.x <- NA_real_

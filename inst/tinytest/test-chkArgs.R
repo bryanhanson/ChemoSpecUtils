@@ -1,6 +1,6 @@
 # File created by roxut; edit the function definition file, not this file
 
-# Test found in chkArgs.R:8 (file:line)
+# Test found in chkArgs.R:13 (file:line)
   
 # Get some pca data for testing
 pca1 <- prcomp(USArrests) # class prcomp

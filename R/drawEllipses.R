@@ -1,9 +1,18 @@
 #'
 #' Add Ellipses to Plot
 #'
+#' *Internal function*.
+#'
+#' @param ELL
+#' @param gr Group information.
+#' @param ellipse  Type of ellipse; one of `cls`, `rob` or `both`.
+#' @param use.sym  Logical.  Should symbols be used?  For this function, determines color of lines.
+#' @param \ldots `r .writeGraphicsDots()`
+#' @return None.  Side effect is a modified plot.
+#'
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
+#' @keywords internal
 #' @importFrom graphics lines
 #'
 

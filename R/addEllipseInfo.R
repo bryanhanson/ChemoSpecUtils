@@ -1,11 +1,16 @@
 #'
 #' Add Info About Ellipses to Plot
 #'
+#' *Internal* function.
+#'
+#' @param ellipse String giving the type of ellipse; one of `cls` or `rob`.
+#' @return None. Side effect is a modified plot.
+#'
 #' @author `r .writeAuthors("BH")`
 #' @export
-#' @noRd
 #' @importFrom graphics legend
-#
+#' @keywords internal
+#'
 
 .addEllipseInfo <- function(ellipse) {
   if (ellipse == "cls") {

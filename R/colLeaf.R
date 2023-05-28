@@ -1,26 +1,20 @@
 #' Color the Leaves of a Dendrogram Based on a Spectra Object
 #'
-#' This function colors the leaves of a dendrogram object.  The code was taken
-#' from the help files.  An internal function, not generally called by the
-#' user.
-#'
+#' *Internal function.* This function colors the leaves of a dendrogram object.  The code was taken
+#' from the help files.
 #'
 #' @param n A node in a dendrogram object.
 #'
-#' @param spectra An object of S3 class \code{\link{Spectra}}.
+#' @param spectra An object of S3 class [ChemoSpec::Spectra()].
 #'
 #' @return Returns a node with the label color properties set.
 #'
 #' @author `r .writeAuthors("BH")`
 #'
-#' @references \url{https://github.com/bryanhanson/ChemoSpec}
-#'
-#' @keywords utilities cluster color
+#' @keywords internal
 #'
 #' @export
-#'
 #' @importFrom stats is.leaf
-#' @noRd
 #'
 .colLeaf <- function(n, spectra) { # this is called iteratively by dendrapply
 

@@ -1,11 +1,10 @@
 #'
 #' Find NA in a Spectra2D Object
 #'
-#' This function identifies the extent of any NA in a \code{\link{Spectra2D}} object.
-#' This information can be used for summaries and plots.  Not intended to be called
-#' by the user.
+#' *Internal function*. This function identifies the extent of any NA in a [ChemoSpec2D::Spectra2D()] object.
+#' This information can be used for summaries and plots.
 #'
-#' @param spectra An object of S3 class \code{\link{Spectra2D}}.
+#' @param spectra An object of S3 class [ChemoSpec2D::Spectra2D()].
 #'
 #' @param retFreq Logical. Should the frequencies be returned?
 #'
@@ -14,8 +13,7 @@
 #'
 #' @author `r .writeAuthors("BH")`
 #'
-#' @keywords utilities
-#' @noRd
+#' @keywords internal
 #' @importFrom stats na.omit
 #' @export
 #'
