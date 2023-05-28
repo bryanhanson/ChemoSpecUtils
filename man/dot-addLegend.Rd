@@ -14,7 +14,7 @@
 \item{use.sym}{Logical; if true, the color scheme is set to black and the
 points plotted with symbols.  Applies only to \code{ChemoSpec}.}
 
-\item{\dots}{Additional parameters to be passed to the plotting functions.}
+\item{\dots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
 }
 \value{
 None.  Side effect is to modify an existing plot.

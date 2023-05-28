@@ -1,7 +1,7 @@
 #'
 #' scorePlot
 #'
-#' *Internal function*.
+#' *Internal function*.  Parameters etc are documented in [plotScores()].
 #'
 #' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export

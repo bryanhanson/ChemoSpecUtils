@@ -14,7 +14,7 @@ sampleDist(spectra, method = "pearson", plot = TRUE, ...)
 
 \item{plot}{Logical.  Shall a level plot (heat map) be made?}
 
-\item{\dots}{Arguments to be passed to the plotting function.}
+\item{\dots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
 }
 \value{
 A numeric matrix giving the distances between the samples.

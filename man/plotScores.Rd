@@ -50,7 +50,7 @@ points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} o
 
 \item{leg.loc}{Either a list with elements \code{x} and \code{y}, or a string like \code{'topright'}.  Values in a list should be on \verb{[0,1]}, i.e. the lower left of the plot area is \verb{0,0} and the upper right is \verb{1,1}.  Allowed string values are those described in \code{\link[graphics:legend]{graphics::legend()}} under 'Details'. A value of \code{'none'} is acceptable as well.}
 
-\item{\dots}{Additional parameters to be passed to the plotting functions.}
+\item{\dots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
 }
 \value{
 The returned value depends on the graphics option selected (see \code{\link[=GraphicsOptions]{GraphicsOptions()}}).

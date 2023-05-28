@@ -13,7 +13,7 @@
 
 \item{method}{String.  The distance method used to create the matrix.}
 
-\item{\ldots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
+\item{\dots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
 }
 \value{
 None.  Side effect is a plot.

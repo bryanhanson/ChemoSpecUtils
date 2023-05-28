@@ -20,7 +20,7 @@ Applies to \code{Spectra} objects only.}
 \item{leg.loc}{Character; if \code{"none"} no legend will be drawn.
 Otherwise, any string acceptable to \code{\link{legend}}.}
 
-\item{\dots}{Additional parameters to be passed to the plotting routines.}
+\item{\dots}{Parameters to be passed to the plotting routines. \emph{Applies to base graphics only}.}
 }
 \value{
 An object of class \code{\link{dendrogram}}. Side effect is a plot.
