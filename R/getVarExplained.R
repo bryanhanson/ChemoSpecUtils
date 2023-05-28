@@ -7,7 +7,7 @@
 #' 
 #' @return A vector giving the variance explained by each successive component.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @keywords internal
 #'

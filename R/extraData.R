@@ -3,10 +3,10 @@
 #'
 #' *Internal function*.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #' @return.  Logical. `TRUE` if a mismatch was found for the data lengths.  Message are emited as well.
 #' 
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @keywords internal
 #'

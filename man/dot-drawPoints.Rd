@@ -2,7 +2,7 @@
 % Please edit documentation in R/drawPoints.R
 \name{.drawPoints}
 \alias{.drawPoints}
-\title{Add Points to a Plot}
+\title{Add Points to a Score Plot}
 \usage{
 .drawPoints(PCs, spectra, case, use.sym, ...)
 }

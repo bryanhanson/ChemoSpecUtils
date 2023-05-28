@@ -1,7 +1,7 @@
 #'
 #' plotScree.default
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @noRd
 #' @importFrom graphics points abline legend axis

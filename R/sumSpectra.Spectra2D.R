@@ -1,7 +1,7 @@
 #'
 #' sumSpectra.Spectra2D
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @importFrom stats median
 #' @noRd

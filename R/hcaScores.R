@@ -6,7 +6,7 @@
 #' Many methods for computing the clusters and distances are
 #' available.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{
@@ -44,7 +44,7 @@
 #' @return A list, containing an object of class \code{\link{hclust}} and an
 #' object of class \code{\link{dendrogram}}.  The side effect is a plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @seealso \code{\link{hclust}} for the underlying function. See
 #' \code{\link[ChemoSpec]{hcaSpectra}} for HCA of the entire data set stored in the

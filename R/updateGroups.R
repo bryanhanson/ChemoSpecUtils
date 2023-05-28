@@ -9,7 +9,7 @@
 #' may have complex regex patterns, and this function makes updating them to more
 #' appropriate/more readible strings easier.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param new.grps A vector of character values giving the new group names.
 #'   The new values must correspond to the order of the old values.  This vector should
@@ -18,9 +18,9 @@
 #'
 #' @param silent Logical.  If \code{TRUE}, suppresses all reporting.
 #'
-#' @return spectra `r .writeSpectra3()`
+#' @return spectra `r .writeDoc_Spectra3()`
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @export
 #'

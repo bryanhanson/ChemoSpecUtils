@@ -16,8 +16,7 @@ plotScores(
 )
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}}
-or \code{\link[ChemoSpec2D]{Spectra2D}} object.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{so}{"Score Object" One of the following:
 \itemize{

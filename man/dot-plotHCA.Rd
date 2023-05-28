@@ -7,7 +7,7 @@
 .plotHCA(spectra, hclst, sub.title, use.sym, leg.loc, ...)
 }
 \arguments{
-\item{spectra}{\verb{r writeSpectra()}}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{hclst}{A \code{\link{hclust}} object.}
 

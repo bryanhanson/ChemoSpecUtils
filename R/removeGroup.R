@@ -15,13 +15,13 @@
 #'
 #' Unused levels in \code{$groups} are dropped.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param rem.group A character vector (handled as a regex) giving the groups to be removed.
 #'
-#' @return `r .writeSpectra3()`
+#' @return `r .writeDoc_Spectra3()`
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords utilities
 #'

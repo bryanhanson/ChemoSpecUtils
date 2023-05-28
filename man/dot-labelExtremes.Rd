@@ -13,7 +13,7 @@ first column, and the y values in the second.}
 \item{names}{A character vector of sample names.  Length must match the
 number of rows in \code{x}.}
 
-\item{tol}{\code{.writeTol()}}
+\item{tol}{\code{.writeDoc_Tol()}}
 }
 \value{
 None.  Annotates the plot with labels.

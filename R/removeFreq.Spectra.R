@@ -1,7 +1,7 @@
 #'
 #' removeFreq.Spectra
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @noRd
 #' @export
 #'

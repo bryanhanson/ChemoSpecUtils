@@ -3,14 +3,14 @@
 #'
 #' *Internal function*.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #' @param M Matrix of class `dist` containing the distances.
 #' @param method String.  The distance method used to create the matrix.
 #' @return None.  Side effect is a plot.
 #'
-#' @param \ldots `r .writeGraphicsDots()`
+#' @param \ldots `r .writeDoc_GraphicsDots()`
 #' 
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @importFrom grDevices rainbow
 #' @keywords internal

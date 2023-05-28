@@ -7,7 +7,7 @@
 #' @param df Data frame, containing elements \code{x}, \code{y} and \code{label}.
 #' @return A geom that can be added to an existing plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @importFrom ggrepel geom_text_repel
 #' @importFrom ggplot2 .pt
 #' @export

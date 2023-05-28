@@ -6,7 +6,7 @@
 #' Options are provided to add confidence ellipses for each group in the object.
 #' The ellipses may be robust or classical.  Option to label the extreme points provided.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param so "Score Object" One of the following:
 #' \itemize{
@@ -36,15 +36,15 @@
 #' @param use.sym A logical; if TRUE, the color scheme is set to black and the
 #' points plotted with symbols.  Applies only to \code{\link[ChemoSpec]{Spectra}} objects.
 #'
-#' @param leg.loc `r .writeLegLoc()`
+#' @param leg.loc `r .writeDoc_LegLoc()`
 #'
 #' @param \dots Additional parameters to be passed to the plotting functions.
 #'
-#' @param tol `r .writeTol()`
+#' @param tol `r .writeDoc_Tol()`
 #'
-#' @return `r .writeGraphicsReturn1()`
+#' @return `r .writeDoc_GraphicsReturn()`
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @keywords multivariate robust hplot
 #'

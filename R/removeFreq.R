@@ -8,7 +8,7 @@
 #' interfering peaks (e.g. the water peak in 1H NMR) or simply focus
 #' on a region of interest.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param rem.freq For a \code{Spectra} object, a vector of logicals.
 #' \code{rem.freq} can be any valid \code{R} statement that leads to a vector of
@@ -37,11 +37,11 @@
 #' analysis on the result, using the spectrum as an abstract object (that is, the
 #' spectrum may not plottable, but the resulting scores are still meaningful).
 #'
-#' @return `r .writeSpectra3()`
+#' @return `r .writeDoc_Spectra3()`
 #'
 #' @seealso \code{\link[ChemoSpec2D]{removeFreq}} for another way to remove data.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords utilities
 #'

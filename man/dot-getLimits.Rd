@@ -13,6 +13,9 @@
 
 \item{form}{A formula specification.}
 }
+\value{
+An object of S3 class \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.
+}
 \description{
 \emph{Internal function}. Get limits from a user specified formula
 (used in \code{\link[ChemoSpec2D:removeFreq]{ChemoSpec2D::removeFreq()}} and \code{\link[ChemoSpec2D:removePeaks2D]{ChemoSpec2D::removePeaks2D()}}).

@@ -1,6 +1,6 @@
 #'
 #' @noRd
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 .onAttach <- function(libname, pkgname) {
   # needed for testing CSU when CS is not loaded

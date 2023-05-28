@@ -6,7 +6,7 @@
 #' @param pkgs Character. Vector of package names.  Each is checked for availability.
 #' @return \code{NULL}, invisibly.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @keywords internal
 #' 

@@ -3,10 +3,10 @@
 #'
 #' *Internal* function.
 #'
-#' @parm pca An object of `prcomp` etc with a `method` slot.
+#' @param pca An object of `prcomp` etc with a `method` slot.
 #' @return None.  Side effect is a modifed plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @importFrom graphics legend
 #' @keywords internal

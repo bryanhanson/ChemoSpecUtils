@@ -1,7 +1,7 @@
 #'
 #' chkSpectra.Spectra
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @noRd
 #'

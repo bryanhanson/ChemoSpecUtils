@@ -7,8 +7,7 @@
 removeFreq(spectra, rem.freq = NULL, remF2 = NULL, remF1 = NULL)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}} from which to remove frequencies.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{rem.freq}{For a \code{Spectra} object, a vector of logicals.
 \code{rem.freq} can be any valid \code{R} statement that leads to a vector of
@@ -29,8 +28,7 @@ F2 are tolerated without notice and are handled as \code{min} or \code{max}. See
 \item{remF1}{As for \code{remF2}.}
 }
 \value{
-An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.
+An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.
 }
 \description{
 This function removes specified frequencies from a \code{\link[ChemoSpec]{Spectra}}

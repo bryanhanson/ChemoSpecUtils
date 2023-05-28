@@ -7,14 +7,13 @@
 removeSample(spectra, rem.sam)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{rem.sam}{Either an integer vector specifying the samples to be
 removed, or a character vector (handled as a regex) giving the sample names to be removed.}
 }
 \value{
-An object of S3 class \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}}.
+An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.
 }
 \description{
 Removes specified samples from a \code{\link[ChemoSpec]{Spectra}} or

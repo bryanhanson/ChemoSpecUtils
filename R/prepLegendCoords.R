@@ -13,7 +13,7 @@
 #' @return A list of coordinates specifying x and y position of the legend along with a position
 #'         designation, except in one case where a string is returned.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @keywords internal
 #'

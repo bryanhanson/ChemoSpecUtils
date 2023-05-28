@@ -4,13 +4,13 @@
 #' *Internal function*. This function creates a suitable legend and returns it as a set of grobs,
 #' ready to be added to an existing plot.
 #'
-#' @param spectra `r .writeSpectra1()`
+#' @param spectra `r .writeDoc_Spectra1()`
 #' @param use.sym Logical specifying if symbols will be used or not.
 #' @param leg.loc A list giving x, y coordinates, and a reference point.
 #'
 #' @return A grob containing the legend.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @keywords internal
 #' @importFrom grid textGrob gpar gTree gList pointsGrob unit

@@ -4,14 +4,14 @@
 #' *Internal function*. This function identifies the extent of any NA in a [ChemoSpec2D::Spectra2D()] object.
 #' This information can be used for summaries and plots.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeDoc_Spectra2()`
 #'
 #' @param retFreq Logical. Should the frequencies be returned?
 #'
 #' @return A list with two elements giving the indices of NAs for rows and columns,
 #'         unless \code{retFreq = TRUE}, in which case the frequencies are returned.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords internal
 #' @importFrom stats na.omit

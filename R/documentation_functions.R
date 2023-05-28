@@ -3,10 +3,10 @@
 #
 # Not exported or documented
 #
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @noRd
-.writeAuthors <- function(vec) {
+.writeDoc_Authors <- function(vec) {
   authors <- NA_character_
   if ("BH" %in% vec) authors <- c(authors, "Bryan A. Hanson (DePauw University)")
   if ("TG" %in% vec) authors <- c(authors, "Tejasvi Gupta")
@@ -17,22 +17,22 @@
 }
 
 #' @noRd
-.writeGraphicsDots <- function() {
+.writeDoc_GraphicsDots <- function() {
   "Parameters to be passed to the plotting routines. *Applies to base graphics only*."
 }
 
 #' @noRd
-.writeLegLoc <- function() {
+.writeDoc_LegLoc <- function() {
 "Either a list with elements `x` and `y`, or a string like `'topright'`.  Values in a list should be on `[0,1]`, i.e. the lower left of the plot area is `0,0` and the upper right is `1,1`.  Allowed string values are those described in [graphics::legend()] under 'Details'. A value of `'none'` is acceptable as well."
 }
 
 #' @noRd
-.writeTol <- function() {
+.writeDoc_Tol <- function() {
 "A number describing the fraction of points to be labeled. `tol = 1.0` labels all the points; `tol = 0.05` labels *approximately* the most extreme 5 percent. Set to `'none'` to completely suppress labels. Note that a simple approach based upon quantiles is used, assumes that both x and y are each normally distributed, and treats x and y separately.  Thus, this is not a formal treatment of outliers, just a means of labeling points. Groups are lumped together for the computation."
 }
 
 #' @noRd
-.writeGraphicsReturn1 <- function() {
+.writeDoc_GraphicsReturn <- function() {
 "The returned value depends on the graphics option selected (see [GraphicsOptions()]).
 * `base`: None.  Side effect is a plot.
 * `ggplot2`: The plot is displayed, and a `ggplot2` object is returned if the value is assigned.  The plot can be modified in the usual `ggplot2` manner.
@@ -40,16 +40,16 @@
 }
 
 #' @noRd
-.writeSpectra1 <- function() {
+.writeDoc_Spectra1 <- function() {
 "An object of S3 class [ChemoSpec::Spectra()]."
 }
 
 #' @noRd
-.writeSpectra2 <- function() {
-"An object of S3 class [ChemoSpec::Spectra2D()]."
+.writeDoc_Spectra2 <- function() {
+"An object of S3 class [ChemoSpec2D::Spectra2D()]."
 }
 
 #' @noRd
-.writeSpectra3 <- function() {
+.writeDoc_Spectra3 <- function() {
 "An object of S3 class [ChemoSpec::Spectra()] or [ChemoSpec2D::Spectra2D()]."
 }

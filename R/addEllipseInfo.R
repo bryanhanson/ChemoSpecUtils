@@ -6,7 +6,7 @@
 #' @param ellipse String giving the type of ellipse; one of `cls` or `rob`.
 #' @return None. Side effect is a modified plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @importFrom graphics legend
 #' @keywords internal

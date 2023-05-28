@@ -18,7 +18,7 @@
 #' \item{y.rob}{The y values for the robust ellipse.} \item{r}{The correlation
 #' value for the robust ellipse.}
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @seealso See function \code{\link[mvoutlier]{corr.plot}} in package
 #' \pkg{mvoutlier} on which this function is based.

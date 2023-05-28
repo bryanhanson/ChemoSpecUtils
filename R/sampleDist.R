@@ -6,7 +6,7 @@
 #' to quantify the similarity between samples. A heat map style plot is an
 #' option.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param method Character.  A string giving the distance method.  See
 #' \code{\link{rowDist}} for options.
@@ -17,7 +17,7 @@
 #'
 #' @return A numeric matrix giving the distances between the samples.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @seealso For \code{\link[ChemoSpec]{Spectra}} objects, see \code{\link[ChemoSpec]{plotSpectraDist}}
 #' which compares all spectra to a single reference spectrum.

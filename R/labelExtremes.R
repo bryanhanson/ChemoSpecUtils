@@ -11,11 +11,11 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{x}.
 #'
-#' @param tol `.writeTol()`
+#' @param tol `.writeDoc_Tol()`
 #'
 #' @return None.  Annotates the plot with labels.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @keywords internal
 #' @export

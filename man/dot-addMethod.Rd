@@ -6,6 +6,9 @@
 \usage{
 .addMethod(pca)
 }
+\arguments{
+\item{pca}{An object of \code{prcomp} etc with a \code{method} slot.}
+}
 \value{
 None.  Side effect is a modifed plot.
 }

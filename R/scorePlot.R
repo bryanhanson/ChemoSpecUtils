@@ -3,7 +3,7 @@
 #'
 #' *Internal function*.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @importFrom ggplot2 aes_string geom_path scale_color_manual
 #' @importFrom plotly add_annotations layout

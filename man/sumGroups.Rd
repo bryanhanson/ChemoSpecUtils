@@ -7,8 +7,7 @@
 sumGroups(spectra)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}} whose group membership information is desired.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 }
 \value{
 A data frame as follows. Note that if there are groups with no

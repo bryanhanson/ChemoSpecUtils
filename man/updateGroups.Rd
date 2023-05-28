@@ -7,8 +7,7 @@
 updateGroups(spectra, new.grps = NULL, silent = FALSE)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{new.grps}{A vector of character values giving the new group names.
 The new values must correspond to the order of the old values.  This vector should
@@ -18,8 +17,7 @@ If not provided, the function will print the old values for reference.}
 \item{silent}{Logical.  If \code{TRUE}, suppresses all reporting.}
 }
 \value{
-spectra An updated object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.
+spectra An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.
 }
 \description{
 A convenience function that can be used to update (change)

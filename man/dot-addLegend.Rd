@@ -7,8 +7,7 @@
 .addLegend(spectra, leg.loc, use.sym, ...)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{leg.loc}{Either a list with elements \code{x} and \code{y}, or a string like \code{'topright'}.  Values in a list should be on \verb{[0,1]}, i.e. the lower left of the plot area is \verb{0,0} and the upper right is \verb{1,1}.  Allowed string values are those described in \code{\link[graphics:legend]{graphics::legend()}} under 'Details'. A value of \code{'none'} is acceptable as well.}
 

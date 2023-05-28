@@ -9,7 +9,7 @@
 #' \code{gr.crit} that don't match any file names.  An internal function, not
 #' generally called by the user.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param gr.crit As per [ChemoSpec::files2SpectraObject()].
 #'
@@ -21,7 +21,7 @@
 #' will not pass checks as the assembly is not complete
 #' (see \code{\link[ChemoSpecUtils]{chkSpectra}}).
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @seealso \code{\link[ChemoSpec]{files2SpectraObject}} or
 #' \code{files2Spectra2DObject}for details;

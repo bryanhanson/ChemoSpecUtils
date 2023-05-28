@@ -12,7 +12,7 @@
 #'
 #' @return A custom annotation grob, ready to be added to an existing plot.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #' @export
 #' @keywords internal
 #' @importFrom grid textGrob linesGrob gTree gList grobTree

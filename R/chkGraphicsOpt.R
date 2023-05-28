@@ -8,7 +8,7 @@
 #'
 #' @return Character.  The value of the current graphics output option/mode.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @seealso See \code{\link{GraphicsOptions}} for more information about the graphics options.
 #'

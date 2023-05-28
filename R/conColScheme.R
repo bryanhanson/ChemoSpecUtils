@@ -3,7 +3,7 @@
 #' This function permits you to change the color scheme of an existing
 #' \code{\link[ChemoSpec]{Spectra}} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param new.cols A character vector giving the new color values, of
 #'   \code{length(unique(spectra$colors))}.
@@ -11,13 +11,13 @@
 #'
 #' @param silent Logical.  If \code{TRUE}, suppresses all reporting.
 #'
-#' @return spectra `r .writeSpectra3()`
+#' @return spectra `r .writeDoc_Spectra3()`
 #'
 #' @seealso For a discussion of general issues of color, see
 #' \code{colorSymbol}.
 #'
 #' @keywords utilities color
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #'
 #' @examples

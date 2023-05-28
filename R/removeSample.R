@@ -13,14 +13,14 @@
 #' grepping process is greedy, i.e. grepping for "XY" find not only "XY" but
 #' also "XYZ".
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param rem.sam Either an integer vector specifying the samples to be
 #'   removed, or a character vector (handled as a regex) giving the sample names to be removed.
 #'
-#' @return `r .writeSpectra3()`
+#' @return `r .writeDoc_Spectra3()`
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords utilities
 #'

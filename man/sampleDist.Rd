@@ -7,8 +7,7 @@
 sampleDist(spectra, method = "pearson", plot = TRUE, ...)
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{method}{Character.  A string giving the distance method.  See
 \code{\link{rowDist}} for options.}

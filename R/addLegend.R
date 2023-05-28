@@ -4,18 +4,18 @@
 #' *Internal function*.  Add a legend to a plot created by either \code{ChemoSpec} or \code{ChemoSpec2D}.
 #' \code{ChemoSpec2D} does not use symbols.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param use.sym Logical; if true, the color scheme is set to black and the
 #'   points plotted with symbols.  Applies only to \code{ChemoSpec}.
 #'
-#' @param leg.loc `r .writeLegLoc()`
+#' @param leg.loc `r .writeDoc_LegLoc()`
 #'
 #' @param \dots Additional parameters to be passed to the plotting functions.
 #'
 #' @return None.  Side effect is to modify an existing plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @importFrom graphics legend
 #' @export
 #' @keywords internal

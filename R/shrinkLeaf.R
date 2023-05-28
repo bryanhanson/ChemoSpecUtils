@@ -7,11 +7,11 @@
 #'
 #' @param n A node in a dendrogram object.
 #'
-#' @param spectra `r .writeSpectra1()`
+#' @param spectra `r .writeDoc_Spectra1()`
 #'
 #' @return Returns a node with the label size properties set.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @references \url{https://github.com/bryanhanson/ChemoSpec}
 #'

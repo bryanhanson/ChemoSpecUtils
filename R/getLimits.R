@@ -7,13 +7,13 @@
 #' so we will try to get it right no matter how the user gives
 #' the formula; e.g. 6 ~ 3 ought to be handled as 3 ~ 6.
 #'
-#' @param spectra `r .writeSpectra2()`
+#' @param spectra `r .writeDoc_Spectra2()`
 #' @param dim The dimension for which the limits are desired.
 #' @param form A formula specification.
 #'
-#' @return
+#' @return `r .writeDoc_Spectra2()`
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @keywords internal
 #'

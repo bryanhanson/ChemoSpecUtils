@@ -21,11 +21,11 @@
 #' plot desired (traditional or alternative).  \code{"trad"} is not supported
 #' for \code{mia} objects.
 #'
-#' @param \dots `r .writeGraphicsDots()`
+#' @param \dots `r .writeDoc_GraphicsDots()`
 #'
-#' @return `r .writeGraphicsReturn1()`
+#' @return `r .writeDoc_GraphicsReturn()`
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @references The idea for the alternative style plot came from the NIR-Quimiometria
 #'  blog by jrcuesta, at \url{https://nir-quimiometria.blogspot.com/2012/02/pca-for-nir-spectrapart-004-projections.html}

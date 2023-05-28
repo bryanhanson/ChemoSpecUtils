@@ -11,7 +11,7 @@
 #' @return If the package with the required version or higher is available, \code{TRUE} is returned
 #'         invisibly.  Otherwise \code{FALSE} is returned.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #'
 #' @tests tinytest

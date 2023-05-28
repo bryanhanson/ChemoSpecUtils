@@ -38,7 +38,7 @@
 #'
 #' @seealso \code{\link{sumSpectra}} which make extensive use of this function.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords utilities
 #'

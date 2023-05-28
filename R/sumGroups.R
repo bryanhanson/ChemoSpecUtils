@@ -4,7 +4,7 @@
 #' This function summarizes the group membership	 of
 #' a \code{Spectra} or \code{\link[ChemoSpec2D]{Spectra2D}} object.
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @return A data frame as follows. Note that if there are groups with no
 #' members these are dropped.
@@ -14,7 +14,7 @@
 #'  \item{symbol}{The symbol assigned to the group. \code{Spectra} objects only.}
 #'  \item{alt.symbol}{The alternative symbol assigned to the group. \code{Spectra} objects only.}
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @seealso To summarize the entire object, \code{\link{sumSpectra}}.
 #'

@@ -10,12 +10,12 @@
 #' @param names A character vector of sample names.  Length must match the
 #' number of rows in \code{data}.
 #'
-#' @param tol `.writeTol()`
+#' @param tol `.writeDoc_Tol()`
 #'
 #' @return  A list with elements \code{x}, \code{y} and \code{l}, giving the coordinates,
 #'          and labels of the most extreme data points.
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @keywords internal
 #' @export

@@ -5,11 +5,11 @@
 #'
 #' @param n A node in a dendrogram object.
 #'
-#' @param spectra `r .writeSpectra1()`
+#' @param spectra `r .writeDoc_Spectra1()`
 #'
 #' @return Returns a node with the label color properties set.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords internal
 #'

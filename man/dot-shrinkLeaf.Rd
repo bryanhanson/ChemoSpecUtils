@@ -9,7 +9,7 @@
 \arguments{
 \item{n}{A node in a dendrogram object.}
 
-\item{spectra}{An object of S3 class \code{Spectra}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}}.}
 }
 \value{
 Returns a node with the label size properties set.

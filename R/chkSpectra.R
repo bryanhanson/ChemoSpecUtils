@@ -12,7 +12,7 @@
 #'   \item {\code{\link{removeGroup}}}
 #' }
 #'
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param confirm Logical indicating whether or not to write the results to the
 #' console, as would be desirable for interactive use.
@@ -21,7 +21,7 @@
 #' written unless \code{confirm = TRUE}.  At the console, if there is a
 #' problem, messages are issued regardless of the value of \code{confirm}.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @keywords classes utilities
 #'

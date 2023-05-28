@@ -4,13 +4,13 @@
 #' *Internal function.*
 #'
 #' @param PCs  Integer.  The PCs to plot.
-#' @param spectra `r .writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #' @param case String. The type of data reduction that was done.
 #' @param use.sym  Logical.  Should symbols be used?
-#' @param \ldots `r .writeGraphicsDots()`
+#' @param \ldots `r .writeDoc_GraphicsDots()`
 #' @return None.  Side effect is a modifed plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #' @export
 #' @keywords internal
 #' @importFrom graphics plot

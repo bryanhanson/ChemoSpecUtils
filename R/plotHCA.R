@@ -3,7 +3,7 @@
 #'
 #' *Internal function*. This function plots the results of an HCA analysis.
 #'
-#' @param spectra `r writeSpectra3()`
+#' @param spectra `r .writeDoc_Spectra3()`
 #'
 #' @param hclst A \code{\link{hclust}} object.
 #'
@@ -20,7 +20,7 @@
 #'
 #' @return An object of class \code{\link{dendrogram}}. Side effect is a plot.
 #'
-#' @author `r .writeAuthors("BH")`
+#' @author `r .writeDoc_Authors("BH")`
 #'
 #' @export
 #' @importFrom stats as.dendrogram dendrapply

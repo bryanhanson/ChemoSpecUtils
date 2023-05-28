@@ -34,7 +34,7 @@
 #'         use the tools provided by \code{plotly} package and interact with the plot.
 #' }
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' @keywords utilities
 #'

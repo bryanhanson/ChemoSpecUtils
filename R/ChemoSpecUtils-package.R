@@ -9,7 +9,7 @@
 #'
 #' @docType package
 #'
-#' @author `r .writeAuthors(c("BH", "TG"))`
+#' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #'

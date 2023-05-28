@@ -7,8 +7,7 @@
 .groupNcolor(spectra, gr.crit = NULL, gr.cols = "auto", mode = "1D")
 }
 \arguments{
-\item{spectra}{An object of S3 class \code{\link[ChemoSpec]{Spectra}} or
-\code{\link[ChemoSpec2D]{Spectra2D}}.}
+\item{spectra}{An object of S3 class \code{\link[ChemoSpec:Spectra]{ChemoSpec::Spectra()}} or \code{\link[ChemoSpec2D:Spectra2D]{ChemoSpec2D::Spectra2D()}}.}
 
 \item{gr.crit}{As per \code{\link[ChemoSpec:files2SpectraObject]{ChemoSpec::files2SpectraObject()}}.}
 

@@ -7,6 +7,8 @@
 .drawEllipses(ELL, gr, ellipse, use.sym, ...)
 }
 \arguments{
+\item{ELL}{Coordinates of the ellipse points.}
+
 \item{gr}{Group information.}
 
 \item{ellipse}{Type of ellipse; one of \code{cls}, \code{rob} or \code{both}.}
