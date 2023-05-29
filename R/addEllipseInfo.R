@@ -3,7 +3,7 @@
 #'
 #' *Internal* function.
 #'
-#' @param ellipse String giving the type of ellipse; one of `cls` or `rob`.
+#' @param ellipse String giving the type of ellipse; one of `cls`, `rob` or `both`.
 #' @return None. Side effect is a modified plot.
 #'
 #' @author `r .writeDoc_Authors("BH")`
