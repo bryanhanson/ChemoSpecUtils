@@ -7,7 +7,7 @@
 .addEllipseInfo(ellipse)
 }
 \arguments{
-\item{ellipse}{String giving the type of ellipse; one of \code{cls} or \code{rob}.}
+\item{ellipse}{String giving the type of ellipse; one of \code{cls}, \code{rob} or \code{both}.}
 }
 \value{
 None. Side effect is a modified plot.
