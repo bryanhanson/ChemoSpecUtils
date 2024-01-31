@@ -8,6 +8,14 @@
 \description{
 Functions supporting the packages ChemoSpec and ChemoSpec2D.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/bryanhanson/ChemoSpecUtils}
+  \item Report bugs at \url{https://github.com/bryanhanson/ChemoSpecUtils/issues}
+}
+
+}
 \author{
 Bryan A. Hanson (DePauw University), Tejasvi Gupta.
 

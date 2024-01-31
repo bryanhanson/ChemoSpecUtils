@@ -3,7 +3,7 @@
 #'
 #' *Internal* function.
 #' 
-#' @param mode.  Integer code giving the type of check to be run.
+#' @param mode  Integer code giving the type of check to be run.
 #' @return None.  Stops if there is a problem with the arguments.
 #'
 #' @author `r .writeDoc_Authors("BH")`
