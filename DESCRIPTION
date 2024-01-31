@@ -29,7 +29,7 @@ Suggests:
     patchwork,
     ThreeWay,
     multiway,
-    Mvoutlier
+    mvoutlier
 Imports:
     data.table,
     ggplot2,
