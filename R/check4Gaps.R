@@ -28,7 +28,7 @@
 #' \code{y} is provided, e.g. \code{xlim}.
 #'
 #' @return A data frame giving the data chunks found, with one chunk per row.
-#' Also a plot if {y} is provided.  In the event there are no gaps found,
+#' Also a plot if \code{y} is provided.  In the event there are no gaps found,
 #' a data frame with one row is returned.  The data frame has columns as follows:
 #' \item{beg.freq }{The first frequency value in a given data chunk.}
 #' \item{end.freq }{The last frequency value in a given data chunk.}
