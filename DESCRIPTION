@@ -28,7 +28,8 @@ Suggests:
     roxut,
     patchwork,
     ThreeWay,
-    multiway
+    multiway,
+    mvoutlier
 Imports:
     data.table,
     ggplot2,
