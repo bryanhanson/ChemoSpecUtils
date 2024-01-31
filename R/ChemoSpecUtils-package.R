@@ -7,10 +7,9 @@
 #'
 #' @aliases ChemoSpecUtils-package ChemoSpecUtils
 #'
-#' @docType package
 #'
 #' @author `r .writeDoc_Authors(c("BH", "TG"))`
 #'
 #' Maintainer: Bryan A. Hanson \email{hanson@@depauw.edu}
 #'
-NULL
+"_PACKAGE"

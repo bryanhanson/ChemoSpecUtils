@@ -7,7 +7,7 @@
 .chkArgs(mode = 11L)
 }
 \arguments{
-\item{mode.}{Integer code giving the type of check to be run.}
+\item{mode}{Integer code giving the type of check to be run.}
 }
 \value{
 None.  Stops if there is a problem with the arguments.
