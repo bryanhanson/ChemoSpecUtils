@@ -1,3 +1,7 @@
+# ChemoSpecUtils 1.0.4 2024-01-31
+## Misc.
+* At CRAN's request, updated a few small documentation issues.
+
 # ChemoSpecUtils 1.0.3 2023-05-28
 ## Misc.
 * At CRAN's request, made examples and test conditional on any packages in Suggests:.

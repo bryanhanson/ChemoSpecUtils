@@ -1,8 +1,8 @@
 Package: ChemoSpecUtils
 Type: Package
 Title: Functions Supporting Packages ChemoSpec and ChemoSpec2D
-Version: 1.0.3
-Date: 2023-05-28
+Version: 1.0.4
+Date: 2024-01-31
 Authors@R: c(
     person("Bryan A.", "Hanson",
     role = c("aut", "cre"), email =
@@ -29,7 +29,7 @@ Suggests:
     patchwork,
     ThreeWay,
     multiway,
-    mvoutlier
+    Mvoutlier
 Imports:
     data.table,
     ggplot2,
