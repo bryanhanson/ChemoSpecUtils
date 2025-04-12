@@ -1,3 +1,7 @@
+# ChemoSpecUtils 1.0.5 2025-04-12
+## Misc.
+* ChemoSpec2D no longer exports .unstack (as of a few days ago), so a copy of .unstack was added to `sampleDist.Spectra2D.R`.  Self-inflicted error!
+
 # ChemoSpecUtils 1.0.4 2024-01-31
 ## Misc.
 * At CRAN's request, updated a few small documentation issues.

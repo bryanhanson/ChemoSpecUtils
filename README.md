@@ -1,9 +1,6 @@
 <!-- Each image below is embedded in an empty link which gives space around each badge -->
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)]() [![Build & Check](https://github.com/bryanhanson/ChemoSpecUtils/workflows/Build-Check/badge.svg)]()
-
-[![CRAN status](https://www.r-pkg.org/badges/version-last-release/ChemoSpecUtils)]() [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/ChemoSpecUtils)]() [![Downloads](https://cranlogs.r-pkg.org/badges/ChemoSpecUtils)]() [![status](https://tinyverse.netlify.com/badge/ChemoSpecUtils)]()
-
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)]() [![Build & Check](https://github.com/bryanhanson/ChemoSpecUtils/workflows/Build-Check/badge.svg)]() [![CRAN status](https://www.r-pkg.org/badges/version-last-release/ChemoSpecUtils)]()
 
 ## What is ChemoSpecUtils?
 
